@@ -1,17 +1,19 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"os"
-	"time"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
+	"github.com/ONSdigital/dp-frontend-renderer/render"
+	"github.com/ONSdigital/go-ns/handlers/healthcheck"
+	"github.com/ONSdigital/go-ns/handlers/requestID"
+	"github.com/ONSdigital/go-ns/log"
 	"github.com/gorilla/pat"
-	"github.com/unrolled/render"
+	"github.com/justinas/alice"
+	unrolled "github.com/unrolled/render"
 )
-
-var r *render.Render
 
 func main() {
 	bindAddr := os.Getenv("BIND_ADDR")
@@ -19,25 +21,23 @@ func main() {
 		bindAddr = ":8080"
 	}
 
-	r = render.New(render.Options{
+	log.Namespace = "dp-frontend-renderer"
+
+	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:      assets.Asset,
 		AssetNames: assets.AssetNames,
 	})
 
-	p := pat.New()
+	router := pat.New()
+	alice := alice.New(log.Handler, requestID.Handler(16)).Then(router)
 
-	p.Handle("/homepage", requestTime(homepage))
+	router.Get("/healthcheck", healthcheck.Handler)
+	router.Post("/homepage", homepage.Handler)
 
-	if err := http.ListenAndServe(bindAddr, p); err != nil {
-		log.Fatal(err)
-	}
-}
+	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
-func requestTime(f http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
-		start := time.Now()
-		f(w, req)
-		diff := time.Now().Sub(start)
-		log.Printf("request completed: %v => %s", diff, req.URL.Path)
+	if err := http.ListenAndServe(bindAddr, alice); err != nil {
+		log.Error(err, nil)
+		os.Exit(1)
 	}
 }
