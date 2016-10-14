@@ -1,0 +1,97 @@
+{
+  "uri": "/",
+  "type": "homepage",
+  "metadata": {
+    "title": "Home",
+    "description": "thing",
+    "keywords": ["statistics",
+        "economy",
+        "census",
+        "population",
+        "inflation",
+        "employment"
+      ]
+  },
+  "publications": [
+    {
+      "title": "Hello",
+      "uri": "/pub/thing",
+      "releaseDate": "27 July 2018"
+    },
+    {
+      "title": "Hello two",
+      "uri": "/pub/thing/two",
+      "releaseDate": "27 July 2016"
+    }
+  ],
+  "data": [
+    {
+      "title": "Data",
+      "uri": "/data/thing",
+      "releaseDate": "27 July 2018",
+      "headlineFigure": {
+        "figure": "10.8",
+        "preUnit": "",
+        "unit": "%"
+      },
+      "sparklineData": [
+        {
+          "name": "1971 JAN-MAR",
+          "y": 1.2,
+          "stringY": "1.2"
+        },
+        {
+          "name": "1971 FEB-APR",
+          "y": 15.8,
+          "stringY": "15.8"
+        }
+      ]
+    },
+    {
+      "title": "Data",
+      "uri": "/data/thing",
+      "releaseDate": "27 July 2018",
+      "headlineFigure": {
+        "figure": "9.9",
+        "preUnit": "",
+        "unit": "%"
+      },
+      "sparklineData": [
+        {
+          "name": "1971 JAN-MAR",
+          "y": 3.8,
+          "stringY": "3.8"
+        },
+        {
+          "name": "1971 FEB-APR",
+          "y": 3.9,
+          "stringY": "3.9"
+        }
+      ]
+    }
+  ],
+  "featured": [
+    {
+      "title": "Featured",
+      "uri": "/featured/thing",
+      "releaseDate": "27 July 2018"
+    },
+    {
+      "title": "Featured two",
+      "uri": "/featured/thing/two",
+      "releaseDate": "27 July 2016"
+    }
+  ],
+  "other": [
+    {
+      "title": "Other",
+      "uri": "/other/thing",
+      "releaseDate": "27 July 2018"
+    },
+    {
+      "title": "Other two",
+      "uri": "/other/thing/two",
+      "releaseDate": "27 July 2016"
+    }
+  ]
+}

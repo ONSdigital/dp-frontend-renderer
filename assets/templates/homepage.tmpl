@@ -1,6 +1,8 @@
 <html>
   <head>
-    <title>Homepage</title>
+    <title>{{ .Metadata.Title }}</title>
+    <meta name="description" content="{{ .Metadata.Description}}">
+    <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">
     <style>
       body {
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeff35+0,f16f5c+50,f6290c+51,13c144+72,e73827+100 */
@@ -12,7 +14,39 @@
       }
     </style>
   </head>
-  <body>
-    <h1>{{ .Message }}</h1>
+  <body class="{{ .Type }}">
+    <h1>{{ .Metadata.Title }}</h1>
+
+      <h2>Latest publications</h2>
+      <ul>
+      {{range .Publications}}
+        <li><h3><a href="{{ .URI}}">{{ .Title}}</a></h3></li>
+      {{end}}
+      </ul>
+
+      <h2>Headline figures</h2>
+      <ul>
+      {{range .Data}}
+        <li><h3><a href="{{ .URI}}">{{ .Title}}</h3>
+          <div class="sparkline">{{range .Sparkline}} {{ .Y}} {{end}}</div>
+          {{ .HeadlineFigure.PreUnit}} {{ .HeadlineFigure.Figure}} {{ .HeadlineFigure.Unit}}
+        </li>
+      {{end}}
+      </ul>
+
+      <h2>Featured content</h2>
+      <ul>
+      {{range .Featured}}
+        <li><h3><a href="{{ .URI}}">{{ .Title}}</a></h3></li>
+      {{end}}
+      </ul>
+
+      <h2>Other official statistics</h2>
+      <ul>
+      {{range .Other}}
+        <li><h3><a href="{{ .URI}}">{{ .Title}}</a></h3></li>
+      {{end}}
+      </ul>
+
   </body>
 </html>
