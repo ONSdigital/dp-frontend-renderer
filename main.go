@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
@@ -21,11 +22,14 @@ func main() {
 		bindAddr = ":8080"
 	}
 
+	debugMode, _ := strconv.ParseBool(os.Getenv("DEBUG"))
+
 	log.Namespace = "dp-frontend-renderer"
 
 	render.Renderer = unrolled.New(unrolled.Options{
-		Asset:      assets.Asset,
-		AssetNames: assets.AssetNames,
+		Asset:         assets.Asset,
+		AssetNames:    assets.AssetNames,
+		IsDevelopment: debugMode,
 	})
 
 	router := pat.New()

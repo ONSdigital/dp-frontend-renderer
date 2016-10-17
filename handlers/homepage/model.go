@@ -3,11 +3,23 @@ package homepage
 type Homepage struct {
 	Type         string        `json:"type"`
 	URI          string        `json:"uri"`
+	Taxonomy     []Taxonomy    `json:"taxonomy"`
 	Metadata     Metadata      `json:"metadata"`
 	Publications []Publication `json:"publications"`
 	Data         []Data        `json:"data"`
 	Featured     []Featured    `json:"featured"`
 	Other        []Other       `json:"other"`
+}
+
+type Taxonomy struct {
+	Title    string  `json:"title"`
+	Uri      string  `json:"uri"`
+	Children []Child `json:"children"`
+}
+
+type Child struct {
+	Title string `json:"title"`
+	Uri   string `json:"uri"`
 }
 
 type Metadata struct {
