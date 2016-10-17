@@ -2,7 +2,6 @@ package homepage
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +23,6 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 	var h Homepage
 	err = json.Unmarshal(b, &h)
-	fmt.Printf("%+v\n", &h)
 	if err != nil {
 		render.JSON(w, 400, ErrorResponse{
 			Error: err.Error(),
@@ -33,14 +31,13 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	// if len(h.Message) == 0 {
-	// 	r.JSON(w, 400, ErrorResponse{
-	// 		Error: "'message' must be specified",
-	// 	})
-	// 	return
-	// }
-
 	log.DebugR(req, "rendered template", log.Data{"template": "homepage"})
-	w.Header().Set("Content-Type", "text/html")
-	render.HTML(w, 200, "homepage", h)
+	err = render.HTML(w, 200, "homepage", h)
+	if err != nil {
+		render.JSON(w, 500, ErrorResponse{
+			Error: err.Error(),
+		})
+		log.ErrorR(req, err, nil)
+		return
+	}
 }
