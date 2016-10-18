@@ -3,12 +3,13 @@ package homepage
 import model "github.com/onsdigital/dp-frontend-renderer/models"
 
 type Request struct {
-	Type       string               `json:"-"`
-	URI        string               `json:"uri"`
-	Taxonomy   []model.TaxonomyNode `json:"taxonomy"`
-	Breadcrumb []model.TaxonomyNode `json:"breadcrumb"`
-	Metadata   model.Metadata       `json:"metadata"`
-	Data       Homepage             `json:"data"`
+	Type           string               `json:"-"`
+	URI            string               `json:"uri"`
+	Taxonomy       []model.TaxonomyNode `json:"taxonomy"`
+	Breadcrumb     []model.TaxonomyNode `json:"breadcrumb"`
+	ServiceMessage string               `json:"serviceMessage"`
+	Metadata       model.Metadata       `json:"metadata"`
+	Data           Homepage             `json:"data"`
 }
 
 type Homepage struct {
