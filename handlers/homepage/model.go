@@ -1,31 +1,21 @@
 package homepage
 
+import model "github.com/onsdigital/dp-frontend-renderer/models"
+
+type Request struct {
+	Type       string               `json:"-"`
+	URI        string               `json:"uri"`
+	Taxonomy   []model.TaxonomyNode `json:"taxonomy"`
+	Breadcrumb []model.TaxonomyNode `json:"breadcrumb"`
+	Metadata   model.Metadata       `json:"metadata"`
+	Data       Homepage             `json:"data"`
+}
+
 type Homepage struct {
-	Type         string        `json:"type"`
-	URI          string        `json:"uri"`
-	Taxonomy     []Taxonomy    `json:"taxonomy"`
-	Metadata     Metadata      `json:"metadata"`
-	Publications []Publication `json:"publications"`
-	Data         []Data        `json:"data"`
-	Featured     []Featured    `json:"featured"`
-	Other        []Other       `json:"other"`
-}
-
-type Taxonomy struct {
-	Title    string  `json:"title"`
-	Uri      string  `json:"uri"`
-	Children []Child `json:"children"`
-}
-
-type Child struct {
-	Title string `json:"title"`
-	Uri   string `json:"uri"`
-}
-
-type Metadata struct {
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Keywords    []string
+	Publications    []Publication    `json:"publications"`
+	HeadlineFigures []HeadlineFigure `json:"headlineFigures"`
+	Featured        []Featured       `json:"featured"`
+	Other           []Other          `json:"other"`
 }
 
 type Publication struct {
@@ -34,21 +24,21 @@ type Publication struct {
 	ReleaseDate string `json:"releaseDate"`
 }
 
-type Data struct {
-	Title          string         `json:"title"`
-	URI            string         `json:"uri"`
-	ReleaseDate    string         `json:"releaseDate"`
-	HeadlineFigure HeadlineFigure `json:"headlineFigure"`
-	Sparkline      []Sparkline    `json:"sparklineData"`
+type HeadlineFigure struct {
+	Title         string          `json:"title"`
+	URI           string          `json:"uri"`
+	ReleaseDate   string          `json:"releaseDate"`
+	LatestFigure  LatestFigure    `json:"latestFigure"`
+	SparklineData []SparklineData `json:"sparklineData"`
 }
 
-type Sparkline struct {
+type SparklineData struct {
 	Name    string  `json:"name"`
 	Y       float32 `json:"y"`
 	StringY string  `json:"stringY"`
 }
 
-type HeadlineFigure struct {
+type LatestFigure struct {
 	PreUnit string `json:"preUnit"`
 	Unit    string `json:"unit"`
 	Figure  string `json:"figure"`

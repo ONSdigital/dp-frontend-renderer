@@ -21,7 +21,7 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 	req.Body.Close()
 
-	var h Homepage
+	var h Request
 	err = json.Unmarshal(b, &h)
 	if err != nil {
 		render.JSON(w, 400, ErrorResponse{
