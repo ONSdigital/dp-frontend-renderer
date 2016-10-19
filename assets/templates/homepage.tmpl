@@ -1,131 +1,103 @@
-<html>
-<head>
-    <title>{{ .Metadata.Title }}</title>
-    <meta name="description" content="{{ .Metadata.Description}}">
-    <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">
-    <link href="http://127.0.0.1:9000/dist/css/main.css" rel="stylesheet" type="text/css">
-    <style>
-        body {
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeff35+0,f16f5c+50,f6290c+51,13c144+72,e73827+100 */
-            background: #eeff35; /* Old browsers */
-            background: -moz-linear-gradient(-45deg, #eeff35 0%, #f16f5c 50%, #f6290c 51%, #13c144 72%, #e73827 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(-45deg, #eeff35 0%, #f16f5c 50%, #f6290c 51%, #13c144 72%, #e73827 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(135deg, #eeff35 0%, #f16f5c 50%, #f6290c 51%, #13c144 72%, #e73827 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeff35', endColorstr='#e73827', GradientType=1); /* IE6-9 fallback on horizontal gradient */
-        }
-    </style>
-</head>
-<body class="{{ .Type }}">
 
-    {{ template "partials/header" . }}
-
-    <main id="main" role="main" tabindex="-1">
-
-        <div class="page-intro background--astral">
-            <div class="wrapper">
-                <div class="col-wrap">
-                        <div class="col">
-                            <h1 class="page-intro__title">Welcome to the Office for National Statistics</h1>
-                            <p class="page-intro__content">The UK's largest independent producer of official statistics and the recognised national statistical institute of the UK.</p>
-                        </div>
+<div class="page-intro background--astral">
+    <div class="wrapper">
+        <div class="col-wrap">
+                <div class="col">
+                    <h1 class="page-intro__title">Welcome to the Office for National Statistics</h1>
+                    <p class="page-intro__content">The UK's largest independent producer of official statistics and the recognised national statistical institute of the UK.</p>
                 </div>
-            </div>
         </div>
+    </div>
+</div>
 
-        <div class="background--gallery">
-            <div class="wrapper">
+<div class="background--gallery">
+    <div class="wrapper">
 
-                <h2>Latest published releases</h2>
-                <ul class="list--neutral col-wrap margin-left--0">
-                    {{range .Data.Publications}}
-                      <li class="col col--lg-29 release margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
-                          <h3 class="release__title"><a href="{{ .URI}}">{{ .Title}}</a></h3>
-                          <p class="release__content">{{ .ReleaseDate}}</p>
-                      </li>
-                    {{end}}
-                </ul>
+        <h2>Latest published releases</h2>
+        <ul class="list--neutral col-wrap margin-left--0">
+            {{range .Data.Publications}}
+              <li class="col col--lg-29 release margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
+                  <h3 class="release__title"><a href="{{ .URI}}">{{ .Title}}</a></h3>
+                  <p class="release__content">{{ .ReleaseDate}}</p>
+              </li>
+            {{end}}
+        </ul>
 
-                <h2>Headline figures</h2>
-                <ul class="list--neutral col-wrap margin-left--0">
-                    {{range .Data.HeadlineFigures}}
-                      <li class="col col--lg-14 headline-data margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
-                          {{if .SparklineData}}
-                            <div class="headline-data__sparkline">{{range .SparklineData}} {{ .Y}} {{end}}</div>
-                          {{end}}
-                          <h3 class="headline-data__title"><a href="{{ .URI}}">{{ .Title}}</a></h3>
-                          <p class="headline-data__figure">
-                              {{if .LatestFigure.PreUnit}}{{ .LatestFigure.PreUnit}} {{end}}
-                              {{ .LatestFigure.Figure}}
-                              {{if .LatestFigure.Unit}}{{ .LatestFigure.Unit}}{{end}}
-                          </p>
-                          <p class="flush">{{ .ReleaseDate}}</p>
-                      </li>
-                    {{end}}
-                    <li class="col col--lg-14 headline-data margin-top--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
-                        <h3 class="headline-data__title"><a href="{{ .URI}}">Looking to download time series?</a></h3>
-                        <p class="flush">Try our time series explorer</p>
-                    </li>
-                </ul>
+        <h2>Headline figures</h2>
+        <ul class="list--neutral col-wrap margin-left--0">
+            {{range .Data.HeadlineFigures}}
+              <li class="col col--lg-14 headline-data margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
+                  {{if .SparklineData}}
+                    <div class="headline-data__sparkline">{{range .SparklineData}} {{ .Y}} {{end}}</div>
+                  {{end}}
+                  <h3 class="headline-data__title"><a href="{{ .URI}}">{{ .Title}}</a></h3>
+                  <p class="headline-data__figure">
+                      {{if .LatestFigure.PreUnit}}{{ .LatestFigure.PreUnit}} {{end}}
+                      {{ .LatestFigure.Figure}}
+                      {{if .LatestFigure.Unit}}{{ .LatestFigure.Unit}}{{end}}
+                  </p>
+                  <p class="flush">{{ .ReleaseDate}}</p>
+              </li>
+            {{end}}
+            <li class="col col--lg-14 headline-data margin-top--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
+                <h3 class="headline-data__title"><a href="{{ .URI}}">Looking to download time series?</a></h3>
+                <p class="flush">Try our time series explorer</p>
+            </li>
+        </ul>
 
-                <h2>Featured content</h2>
-                <ul class="list--neutral col-wrap margin-left--0">
-                    <li class="col col--lg-29 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
-                        <h3><a href="{{ .URI}}">UK Perspectives 2016</a></h3>
-                    </li>
-                    <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
-                        <h3><a href="{{ .URI}}">Data science campus</a></h3>
-                    </li>
-                    <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
-                        <h3><a href="{{ .URI}}">Independent review of UK economic statistics</a></h3>
-                    </li>
-                </ul>
+        <h2>Featured content</h2>
+        <ul class="list--neutral col-wrap margin-left--0">
+            <li class="col col--lg-29 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+                <h3><a href="{{ .URI}}">UK Perspectives 2016</a></h3>
+            </li>
+            <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+                <h3><a href="{{ .URI}}">Data science campus</a></h3>
+            </li>
+            <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+                <h3><a href="{{ .URI}}">Independent review of UK economic statistics</a></h3>
+            </li>
+        </ul>
 
-                <h2>Other official statistics</h2>
-                <ul class="list--neutral col-wrap margin-left--0">
-                    {{range .Data.Other}}
-                      <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
-                          <h3><a href="{{ .URI}}">{{ .Title}}</a></h3>
-                      </li>
-                    {{end}}
-                </ul>
-            </div>
-        </div>
-        <div class="background--astral">
-            <div class="wrapper">
-                <h2>A to Z of statistical bulletins</h2>
-                <ul class="a-z-list margin-bottom--4">
-                    <li class="a-z-list-item"><a href="/atoz?az=a">A</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=b">B</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=c">C</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=d">D</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=e">E</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=f">F</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=g">G</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=h">H</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=i">I</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=j">J</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=k">K</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=l">L</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=m">M</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=n">N</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=o">O</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=p">P</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=q">Q</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=r">R</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=s">S</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=t">T</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=u">U</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=v">V</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=w">W</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=x">X</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=y">Y</a></li>
-                    <li class="a-z-list-item"><a href="/atoz?az=z">Z</a></li>
-                </ul>
-            </div>
-        </div>
-    </main>
-
-    {{template "partials/footer"}}
-
-</body>
-</html>
+        <h2>Other official statistics</h2>
+        <ul class="list--neutral col-wrap margin-left--0">
+            {{range .Data.Other}}
+              <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+                  <h3><a href="{{ .URI}}">{{ .Title}}</a></h3>
+              </li>
+            {{end}}
+        </ul>
+    </div>
+</div>
+<div class="background--astral">
+    <div class="wrapper">
+        <h2>A to Z of statistical bulletins</h2>
+        <ul class="a-z-list margin-bottom--4">
+            <li class="a-z-list-item"><a href="/atoz?az=a">A</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=b">B</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=c">C</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=d">D</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=e">E</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=f">F</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=g">G</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=h">H</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=i">I</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=j">J</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=k">K</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=l">L</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=m">M</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=n">N</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=o">O</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=p">P</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=q">Q</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=r">R</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=s">S</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=t">T</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=u">U</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=v">V</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=w">W</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=x">X</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=y">Y</a></li>
+            <li class="a-z-list-item"><a href="/atoz?az=z">Z</a></li>
+        </ul>
+    </div>
+</div>

@@ -6,15 +6,15 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ONSdigital/dp-frontend-renderer/assets"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
-	"github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/ONSdigital/go-ns/handlers/healthcheck"
-	"github.com/ONSdigital/go-ns/handlers/requestID"
-	"github.com/ONSdigital/go-ns/handlers/timeout"
-	"github.com/ONSdigital/go-ns/log"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
+	"github.com/onsdigital/dp-frontend-renderer/assets"
+	"github.com/onsdigital/dp-frontend-renderer/handlers/homepage"
+	"github.com/onsdigital/dp-frontend-renderer/render"
+	"github.com/onsdigital/go-ns/handlers/healthcheck"
+	"github.com/onsdigital/go-ns/handlers/requestID"
+	"github.com/onsdigital/go-ns/handlers/timeout"
+	"github.com/onsdigital/go-ns/log"
 	unrolled "github.com/unrolled/render"
 )
 
@@ -32,6 +32,7 @@ func main() {
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,
 		IsDevelopment: debugMode,
+		Layout:        "main",
 	})
 
 	router := pat.New()

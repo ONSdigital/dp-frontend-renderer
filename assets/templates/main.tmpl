@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>{{ .Metadata.Title }}</title>
+    <meta name="description" content="{{ .Metadata.Description}}">
+    <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=1" name="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#58595B">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#58595B">
+    <!-- Page resources -->
+    <link href="http://127.0.0.1:9000/dist/css/main.css" rel="stylesheet" type="text/css">
+
+    {{/*
+    <!--[if IE]><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{#if is_dev}}http://{{location.hostname}}:9000/dist/css/old-ie.css{{else}}/assets/css/old-ie.css{{/if}}"/>
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="{{#if is_dev}}http://{{location.hostname}}:9000/dist/css/ie-9.css{{else}}/assets/css/ie-9.css{{/if}}">
+    <![endif]-->
+    <!--[if gt IE 9]><!-->
+    <link rel="stylesheet" type="text/css" href="{{#if is_dev}}http://{{location.hostname}}:9000/dist/css/main.css{{else}}/assets/css/main.css{{/if}}">
+    {{#if pdf_style}}<link rel="stylesheet" type="text/css" href="{{#if is_dev}}http://localhost:9000/dist/css/pdf.css{{else}}/assets/css/pdf.css{{/if}}">{{/if}}
+    <![endif]-->
+    */}}
+
+    <style>
+        body {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeff35+0,f16f5c+50,f6290c+51,13c144+72,e73827+100 */
+            background: #eeff35; /* Old browsers */
+            background: -moz-linear-gradient(-45deg, #eeff35 0%, #f16f5c 50%, #f6290c 51%, #13c144 72%, #e73827 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, #eeff35 0%, #f16f5c 50%, #f6290c 51%, #13c144 72%, #e73827 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, #eeff35 0%, #f16f5c 50%, #f6290c 51%, #13c144 72%, #e73827 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeff35', endColorstr='#e73827', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+        }
+    </style>
+</head>
+<body class="{{ .Type }}">
+
+    {{ template "partials/header" . }}
+
+    Current template: {{current}}
+
+    <main id="main" role="main" tabindex="-1">
+        {{yield}}
+    </main>
+
+    {{ template "partials/footer" }}
+
+</body>
+</html>
