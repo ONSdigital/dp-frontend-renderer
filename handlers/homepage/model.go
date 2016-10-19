@@ -3,7 +3,7 @@ package homepage
 import model "github.com/onsdigital/dp-frontend-renderer/models"
 
 type Request struct {
-	Type           string               `json:"-"`
+	Type           string               `json:"type"`
 	URI            string               `json:"uri"`
 	Taxonomy       []model.TaxonomyNode `json:"taxonomy"`
 	Breadcrumb     []model.TaxonomyNode `json:"breadcrumb"`
