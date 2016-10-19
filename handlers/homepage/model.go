@@ -1,6 +1,6 @@
 package homepage
 
-import model "github.com/onsdigital/dp-frontend-renderer/models"
+import model "github.com/ONSdigital/dp-frontend-renderer/models"
 
 type Request struct {
 	Type           string               `json:"type"`

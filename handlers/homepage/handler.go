@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/onsdigital/dp-frontend-renderer/render"
-	"github.com/onsdigital/go-ns/log"
+	"github.com/ONSdigital/dp-frontend-renderer/render"
+	"github.com/ONSdigital/go-ns/log"
 )
 
 //Handler ...
