@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/log"
 )
@@ -23,8 +24,8 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 	req.Body.Close()
 
-	var h Request
-	err = json.Unmarshal(b, &h)
+	var page Page
+	err = json.Unmarshal(b, &page)
 	if err != nil {
 		render.JSON(w, 400, ErrorResponse{
 			Error: err.Error(),
@@ -33,8 +34,10 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	page.AssetsPath = config.AssetsPath
+
 	log.DebugR(req, "rendered template", log.Data{"template": "homepage"})
-	err = render.HTML(w, 200, "homepage", h)
+	err = render.HTML(w, 200, "homepage", page)
 	if err != nil {
 		render.JSON(w, 500, ErrorResponse{
 			Error: err.Error(),

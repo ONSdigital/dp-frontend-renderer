@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
+	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/handlers/healthcheck"
@@ -25,14 +26,22 @@ func main() {
 		bindAddr = ":8081"
 	}
 
-	debugMode, _ := strconv.ParseBool(os.Getenv("DEBUG"))
+	var err error
+	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
+	if err != nil {
+		log.Error(err, nil)
+	}
+
+	if config.DebugMode {
+		config.AssetsPath = "http://localhost:9000/dist"
+	}
 
 	log.Namespace = "dp-frontend-renderer"
 
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,
-		IsDevelopment: debugMode,
+		IsDevelopment: config.DebugMode,
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
 			"safeHTML": func(s string) template.HTML {
@@ -60,7 +69,7 @@ func main() {
 		WriteTimeout: 10 * time.Second,
 	}
 
-	if err := server.ListenAndServe(); err != nil {
+	if err = server.ListenAndServe(); err != nil {
 		log.Error(err, nil)
 		os.Exit(1)
 	}
