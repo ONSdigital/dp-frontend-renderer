@@ -2,13 +2,15 @@ package homepage
 
 import model "github.com/onsdigital/dp-frontend-renderer/models"
 
-type Request struct {
+// Page contains data re-used for each page type an Data
+type Page struct {
 	Type           string               `json:"type"`
 	URI            string               `json:"uri"`
 	Taxonomy       []model.TaxonomyNode `json:"taxonomy"`
 	Breadcrumb     []model.TaxonomyNode `json:"breadcrumb"`
 	ServiceMessage string               `json:"serviceMessage"`
 	Metadata       model.Metadata       `json:"metadata"`
+	AssetsPath     string               `json:"assetsPath"`
 	Data           Homepage             `json:"data"`
 }
 

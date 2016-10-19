@@ -1,6 +1,7 @@
 package main
 
 import (
+	"html/template"
 	"net/http"
 	"os"
 	"strconv"
@@ -9,6 +10,7 @@ import (
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	"github.com/onsdigital/dp-frontend-renderer/assets"
+	"github.com/onsdigital/dp-frontend-renderer/config"
 	"github.com/onsdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/onsdigital/dp-frontend-renderer/render"
 	"github.com/onsdigital/go-ns/handlers/healthcheck"
@@ -24,15 +26,28 @@ func main() {
 		bindAddr = ":8081"
 	}
 
-	debugMode, _ := strconv.ParseBool(os.Getenv("DEBUG"))
+	var err error
+	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
+	if err != nil {
+		log.Error(err, nil)
+	}
+
+	if config.DebugMode {
+		config.AssetsPath = "http://localhost:9000/dist"
+	}
 
 	log.Namespace = "dp-frontend-renderer"
 
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,
-		IsDevelopment: debugMode,
+		IsDevelopment: config.DebugMode,
 		Layout:        "main",
+		Funcs: []template.FuncMap{{
+			"safeHTML": func(s string) template.HTML {
+				return template.HTML(s)
+			},
+		}},
 	})
 
 	router := pat.New()
@@ -54,7 +69,7 @@ func main() {
 		WriteTimeout: 10 * time.Second,
 	}
 
-	if err := server.ListenAndServe(); err != nil {
+	if err = server.ListenAndServe(); err != nil {
 		log.Error(err, nil)
 		os.Exit(1)
 	}
