@@ -14,9 +14,9 @@
     <div class="wrapper">
 
         <h2>Latest published releases</h2>
-        <ul class="list--neutral col-wrap margin-left--0">
+        <ul id="releases-list" class="list--neutral col-wrap margin-left--0 margin-bottom--0">
             {{range .Data.Publications}}
-              <li class="col col--lg-29 release margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
+              <li class="col col--lg-29 release margin-bottom--2 margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
                   <h3 class="release__title"><a href="{{ .URI}}">{{ .Title}}</a></h3>
                   <p class="release__content">{{ .ReleaseDate}}</p>
               </li>
@@ -24,11 +24,22 @@
         </ul>
 
         <h2>Headline figures</h2>
-        <ul class="list--neutral col-wrap margin-left--0">
+        <ul id="headline-figures" class="list--neutral col-wrap margin-left--0">
             {{range .Data.HeadlineFigures}}
-              <li class="col col--lg-14 headline-data margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
+              <li class="col col--lg-14 headline-data margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
                   {{if .SparklineData}}
-                    <div class="headline-data__sparkline">{{range .SparklineData}} {{ .Y}} {{end}}</div>
+                    <div class="headline-data__sparkline">
+
+                        <div class="sparkline js--show" data-sparkline="{{range .SparklineData}} {{- .Y }} {{end}}">
+                            Sparkline here
+                        </div>
+
+                        {{/* NO JS */}}
+                        <noscript>
+                            <img class="sparkline-image js--hide" src="{{ .URI}}/sparklineimage">
+                        </noscript>
+                    </div>
+
                   {{end}}
                   <h3 class="headline-data__title"><a href="{{ .URI}}">{{ .Title}}</a></h3>
                   <p class="headline-data__figure">
@@ -39,33 +50,91 @@
                   <p class="flush">{{ .ReleaseDate}}</p>
               </li>
             {{end}}
-            <li class="col col--lg-14 headline-data margin-top--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
+            <li class="col col--lg-14 headline-data margin-top--2 margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1">
                 <h3 class="headline-data__title"><a href="{{ .URI}}">Looking to download time series?</a></h3>
                 <p class="flush">Try our time series explorer</p>
             </li>
         </ul>
 
+        <h2>Other ONS and official statistics</h2>
+        <ul id="other-list" class="list--neutral col-wrap margin-left--0 margin-bottom--6">
+            <li class="col height-sm--23 col--lg-14 height-md--23 height-lg--48 background--white margin-top--0 margin-left--0 margin-right--1 margin-bottom--2">
+                <div class="padding-left--1 padding-right--1 padding-top--2 padding-bottom--2">
+                    <div class="box__content box__content--homepage padding-top-lg--17 padding-left-sm--10 padding-left-md--15 height-md--19 height-lg--44 padding-left-lg--0">
+                        <h3 class="other__title padding-top-lg--2"><a href="/help/localstatistics">Looking for local statistics?<span class="image-holder width-sm--9 width-md--11 width-lg--12"><img src="../../img/t1-local.png" alt="" class="no-border"></span><span class="box__clickable"></span></a></h3>
+                        <p class="margin-top-lg--1">A handy guide to let you know where to find local statistics.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="col height-sm--23 col--lg-44 height-md--23 background--white margin-left--0 white margin-top--0 margin-right--1 margin-bottom--2">
+                <div class="padding-left--1 padding-right--1 padding-top--2 padding-bottom--2">
+                    <div class="box__content box__content--homepage padding-left-sm--10 padding-left-md--15 height-md--19">
+                        <h3 class="other__title"><a href="/census">Census<span class="box__clickable"></span></a></h3>
+                        <span class="image-holder width-sm--9 width-md--13"><img src="../../img/t1-census-logo.png" alt="Census logo" class="no-border"></span>
+                        <p class="tiles__content">Discover how our census statistics help paint a picture of the nation and how we live.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="col height-sm--23 col--lg-44 height-md--23 background--white margin-left--0 white margin-top--0 margin-right--1 margin-bottom--2">
+                <div class="padding-left--1 padding-right--1 padding-top--2 padding-bottom--2">
+                    <div class="box__content box__content--homepage padding-left-sm--10 padding-left-md--15 height-md--19">
+                        <h3 class="other__title"><a href="http://visual.ons.gov.uk" target="_blank">Visual.ONS<span class="box__clickable"></span></a></h3>
+                        <span class="image-holder width-sm--9 width-md--13"><img src="../../img/t1-visual-ons.png" alt="Example of interactive data visualisation" class="no-border width-auto height--26"></span>
+                        <p class="tiles__content">Visual.ONS is a website exploring new approaches to making ONS statistics accessible and relevant to a wide public audience.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="col col--md-47 col--lg-29 height-sm--48 height-md--23 background--white margin-right--1 margin-bottom--2">
+                <div class="padding-left--1 padding-right--1 padding-top--2 padding-bottom--1">
+                    <div class="box__content box__content--homepage">
+                        <h3 class="other__title"><a href="/economy/inflationandpriceindices/bulletins/consumerpriceinflation/latest">Data Science Campus<span class="box__clickable"></span></a></h3>
+                        <p class="margin-top-md--1">
+                            Building world-leading expertise in the innovative application of data science.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="col col--md-23 col--lg-14 height-sm--23  height--23 background--white margin-right--1 margin-bottom--2">
+                <div class="padding-left--1 padding-right--1 padding-top--2 padding-bottom--1">
+                    <div class="box__content box__content--homepage">
+                        <h3 class="other__title"><a href="/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/latest">Geography products<span class="box__clickable"></span></a></h3>
+                        <p class="margin-top-md--1 margin-top-lg--0">Visit our open geography portal or linked data sites.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="col col--md-23 col--lg-14 height-sm--23  height--23 background--white margin-right--1 margin-bottom--2">
+                <div class="padding-left--1 padding-right--1 padding-top--2 padding-bottom--1">
+                    <div class="box__content box__content--homepage">
+                        <h3 class="other__title"><a href="/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/latest">GOV.UK<span class="box__clickable"></span></a></h3>
+                        <p class="margin-top-md--1 margin-top-lg--0">Other official statistics produced impartially and free from political influence.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        {{/*
+
         <h2>Featured content</h2>
-        <ul class="list--neutral col-wrap margin-left--0">
-            <li class="col col--lg-29 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+        <ul id="featured-list" class="list--neutral col-wrap margin-left--0">
+            <li class="col col--lg-29 margin-bottom--2 margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
                 <h3><a href="{{ .URI}}">UK Perspectives 2016</a></h3>
             </li>
-            <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+            <li class="col col--lg-14 margin-bottom--2 margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
                 <h3><a href="{{ .URI}}">Data science campus</a></h3>
             </li>
-            <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+            <li class="col col--lg-14 margin-bottom--2 margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
                 <h3><a href="{{ .URI}}">Independent review of UK economic statistics</a></h3>
             </li>
         </ul>
 
         <h2>Other official statistics</h2>
-        <ul class="list--neutral col-wrap margin-left--0">
+        <ul id="other-stats-list" class="list--neutral col-wrap margin-left--0">
             {{range .Data.Other}}
-              <li class="col col--lg-14 margin-bottom--2 margin-right--1 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
+              <li class="col col--lg-14 margin-bottom--2 margin-right--1 margin-left--0 background--white padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 height--24">
                   <h3><a href="{{ .URI}}">{{ .Title}}</a></h3>
               </li>
             {{end}}
         </ul>
+        */}}
     </div>
 </div>
 <div class="background--astral">
