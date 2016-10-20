@@ -3,28 +3,28 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "JWLWPVann7H6LDSaSNX8amyMMfU=",
+			"checksumSHA1": "ei+/RCSa0XO9v9rQxAh0uqyJ/28=",
 			"path": "github.com/ONSdigital/go-ns/handlers/healthcheck",
-			"revision": "474f7605b6424182f199984527c898f508242632",
-			"revisionTime": "2016-10-18T07:24:53Z"
+			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
+			"revisionTime": "2016-10-20T07:04:46Z"
 		},
 		{
-			"checksumSHA1": "oRUk7mN+Vg8FWny3N3a1iQz/G0c=",
+			"checksumSHA1": "J9OiPnhPHFPhQ+R+dq6LFj+dTxE=",
 			"path": "github.com/ONSdigital/go-ns/handlers/requestID",
-			"revision": "474f7605b6424182f199984527c898f508242632",
-			"revisionTime": "2016-10-18T07:24:53Z"
+			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
+			"revisionTime": "2016-10-20T07:04:46Z"
 		},
 		{
-			"checksumSHA1": "ebqspQGcncrmcqfAK9pMGpJgewA=",
+			"checksumSHA1": "HgL/HLG5D1WNPb1lrb/hpywtm9o=",
 			"path": "github.com/ONSdigital/go-ns/handlers/timeout",
-			"revision": "474f7605b6424182f199984527c898f508242632",
-			"revisionTime": "2016-10-18T07:24:53Z"
+			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
+			"revisionTime": "2016-10-20T07:04:46Z"
 		},
 		{
-			"checksumSHA1": "3bSzf04DC0RI2dLqFj7vLPaqmyA=",
+			"checksumSHA1": "t9V2N7/M260lThgot3Iv7a0wxd4=",
 			"path": "github.com/ONSdigital/go-ns/log",
-			"revision": "474f7605b6424182f199984527c898f508242632",
-			"revisionTime": "2016-10-18T07:24:53Z"
+			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
+			"revisionTime": "2016-10-20T07:04:46Z"
 		},
 		{
 			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",
