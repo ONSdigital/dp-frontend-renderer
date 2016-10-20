@@ -21,9 +21,8 @@
                 <dl class="language">
                     <dt class="language__title">Change language:</dt>
                     <dd class="language__item">
-                        {{/* TODO - add Lang into page model and detect it here to show alternative language */}}
-                        <a href="//cy.ons.gov.uk{{.URI}}">Cymraeg (CY)</a>
-                        <!--<a href="&#10;&#10;&#10;&#10;    //cy.ons.gov.uk/" class="language__link icon&#45;&#45;hide">Cymraeg (CY)</a>-->
+                        {{if eq .Language "en"}}<a class="language__link icon--hide" href="//cy.{{.SiteDomain}}{{.URI}}">Cymraeg (CY)</a>{{end}}
+                        {{if eq .Language "cy"}}<a class="language__link icon--hide" href="//{{.SiteDomain}}{{.URI}}">English (EN)</a>{{end}}
                     </dd>
                 </dl>
             </div>
