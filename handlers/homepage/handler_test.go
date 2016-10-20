@@ -33,6 +33,13 @@ func (f *fakeRenderer) JSON(w io.Writer, status int, v interface{}) error {
 	return nil
 }
 
+type fakeReader struct {
+}
+
+func (*fakeReader) Read(p []byte) (n int, err error) {
+	return 0, errors.New("Error from reader")
+}
+
 func TestHandler(t *testing.T) {
 	f := &fakeRenderer{}
 	render.Renderer = f
@@ -75,19 +82,31 @@ func TestHandler(t *testing.T) {
 		So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
 		p := f.binding.(ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from HTML")
+		f.errorOnHTML = false
 	})
 
-	// Convey("Handler returns language of English when neither 'en' or 'cy' is set from request header", t, func() {
-	// 	fmt.Println("ErrorOnHTML equals ", f.errorOnHTML)
-	// 	recorder := httptest.NewRecorder()
-	// 	rdr := bytes.NewReader([]byte(`{}`))
-	// 	request, err := http.NewRequest("POST", "/", rdr)
-	// 	So(err, ShouldBeNil)
-	// 	request.Header.Set("Accept-Language", "foo")
-	// 	Handler(recorder, request)
-	// 	So(recorder.Code, ShouldEqual, 200)
-	// 	So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
-	// 	p := f.binding.(ErrorResponse)
-	// 	So(p.Error, ShouldEqual, "Error from HTML")
-	// })
+	Convey("Handler returns language of English when neither 'en' or 'cy' is set from request header", t, func() {
+		recorder := httptest.NewRecorder()
+		rdr := bytes.NewReader([]byte(`{}`))
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
+		request.Header.Set("Accept-Language", "foo")
+		Handler(recorder, request)
+		So(recorder.Code, ShouldEqual, 200)
+		So(f.binding, ShouldHaveSameTypeAs, Page{})
+		p := f.binding.(Page)
+		So(p.Language, ShouldEqual, "en")
+	})
+
+	Convey("Handler returns 400 status code when io reader has error", t, func() {
+		recorder := httptest.NewRecorder()
+		rdr := &fakeReader{}
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
+		Handler(recorder, request)
+		So(recorder.Code, ShouldEqual, 400)
+		So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
+		p := f.binding.(ErrorResponse)
+		So(p.Error, ShouldEqual, "Error from reader")
+	})
 }
