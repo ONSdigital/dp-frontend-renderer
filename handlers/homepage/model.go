@@ -13,15 +13,15 @@ type Page struct {
 	SiteDomain               string               `json:"-"`
 	PatternLibraryAssetsPath string               `json:"-"`
 	Language                 string               `json:"-"`
-	Data                     Homepage             `json:"data"`
+	Data                     *Homepage            `json:"data"`
 }
 
 //Homepage contains data specific to this page type
 type Homepage struct {
-	Releases        []Release        `json:"releases"`
-	HeadlineFigures []HeadlineFigure `json:"headlineFigures"`
-	Featured        []Featured       `json:"featured"`
-	Other           []Other          `json:"other"`
+	Releases        []Release         `json:"releases"`
+	HeadlineFigures []*HeadlineFigure `json:"headlineFigures"`
+	Featured        []Featured        `json:"featured"`
+	Other           []Other           `json:"other"`
 }
 
 //Release is the data for an individual release
@@ -38,6 +38,8 @@ type HeadlineFigure struct {
 	ReleaseDate   string          `json:"releaseDate"`
 	LatestFigure  LatestFigure    `json:"latestFigure"`
 	SparklineData []SparklineData `json:"sparklineData"`
+	StartDate     string          `json:"-"`
+	EndDate       string          `json:"-"`
 }
 
 //SparklineData is the data that is sent to highcharts to produce the sparkline for each timeseries
