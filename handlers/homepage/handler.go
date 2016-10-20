@@ -34,7 +34,14 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	page.AssetsPath = config.AssetsPath
+	page.Language = req.Header.Get("Accept-Language")
+	if page.Language != "en" && page.Language != "cy" {
+		page.Language = "en"
+	}
+
+	page.PatternLibraryAssetsPath = config.PatternLibraryAssetsPath
+
+	page.SiteDomain = config.SiteDomain
 
 	log.DebugR(req, "rendered template", log.Data{"template": "homepage"})
 	err = render.HTML(w, 200, "homepage", page)

@@ -4,19 +4,21 @@ import model "github.com/ONSdigital/dp-frontend-renderer/models"
 
 //Page contains data re-used for each page type a Data struct for data specific to the page type
 type Page struct {
-	Type           string               `json:"type"`
-	URI            string               `json:"uri"`
-	Taxonomy       []model.TaxonomyNode `json:"taxonomy"`
-	Breadcrumb     []model.TaxonomyNode `json:"breadcrumb"`
-	ServiceMessage string               `json:"serviceMessage"`
-	Metadata       model.Metadata       `json:"metadata"`
-	AssetsPath     string               `json:"assetsPath"`
-	Data           Homepage             `json:"data"`
+	Type                     string               `json:"type"`
+	URI                      string               `json:"uri"`
+	Taxonomy                 []model.TaxonomyNode `json:"taxonomy"`
+	Breadcrumb               []model.TaxonomyNode `json:"breadcrumb"`
+	ServiceMessage           string               `json:"serviceMessage"`
+	Metadata                 model.Metadata       `json:"metadata"`
+	SiteDomain               string               `json:"-"`
+	PatternLibraryAssetsPath string               `json:"-"`
+	Language                 string               `json:"-"`
+	Data                     Homepage             `json:"data"`
 }
 
 //Homepage contains data specific to this page type
 type Homepage struct {
-	Releases        []Release        `json:"Releases"`
+	Releases        []Release        `json:"releases"`
 	HeadlineFigures []HeadlineFigure `json:"headlineFigures"`
 	Featured        []Featured       `json:"featured"`
 	Other           []Other          `json:"other"`
