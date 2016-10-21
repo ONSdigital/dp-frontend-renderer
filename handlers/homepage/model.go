@@ -1,6 +1,6 @@
 package homepage
 
-import model "github.com/ONSdigital/dp-frontend-renderer/models"
+import model "github.com/ONSdigital/dp-frontend-renderer/model"
 
 //Page contains data re-used for each page type a Data struct for data specific to the page type
 type Page struct {
