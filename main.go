@@ -23,7 +23,7 @@ import (
 func main() {
 	bindAddr := os.Getenv("BIND_ADDR")
 	if len(bindAddr) == 0 {
-		bindAddr = ":8081"
+		bindAddr = ":20010"
 	}
 
 	var err error
