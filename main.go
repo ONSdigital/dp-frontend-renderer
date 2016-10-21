@@ -35,18 +35,6 @@ func main() {
 	}
 	log.Debug("languages", log.Data{"tags": i18n.LanguageTags()})
 
-	enT, err := lang.Get("en")
-	if err != nil {
-		log.Error(err, nil)
-		os.Exit(1)
-	}
-	cyT, err := lang.Get("cy")
-	if err != nil {
-		log.Error(err, nil)
-		os.Exit(1)
-	}
-	log.Debug("translation", log.Data{"cy": cyT("You have {{.Count}} unread emails", 2), "en": enT("You have {{.Count}} unread emails", 2)})
-
 	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
 	if err != nil {
 		log.Error(err, nil)
