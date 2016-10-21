@@ -34,12 +34,14 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	for _, v := range page.Data.HeadlineFigures {
-		if len(v.SparklineData) == 0 {
-			continue
+	if page.Data.HeadlineFigures != nil {
+		for _, v := range page.Data.HeadlineFigures {
+			if len(v.SparklineData) == 0 {
+				continue
+			}
+			v.StartDate = v.SparklineData[0].Name
+			v.EndDate = v.SparklineData[len(v.SparklineData)-1].Name
 		}
-		v.StartDate = v.SparklineData[0].Name
-		v.EndDate = v.SparklineData[len(v.SparklineData)-1].Name
 	}
 
 	page.Language = req.Header.Get("Accept-Language")

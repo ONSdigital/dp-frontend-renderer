@@ -70,6 +70,30 @@ func TestHandler(t *testing.T) {
 		So(p.PatternLibraryAssetsPath, ShouldEqual, config.PatternLibraryAssetsPath)
 	})
 
+	Convey("SparklineData dates are copied to HeadlineFigure", t, func() {
+		recorder := httptest.NewRecorder()
+		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": [{"name": "foo"}, {"name": "bar"}, {"name": "baz"}]}]}}`))
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
+		request.Header.Set("Accept-Language", "en")
+		Handler(recorder, request)
+		So(recorder.Code, ShouldEqual, 200)
+		So(f.binding, ShouldHaveSameTypeAs, Page{})
+		p := f.binding.(Page)
+		So(p.Data.HeadlineFigures[0].StartDate, ShouldEqual, "foo")
+		So(p.Data.HeadlineFigures[0].EndDate, ShouldEqual, "baz")
+	})
+
+	Convey("SparklineData dates are skipped if sparklineData is empty", t, func() {
+		recorder := httptest.NewRecorder()
+		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": []}]}}`))
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
+		request.Header.Set("Accept-Language", "en")
+		Handler(recorder, request)
+		So(recorder.Code, ShouldEqual, 200)
+	})
+
 	Convey("Handler returns 500 status code when HTML render returns an error", t, func() {
 		f.errorOnHTML = true
 		recorder := httptest.NewRecorder()

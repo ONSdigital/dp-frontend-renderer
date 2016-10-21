@@ -13,7 +13,7 @@ type Page struct {
 	SiteDomain               string               `json:"-"`
 	PatternLibraryAssetsPath string               `json:"-"`
 	Language                 string               `json:"-"`
-	Data                     *Homepage            `json:"data"`
+	Data                     Homepage             `json:"data"`
 }
 
 //Homepage contains data specific to this page type
