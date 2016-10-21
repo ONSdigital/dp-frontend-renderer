@@ -1,6 +1,9 @@
 package homepage
 
-import model "github.com/ONSdigital/dp-frontend-renderer/models"
+import (
+	model "github.com/ONSdigital/dp-frontend-renderer/model"
+	"github.com/nicksnyder/go-i18n/i18n"
+)
 
 //Page contains data re-used for each page type a Data struct for data specific to the page type
 type Page struct {
@@ -13,8 +16,8 @@ type Page struct {
 	SiteDomain               string               `json:"-"`
 	PatternLibraryAssetsPath string               `json:"-"`
 	Language                 string               `json:"-"`
-	Data                     *Homepage            `json:"data"`
-	//T                        i18n.TranslateFunc   `json:"-"`
+	Data                     Homepage             `json:"data"`
+	T                        i18n.TranslateFunc   `json:"-"`
 }
 
 //Homepage contains data specific to this page type

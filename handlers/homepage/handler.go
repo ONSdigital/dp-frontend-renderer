@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/lang"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/log"
 )
@@ -34,17 +35,27 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	for _, v := range page.Data.HeadlineFigures {
-		if len(v.SparklineData) == 0 {
-			continue
+	if page.Data.HeadlineFigures != nil {
+		for _, v := range page.Data.HeadlineFigures {
+			if len(v.SparklineData) == 0 {
+				continue
+			}
+			v.StartDate = v.SparklineData[0].Name
+			v.EndDate = v.SparklineData[len(v.SparklineData)-1].Name
 		}
-		v.StartDate = v.SparklineData[0].Name
-		v.EndDate = v.SparklineData[len(v.SparklineData)-1].Name
 	}
 
 	page.Language = req.Header.Get("Accept-Language")
 	if page.Language != "en" && page.Language != "cy" {
 		page.Language = "en"
+	}
+	page.T, err = lang.Get(page.Language)
+	if err != nil {
+		render.JSON(w, 500, ErrorResponse{
+			Error: err.Error(),
+		})
+		log.ErrorR(req, err, nil)
+		return
 	}
 
 	page.PatternLibraryAssetsPath = config.PatternLibraryAssetsPath
