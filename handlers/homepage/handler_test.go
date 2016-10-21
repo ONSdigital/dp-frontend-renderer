@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/model"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	. "github.com/smartystreets/goconvey/convey"
 	unrolled "github.com/unrolled/render"
@@ -103,8 +104,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "cy")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 500)
-		So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
-		p := f.binding.(ErrorResponse)
+		So(f.binding, ShouldHaveSameTypeAs, model.ErrorResponse{})
+		p := f.binding.(model.ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from HTML")
 		f.errorOnHTML = false
 	})
@@ -129,8 +130,8 @@ func TestHandler(t *testing.T) {
 		So(err, ShouldBeNil)
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 400)
-		So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
-		p := f.binding.(ErrorResponse)
+		So(f.binding, ShouldHaveSameTypeAs, model.ErrorResponse{})
+		p := f.binding.(model.ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from reader")
 	})
 }

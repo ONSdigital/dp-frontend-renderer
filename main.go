@@ -58,7 +58,8 @@ func main() {
 	).Then(router)
 
 	router.Get("/healthcheck", healthcheck.Handler)
-	router.Post("/homepage", homepage.Handler)
+	router.Post("/homepage", homepage.Handler2)
+	// router.Post("/producePage", productPage.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 

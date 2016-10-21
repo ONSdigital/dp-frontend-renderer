@@ -5,6 +5,7 @@
 // templates/main.tmpl
 // templates/partials/footer.tmpl
 // templates/partials/header.tmpl
+// templates/product_page.tmpl
 // DO NOT EDIT!
 
 package assets
@@ -121,6 +122,24 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 	return a, err
 }
 
+// templatesProduct_pageTmpl reads file data from disk. It returns an error on failure.
+func templatesProduct_pageTmpl() (*asset, error) {
+	path := "/Users/crispinmerriman/Go/src/github.com/ONSdigital/dp-frontend-renderer/assets/templates/product_page.tmpl"
+	name := "templates/product_page.tmpl"
+	bytes, err := bindataRead(path, name)
+	if err != nil {
+		return nil, err
+	}
+
+	fi, err := os.Stat(path)
+	if err != nil {
+		err = fmt.Errorf("Error reading asset info %s at %s: %v", name, path, err)
+	}
+
+	a := &asset{bytes: bytes, info: fi}
+	return a, err
+}
+
 // Asset loads and returns the asset for the given name.
 // It returns an error if the asset could not be found or
 // could not be loaded.
@@ -178,6 +197,7 @@ var _bindata = map[string]func() (*asset, error){
 	"templates/main.tmpl": templatesMainTmpl,
 	"templates/partials/footer.tmpl": templatesPartialsFooterTmpl,
 	"templates/partials/header.tmpl": templatesPartialsHeaderTmpl,
+	"templates/product_page.tmpl": templatesProduct_pageTmpl,
 }
 
 // AssetDir returns the file names below a certain
@@ -228,6 +248,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 			"footer.tmpl": &bintree{templatesPartialsFooterTmpl, map[string]*bintree{}},
 			"header.tmpl": &bintree{templatesPartialsHeaderTmpl, map[string]*bintree{}},
 		}},
+		"product_page.tmpl": &bintree{templatesProduct_pageTmpl, map[string]*bintree{}},
 	}},
 }}
 

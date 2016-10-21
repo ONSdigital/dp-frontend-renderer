@@ -4,16 +4,8 @@ import model "github.com/ONSdigital/dp-frontend-renderer/model"
 
 //Page contains data re-used for each page type a Data struct for data specific to the page type
 type Page struct {
-	Type                     string               `json:"type"`
-	URI                      string               `json:"uri"`
-	Taxonomy                 []model.TaxonomyNode `json:"taxonomy"`
-	Breadcrumb               []model.TaxonomyNode `json:"breadcrumb"`
-	ServiceMessage           string               `json:"serviceMessage"`
-	Metadata                 model.Metadata       `json:"metadata"`
-	SiteDomain               string               `json:"-"`
-	PatternLibraryAssetsPath string               `json:"-"`
-	Language                 string               `json:"-"`
-	Data                     Homepage             `json:"data"`
+	model.Page
+	Data Homepage `json:"data"`
 }
 
 //Homepage contains data specific to this page type
@@ -66,9 +58,4 @@ type Featured struct {
 type Other struct {
 	Title string `json:"title"`
 	URI   string `json:"uri"`
-}
-
-//ErrorResponse store error from JSON unmarshalling so it can be returned as a response from API
-type ErrorResponse struct {
-	Error string `json:"error"`
 }
