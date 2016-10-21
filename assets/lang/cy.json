@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Office for National Statistics",
+    "translation": "Swyddfa Ystadegau Gwladol"
+  },
+  {
+    "id": "You have {{.Count}} unread emails",
+    "translation": "Mae gennych {{.Count}} negeseuon e-bost heb eu darllen"
+  }
+]

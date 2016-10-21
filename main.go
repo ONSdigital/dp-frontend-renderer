@@ -10,6 +10,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
+	"github.com/ONSdigital/dp-frontend-renderer/lang"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/handlers/healthcheck"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
@@ -17,6 +18,7 @@ import (
 	"github.com/ONSdigital/go-ns/log"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
+	"github.com/nicksnyder/go-i18n/i18n"
 	unrolled "github.com/unrolled/render"
 )
 
@@ -26,7 +28,25 @@ func main() {
 		bindAddr = ":8081"
 	}
 
-	var err error
+	err := lang.Load("en", "cy")
+	if err != nil {
+		log.Error(err, nil)
+		os.Exit(1)
+	}
+	log.Debug("languages", log.Data{"tags": i18n.LanguageTags()})
+
+	enT, err := lang.Get("en")
+	if err != nil {
+		log.Error(err, nil)
+		os.Exit(1)
+	}
+	cyT, err := lang.Get("cy")
+	if err != nil {
+		log.Error(err, nil)
+		os.Exit(1)
+	}
+	log.Debug("translation", log.Data{"cy": cyT("You have {{.Count}} unread emails", 2), "en": enT("You have {{.Count}} unread emails", 2)})
+
 	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
 	if err != nil {
 		log.Error(err, nil)

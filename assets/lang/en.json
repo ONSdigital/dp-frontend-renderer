@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Office for National Statistics",
+    "translation": "Office for National Statistics"
+  },
+  {
+    "id": "You have {{.Count}} unread emails",
+    "translation": "You have {{.Count}} unread emails"
+  }
+]

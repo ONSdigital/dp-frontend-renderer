@@ -14,6 +14,7 @@ type Page struct {
 	PatternLibraryAssetsPath string               `json:"-"`
 	Language                 string               `json:"-"`
 	Data                     *Homepage            `json:"data"`
+	//T                        i18n.TranslateFunc   `json:"-"`
 }
 
 //Homepage contains data specific to this page type
