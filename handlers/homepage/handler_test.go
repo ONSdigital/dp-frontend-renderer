@@ -44,9 +44,20 @@ func (*fakeReader) Read(p []byte) (n int, err error) {
 func TestHandler(t *testing.T) {
 	f := &fakeRenderer{}
 	render.Renderer = f
-	lang.Load("en", "cy")
 
 	config.PatternLibraryAssetsPath = "foobar.com"
+
+	Convey("Handler returns 500 if no languages are available", t, func() {
+		recorder := httptest.NewRecorder()
+		rdr := bytes.NewReader([]byte(`{}`))
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
+		request.Header.Set("Accept-Language", "en")
+		Handler(recorder, request)
+		So(recorder.Code, ShouldEqual, 500)
+	})
+
+	lang.Load("en", "cy")
 
 	Convey("Handler returns 400 status code response when request body is empty", t, func() {
 		recorder := httptest.NewRecorder()
