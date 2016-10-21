@@ -4,7 +4,7 @@
     "translation": "Office for National Statistics"
   },
   {
-    "id": "You have {{.Count}} unread emails",
-    "translation": "You have {{.Count}} unread emails"
+    "id": "Latest published releases",
+    "translation": "Latest published releases"
   }
 ]
