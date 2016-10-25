@@ -1,0 +1,70 @@
+<div class="page-intro background--gallery">
+  <div class="wrapper">
+    <div class="col-wrap">
+      <div class="col">
+        <nav>
+          <div class="breadcrumb">
+            <ol class="breadcrumb__list">
+              {{range .Breadcrumb}}
+                <li class="breadcrumb__item">
+                  <a href="{{ .URI}}" class="breadcrumb__link">{{ .Title}}</a>
+                </li>
+              {{end}}
+            </ol>
+          </div>
+        </nav>
+        <div class="col col--md-47 col--lg-38">
+          <h1 class="page-intro__title ">{{ .Metadata.Title}}</h1>
+          <p class="page-intro__content">
+            {{ .Metadata.Description}}
+          </p>
+        </div>
+        <div class="nav-secondary--border-left-lg col col--md-47 col--lg-19 col--lg-offset-2 padding-left margin-top-lg--3">
+          <h2 class="margin-top-lg--1">Highlighted content</h2>
+          <ul class="list--neutral margin-top--negative-one-fix">
+            {{range .Data.HighlightedPages}}
+              <li>
+                <a href="{{ .URI}}">{{ .Title}}</a>
+              </li>
+            {{end}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-content border-top--iron-sm border-top--iron-md">
+  <div class="wrapper">
+    <div class="col-wrap">
+      <nav>
+        <ul class="list--neutral">
+          {{range .Data.Children}}
+            <li class="col col--md-half col--lg-one-third background--mercury height--31-indented-ellipsis margin-top--0 margin-left-md--1 margin-bottom--2 padding-top--0 padding-right--0 padding-bottom--0 padding-left--0 js-hover-click">
+              <div class="min-height--10 background--gallery padding-top--2 padding-left--1 padding-right--1">
+                <h3 class="flush"><a href="{{ .URI}}">{{ .Title}}</a></h3>
+              </div>
+              <div class="padding-top--1 padding-right--1 padding-bottom--1 padding-left--1 border-top--iron-sm border-top--iron-md">
+                <p class="flush">
+                  {{ .Description}}
+                </p>
+              </div>
+            </li>
+          {{end}}
+        </ul>
+      </nav>
+      <div class="col col--md-half col--lg-one-third">
+        <div class="js-hover-click height--31 background--mercury">
+          <div class="box__image padding-top--16 padding-right--1 padding-left--1">
+            <h3 class="flush">
+              <a href="/help/localstatistics">Looking for local statistics?</a>
+              <span class="image-holder height--14"><img src="/img/t1-local.png" alt="" /></span>
+            </h3>
+            <p class="box__content flush">
+              A handy guide to let you know where to find local statistics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

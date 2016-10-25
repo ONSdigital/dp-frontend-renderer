@@ -10,6 +10,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/handlers/healthcheck"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
@@ -58,8 +59,8 @@ func main() {
 	).Then(router)
 
 	router.Get("/healthcheck", healthcheck.Handler)
-	router.Post("/homepage", homepage.Handler2)
-	// router.Post("/producePage", productPage.Handler)
+	router.Post("/homepage", homepage.Handler)
+	router.Post("/productPage", productPage.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 

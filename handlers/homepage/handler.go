@@ -1,13 +1,17 @@
 /*Package homepage ...*/
 package homepage
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/ONSdigital/dp-frontend-renderer/render"
+)
 
 //Handler ...
 func Handler(w http.ResponseWriter, req *http.Request) {
 	var page Page
 
-	Handler(w, req, &page, &page.Page, "homepage", func() {
+	render.Handler(w, req, &page, &page.Page, "homepage", func() {
 		if page.Data.HeadlineFigures != nil {
 			for _, v := range page.Data.HeadlineFigures {
 				if len(v.SparklineData) == 0 {
