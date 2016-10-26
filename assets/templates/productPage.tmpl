@@ -4,7 +4,7 @@
       <div class="col">
         <nav>
           <div class="breadcrumb">
-            <ol class="breadcrumb__list">
+            <ol id="breadcrumb" class="breadcrumb__list">
               {{range .Breadcrumb}}
                 <li class="breadcrumb__item">
                   <a href="{{ .URI}}" class="breadcrumb__link">{{ .Title}}</a>
@@ -13,15 +13,15 @@
             </ol>
           </div>
         </nav>
-        <div class="col col--md-47 col--lg-38">
-          <h1 class="page-intro__title ">{{ .Metadata.Title}}</h1>
+        <div id="page-intro" class="col col--md-47 col--lg-38">
+          <h1 class="page-intro__title">{{ .Metadata.Title}}</h1>
           <p class="page-intro__content">
             {{ .Metadata.Description}}
           </p>
         </div>
         <div class="nav-secondary--border-left-lg col col--md-47 col--lg-19 col--lg-offset-2 padding-left margin-top-lg--3">
           <h2 class="margin-top-lg--1">Highlighted content</h2>
-          <ul class="list--neutral margin-top--negative-one-fix">
+          <ul id="highlights-list" class="list--neutral margin-top--negative-one-fix">
             {{range .Data.HighlightedPages}}
               <li>
                 <a href="{{ .URI}}">{{ .Title}}</a>
@@ -37,7 +37,7 @@
   <div class="wrapper">
     <div class="col-wrap">
       <nav>
-        <ul class="list--neutral">
+        <ul id="children-list" class="list--neutral">
           {{range .Data.Children}}
             <li class="col col--md-half col--lg-one-third background--mercury height--31-indented-ellipsis margin-top--0 margin-left-md--1 margin-bottom--2 padding-top--0 padding-right--0 padding-bottom--0 padding-left--0 js-hover-click">
               <div class="min-height--10 background--gallery padding-top--2 padding-left--1 padding-right--1">
@@ -53,7 +53,7 @@
         </ul>
       </nav>
       <div class="col col--md-half col--lg-one-third">
-        <div class="js-hover-click height--31 background--mercury">
+        <div id="local-statistics-link" class="js-hover-click height--31 background--mercury">
           <div class="box__image padding-top--16 padding-right--1 padding-left--1">
             <h3 class="flush">
               <a href="/help/localstatistics">Looking for local statistics?</a>
