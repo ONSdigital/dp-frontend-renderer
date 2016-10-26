@@ -13,12 +13,12 @@
     <div class="wrapper">
         <div class="header col-wrap">
             <div class="col col--lg-one-third col--md-one-third">
-                <a href="/">
+                <a id="logo-link" href="/">
                     <img class="main-logo" src="/assets/img/ons-logo.svg" alt="Office for National Statistics">
                 </a>
             </div>
             <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide">
-                <dl class="language">
+                <dl id="language" class="language">
                     <dt class="language__title">Change language:</dt>
                     <dd class="language__item">
                         {{if eq .Language "en"}}<a class="language__link icon--hide" href="//cy.{{.SiteDomain}}{{.URI}}">Cymraeg (CY)</a>{{end}}
@@ -27,7 +27,7 @@
                 </dl>
             </div>
             <div class="secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide">
-                <ul class="secondary-nav__list js-nav-clone__list">
+                <ul id="nav-secondary" class="secondary-nav__list js-nav-clone__list">
                     <li class="secondary-nav__item">
                         <a class="secondary-nav__link  js-nav-clone__link" href="/releasecalendar">Release calendar</a>
                     </li>
@@ -77,7 +77,7 @@
                             {{end}}
                         </li>
                     {{end}}
-                    <li class="primary-nav__item  js-nav">
+                    <li class="primary-nav__item js-nav">
                         <a class="primary-nav__link  col col--md-8 col--lg-10" href="/surveys">
                             Taking part in a survey?
                         </a>
