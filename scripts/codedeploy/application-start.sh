@@ -17,6 +17,8 @@ else
 fi
 
 source $CONFIG && docker run -d \
+  --env=BIND_ADDR=$BIND_ADDR    \
+  --env=DEBUG=$DEBUG            \
   --name=frontend-renderer      \
   --net=$DOCKER_NETWORK         \
   --restart=always              \
