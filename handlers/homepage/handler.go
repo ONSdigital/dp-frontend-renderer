@@ -3,16 +3,20 @@ package homepage
 
 import (
 	"encoding/json"
-	"io/ioutil"
-	"net/http"
+	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/go-ns/log"
+	"io/ioutil"
+	"net/http"
 )
+
+const xRequestIDParam = "X-Request-Id"
 
 //Handler ...
 func Handler(w http.ResponseWriter, req *http.Request) {
+	log.Debug("homepage.Handler", log.Data{xRequestIDParam: req.Header.Get(xRequestIDParam)})
+
 	b, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		render.JSON(w, 400, homepage.ErrorResponse{
