@@ -3,28 +3,40 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "38KleWC9zXTErRdT3EoP9mlPx3g=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
+			"revision": "9dcb27f23a585ac12068d4b6b4edc666db9b8a5c",
+			"revisionTime": "2016-11-17T08:51:22Z"
+		},
+		{
+			"checksumSHA1": "p21064UH4tn085zUNAzvxjwhdvE=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/homepage",
+			"revision": "9dcb27f23a585ac12068d4b6b4edc666db9b8a5c",
+			"revisionTime": "2016-11-17T08:51:22Z"
+		},
+		{
 			"checksumSHA1": "ei+/RCSa0XO9v9rQxAh0uqyJ/28=",
 			"path": "github.com/ONSdigital/go-ns/handlers/healthcheck",
-			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
-			"revisionTime": "2016-10-20T07:04:46Z"
+			"revision": "321646dcfb8316a12c5025a5ae88a97532efceb6",
+			"revisionTime": "2016-11-17T07:44:41Z"
 		},
 		{
 			"checksumSHA1": "J9OiPnhPHFPhQ+R+dq6LFj+dTxE=",
 			"path": "github.com/ONSdigital/go-ns/handlers/requestID",
-			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
-			"revisionTime": "2016-10-20T07:04:46Z"
+			"revision": "321646dcfb8316a12c5025a5ae88a97532efceb6",
+			"revisionTime": "2016-11-17T07:44:41Z"
 		},
 		{
 			"checksumSHA1": "HgL/HLG5D1WNPb1lrb/hpywtm9o=",
 			"path": "github.com/ONSdigital/go-ns/handlers/timeout",
-			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
-			"revisionTime": "2016-10-20T07:04:46Z"
+			"revision": "321646dcfb8316a12c5025a5ae88a97532efceb6",
+			"revisionTime": "2016-11-17T07:44:41Z"
 		},
 		{
 			"checksumSHA1": "t9V2N7/M260lThgot3Iv7a0wxd4=",
 			"path": "github.com/ONSdigital/go-ns/log",
-			"revision": "d2521fcb80bc9758b1a8df3579b2f6e08b957088",
-			"revisionTime": "2016-10-20T07:04:46Z"
+			"revision": "321646dcfb8316a12c5025a5ae88a97532efceb6",
+			"revisionTime": "2016-11-17T07:44:41Z"
 		},
 		{
 			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",

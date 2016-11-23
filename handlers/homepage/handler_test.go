@@ -10,6 +10,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
+	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	. "github.com/smartystreets/goconvey/convey"
 	unrolled "github.com/unrolled/render"
 )
@@ -64,8 +65,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.binding, ShouldHaveSameTypeAs, Page{})
-		p := f.binding.(Page)
+		So(f.binding, ShouldHaveSameTypeAs, homepage.Page{})
+		p := f.binding.(homepage.Page)
 		So(p.ServiceMessage, ShouldEqual, "Foo bar")
 		So(p.PatternLibraryAssetsPath, ShouldEqual, config.PatternLibraryAssetsPath)
 	})
@@ -78,8 +79,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.binding, ShouldHaveSameTypeAs, Page{})
-		p := f.binding.(Page)
+		So(f.binding, ShouldHaveSameTypeAs, homepage.Page{})
+		p := f.binding.(homepage.Page)
 		So(p.Data.HeadlineFigures[0].StartDate, ShouldEqual, "foo")
 		So(p.Data.HeadlineFigures[0].EndDate, ShouldEqual, "baz")
 	})
@@ -103,8 +104,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "cy")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 500)
-		So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
-		p := f.binding.(ErrorResponse)
+		So(f.binding, ShouldHaveSameTypeAs, homepage.ErrorResponse{})
+		p := f.binding.(homepage.ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from HTML")
 		f.errorOnHTML = false
 	})
@@ -117,8 +118,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "foo")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.binding, ShouldHaveSameTypeAs, Page{})
-		p := f.binding.(Page)
+		So(f.binding, ShouldHaveSameTypeAs, homepage.Page{})
+		p := f.binding.(homepage.Page)
 		So(p.Language, ShouldEqual, "en")
 	})
 
@@ -129,8 +130,8 @@ func TestHandler(t *testing.T) {
 		So(err, ShouldBeNil)
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 400)
-		So(f.binding, ShouldHaveSameTypeAs, ErrorResponse{})
-		p := f.binding.(ErrorResponse)
+		So(f.binding, ShouldHaveSameTypeAs, homepage.ErrorResponse{})
+		p := f.binding.(homepage.ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from reader")
 	})
 }
