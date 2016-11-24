@@ -19,6 +19,7 @@ import (
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/hello"
 )
 
 func main() {
@@ -61,6 +62,7 @@ func main() {
 	router.Get("/healthcheck", healthcheck.Handler)
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
+	router.Post("/hello", hello.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
