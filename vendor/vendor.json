@@ -9,6 +9,12 @@
 			"revisionTime": "2016-11-24T11:33:39Z"
 		},
 		{
+			"checksumSHA1": "VHmPCQn5HtKeH/1nSZXcNZThpFI=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dd/homepage",
+			"revision": "09a1387afe840073e0ca7b1e755462540663b047",
+			"revisionTime": "2016-11-30T10:41:09Z"
+		},
+		{
 			"checksumSHA1": "V62VtSq5O2oAaYpmpJSoT+SsFwg=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/homepage",
 			"revision": "e80a0dbe6c0498aaee6fc4e9b4c0eda857de57ee",
