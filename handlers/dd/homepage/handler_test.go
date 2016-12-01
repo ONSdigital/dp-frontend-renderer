@@ -7,18 +7,16 @@ import (
 	"testing"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
-	"github.com/ONSdigital/dp-frontend-models/model/homepage"
-	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
 	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestHandler(t *testing.T) {
+
 	f := &rendertest.FakeRenderer{}
 	render.Renderer = f
-
-	config.PatternLibraryAssetsPath = "foobar.com"
 
 	Convey("Handler returns 400 status code response when request body is empty", t, func() {
 		recorder := httptest.NewRecorder()
@@ -28,44 +26,6 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 400)
-	})
-
-	Convey("Handler returns matching data from request page model", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"serviceMessage": "Foo bar"}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.Binding.(*homepage.Page)
-		So(p.ServiceMessage, ShouldEqual, "Foo bar")
-		So(p.PatternLibraryAssetsPath, ShouldEqual, config.PatternLibraryAssetsPath)
-	})
-
-	Convey("SparklineData dates are copied to HeadlineFigure", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": [{"name": "foo"}, {"name": "bar"}, {"name": "baz"}]}]}}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.Binding.(*homepage.Page)
-		So(p.Data.HeadlineFigures[0].StartDate, ShouldEqual, "foo")
-		So(p.Data.HeadlineFigures[0].EndDate, ShouldEqual, "baz")
-	})
-
-	Convey("SparklineData dates are skipped if sparklineData is empty", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": []}]}}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
 	})
 
 	Convey("Handler returns 500 status code when HTML render returns an error", t, func() {
@@ -91,8 +51,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "foo")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.Binding.(*homepage.Page)
+		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Homepage{})
+		p := f.Binding.(*homepage.Homepage)
 		So(p.Language, ShouldEqual, "en")
 	})
 

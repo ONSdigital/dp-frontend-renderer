@@ -9,6 +9,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	ddhomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/dd/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
@@ -61,6 +62,7 @@ func main() {
 	router.Get("/healthcheck", healthcheck.Handler)
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
+	router.Post("/dd/homepage", ddhomepage.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
