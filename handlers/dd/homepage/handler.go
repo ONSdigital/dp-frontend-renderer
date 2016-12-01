@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+// Handler handles requests to render the data discovery homepage. Expects the request to have a JSON body containing
+// a marshalled homepage.Homepage model.
 func Handler(w http.ResponseWriter, req *http.Request) {
 	var page homepage.Homepage
 
