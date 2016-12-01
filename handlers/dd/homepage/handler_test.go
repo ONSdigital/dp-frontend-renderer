@@ -10,6 +10,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
+	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
 )
 
 func TestHandler(t *testing.T) {
@@ -50,8 +51,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "foo")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &model.Page{})
-		p := f.Binding.(*model.Page)
+		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Homepage{})
+		p := f.Binding.(*homepage.Homepage)
 		So(p.Language, ShouldEqual, "en")
 	})
 
