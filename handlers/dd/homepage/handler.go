@@ -1,9 +1,9 @@
 package homepage
 
 import (
-	"net/http"
-	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
+	"github.com/ONSdigital/dp-frontend-renderer/render"
+	"net/http"
 )
 
 func Handler(w http.ResponseWriter, req *http.Request) {

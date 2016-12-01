@@ -1,16 +1,16 @@
 package homepage
 
 import (
-	"testing"
-	"net/http/httptest"
 	"bytes"
 	"net/http"
+	"net/http/httptest"
+	"testing"
 
-	. "github.com/smartystreets/goconvey/convey"
 	"github.com/ONSdigital/dp-frontend-models/model"
+	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
-	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestHandler(t *testing.T) {

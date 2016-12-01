@@ -9,9 +9,9 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	ddhomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/dd/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
-	ddhomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/dd/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/handlers/healthcheck"
 	"github.com/ONSdigital/go-ns/handlers/requestID"

@@ -10,11 +10,9 @@ import (
 	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
-	. "github.com/smartystreets/goconvey/convey"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
+	. "github.com/smartystreets/goconvey/convey"
 )
-
-
 
 func TestHandler(t *testing.T) {
 	f := &rendertest.FakeRenderer{}

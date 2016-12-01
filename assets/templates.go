@@ -245,12 +245,12 @@ func AssetNames() []string {
 
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
-	"templates/dd/homepage.tmpl": templatesDdHomepageTmpl,
-	"templates/homepage.tmpl": templatesHomepageTmpl,
-	"templates/main.tmpl": templatesMainTmpl,
+	"templates/dd/homepage.tmpl":     templatesDdHomepageTmpl,
+	"templates/homepage.tmpl":        templatesHomepageTmpl,
+	"templates/main.tmpl":            templatesMainTmpl,
 	"templates/partials/footer.tmpl": templatesPartialsFooterTmpl,
 	"templates/partials/header.tmpl": templatesPartialsHeaderTmpl,
-	"templates/productPage.tmpl": templatesProductpageTmpl,
+	"templates/productPage.tmpl":     templatesProductpageTmpl,
 }
 
 // AssetDir returns the file names below a certain
@@ -292,13 +292,14 @@ type bintree struct {
 	Func     func() (*asset, error)
 	Children map[string]*bintree
 }
+
 var _bintree = &bintree{nil, map[string]*bintree{
 	"templates": &bintree{nil, map[string]*bintree{
 		"dd": &bintree{nil, map[string]*bintree{
 			"homepage.tmpl": &bintree{templatesDdHomepageTmpl, map[string]*bintree{}},
 		}},
 		"homepage.tmpl": &bintree{templatesHomepageTmpl, map[string]*bintree{}},
-		"main.tmpl": &bintree{templatesMainTmpl, map[string]*bintree{}},
+		"main.tmpl":     &bintree{templatesMainTmpl, map[string]*bintree{}},
 		"partials": &bintree{nil, map[string]*bintree{
 			"footer.tmpl": &bintree{templatesPartialsFooterTmpl, map[string]*bintree{}},
 			"header.tmpl": &bintree{templatesPartialsHeaderTmpl, map[string]*bintree{}},
@@ -353,4 +354,3 @@ func _filePath(dir, name string) string {
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(cannonicalName, "/")...)...)
 }
-

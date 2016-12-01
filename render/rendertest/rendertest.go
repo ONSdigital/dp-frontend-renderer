@@ -1,8 +1,8 @@
 package rendertest
 
 import (
-	"io"
 	"errors"
+	"io"
 	"net/http"
 
 	unrolled "github.com/unrolled/render"
