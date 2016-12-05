@@ -1,0 +1,13 @@
+<div class="background--gallery">
+    <div class="wrapper">
+
+<h2>{{ .Dataset.Title }}</h2>
+
+<ul id="featured-list" class="list--neutral col-wrap margin-left--0">
+{{ range .Dataset.Dimensions }}
+    <li>{{ .Name }}</li>
+{{ end }}
+</ul>
+
+</div>
+</div>

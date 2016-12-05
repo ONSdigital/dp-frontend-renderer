@@ -1,4 +1,4 @@
-package homepage
+package dataset
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
-	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
+	"github.com/ONSdigital/dp-frontend-models/model/dd/dataset"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
 	. "github.com/smartystreets/goconvey/convey"
@@ -51,8 +51,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "foo")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Homepage{})
-		p := f.Binding.(*homepage.Homepage)
+		So(f.Binding, ShouldHaveSameTypeAs, &dataset.Page{})
+		p := f.Binding.(*dataset.Page)
 		So(p.Language, ShouldEqual, "en")
 	})
 
@@ -68,16 +68,15 @@ func TestHandler(t *testing.T) {
 		So(p.Error, ShouldEqual, "Error from reader")
 	})
 
-	Convey("Dataset titles are rendered", t, func() {
+	Convey("Dataset title is rendered", t, func() {
 		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"datasets":{"items":[{"id":"ID1","title":"A Test Dataset"}]}}`))
+		rdr := bytes.NewReader([]byte(`{"dataset":{"id":"ID1","title":"A Test Dataset"}}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Homepage{})
-		p := f.Binding.(*homepage.Homepage)
-		So(p.Datasets.Items, ShouldHaveLength, 1)
-		So(p.Datasets.Items[0].Title, ShouldEqual, "A Test Dataset")
+		So(f.Binding, ShouldHaveSameTypeAs, &dataset.Page{})
+		p := f.Binding.(*dataset.Page)
+		So(p.Dataset.Title, ShouldEqual, "A Test Dataset")
 	})
 }
