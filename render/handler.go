@@ -43,7 +43,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 
 	page2.PatternLibraryAssetsPath = config.PatternLibraryAssetsPath
 
-	page2.SiteDomain = config.SiteDomain
+	page2.IncludeAssetsIntegrityAttributes = config.IncludeAssetsIntegrityAttributes
 
 	log.DebugR(req, "rendered template", log.Data{"template": templateName})
 	err = HTML(w, 200, templateName, page)

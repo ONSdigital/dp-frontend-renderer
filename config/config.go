@@ -8,3 +8,6 @@ var SiteDomain = "ons.gov.uk"
 
 // PatternLibraryAssetsPath is the URL to the CSS and JS assets from the pattern library
 var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/6cc1837"
+
+// IncludeAssetsIntegrityAttributes is a boolean for whether to include integrity and crossorigin attributes on assets requestes (eg CSS and javascript)
+var IncludeAssetsIntegrityAttributes = true
