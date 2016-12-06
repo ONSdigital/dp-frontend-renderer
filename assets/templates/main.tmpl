@@ -35,6 +35,10 @@
       {{/* TODO - update on live build to use two JS files, not a single one */}}
       <script type="text/javascript" src="{{.PatternLibraryAssetsPath}}/js/main.js"></script>
       <script type="text/javascript" src="/js/app.js"></script>
+        <!--<script type="text/javascript" src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>-->
+        <!--<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>-->
+        <!--<script type="text/javascript" src="https://cdn.ons.gov.uk/vendor/highcharts/4.1.9/highcharts.js"></script>-->
+        <!--<script type="text/javascript" src="https://cdn.ons.gov.uk/vendor/highcharts/4.1.9/highcharts-more.js"></script>-->
     {{`<!--<![endif]-->` | safeHTML}}
 
     <script>
@@ -69,6 +73,130 @@
       setTimeout(timer181,181000);
       setTimeout(timer601,601000);
       setTimeout(timer1801,1801000);
+    </script>
+    <script>
+        $(function() {
+
+            Highcharts.SparkLine = function (container) {
+                var hasRenderToArg = typeof container === 'string' || container.nodeName,
+                    options = arguments[hasRenderToArg ? 1 : 0],
+                    defaultOptions = {
+                        chart: {
+                            backgroundColor: null,
+                            borderWidth: 0,
+                            type: 'area',
+                            renderTo: container,
+                            marginRight:0,
+                            marginLeft:0,
+                            marginBottom: 2,
+                            skipClone: true
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: '',
+                            y: 110
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: [],
+                            labels: {
+                                enabled: false
+                            },
+                            gridLineWidth: 0,
+                            minorGridLineWidth: 0,
+                            tickWidth: 0,
+                            lineColor: "#FFFFFF",
+                            tickColor: "#FFFFFF"
+                        },
+                        yAxis: {
+                            endOnTick: false,
+                            startOnTick: false,
+                            labels: {
+                                enabled: false
+                            },
+                            title: {
+                                text: null
+                            },
+                            tickPositions: [0],
+                            tickWidth: 0,
+                            gridLineWidth: 0
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                animation: false,
+                                turboThreshold:0,
+                                lineWidth: 1,
+                                shadow: false,
+                                states: {
+                                    hover: {
+                                        lineWidth: 1
+                                    }
+                                },
+                                marker: {
+                                    radius: 1,
+                                    states: {
+                                        hover: {
+                                            radius: 1
+                                        }
+                                    }
+                                },
+                                fillOpacity: 0.15,
+                                enableMouseTracking: false,
+                            },
+                            column: {
+                                negativeColor: '#910000'
+                                //borderColor: 'silver'
+                            }
+                        },
+                        exporting: {
+                            enabled: false
+                        }
+                    };
+
+                options = Highcharts.merge(defaultOptions, options);
+                return new Highcharts.Chart(options);
+            };
+
+            var sparklines = $('.sparkline');
+
+
+            if (!sparklines.length) {
+                return false;
+            }
+
+            sparklines.each(function() {
+                var $this = $(this);
+                var sparklineData = $this.data('sparkline').trim().split(' ');
+                for (var i = 0; i < sparklineData.length; i++) {
+                    sparklineData[i] = parseFloat(sparklineData[i]);
+                }
+
+                renderSparkline($this, sparklineData);
+            });
+
+            function renderSparkline(container, data) {
+                container.highcharts('SparkLine', {
+                    series: [{
+                        data: data,
+                        pointStart: 1
+                    }]
+                });
+            }
+
+            $('.js--hide').hide();
+            $('.js--show').show();
+
+        })
     </script>
 </body>
 </html>
