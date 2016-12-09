@@ -1,0 +1,14 @@
+<div class="background--gallery">
+  <div class="wrapper">
+    <h1>Welcome to Data Discovery!</h1>
+
+    <h2>Available datasets ({{ .Datasets.Total }}):</h2>
+
+    <ul class="list--neutral col-wrap margin-left--0">
+    {{ range .Datasets.Items }}
+        <li><a href="{{ .URL }}" class="icon--hide" title="{{ .Metadata.Description }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+
+  </div>
+</div>
