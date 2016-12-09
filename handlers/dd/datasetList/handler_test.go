@@ -1,4 +1,4 @@
-package homepage
+package datasetList
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
-	"github.com/ONSdigital/dp-frontend-models/model/dd/homepage"
+	"github.com/ONSdigital/dp-frontend-models/model/dd/datasetList"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
 	. "github.com/smartystreets/goconvey/convey"
@@ -51,8 +51,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "foo")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Homepage{})
-		p := f.Binding.(*homepage.Homepage)
+		So(f.Binding, ShouldHaveSameTypeAs, &datasetList.DatasetList{})
+		p := f.Binding.(*datasetList.DatasetList)
 		So(p.Language, ShouldEqual, "en")
 	})
 
@@ -75,8 +75,8 @@ func TestHandler(t *testing.T) {
 		So(err, ShouldBeNil)
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Homepage{})
-		p := f.Binding.(*homepage.Homepage)
+		So(f.Binding, ShouldHaveSameTypeAs, &datasetList.DatasetList{})
+		p := f.Binding.(*datasetList.DatasetList)
 		So(p.Datasets.Items, ShouldHaveLength, 1)
 		So(p.Datasets.Items[0].Title, ShouldEqual, "A Test Dataset")
 	})
