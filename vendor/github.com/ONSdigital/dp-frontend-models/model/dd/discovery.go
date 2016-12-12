@@ -11,12 +11,13 @@ type Datasets struct {
 
 // Dataset represents the details about a particular dataset.
 type Dataset struct {
-	ID         string       `json:"id"`
-	Title      string       `json:"title"`
-	URL        string       `json:"url,omitempty"`
-	Metadata   *Metadata    `json:"metadata,omitempty"`
-	Dimensions []*Dimension `json:"dimensions,omitempty"`
-	Data       *Table       `json:"data,omitempty"`
+	DataDiscoveryAssetsPath string       `json:"-"` // Path to get React bundle.js from - only needed on dataset pages
+	ID                      string       `json:"id"`
+	Title                   string       `json:"title"`
+	URL                     string       `json:"url,omitempty"`
+	Metadata                *Metadata    `json:"metadata,omitempty"`
+	Dimensions              []*Dimension `json:"dimensions,omitempty"`
+	Data                    *Table       `json:"data,omitempty"`
 }
 
 // Metadata about a dataset.
