@@ -14,6 +14,7 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 	var page dataset.Page
 
 	render.Handler(w, req, &page, &page.Page, "dd/dataset", func() {
+		// TODO Add in graceful error handling in this callback function
 		page.Dataset.DataDiscoveryAssetsPath = config.DataDiscoveryAssetsPath
 	})
 }

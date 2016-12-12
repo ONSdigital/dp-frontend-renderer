@@ -10,4 +10,4 @@ var SiteDomain = "ons.gov.uk"
 var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/6cc1837"
 
 // DataDiscoveryAssetsPath is the URL to the bundled React JS app build by webpack
-var DataDiscoveryAssetsPath = "https://cdn.ons.gov.uk/datadiscovery/bundle.js"
+var DataDiscoveryAssetsPath = "https://cdn.ons.gov.uk/dp-dd-react-app/f921145/bundle.js"

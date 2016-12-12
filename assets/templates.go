@@ -110,7 +110,7 @@ func templatesDdDatasetTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/dataset.tmpl", size: 481, mode: os.FileMode(420), modTime: time.Unix(1481383872, 0)}
+	info := bindataFileInfo{name: "templates/dd/dataset.tmpl", size: 481, mode: os.FileMode(420), modTime: time.Unix(1481539271, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
