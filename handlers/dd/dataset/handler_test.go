@@ -31,7 +31,7 @@ func TestHandler(t *testing.T) {
 	Convey("Handler returns 500 status code when HTML render returns an error", t, func() {
 		f.ErrorOnHTML = true
 		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"dataset": {}`))
+		rdr := bytes.NewReader([]byte(`{"dataset": {}}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
 		request.Header.Set("Accept-Language", "cy")
@@ -45,7 +45,7 @@ func TestHandler(t *testing.T) {
 
 	Convey("Handler returns language of English when neither 'en' or 'cy' is set from request header", t, func() {
 		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"dataset": {}`))
+		rdr := bytes.NewReader([]byte(`{"dataset": {}}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
 		request.Header.Set("Accept-Language", "foo")
