@@ -70,7 +70,7 @@ func TestHandler(t *testing.T) {
 
 	Convey("Dataset title is rendered", t, func() {
 		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"dataset":{"id":"ID1","title":"A Test Dataset","dataDiscoveryAssetsPath":"foobar"}}`))
+		rdr := bytes.NewReader([]byte(`{"dataset":{"id":"ID1","title":"A Test Dataset"}}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
 		Handler(recorder, request)
