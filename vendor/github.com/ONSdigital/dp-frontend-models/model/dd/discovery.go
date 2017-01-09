@@ -11,13 +11,21 @@ type Datasets struct {
 
 // Dataset represents the details about a particular dataset.
 type Dataset struct {
-	DataDiscoveryAssetsPath string       `json:"-"` // Path to get React bundle.js from - only needed on dataset pages
-	ID                      string       `json:"id"`
-	Title                   string       `json:"title"`
-	URL                     string       `json:"url,omitempty"`
-	Metadata                *Metadata    `json:"metadata,omitempty"`
-	Dimensions              []*Dimension `json:"dimensions,omitempty"`
-	Data                    *Table       `json:"data,omitempty"`
+	Config     *Config      `json:"-"`
+	ID         string       `json:"id"`
+	Title      string       `json:"title"`
+	URL        string       `json:"url,omitempty"`
+	Metadata   *Metadata    `json:"metadata,omitempty"`
+	Dimensions []*Dimension `json:"dimensions,omitempty"`
+	Data       *Table       `json:"data,omitempty"`
+}
+
+// Config values for the data discovery application
+type Config struct {
+	AssetsPath string `json:"-"`
+	APIURL     string `json:"-"`
+	JobAPIURL  string `json:"-"`
+	BasePath   string `json:"-"`
 }
 
 // Metadata about a dataset.

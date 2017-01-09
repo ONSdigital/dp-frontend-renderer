@@ -3,6 +3,7 @@ package dataset
 import (
 	"net/http"
 
+	"github.com/ONSdigital/dp-frontend-models/model/dd"
 	"github.com/ONSdigital/dp-frontend-models/model/dd/dataset"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
@@ -15,6 +16,11 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 	render.Handler(w, req, &page, &page.Page, "dd/dataset", func() {
 		// TODO Add in graceful error handling in this callback function
-		page.Dataset.DataDiscoveryAssetsPath = config.DataDiscoveryAssetsPath
+		page.Dataset.Config = &dd.Config {
+			AssetsPath: config.DataDiscovery.AssetsPath,
+			APIURL: config.DataDiscovery.API_URL,
+			JobAPIURL: config.DataDiscovery.JOB_API_URL,
+			BasePath: config.DataDiscovery.BASE_PATH,
+		}
 	})
 }

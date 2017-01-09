@@ -9,5 +9,15 @@ var SiteDomain = "ons.gov.uk"
 // PatternLibraryAssetsPath is the URL to the CSS and JS assets from the pattern library
 var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/6cc1837"
 
-// DataDiscoveryAssetsPath is the URL to the bundled React JS app build by webpack
-var DataDiscoveryAssetsPath = "https://cdn.ons.gov.uk/dp-dd-react-app/78210cf"
+// DataDiscovery has configuration values for the dataset JS application
+var DataDiscovery = struct {
+	AssetsPath  string
+	API_URL     string
+	JOB_API_URL string
+	BASE_PATH   string
+}{
+	"https://cdn.ons.gov.uk/dp-dd-react-app/78210cf",
+	"http://localhost:20099",
+	"http://localhost:20010",
+	"/dd",
+}

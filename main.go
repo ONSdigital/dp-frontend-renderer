@@ -37,7 +37,7 @@ func main() {
 
 	if config.DebugMode {
 		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
-		config.DataDiscoveryAssetsPath = "http://localhost:20040"
+		config.DataDiscovery.AssetsPath = "http://localhost:20040"
 	}
 
 	log.Namespace = "dp-frontend-renderer"
