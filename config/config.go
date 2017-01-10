@@ -10,6 +10,7 @@ var SiteDomain = "ons.gov.uk"
 var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/6cc1837"
 
 // DataDiscovery has configuration values for the dataset JS application
+// TODO make this configurable from environment
 var DataDiscovery = struct {
 	AssetsPath  string
 	API_URL     string
@@ -17,7 +18,7 @@ var DataDiscovery = struct {
 	BASE_PATH   string
 }{
 	"https://cdn.ons.gov.uk/dp-dd-react-app/78210cf",
-	"http://localhost:20099",
-	"http://localhost:20010",
+	"/dd/api",
+	"/dd/api/jobs",
 	"/dd",
 }
