@@ -12,7 +12,7 @@ generate:
 	mv assets/templates.go.new assets/templates.go
 	# build the dev version
 	cd assets; go-bindata -debug -o debug.go -pkg assets templates/...
-	{ echo "// +build debug"; cat assets/templates.go; } > assets/templates.go.new
-	mv assets/templates.go.new assets/templates.go
+	{ echo "// +build debug"; cat assets/debug.go; } > assets/debug.go.new
+	mv assets/debug.go.new assets/debug.go
 
 .PHONY: build debug generate
