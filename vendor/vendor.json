@@ -9,16 +9,16 @@
 			"revisionTime": "2016-11-24T11:33:39Z"
 		},
 		{
-			"checksumSHA1": "5rN72KWYsf06N9OSsoNQlvo9viY=",
+			"checksumSHA1": "CDhAGYorpOUxOXG3SAOw9+SY2Ww=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dd",
-			"revision": "c42bec2c111a4ef1d4b323304083a3e143e7150b",
-			"revisionTime": "2016-12-09T09:58:19Z"
+			"revision": "6d96124bfc3282f164df198daa964efdd2c75174",
+			"revisionTime": "2016-12-12T12:02:07Z"
 		},
 		{
 			"checksumSHA1": "yEeAoLvNPSwzytiE/gFDxxIjGvc=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dd/dataset",
-			"revision": "c42bec2c111a4ef1d4b323304083a3e143e7150b",
-			"revisionTime": "2016-12-09T09:58:19Z"
+			"revision": "6d96124bfc3282f164df198daa964efdd2c75174",
+			"revisionTime": "2016-12-12T12:02:07Z"
 		},
 		{
 			"checksumSHA1": "+D1kBpZz783YIptyOc+WwZlQOMY=",
