@@ -1,10 +1,18 @@
-build:
-	go generate ./...
-	go build -o build/dp-frontend-renderer
+build: generate
+	go build -tags 'production' -o build/dp-frontend-renderer
 
-debug:
-	cd assets; go-bindata -debug -o templates.go -pkg assets templates/...
-	go build -o build/dp-frontend-renderer
+debug: generate
+	go build -tags 'debug' -o build/dp-frontend-renderer
 	HUMAN_LOG=1 DEBUG=1 ./build/dp-frontend-renderer
 
-.PHONY: build debug
+generate:
+	# build the production version
+	go generate ./...
+	{ echo "// +build production"; cat assets/templates.go; } > assets/templates.go.new
+	mv assets/templates.go.new assets/templates.go
+	# build the dev version
+	cd assets; go-bindata -debug -o debug.go -pkg assets templates/...
+	{ echo "// +build debug"; cat assets/templates.go; } > assets/templates.go.new
+	mv assets/templates.go.new assets/templates.go
+
+.PHONY: build debug generate
