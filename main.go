@@ -9,6 +9,8 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/dataset"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/datasetList"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
@@ -35,6 +37,7 @@ func main() {
 
 	if config.DebugMode {
 		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
+		config.DataDiscovery.AssetsPath = "http://localhost:20040"
 	}
 
 	log.Namespace = "dp-frontend-renderer"
@@ -61,6 +64,8 @@ func main() {
 	router.Get("/healthcheck", healthcheck.Handler)
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
+	router.Post("/dd/datasetList", datasetList.Handler)
+	router.Post("/dd/dataset", dataset.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
