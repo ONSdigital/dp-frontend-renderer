@@ -1,4 +1,5 @@
 build
+assets/debug.go
 
 .DS_Store
 .idea/
