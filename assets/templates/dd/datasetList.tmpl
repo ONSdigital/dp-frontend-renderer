@@ -6,7 +6,7 @@
 
     <ul class="list--neutral col-wrap margin-left--0">
     {{ range .Datasets.Items }}
-        <li><a href="{{ .URL }}" class="icon--hide" title="{{ .Metadata.Description }}">{{ .Title }}</a></li>
+        <li><a href="{{ .URL }}" class="icon--hide" title="{{ if .Metadata }}{{ .Metadata.Description }}{{ end }}">{{ .Title }}</a></li>
     {{ end }}
     </ul>
 
