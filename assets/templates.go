@@ -3,6 +3,7 @@
 // sources:
 // templates/dd/dataset.tmpl
 // templates/dd/datasetList.tmpl
+// templates/dd/splash.tmpl
 // templates/homepage.tmpl
 // templates/main.tmpl
 // templates/partials/footer.tmpl
@@ -111,6 +112,26 @@ func templatesDdDatasetlistTmpl() (*asset, error) {
 	}
 
 	info := bindataFileInfo{name: "templates/dd/datasetList.tmpl", size: 422, mode: os.FileMode(420), modTime: time.Unix(1485348335, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var _templatesDdSplashTmpl = []byte("\x1f\x8b\x08\x00\x00\x09\x6e\x88\x00\xff\x9c\x51\xbd\x6e\xf3\x30\x0c\xdc\xf3\x14\x84\x76\xc2\xc8\x6e\x7b\xfc\xb6\x0f\x2d\x90\x76\x0e\x68\x93\x8e\x84\xd0\x96\x20\xd1\xf9\x79\xfb\xc2\x09\xd2\x36\x81\xa7\x4e\x47\x9d\x8e\xd4\xe9\x58\x73\x38\x41\xaf\x54\x4a\xe3\x12\x1d\x04\xbd\x10\x4b\x86\xa2\x64\xe2\xda\xcd\xef\xfb\x73\xa6\x94\x24\x2f\xac\xdf\xae\x34\xed\xf7\x16\x4c\x05\x06\x9d\x8b\x47\xf4\xa4\x03\x62\x17\xcd\xe2\xe8\xda\x5d\x52\x2a\xfe\x0a\xff\xfb\x7b\xf5\x8f\x7a\xa9\x2b\xbf\x6d\x37\x75\xc5\xe1\xd4\x6e\x1e\xb8\xf2\x22\x24\x9a\x44\x11\x47\xca\x2f\x96\x0e\x39\x30\x2e\xaa\x35\xbe\x8f\x0a\x2c\xe5\x68\x31\xe1\x8d\x18\x66\x55\x3c\x07\x36\xbf\xc8\x29\x5b\xe8\x55\x9e\x1b\xbb\x78\x81\x2e\x5e\x10\x13\x31\x0b\xdf\xeb\x2c\x8c\x4c\xf9\xf8\x7c\x42\x2c\x92\x28\x93\x09\xa3\xca\x60\x50\xa4\xb7\x10\x27\x61\xb7\xfc\xe6\xcf\x2e\xed\x1c\xd1\x7c\xc8\x5c\x16\xf9\x10\xf3\x08\x74\x1b\xdc\x38\x07\xa3\x98\x8f\xdc\xb8\xf7\xb7\xdd\x87\x6b\xeb\x30\xa5\xd9\xc0\xae\x49\x1a\x57\xe6\x6e\x0c\xe6\xe0\x44\x3a\x4b\xe3\x3e\xa7\x72\x0b\x1a\x46\x71\x50\xb5\x75\xb5\x4c\xfa\x4e\xfb\x15\x7e\xc2\x78\xde\xc6\x03\xbf\x02\x00\x00\xff\xff\xad\xae\x83\xc5\x28\x02\x00\x00")
+
+func templatesDdSplashTmplBytes() ([]byte, error) {
+	return bindataRead(
+		_templatesDdSplashTmpl,
+		"templates/dd/splash.tmpl",
+	)
+}
+
+func templatesDdSplashTmpl() (*asset, error) {
+	bytes, err := templatesDdSplashTmplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "templates/dd/splash.tmpl", size: 552, mode: os.FileMode(420), modTime: time.Unix(1485419912, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -269,6 +290,7 @@ func AssetNames() []string {
 var _bindata = map[string]func() (*asset, error){
 	"templates/dd/dataset.tmpl": templatesDdDatasetTmpl,
 	"templates/dd/datasetList.tmpl": templatesDdDatasetlistTmpl,
+	"templates/dd/splash.tmpl": templatesDdSplashTmpl,
 	"templates/homepage.tmpl": templatesHomepageTmpl,
 	"templates/main.tmpl": templatesMainTmpl,
 	"templates/partials/footer.tmpl": templatesPartialsFooterTmpl,
@@ -320,6 +342,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"dd": &bintree{nil, map[string]*bintree{
 			"dataset.tmpl": &bintree{templatesDdDatasetTmpl, map[string]*bintree{}},
 			"datasetList.tmpl": &bintree{templatesDdDatasetlistTmpl, map[string]*bintree{}},
+			"splash.tmpl": &bintree{templatesDdSplashTmpl, map[string]*bintree{}},
 		}},
 		"homepage.tmpl": &bintree{templatesHomepageTmpl, map[string]*bintree{}},
 		"main.tmpl": &bintree{templatesMainTmpl, map[string]*bintree{}},
