@@ -17,7 +17,7 @@ var DataDiscovery = struct {
 	JOB_API_URL string
 	BASE_PATH   string
 }{
-	"https://cdn.ons.gov.uk/dp-dd-react-app/bdde8d9",
+	"https://cdn.ons.gov.uk/dp-dd-react-app/a9a1ce3",
 	"/dd/api",
 	"/dd/api/jobs",
 	"/dd",
