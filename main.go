@@ -11,6 +11,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/dataset"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/datasetList"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/disabled"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/splash"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
@@ -68,6 +69,7 @@ func main() {
 	router.Post("/dd/datasetList", datasetList.Handler)
 	router.Post("/dd/dataset", dataset.Handler)
 	router.Post("/dd/splash", splash.Handler)
+	router.Post("/dd/disabled", disabled.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
