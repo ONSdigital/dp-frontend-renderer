@@ -27,6 +27,12 @@
 			"revisionTime": "2016-12-09T09:58:19Z"
 		},
 		{
+			"checksumSHA1": "mGx+w9TzOmxFwWGzNCeYiQj9HVI=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dd/disabled",
+			"revision": "018f13d22f5592962a39d15ae098e17b736d5eb0",
+			"revisionTime": "2017-02-03T09:34:10Z"
+		},
+		{
 			"checksumSHA1": "uoGr/qxILN47jS+R1C2HcuxebhQ=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dd/homepage",
 			"revision": "b9e632e86a52a54f5b7ba7cf904f4482cf73ef63",

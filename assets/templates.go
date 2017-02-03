@@ -3,6 +3,7 @@
 // sources:
 // templates/dd/dataset.tmpl
 // templates/dd/datasetList.tmpl
+// templates/dd/disabled.tmpl
 // templates/dd/splash.tmpl
 // templates/homepage.tmpl
 // templates/main.tmpl
@@ -91,7 +92,7 @@ func templatesDdDatasetTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/dataset.tmpl", size: 313, mode: os.FileMode(420), modTime: time.Unix(1485335479, 0)}
+	info := bindataFileInfo{name: "templates/dd/dataset.tmpl", size: 313, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -111,7 +112,27 @@ func templatesDdDatasetlistTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/datasetList.tmpl", size: 422, mode: os.FileMode(420), modTime: time.Unix(1485421807, 0)}
+	info := bindataFileInfo{name: "templates/dd/datasetList.tmpl", size: 422, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var _templatesDdDisabledTmpl = []byte("\x1f\x8b\x08\x00\x00\x09\x6e\x88\x00\xff\x84\x52\xc1\x6e\xea\x40\x0c\xbc\xf3\x15\x16\x77\x3f\xc4\x3d\x8f\x5b\xef\x3d\xf4\x8e\x9c\xd8\x61\x57\x38\xbb\x2b\xaf\x13\xe0\xef\x2b\x28\x45\xa4\x50\x7a\x8a\xc7\x99\x99\x1d\x69\xdc\x70\x9c\xa0\x53\xaa\xf5\xff\xb2\xd0\x4e\x30\x08\xb1\x18\x54\x25\x97\xe5\x66\x01\x70\xcf\x38\x18\x95\x22\x76\xd9\x03\x34\x61\xfd\x44\xba\xdd\x7a\x74\x15\xe8\x75\xac\x01\x31\x90\xf6\x88\x6d\x76\xcf\xc3\x72\xf3\x96\xa6\x68\x39\x0d\x92\x1c\x5c\x86\x92\x8d\x2c\xea\x09\xc6\x44\x13\x45\xa5\x56\xa5\x59\x85\xf5\xe5\xdd\x15\xc7\x69\xb3\xb8\x7e\x16\x4f\x62\x40\xa1\x24\x8a\x38\x90\x3d\x24\xdd\x59\x64\x3c\xf3\xbe\xb3\xfe\xfc\xd7\x65\x05\x96\xba\xf7\x5c\xf0\xb2\xe8\x47\x55\x3c\x44\xf6\x70\x95\xcc\x45\x6d\x3e\x42\x9b\x8f\x88\x85\x98\x85\xbf\x66\x13\x46\x26\xdb\xcf\x11\x62\x95\x42\x46\x2e\x8c\x2a\xbd\x43\x95\xce\x63\x4e\xc2\x37\xe7\xd7\x61\x7f\x61\x3c\x44\xf6\x43\x46\x0f\xd1\xb8\xce\x84\x00\x4d\x99\x63\x80\x8f\x10\x2b\xb8\x54\x07\xb9\xab\x20\x56\xe8\x46\x33\x49\x3e\xef\xe0\xdf\xdc\x6d\x55\xfe\xb2\x7f\x57\xa1\x2a\xe0\x76\x02\xda\x51\x4c\x70\x3e\x1f\x7b\x69\x73\x2d\xf6\x29\xbc\x03\xb7\x71\x7e\x0f\x9f\x01\x00\x00\xff\xff\x3a\xf0\xde\x62\xb8\x02\x00\x00")
+
+func templatesDdDisabledTmplBytes() ([]byte, error) {
+	return bindataRead(
+		_templatesDdDisabledTmpl,
+		"templates/dd/disabled.tmpl",
+	)
+}
+
+func templatesDdDisabledTmpl() (*asset, error) {
+	bytes, err := templatesDdDisabledTmplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "templates/dd/disabled.tmpl", size: 696, mode: os.FileMode(420), modTime: time.Unix(1486114350, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -131,7 +152,7 @@ func templatesDdSplashTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/splash.tmpl", size: 1250, mode: os.FileMode(420), modTime: time.Unix(1485775509, 0)}
+	info := bindataFileInfo{name: "templates/dd/splash.tmpl", size: 1250, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -191,7 +212,7 @@ func templatesPartialsFooterTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 2542, mode: os.FileMode(420), modTime: time.Unix(1485335479, 0)}
+	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 2542, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -211,7 +232,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 5695, mode: os.FileMode(420), modTime: time.Unix(1485335479, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 5695, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -290,6 +311,7 @@ func AssetNames() []string {
 var _bindata = map[string]func() (*asset, error){
 	"templates/dd/dataset.tmpl": templatesDdDatasetTmpl,
 	"templates/dd/datasetList.tmpl": templatesDdDatasetlistTmpl,
+	"templates/dd/disabled.tmpl": templatesDdDisabledTmpl,
 	"templates/dd/splash.tmpl": templatesDdSplashTmpl,
 	"templates/homepage.tmpl": templatesHomepageTmpl,
 	"templates/main.tmpl": templatesMainTmpl,
@@ -342,6 +364,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"dd": &bintree{nil, map[string]*bintree{
 			"dataset.tmpl": &bintree{templatesDdDatasetTmpl, map[string]*bintree{}},
 			"datasetList.tmpl": &bintree{templatesDdDatasetlistTmpl, map[string]*bintree{}},
+			"disabled.tmpl": &bintree{templatesDdDisabledTmpl, map[string]*bintree{}},
 			"splash.tmpl": &bintree{templatesDdSplashTmpl, map[string]*bintree{}},
 		}},
 		"homepage.tmpl": &bintree{templatesHomepageTmpl, map[string]*bintree{}},
