@@ -92,7 +92,7 @@ func templatesDdDatasetTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/dataset.tmpl", size: 313, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
+	info := bindataFileInfo{name: "templates/dd/dataset.tmpl", size: 313, mode: os.FileMode(420), modTime: time.Unix(1484928775, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -112,7 +112,7 @@ func templatesDdDatasetlistTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/datasetList.tmpl", size: 422, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
+	info := bindataFileInfo{name: "templates/dd/datasetList.tmpl", size: 422, mode: os.FileMode(420), modTime: time.Unix(1485362734, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -132,7 +132,7 @@ func templatesDdDisabledTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/disabled.tmpl", size: 696, mode: os.FileMode(420), modTime: time.Unix(1486114350, 0)}
+	info := bindataFileInfo{name: "templates/dd/disabled.tmpl", size: 696, mode: os.FileMode(420), modTime: time.Unix(1486399963, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -152,7 +152,7 @@ func templatesDdSplashTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dd/splash.tmpl", size: 1250, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
+	info := bindataFileInfo{name: "templates/dd/splash.tmpl", size: 1250, mode: os.FileMode(420), modTime: time.Unix(1485776913, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -172,7 +172,7 @@ func templatesHomepageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/homepage.tmpl", size: 11472, mode: os.FileMode(420), modTime: time.Unix(1477039899, 0)}
+	info := bindataFileInfo{name: "templates/homepage.tmpl", size: 11472, mode: os.FileMode(420), modTime: time.Unix(1480589137, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -192,7 +192,7 @@ func templatesMainTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/main.tmpl", size: 3690, mode: os.FileMode(420), modTime: time.Unix(1484229826, 0)}
+	info := bindataFileInfo{name: "templates/main.tmpl", size: 3690, mode: os.FileMode(420), modTime: time.Unix(1480589137, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -212,7 +212,7 @@ func templatesPartialsFooterTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 2542, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
+	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 2542, mode: os.FileMode(420), modTime: time.Unix(1485349027, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -232,7 +232,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 5695, mode: os.FileMode(420), modTime: time.Unix(1486107537, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 5695, mode: os.FileMode(420), modTime: time.Unix(1485349027, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -252,7 +252,7 @@ func templatesProductpageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/productPage.tmpl", size: 2869, mode: os.FileMode(420), modTime: time.Unix(1479987144, 0)}
+	info := bindataFileInfo{name: "templates/productPage.tmpl", size: 2869, mode: os.FileMode(420), modTime: time.Unix(1480589137, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
