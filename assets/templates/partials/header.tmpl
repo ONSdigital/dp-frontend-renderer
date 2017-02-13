@@ -5,7 +5,7 @@
     {{if .ServiceMessage}}
         <div class="beta-banner">
             <div class="wrapper">
-                <p>{{.ServiceMessage}}</p>
+                <p>{{.ServiceMessage | safeHTML}}</p>
             </div>
         </div>
     {{end}}

@@ -2,6 +2,7 @@ package zebedee
 
 import (
 	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -107,6 +108,8 @@ func (zebedee *Client) GetData(uri string, requestContextID string) (data []byte
 
 // GetTaxonomy gets the taxonomy structure of the website from Zebedee
 func (zebedee *Client) GetTaxonomy(uri string, depth int, requestContextID string) ([]model.ContentNode, error) {
+	log.DebugC(requestContextID, "fetching taxonomy", log.Data{"uri": uri, "depth": depth})
+
 	var zebedeeContentNodeList []model.ContentNode
 	params := []parameter{
 		{name: uriParam, value: uri},
@@ -127,6 +130,8 @@ func (zebedee *Client) GetTaxonomy(uri string, depth int, requestContextID strin
 
 // GetParents gets the breadcrumb for the given url.
 func (zebedee *Client) GetParents(uri string, requestContextID string) ([]model.ContentNode, error) {
+	log.DebugC(requestContextID, "fetching parents", log.Data{"uri": uri})
+
 	var zebedeeContentNodes []model.ContentNode
 	zebedeeBytes, err := zebedee.get(breadcrumbAPI, requestContextID, []parameter{{name: uriParam, value: uri}})
 
@@ -172,11 +177,11 @@ func (zebedee *Client) get(path string, requestContextID string, params []parame
 		"query":               request.URL.RawQuery,
 	})
 	response, err := zebedee.httpClient.Do(request)
-	defer response.Body.Close()
-
 	if err != nil {
 		return nil, errors.New("error calling zebedee") //errorWithReqContextID(err, "error performing zebedee request", requestContextID)
 	}
+
+	defer response.Body.Close()
 
 	if response.StatusCode != 200 {
 		// onsError := errorWithReqContextID(errors.New("Unexpected Response status code"), incorrectStatusCodeErrDesc, requestContextID)
@@ -184,7 +189,7 @@ func (zebedee *Client) get(path string, requestContextID string, params []parame
 		// onsError.AddParameter("actualStatusCode", response.StatusCode)
 		// onsError.AddParameter("zebedeeURI", request.URL.Path)
 		// onsError.AddParameter(requestContextIDParam, requestContextID)
-		return nil, errors.New("unexpected response code")
+		return nil, fmt.Errorf("unexpected response code: %d", response.StatusCode)
 	}
 
 	body, err := resReader(response.Body)
