@@ -13,11 +13,17 @@ import (
 	zebedeeModel "github.com/ONSdigital/go-ns/zebedee/model"
 )
 
-var ZebedeeClient *zebedee.Client
+var ZebedeeClient zebedeeClient
 var taxonomyCache *[]model.TaxonomyNode
 var serviceMessage *string
 var taxonomyMutex sync.Mutex
 var serviceMessageMutex sync.Mutex
+
+type zebedeeClient interface {
+	GetData(uri, requestID string) ([]byte, string, error)
+	GetTaxonomy(uri string, depth int, requestID string) ([]zebedeeModel.ContentNode, error)
+	GetParents(uri, requestID string) ([]zebedeeModel.ContentNode, error)
+}
 
 func getServiceMessage(requestID string) (string, error) {
 	if serviceMessage != nil {
