@@ -7,7 +7,7 @@ var DebugMode bool
 var SiteDomain = "ons.gov.uk"
 
 // PatternLibraryAssetsPath is the URL to the CSS and JS assets from the pattern library
-var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/caf397f"
+var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/6cc1837"
 
 // DataDiscovery has configuration values for the dataset JS application
 // TODO make this configurable from environment
@@ -22,3 +22,6 @@ var DataDiscovery = struct {
 	"/dd/api/jobs",
 	"/dd",
 }
+
+// ZebedeeURL is the URL for Zebedee
+var ZebedeeURL = "http://localhost:8082"

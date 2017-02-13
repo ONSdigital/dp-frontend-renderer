@@ -13,6 +13,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/datasetList"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/disabled"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/splash"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
@@ -20,6 +21,7 @@ import (
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/go-ns/zebedee"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
@@ -30,6 +32,12 @@ func main() {
 	if len(bindAddr) == 0 {
 		bindAddr = ":20010"
 	}
+
+	if v := os.Getenv("ZEBEDEE_URL"); len(v) > 0 {
+		config.ZebedeeURL = v
+	}
+
+	render.ZebedeeClient = zebedee.CreateClient(time.Second*2, config.ZebedeeURL)
 
 	var err error
 	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
@@ -66,6 +74,7 @@ func main() {
 	router.Get("/healthcheck", healthcheck.Handler)
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
+	router.Post("/error", errorPage.Handler)
 	router.Post("/dd/datasetList", datasetList.Handler)
 	router.Post("/dd/dataset", dataset.Handler)
 	router.Post("/dd/splash", splash.Handler)
