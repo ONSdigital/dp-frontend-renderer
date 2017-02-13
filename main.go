@@ -17,6 +17,7 @@ import (
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/go-ns/zebedee"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
@@ -27,6 +28,12 @@ func main() {
 	if len(bindAddr) == 0 {
 		bindAddr = ":20010"
 	}
+
+	if v := os.Getenv("ZEBEDEE_URL"); len(v) > 0 {
+		config.ZebedeeURL = v
+	}
+
+	render.ZebedeeClient = zebedee.CreateClient(time.Second*2, config.ZebedeeURL)
 
 	var err error
 	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))

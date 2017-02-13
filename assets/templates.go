@@ -89,7 +89,7 @@ func templatesErrorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/error.tmpl", size: 684, mode: os.FileMode(420), modTime: time.Unix(1485333439, 0)}
+	info := bindataFileInfo{name: "templates/error.tmpl", size: 684, mode: os.FileMode(420), modTime: time.Unix(1486544100, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -149,7 +149,7 @@ func templatesPartialsFooterTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 2513, mode: os.FileMode(420), modTime: time.Unix(1476772645, 0)}
+	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 2513, mode: os.FileMode(420), modTime: time.Unix(1486544100, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -169,7 +169,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 5673, mode: os.FileMode(420), modTime: time.Unix(1484229833, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 5673, mode: os.FileMode(420), modTime: time.Unix(1486544100, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
