@@ -59,8 +59,8 @@
 		{
 			"checksumSHA1": "Y/BP8MFZno4xgKRfnxsoBi49tHw=",
 			"path": "github.com/ONSdigital/go-ns/common",
-			"revision": "bc66177e78ff92143848188c78ac5f112ce8ef4c",
-			"revisionTime": "2017-01-23T15:55:35Z"
+			"revision": "939d19ac1c9b0227a893e57d70e57fb51b9b5519",
+			"revisionTime": "2017-02-13T10:47:22Z"
 		},
 		{
 			"checksumSHA1": "ei+/RCSa0XO9v9rQxAh0uqyJ/28=",
@@ -87,16 +87,16 @@
 			"revisionTime": "2017-01-23T15:55:35Z"
 		},
 		{
-			"checksumSHA1": "nxK1c5x6nzj8VLRD7jvaXVv+4Hw=",
+			"checksumSHA1": "GGbB5ddk70aQQPdk+gEpg1w8tk8=",
 			"path": "github.com/ONSdigital/go-ns/zebedee",
-			"revision": "bc66177e78ff92143848188c78ac5f112ce8ef4c",
-			"revisionTime": "2017-01-23T15:55:35Z"
+			"revision": "939d19ac1c9b0227a893e57d70e57fb51b9b5519",
+			"revisionTime": "2017-02-13T10:47:22Z"
 		},
 		{
 			"checksumSHA1": "thRqBxertyECtKS17Ay4RrlBklc=",
 			"path": "github.com/ONSdigital/go-ns/zebedee/model",
-			"revision": "bc66177e78ff92143848188c78ac5f112ce8ef4c",
-			"revisionTime": "2017-01-23T15:55:35Z"
+			"revision": "939d19ac1c9b0227a893e57d70e57fb51b9b5519",
+			"revisionTime": "2017-02-13T10:47:22Z"
 		},
 		{
 			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",

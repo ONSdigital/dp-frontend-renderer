@@ -2,7 +2,6 @@ package zebedee
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -16,8 +15,11 @@ import (
 )
 
 type zebedeeRequestError struct {
-	err error
+	err  error
+	data zebedeeRequestErrorData
 }
+
+type zebedeeRequestErrorData map[string]interface{}
 
 func (z zebedeeRequestError) Error() string {
 	return z.err.Error()
@@ -73,33 +75,33 @@ func (zebedee *Client) GetData(uri string, requestContextID string) (data []byte
 
 	request, error := zebedee.buildGetRequest(dataAPI, requestContextID, []parameter{{name: uriParam, value: uri}})
 	if err != nil {
-		return data, pageType, zebedeeRequestError{err}
+		return data, pageType, zebedeeRequestError{err, nil}
 	}
 
 	response, error = zebedee.httpClient.Do(request)
 
 	if error != nil {
-		return data, pageType, zebedeeRequestError{err}
+		return data, pageType, zebedeeRequestError{err, nil}
 	}
 
 	if response.StatusCode != 200 {
 		if response.StatusCode == 401 {
 			return nil, "", errors.New("Unauthorised")
 		}
-		// onsErr := errorWithReqContextID(errors.New("Unexpected Response status code"), incorrectStatusCodeErrDesc, requestContextID)
-		// onsErr.AddParameter("zebedeeURI", request.URL.Path)
-		// onsErr.AddParameter("expectedStatusCode", 200)
-		// onsErr.AddParameter("actualStatusCode", response.StatusCode)
-		// onsErr.AddParameter("query", request.URL.Query().Get("uri"))
-		return data, pageType, errors.New("Unexpected response code")
+
+		return data, pageType, zebedeeRequestError{errors.New("Unexpected response code"), zebedeeRequestErrorData{
+			"zebedeeURI":         request.URL.Path,
+			"expectedStatusCode": 200,
+			"actualStatusCode":   response.StatusCode,
+			"query":              request.URL.Query().Get("uri"),
+		}}
 	}
 
 	data, error = resReader(response.Body)
-	defer response.Body.Close()
-
 	if error != nil {
-		return data, pageType, errors.New("error reading response body") //errorWithReqContextID(error, "error reading response body", requestContextID)
+		return data, pageType, zebedeeRequestError{errors.New("Error reading response body"), nil}
 	}
+	defer response.Body.Close()
 
 	pageType = response.Header.Get(pageTypeHeader)
 	log.Debug("Identified page type", log.Data{"page type": pageType})
@@ -184,12 +186,11 @@ func (zebedee *Client) get(path string, requestContextID string, params []parame
 	defer response.Body.Close()
 
 	if response.StatusCode != 200 {
-		// onsError := errorWithReqContextID(errors.New("Unexpected Response status code"), incorrectStatusCodeErrDesc, requestContextID)
-		// onsError.AddParameter("expectedStatusCode", 200)
-		// onsError.AddParameter("actualStatusCode", response.StatusCode)
-		// onsError.AddParameter("zebedeeURI", request.URL.Path)
-		// onsError.AddParameter(requestContextIDParam, requestContextID)
-		return nil, fmt.Errorf("unexpected response code: %d", response.StatusCode)
+		return nil, zebedeeRequestError{errors.New("Unexpected response code"), zebedeeRequestErrorData{
+			"zebedeeURI":         request.URL.Path,
+			"expectedStatusCode": 200,
+			"actualStatusCode":   response.StatusCode,
+		}}
 	}
 
 	body, err := resReader(response.Body)
