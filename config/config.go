@@ -7,7 +7,7 @@ var DebugMode bool
 var SiteDomain = "ons.gov.uk"
 
 // PatternLibraryAssetsPath is the URL to the CSS and JS assets from the pattern library
-var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/6cc1837"
+var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/caf397f"
 
 // DataDiscovery has configuration values for the dataset JS application
 // TODO make this configurable from environment
