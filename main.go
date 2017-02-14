@@ -80,6 +80,13 @@ func main() {
 		WriteTimeout: 10 * time.Second,
 	}
 
+	log.Debug("config", log.Data{
+		"zebedee_url":                 config.ZebedeeURL,
+		"site_domain":                 config.SiteDomain,
+		"debug_mode":                  config.DebugMode,
+		"pattern_library_assets_path": config.PatternLibraryAssetsPath,
+	})
+
 	if err = server.ListenAndServe(); err != nil {
 		log.Error(err, nil)
 		os.Exit(1)
