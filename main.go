@@ -94,6 +94,7 @@ func main() {
 		"site_domain":                 config.SiteDomain,
 		"debug_mode":                  config.DebugMode,
 		"pattern_library_assets_path": config.PatternLibraryAssetsPath,
+		"data_discovery":              config.DataDiscovery,
 	})
 
 	if err = server.ListenAndServe(); err != nil {
