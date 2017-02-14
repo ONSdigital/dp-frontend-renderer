@@ -131,7 +131,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	go func() {
 		defer wg.Done()
 
-		serviceMessage, _ := getServiceMessage(requestID)
+		serviceMessage, err := getServiceMessage(requestID)
 		if err != nil {
 			log.ErrorR(req, err, nil)
 		}
@@ -142,7 +142,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	go func() {
 		defer wg.Done()
 
-		taxonomy, _ := getTaxonomy(requestID)
+		taxonomy, err := getTaxonomy(requestID)
 		if err != nil {
 			log.ErrorR(req, err, nil)
 		}
@@ -152,7 +152,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	go func() {
 		defer wg.Done()
 
-		parents, _ := ZebedeeClient.GetParents(req.URL.Path, requestID)
+		parents, err := ZebedeeClient.GetParents(req.URL.Path, requestID)
 		if err != nil {
 			log.ErrorR(req, err, nil)
 		}
