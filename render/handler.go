@@ -132,9 +132,9 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		defer wg.Done()
 
 		serviceMessage, _ := getServiceMessage(requestID)
-		// if err != nil {
-		// 	log.ErrorR(req, err, nil)
-		// }
+		if err != nil {
+			log.ErrorR(req, err, nil)
+		}
 
 		page2.ServiceMessage = serviceMessage
 	}()
@@ -143,9 +143,9 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		defer wg.Done()
 
 		taxonomy, _ := getTaxonomy(requestID)
-		// if err != nil {
-		// 	log.ErrorR(req, err, nil)
-		// }
+		if err != nil {
+			log.ErrorR(req, err, nil)
+		}
 		page2.Taxonomy = taxonomy
 	}()
 
@@ -153,9 +153,9 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		defer wg.Done()
 
 		parents, _ := ZebedeeClient.GetParents(req.URL.Path, requestID)
-		// if err != nil {
-		// 	log.ErrorR(req, err, nil)
-		// }
+		if err != nil {
+			log.ErrorR(req, err, nil)
+		}
 
 		for _, n := range parents {
 			page2.Breadcrumb = append(page2.Breadcrumb, n.Map())

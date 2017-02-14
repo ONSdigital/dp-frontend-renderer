@@ -22,9 +22,6 @@ type zebedeeRequestError struct {
 type zebedeeRequestErrorData map[string]interface{}
 
 func (z zebedeeRequestError) Error() string {
-	if z.err == nil {
-		return "FIXME - Something odd has happened"
-	}
 	return z.err.Error()
 }
 
