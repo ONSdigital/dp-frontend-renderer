@@ -17,8 +17,11 @@ var DataDiscovery = struct {
 	JOB_API_URL string
 	BASE_PATH   string
 }{
-	"https://cdn.ons.gov.uk/dp-dd-react-app/a9a1ce3",
+	"https://cdn.ons.gov.uk/dp-dd-react-app/3ba1d16",
 	"/dd/api",
 	"/dd/api/jobs",
 	"/dd",
 }
+
+// ZebedeeURL is the URL for Zebedee
+var ZebedeeURL = "http://localhost:8082"

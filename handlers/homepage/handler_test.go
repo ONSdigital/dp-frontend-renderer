@@ -11,12 +11,26 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
+	zebedeeModel "github.com/ONSdigital/go-ns/zebedee/model"
 	. "github.com/smartystreets/goconvey/convey"
 )
+
+type mockZebedeeClient struct{}
+
+func (m *mockZebedeeClient) GetData(uri, requestID string) ([]byte, string, error) {
+	return []byte(`{"serviceMessage": "Foo bar"}`), "", nil
+}
+func (m *mockZebedeeClient) GetTaxonomy(uri string, depth int, requestID string) ([]zebedeeModel.ContentNode, error) {
+	return nil, nil
+}
+func (m *mockZebedeeClient) GetParents(uri, requestID string) ([]zebedeeModel.ContentNode, error) {
+	return nil, nil
+}
 
 func TestHandler(t *testing.T) {
 	f := &rendertest.FakeRenderer{}
 	render.Renderer = f
+	render.ZebedeeClient = &mockZebedeeClient{}
 
 	config.PatternLibraryAssetsPath = "foobar.com"
 
