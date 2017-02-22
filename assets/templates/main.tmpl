@@ -20,6 +20,18 @@
 		{{`<!--[if gt IE 9]><!-->` | safeHTML}}
       <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{`<!--<![endif]-->` | safeHTML}}
+
+    <script type='text/javascript'>
+        var BugHerdConfig = {"feedback":{"hide":true}};
+        (function(d, t) {
+            var bh = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            bh.type = 'text/javascript';
+            bh.src = '//www.bugherd.com/sidebarv2.js?apikey=gz3vgtdl3pkh9xuruo9tra';
+            s.parentNode.insertBefore(bh, s);
+        })(document, 'script');
+    </script>
+
 </head>
 <body class="{{ .Type }}">
 

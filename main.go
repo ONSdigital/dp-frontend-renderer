@@ -36,6 +36,9 @@ func main() {
 	if v := os.Getenv("ZEBEDEE_URL"); len(v) > 0 {
 		config.ZebedeeURL = v
 	}
+	if v := os.Getenv("SITE_DOMAIN"); len(v) > 0 {
+		config.SiteDomain = v
+	}
 
 	render.ZebedeeClient = zebedee.CreateClient(time.Second*2, config.ZebedeeURL)
 
