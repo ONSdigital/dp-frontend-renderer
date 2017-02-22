@@ -16,10 +16,12 @@ else
   DOCKER_NETWORK=website
 fi
 
-source $CONFIG && docker run -d \
-  --env=BIND_ADDR=$BIND_ADDR    \
-  --env=DEBUG=$DEBUG            \
-  --name=frontend-renderer      \
-  --net=$DOCKER_NETWORK         \
-  --restart=always              \
+source $CONFIG && docker run -d  \
+  --env=BIND_ADDR=$BIND_ADDR     \
+  --env=DEBUG=$DEBUG             \
+  --env=ZEBEDEE_URL=$ZEBEDEE_URL \
+  --env=SITE_DOMAIN=$SITE_DOMAIN \
+  --name=frontend-renderer       \
+  --net=$DOCKER_NETWORK          \
+  --restart=always               \
   $ECR_REPOSITORY_URI/frontend-renderer:$GIT_COMMIT

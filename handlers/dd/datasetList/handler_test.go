@@ -1,4 +1,4 @@
-package homepage
+package datasetList
 
 import (
 	"bytes"
@@ -7,8 +7,7 @@ import (
 	"testing"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
-	"github.com/ONSdigital/dp-frontend-models/model/homepage"
-	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-models/model/dd/datasetList"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/render/rendertest"
 	zebedeeModel "github.com/ONSdigital/go-ns/zebedee/model"
@@ -28,11 +27,11 @@ func (m *mockZebedeeClient) GetParents(uri, requestID string) ([]zebedeeModel.Co
 }
 
 func TestHandler(t *testing.T) {
+
 	f := &rendertest.FakeRenderer{}
 	render.Renderer = f
-	render.ZebedeeClient = &mockZebedeeClient{}
 
-	config.PatternLibraryAssetsPath = "foobar.com"
+	render.ZebedeeClient = &mockZebedeeClient{}
 
 	Convey("Handler returns 400 status code response when request body is empty", t, func() {
 		recorder := httptest.NewRecorder()
@@ -42,44 +41,6 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 400)
-	})
-
-	Convey("Handler returns matching data from request page model", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"serviceMessage": "Foo bar"}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.Binding.(*homepage.Page)
-		So(p.ServiceMessage, ShouldEqual, "Foo bar")
-		So(p.PatternLibraryAssetsPath, ShouldEqual, config.PatternLibraryAssetsPath)
-	})
-
-	Convey("SparklineData dates are copied to HeadlineFigure", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": [{"name": "foo"}, {"name": "bar"}, {"name": "baz"}]}]}}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.Binding.(*homepage.Page)
-		So(p.Data.HeadlineFigures[0].StartDate, ShouldEqual, "foo")
-		So(p.Data.HeadlineFigures[0].EndDate, ShouldEqual, "baz")
-	})
-
-	Convey("SparklineData dates are skipped if sparklineData is empty", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": []}]}}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
 	})
 
 	Convey("Handler returns 500 status code when HTML render returns an error", t, func() {
@@ -105,8 +66,8 @@ func TestHandler(t *testing.T) {
 		request.Header.Set("Accept-Language", "foo")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
-		So(f.Binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.Binding.(*homepage.Page)
+		So(f.Binding, ShouldHaveSameTypeAs, &datasetList.DatasetList{})
+		p := f.Binding.(*datasetList.DatasetList)
 		So(p.Language, ShouldEqual, "en")
 	})
 
@@ -120,5 +81,18 @@ func TestHandler(t *testing.T) {
 		So(f.Binding, ShouldHaveSameTypeAs, model.ErrorResponse{})
 		p := f.Binding.(model.ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from reader")
+	})
+
+	Convey("Dataset titles are rendered", t, func() {
+		recorder := httptest.NewRecorder()
+		rdr := bytes.NewReader([]byte(`{"datasets":{"items":[{"id":"ID1","title":"A Test Dataset"}]}}`))
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
+		Handler(recorder, request)
+		So(recorder.Code, ShouldEqual, 200)
+		So(f.Binding, ShouldHaveSameTypeAs, &datasetList.DatasetList{})
+		p := f.Binding.(*datasetList.DatasetList)
+		So(p.Datasets.Items, ShouldHaveLength, 1)
+		So(p.Datasets.Items[0].Title, ShouldEqual, "A Test Dataset")
 	})
 }
