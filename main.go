@@ -39,6 +39,19 @@ func main() {
 	if v := os.Getenv("SITE_DOMAIN"); len(v) > 0 {
 		config.SiteDomain = v
 	}
+	if v := os.Getenv("REACT_APP_ASSETS_PATH"); len(v) > 0 {
+		log.Debug(os.Getenv("REACT_APP_ASSETS_PATH"), nil)
+		config.DataDiscovery.ReactAppAssetsPath = v
+	}
+	if v := os.Getenv("DISCOVERY_API_URL"); len(v) > 0 {
+		config.DataDiscovery.ApiURL = v
+	}
+	if v := os.Getenv("JOB_API_URL"); len(v) > 0 {
+		config.DataDiscovery.JobsApiURL = v
+	}
+	if v := os.Getenv("BASE_PATH"); len(v) > 0 {
+		config.DataDiscovery.BasePath = v
+	}
 
 	render.ZebedeeClient = zebedee.CreateClient(time.Second*2, config.ZebedeeURL)
 
@@ -50,7 +63,7 @@ func main() {
 
 	if config.DebugMode {
 		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
-		config.DataDiscovery.AssetsPath = "http://localhost:20040"
+		config.DataDiscovery.ReactAppAssetsPath = "http://localhost:20040"
 	}
 
 	log.Namespace = "dp-frontend-renderer"

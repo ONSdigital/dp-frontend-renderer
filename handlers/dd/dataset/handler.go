@@ -16,11 +16,11 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 	render.Handler(w, req, &page, &page.Page, "dd/dataset", func() {
 		// TODO Add in graceful error handling in this callback function
-		page.Dataset.Config = &dd.Config {
-			AssetsPath: config.DataDiscovery.AssetsPath,
-			APIURL: config.DataDiscovery.API_URL,
-			JobAPIURL: config.DataDiscovery.JOB_API_URL,
-			BasePath: config.DataDiscovery.BASE_PATH,
+		page.Dataset.Config = &dd.Config{
+			ReactAppAssetsPath: config.DataDiscovery.ReactAppAssetsPath,
+			ApiURL:           config.DataDiscovery.ApiURL,
+			JobsApiURL:       config.DataDiscovery.JobsApiURL,
+			BasePath:         config.DataDiscovery.BasePath,
 		}
 	})
 }
