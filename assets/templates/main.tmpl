@@ -41,7 +41,9 @@
         {{yield}}
     </main>
 
-    {{ template "partials/footer" }}
+    {{if not .HideHeaderAndFooter}}
+        {{ template "partials/footer" }}
+    {{end}}
 
     {{`<!--[if gt IE 8]><!-->` | safeHTML}}
       {{/* TODO - update on live build to use two JS files, not a single one */}}
