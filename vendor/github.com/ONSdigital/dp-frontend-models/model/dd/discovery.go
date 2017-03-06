@@ -22,10 +22,10 @@ type Dataset struct {
 
 // Config values for the data discovery application
 type Config struct {
-	AssetsPath string `json:"-"`
-	APIURL     string `json:"-"`
-	JobAPIURL  string `json:"-"`
-	BasePath   string `json:"-"`
+	ReactAppAssetsPath string `json:"-"`
+	ApiURL             string `json:"-"`
+	JobsApiURL         string `json:"-"`
+	BasePath           string `json:"-"`
 }
 
 // Metadata about a dataset.

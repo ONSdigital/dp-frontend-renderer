@@ -3,16 +3,16 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "5SVt0DtLz7rBdV6/vyoDwhF8Rvw=",
+			"checksumSHA1": "CppcyP4qGREoUfYKgNA4FjFxdwo=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "1b3f8a6ee8c94c2ac49460e4cdffe6e01680dca7",
-			"revisionTime": "2016-12-09T09:46:20Z"
+			"revision": "59e3122204d8fd8d5da287077b3f901211a5c04e",
+			"revisionTime": "2017-03-02T14:21:19Z"
 		},
 		{
-			"checksumSHA1": "CDhAGYorpOUxOXG3SAOw9+SY2Ww=",
+			"checksumSHA1": "A5KLq/MbUdvON5aiTQuX1+AZ0d8=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dd",
-			"revision": "6d96124bfc3282f164df198daa964efdd2c75174",
-			"revisionTime": "2016-12-12T12:02:07Z"
+			"revision": "e5dde473a26c9965d6ed137234eec97afc4fd77e",
+			"revisionTime": "2017-02-03T09:42:14Z"
 		},
 		{
 			"checksumSHA1": "yEeAoLvNPSwzytiE/gFDxxIjGvc=",

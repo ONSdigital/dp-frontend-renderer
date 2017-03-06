@@ -12,5 +12,7 @@ import (
 func Handler(w http.ResponseWriter, req *http.Request) {
 	var page splash.Page
 
-	render.Handler(w, req, &page, &page.Page, "dd/splash", nil)
+	render.Handler(w, req, &page, &page.Page, "dd/splash", func() {
+		page.HideHeaderAndFooter = true
+	})
 }

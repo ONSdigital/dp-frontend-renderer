@@ -1,9 +1,9 @@
 <div id="app"></div>
 <script type="text/javascript">
   var appConfig = {
-    API_URL: {{ .Dataset.Config.APIURL}},
-    JOB_API_URL: {{ .Dataset.Config.JobAPIURL}},
+    API_URL: {{ .Dataset.Config.ApiURL}},
+    JOB_API_URL: {{ .Dataset.Config.JobsApiURL}},
     BASE_PATH: {{ .Dataset.Config.BasePath}}
   };
 </script>
-<script type="text/javascript" src="{{ .Dataset.Config.AssetsPath}}/bundle.js"></script>
+<script type="text/javascript" src="{{ .Dataset.Config.ReactAppAssetsPath }}/bundle.js"></script>
