@@ -9,6 +9,10 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/dataset"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/datasetList"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/disabled"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dd/splash"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
@@ -17,6 +21,7 @@ import (
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/go-ns/zebedee"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
@@ -28,6 +33,28 @@ func main() {
 		bindAddr = ":20010"
 	}
 
+	if v := os.Getenv("ZEBEDEE_URL"); len(v) > 0 {
+		config.ZebedeeURL = v
+	}
+	if v := os.Getenv("SITE_DOMAIN"); len(v) > 0 {
+		config.SiteDomain = v
+	}
+	if v := os.Getenv("REACT_APP_ASSETS_PATH"); len(v) > 0 {
+		log.Debug(os.Getenv("REACT_APP_ASSETS_PATH"), nil)
+		config.DataDiscovery.ReactAppAssetsPath = v
+	}
+	if v := os.Getenv("DISCOVERY_API_URL"); len(v) > 0 {
+		config.DataDiscovery.ApiURL = v
+	}
+	if v := os.Getenv("JOB_API_URL"); len(v) > 0 {
+		config.DataDiscovery.JobsApiURL = v
+	}
+	if v := os.Getenv("BASE_PATH"); len(v) > 0 {
+		config.DataDiscovery.BasePath = v
+	}
+
+	render.ZebedeeClient = zebedee.CreateClient(time.Second*2, config.ZebedeeURL)
+
 	var err error
 	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
 	if err != nil {
@@ -36,6 +63,7 @@ func main() {
 
 	if config.DebugMode {
 		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
+		config.DataDiscovery.ReactAppAssetsPath = "http://localhost:20040"
 	}
 
 	log.Namespace = "dp-frontend-renderer"
@@ -63,6 +91,10 @@ func main() {
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
+	router.Post("/dd/datasetList", datasetList.Handler)
+	router.Post("/dd/dataset", dataset.Handler)
+	router.Post("/dd/splash", splash.Handler)
+	router.Post("/dd/disabled", disabled.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
@@ -72,6 +104,14 @@ func main() {
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
+
+	log.Debug("config", log.Data{
+		"zebedee_url":                 config.ZebedeeURL,
+		"site_domain":                 config.SiteDomain,
+		"debug_mode":                  config.DebugMode,
+		"pattern_library_assets_path": config.PatternLibraryAssetsPath,
+		"data_discovery":              config.DataDiscovery,
+	})
 
 	if err = server.ListenAndServe(); err != nil {
 		log.Error(err, nil)
