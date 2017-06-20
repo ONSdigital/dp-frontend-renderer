@@ -9,6 +9,24 @@
 			"revisionTime": "2016-12-09T09:46:20Z"
 		},
 		{
+			"checksumSHA1": "fAyPS71FyNTWhcs+JmSkZupUaeE=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/finishPage",
+			"revision": "145436a66b9a9e760de0132daa25563d2088501e",
+			"revisionTime": "2017-06-16T08:10:57Z"
+		},
+		{
+			"checksumSHA1": "E6WOaNeTQx60wzn2gKoIHzemheI=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/middlePage",
+			"revision": "145436a66b9a9e760de0132daa25563d2088501e",
+			"revisionTime": "2017-06-16T08:10:57Z"
+		},
+		{
+			"checksumSHA1": "F7QBp7GvgJJBjqmHOyVGys+1yAM=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/startPage",
+			"revision": "145436a66b9a9e760de0132daa25563d2088501e",
+			"revisionTime": "2017-06-16T08:10:57Z"
+		},
+		{
 			"checksumSHA1": "mKaysIX75QVhvz5C6+pBGJGxjTU=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/errorPage",
 			"revision": "1b3f8a6ee8c94c2ac49460e4cdffe6e01680dca7",
