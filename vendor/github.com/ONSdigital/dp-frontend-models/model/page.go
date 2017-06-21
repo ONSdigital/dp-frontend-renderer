@@ -8,6 +8,7 @@ type Page struct {
 	Breadcrumb                       []TaxonomyNode `json:"breadcrumb"`
 	ServiceMessage                   string         `json:"serviceMessage"`
 	Metadata                         Metadata       `json:"metadata"`
+	SearchDisabled                   bool           `json:"searchDisabled"`
 	SiteDomain                       string         `json:"-"`
 	PatternLibraryAssetsPath         string         `json:"-"`
 	Language                         string         `json:"-"`
