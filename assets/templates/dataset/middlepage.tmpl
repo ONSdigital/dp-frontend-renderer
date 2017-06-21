@@ -1,11 +1,11 @@
-<html>
+<!-- <html>
   <h2>Customise Your Data</h2>
   <form action="/jobs/{{.Data.JobID}}/dimensions">
     <input type="submit" value="preview and download">
   </form>
 
   <p>JobID: {{.Data.JobID}}</p>
-</html>
+</html> -->
 
 	<div class="page-content">
 		<div class="wrapper">
@@ -13,34 +13,45 @@
 				<div class="col">
 					<div class="col col--md-47 col--lg-39 margin-bottom--4">
 
-						<form class="form adjust-font-size--16">
-							<h1 class="margin-top--4 margin-bottom">Residence Type</h1>
-							<div class="margin-bottom--2">
-								<a class="margin-right font-size--16">Select all</a>
-								<a class="margin-right font-size--16">Deselect all</a>
+						<form class="form adjust-font-size--16" action="/jobs/{{.Data.JobID}}/dimensions">
+							<h1 class="margin-top--4 margin-bottom w-700">Residence Type</h1>
+
+							<details role="group" class="margin-bottom">
+							  <summary><span class="summary">Help with this dataset</span></summary>
+							  <div class="panel">
+							  	<h3 class="margin-bottom--0 w-700">Some title</h3>
+							    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
+							  </div>
+							</details>
+
+							<div role="toolbar" aria-label="checkbox selector" class="margin-bottom--2 js--select-all-none nojs--hide">
+								<button type="button" id="select-all" aria-disabled="false" role="button" class="margin-right btn btn--link btn--link-underlined">Select all</button>
+								<button type="button" id="select-none" aria-disabled="true" role="button" class="margin-right btn btn--link btn--link-underlined btn--link-disabled">Deselect all</button>
 							</div>
-							<div class="checkbox">
-								<input type="checkbox" class="checkbox__input" id="All categories: Residence Type" name="All categories: Residence Type" value="All categories: Residence Type">
-								<label class="checkbox__label" for="All categories: Residence Type">
-									All categories: Residence Type
-								</label>
+							<div class="checkbox-group">
+								<div class="checkbox">
+									<input type="checkbox" class="checkbox__input" id="All categories: Residence Type" name="All categories: Residence Type" value="All categories: Residence Type">
+									<label class="checkbox__label" for="All categories: Residence Type">
+										All categories: Residence Type
+									</label>
+								</div>
+								<div class="checkbox">
+									<input type="checkbox" class="checkbox__input" id="Lives in a communal establishment" name="Lives in a communal establishment" value="Lives in a communal establishment">
+									<label class="checkbox__label" for="Lives in a communal establishment">
+										Lives in a communal establishment
+									</label>
+								</div>
+								<div class="checkbox">
+									<input type="checkbox" class="checkbox__input" id="Lives in a household" name="Lives in a household" value="Lives in a household">
+									<label class="checkbox__label" for="Lives in a household">
+										Lives in a household
+									</label>
+								</div>	
 							</div>
-							<div class="checkbox">
-								<input type="checkbox" class="checkbox__input" id="Lives in a communal establishment" name="Lives in a communal establishment" value="Lives in a communal establishment">
-								<label class="checkbox__label" for="Lives in a communal establishment">
-									Lives in a communal establishment
-								</label>
-							</div>
-							<div class="checkbox">
-								<input type="checkbox" class="checkbox__input" id="Lives in a household" name="Lives in a household" value="Lives in a household">
-								<label class="checkbox__label" for="Lives in a household">
-									Lives in a household
-								</label>
-							</div>	
 							<div class="margin-top--4 margin-bottom--8">
-								<a class="btn btn--primary btn--thick btn--wide btn--big margin-right--half">Save selection</a>
+								<input class="btn btn--primary btn--thick btn--wide btn--big margin-right--half w-700 font-size--17" type="submit" value="Save selection">
 								<br>
-								<a class="inline-block margin-top--4 font-size--17">Cancel</a>
+								<a href="#" class="block margin-top--4 underline-link">Cancel</a>
 							</div>
 						</form>
 					</div>
