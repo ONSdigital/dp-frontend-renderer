@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"reflect"
 	"strconv"
 	"time"
 
@@ -51,6 +52,9 @@ func main() {
 		Funcs: []template.FuncMap{{
 			"safeHTML": func(s string) template.HTML {
 				return template.HTML(s)
+			},
+			"last": func(x int, a interface{}) bool {
+				return x == reflect.ValueOf(a).Len()-1
 			},
 		}},
 	})
