@@ -104,4 +104,28 @@
         </div>
     </div>
     {{end}}
+
+    {{ $bc :=  .Breadcrumb}} {{ if $bc }}
+    <div class="wrapper">
+        <nav aria-label="breadcrumb" role="navigation">
+            <div class="breadcrumb print--hide">
+               <ol class="breadcrumb__list">
+                  {{ range $i, $b := $bc }}
+                      {{if last $i $bc}}
+                      <li class="breadcrumb__item">
+                         {{ $b.Title }}
+                      </li>
+                      {{else}}
+                      <li class="breadcrumb__item">
+                         <a class="breadcrumb__link" href="{{ $b.URI }}">
+                          {{ $b.Title }}
+                         </a>
+                      </li>
+                      {{end}}
+                  {{end}}
+               </ol>
+            </div>
+        </nav>
+    </div>
+    {{ end }}
 </header>

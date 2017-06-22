@@ -32,6 +32,8 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		return
 	}
 
+	log.Debug("incoming request json payload", log.Data{"json": string(b)})
+
 	if f != nil {
 		f()
 	}
