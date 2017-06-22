@@ -107,7 +107,7 @@
 
     {{ $bc :=  .Breadcrumb}} {{ if $bc }}
     <div class="wrapper">
-        <nav>
+        <nav aria-label="breadcrumb" role="navigation">
             <div class="breadcrumb print--hide">
                <ol class="breadcrumb__list">
                   {{ range $i, $b := $bc }}
