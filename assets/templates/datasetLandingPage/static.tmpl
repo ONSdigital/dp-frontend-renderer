@@ -1,0 +1,172 @@
+<div class="page-intro background--gallery">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col">
+                <h1 class="page-intro__title margin-bottom--4">
+                    <span class="page-intro__type">Dataset</span>
+                    {{ .Metadata.Title }}
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+{{ if or .DatasetLandingPage.Corrections .DatasetLandingPage.Notices }}
+<div class="background--abbey padding-top--3 padding-bottom--3">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col">
+                <div class="js-show-hide show-hide show-hide--dark info-box">
+                    <div class="js-show-hide__title">
+                        <h2 class="show-hide__title padding-left-sm--1 padding-left-md--4">
+                            <span class="icon icon-info icon-info--info-box hide--sm"></span>
+                            {{ if and .DatasetLandingPage.Corrections .DatasetLandingPage.Notices }}
+                                Corrections and notices
+                            {{else if .DatasetLandingPage.Corrections}}
+                                Correction{{ if (gt (len .DatasetLandingPage.Corrections) 1) }}s{{ end }}
+                            {{else if .DatasetLandingPage.Notices}}
+                                Notice{{ if (gt (len .DatasetLandingPage.Notices) 1) }}s{{ end }}
+                            {{ end }}
+                        </h2>
+                    </div>
+                    <div class="js-show-hide__content">
+                        {{ if .DatasetLandingPage.Corrections}}
+                            <div class="show-hide__content alert--warning__content section__content--markdown padding-bottom--1">
+                                {{ if .DatasetLandingPage.Notices }}
+                                    <h3>Corrections</h3>
+                                {{ end }}
+                                <ul class="list--neutral">
+                                    {{ range $key, $value := .DatasetLandingPage.Corrections }}
+                                        <li>
+                                            {{ $value.Date }}
+                                            {{ $value.Markdown }}
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        {{ end }}
+
+                        {{ if .DatasetLandingPage.Notices}}
+                            <div class="show-hide__content alert--warning__content section__content--markdown padding-bottom--1">
+                                {{ if .DatasetLandingPage.Corrections }}
+                                    <h3>Notices</h3>
+                                {{ end }}
+                                <ul class="list--neutral">
+                                    {{ range $key, $value := .DatasetLandingPage.Notices }}
+                                        <li>
+                                            {{ $value.Date }}
+                                            {{ $value.Markdown }}
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+<div class="meta-wrap">
+    <div class="wrapper">
+        <dl class="col-wrap">
+            <div class="col col--md-12 col--lg-15 meta__item">
+                {{ if .DatasetLandingPage.IsNationalStatistic}}
+                    <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">
+                        <img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo">
+                    </a>
+                {{ end }}
+                <dt class="meta__term">Contact</dt>
+                <dd>
+                    {{ if .ContactDetails.Email}}
+                        <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Name }}</a>
+                    {{ else }}
+                        {{ .ContactDetails.Name }}
+                    {{ end }}
+                </dd>
+                {{ if .ContactDetails.Telephone }}
+                    <dd>
+                        {{ .ContactDetails.Telephone }}
+                    </dd>
+                {{ end }}
+            </div>
+            <div class="col col--md-12 col--lg-15 meta__item">
+                <dt class="meta__term">Release date</dt>
+                <dd>{{ .DatasetLandingPage.ReleaseDate }}</dd>
+            </div>
+            {{ if .DatasetLandingPage.NextRelease}}
+                <div class="col col--md-12 col--lg-15 meta__item">
+                    <dt class="meta__term">Next release</dt>
+                    <dd>{{ .DatasetLandingPage.NextRelease }}</dd>
+                </div>
+            {{ end }}
+        </dl> 
+    </div>
+</div>
+
+<div class="wrapper">
+        <div class="col-wrap">
+            <div class="col col--lg-two-thirds col--md-two-thirds">
+                <section>
+                    <h2>About this dataset</h2>
+                        {{ if .DatasetLandingPage.Notes}}
+                            {{ .DatasetLandingPage.Notes }}
+                        {{else}}
+                            {{ .Metadata.Description }}
+                        {{ end }}
+                </section>
+                <section>
+                    <h2 class="margin-bottom--2">Your download options</h2>
+                    {{ if .DatasetLandingPage.IsTimeseries }}
+                        Timeseries
+                    {{else}}
+                        {{ range $key, $value := .DatasetLandingPage.Datasets }}
+                            {{ $title := $value.Title }}
+                            <div class="show-hide show-hide--light js-show-hide border-top--abbey-sm border-top--abbey-md border-top--abbey-lg{{if $value.IsLast}} border-bottom--abbey-sm border-bottom--abbey-md border-bottom--abbey-lg{{end}}">
+                                <div class="js-show-hide__title{{if eq $key 0}} is-shown{{end}}">
+                                    <h3 class="margin-top--0 margin-bottom--0">{{ $title }}</h3>
+                                </div>
+                                <div class="js-show-hide__content">
+                                    <div class="margin-bottom--2">
+                                        {{ range $k, $v := $value.Downloads }}
+                                            <a href="/file?uri={{ $.URI }}/{{ $v.URI }}" class="btn btn--primary btn--thick" title="Download {{$.Metadata.Title}}: {{$title}} as an XLS file">{{ .Extension }}</a>
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                        {{ end }}
+                    {{ end }}
+                </section>
+
+            </div>
+            <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
+                {{ if .DatasetLandingPage.Related.Publications }}
+                    <h3>Publications</h3>
+                    <ul>
+                        {{ range $key, $value := .DatasetLandingPage.Related.Publications }}
+                            <li><a href="{{ $value.URI }}">{{ $value.Title }}</a></li>
+                        {{ end }}
+                    </ul>
+                {{ end }}
+
+                {{ if .DatasetLandingPage.Related.Methodology }}
+                    <h3>Methodology</h3>
+                    <ul>
+                        {{ range $key, $value := .DatasetLandingPage.Related.Methodology }}
+                            <li><a href="{{ $value.URI }}">{{ $value.Title }}</a></li>
+                        {{ end }}
+                    </ul>
+                {{ end }}
+
+                {{ if .DatasetLandingPage.Related.Links }}
+                    <h3>Related links</h3>
+                    <ul>
+                        {{ range $key, $value := .DatasetLandingPage.Related.Links }}
+                            <li><a href="{{ $value.URI }}">{{ $value.Title }}</a></li>
+                        {{ end }}
+                    </ul>
+                {{ end }}
+            </div>
+        </div>
+    </div>

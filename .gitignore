@@ -5,3 +5,4 @@ assets/debug.go
 .idea/
 .tags*
 *.iml
+.vscode/*

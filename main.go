@@ -12,6 +12,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/middlePage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/startPage"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
@@ -64,6 +65,8 @@ func main() {
 
 	router.Get("/healthcheck", healthcheck.Handler)
 	router.Post("/homepage", homepage.Handler)
+	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler)
+	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
 	router.Post("/dataset/startpage", startPage.Handler)
