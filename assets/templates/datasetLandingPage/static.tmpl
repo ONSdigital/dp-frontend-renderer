@@ -146,6 +146,26 @@
 
             </div>
             <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
+
+                <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
+                    <h3 class="tiles__title-h3 tiles__title-h3--nav">Contact details for this dataset</h3>
+                    <div class="tiles__content tiles__content--nav">
+                        <address>
+                            {{ if .ContactDetails.Name}}
+                                {{ .ContactDetails.Name }}
+                            {{ end }}
+                            {{ if .ContactDetails.Email}}
+                                <br>
+                                <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a>
+                            {{ end }}
+                            {{ if .ContactDetails.Telephone }}
+                                <br>
+                                {{ .ContactDetails.Telephone }}
+                            {{ end }}
+                        </address>
+                    </div>
+                </div>
+
                 {{ if .DatasetLandingPage.Related.Publications }}
                     <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
                         <h3 class="tiles__title-h3 tiles__title-h3--nav">Publications that use this data</h3>
