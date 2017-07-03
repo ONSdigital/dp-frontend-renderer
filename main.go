@@ -53,6 +53,14 @@ func main() {
 			"safeHTML": func(s string) template.HTML {
 				return template.HTML(s)
 			},
+			"dateFormat": func(s string) template.HTML {
+				t, err := time.Parse(time.RFC3339, s)
+				if err != nil {
+					log.Error(err, nil)
+					return template.HTML(s)
+				}
+				return template.HTML(t.Format("02 January 2006"))
+			},
 		}},
 	})
 

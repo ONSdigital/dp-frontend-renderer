@@ -93,7 +93,7 @@
             </div>
             <div class="col col--md-12 col--lg-15 meta__item">
                 <dt class="meta__term">Release date</dt>
-                <dd>{{ .DatasetLandingPage.ReleaseDate }}</dd>
+                <dd>{{ dateFormat .DatasetLandingPage.ReleaseDate }}</dd>
             </div>
             {{ if .DatasetLandingPage.NextRelease}}
                 <div class="col col--md-12 col--lg-15 meta__item">
