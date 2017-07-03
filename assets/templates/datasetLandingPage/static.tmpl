@@ -34,14 +34,12 @@
                                 {{ if .DatasetLandingPage.Notices }}
                                     <h3>Corrections</h3>
                                 {{ end }}
-                                <ul class="list--neutral">
+                                <section>
                                     {{ range $key, $value := .DatasetLandingPage.Corrections }}
-                                        <li>
-                                            {{ $value.Date }}
-                                            {{ $value.Markdown }}
-                                        </li>
+                                        <p class="alert__date">{{ dateFormat $value.Date }}</p>
+                                        {{ $value.Markdown }}
                                     {{ end }}
-                                </ul>
+                                </section>
                             </div>
                         {{ end }}
 
@@ -50,14 +48,12 @@
                                 {{ if .DatasetLandingPage.Corrections }}
                                     <h3>Notices</h3>
                                 {{ end }}
-                                <ul class="list--neutral">
+                                <section>
                                     {{ range $key, $value := .DatasetLandingPage.Notices }}
-                                        <li>
-                                            {{ $value.Date }}
-                                            {{ $value.Markdown }}
-                                        </li>
+                                        <p class="alert__date">{{ dateFormat $value.Date }}</p>
+                                        {{ $value.Markdown }}
                                     {{ end }}
-                                </ul>
+                                </section>
                             </div>
                         {{ end }}
                     </div>
@@ -128,9 +124,29 @@
                                 <div class="js-show-hide__content">
                                     <div class="margin-bottom--2">
                                         {{ range $k, $v := $value.Downloads }}
-                                            <a href="/file?uri={{ $dataset.URI }}/{{ $v.URI }}" class="btn btn--primary btn--thick" title="Download {{$.Metadata.Title}}: {{$dataset.Title}} as an XLS file">{{ .Extension }} {{ .Size }}</a>
+                                            <a href="/file?uri={{ $dataset.URI }}/{{ $v.URI }}" class="btn btn--primary btn--thick">
+                                                <span class="visuallyhidden">Download {{$.Metadata.Title}}: {{$dataset.Title}} as an XLS file</span>
+                                                <span class="uppercase">{{ .Extension }} {{ .Size }}</span>
+                                            </a>
                                         {{ end }}
                                     </div>
+                                    {{ if $value.HasVersions }}
+                                        <p class="margin-top--0">
+                                            <span class="icon icon-info--inline"></span>
+                                            <a href="{{ $value.URI }}" class="underline-link margin-left--3">Previous versions</a> of this data are available.
+                                        </p>
+                                    {{ end }}
+                                    {{ if $value.SupplementaryFiles }}
+                                        <h4 class="margin-bottom--0">Supporting files you may find useful</h4>
+                                        <ul class="list--neutral margin-top--0">
+                                            {{ range $k, $supplementaryFile := $value.SupplementaryFiles }}
+                                                <li class="margin-top--0 margin-bottom--0">
+                                                    <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}">{{ .Title }}</a>
+                                                    <span class="uppercase">({{ .Extension }}, {{ .Size }})</span>
+                                                </li>
+                                            {{ end }}
+                                        </ul>
+                                    {{ end }}
                                 </div>
                             </div>
                         {{ end }}
@@ -146,6 +162,10 @@
 
             </div>
             <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
+
+                <div class="print--hide margin-bottom--2">
+                    <a href="../datalist?filter=datasets" class="btn btn--primary btn--full-width">View all data related to <span class="lowercase">{{ .DatasetLandingPage.ParentPath }}</span></a>
+                </div>
 
                 <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
                     <h3 class="tiles__title-h3 tiles__title-h3--nav">Contact details for this dataset</h3>
