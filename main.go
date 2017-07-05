@@ -10,6 +10,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/cmd/ageSelectorRange"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/cmd/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/middlePage"
@@ -57,6 +58,18 @@ func main() {
 			"last": func(x int, a interface{}) bool {
 				return x == reflect.ValueOf(a).Len()-1
 			},
+			"loop": func(n, m int) []int {
+				arr := make([]int, m-n)
+				v := n
+				for i := 0; i < m-v; i++ {
+					arr[i] = n
+					n++
+				}
+				return arr
+			},
+			"subtract": func(x, y int) int {
+				return x - y
+			},
 		}},
 	})
 
@@ -72,6 +85,7 @@ func main() {
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
 	router.Post("/cmd/filter-overview", filterOverview.Handler)
+	router.Post("/cmd/age-selector-range", ageSelectorRange.Handler)
 	router.Post("/dataset/startpage", startPage.Handler)
 	router.Post("/dataset/middlepage", middlePage.Handler)
 	router.Post("/dataset/finishpage", finishPage.Handler)
