@@ -11,6 +11,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/cmd/filterOverview"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/cmd/geography"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/middlePage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/startPage"
@@ -72,6 +73,7 @@ func main() {
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
 	router.Post("/cmd/filter-overview", filterOverview.Handler)
+	router.Post("/cmd/geography-search", geography.Handler)
 	router.Post("/dataset/startpage", startPage.Handler)
 	router.Post("/dataset/middlepage", middlePage.Handler)
 	router.Post("/dataset/finishpage", finishPage.Handler)
