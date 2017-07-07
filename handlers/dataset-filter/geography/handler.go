@@ -1,4 +1,4 @@
-package filterOverview
+package geography
 
 import (
 	"net/http"
@@ -7,9 +7,9 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 )
 
-// Handler handles rendering of filter overview template
+// Handler ...
 func Handler(w http.ResponseWriter, req *http.Request) {
 	var page filterOverview.Page
 
-	render.Handler(w, req, &page, &page.Page, "cmd/filter-overview", nil)
+	render.Handler(w, req, &page, &page.Page, "dataset-filter/geography", nil)
 }
