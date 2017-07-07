@@ -11,10 +11,11 @@
 		</div>
 	</div>
   <div class="page-content underline-all-links">
-      <div class="wrapper">
-          <div class="col-wrap">
-						<div class="col">
-              <div class="col col--md-29 col--lg-29">
+	  <div class="wrapper">
+	      <div class="col-wrap">
+					<div class="col">
+						<div class="col col--md-47 col--lg-59">
+							<div class="col col--md-29 col--lg-29">
 								<details role="group" class="margin-bottom--4">
 								  <summary><span class="summary">Learn more about range</span></summary>
 								  <div class="panel">
@@ -22,7 +23,9 @@
 								    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
 								  </div>
 								</details>
-								<form class="form adjust-font-size--16" action="/jobs/{{.JobID}}/dimensions">
+							</div>
+							<form class="form adjust-font-size--16 clear-left" action="/jobs/{{.JobID}}/dimensions">
+								<div class="col col--md-29 col--lg-29">
 									<div class="checkbox margin-bottom--4">
 										<input type="checkbox" class="checkbox__input" id="All ages" name="All ages" value="All ages" checked>
 										<label class="checkbox__label" for="All ages">
@@ -40,13 +43,13 @@
 												{{if eq $i $len }}
 												<div class="hide--lg hide--md" aria-hidden="false">
 												{{end}}
-													<label class="block" for="youngest">
+													<label class="block margin-bottom--1" for="youngest">
 														Youngest
 													</label>
 												{{if eq $i $len }}
 												</div>
 												{{end}}
-												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg margin-top--1 padding-top--2">
+												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 													<div class="select-alt">
 														<select class="select width-sm--10 width-md--10 width-lg--10" id="youngest">
 														  <option value="select">select</option>
@@ -63,13 +66,13 @@
 												{{if eq $i $len }}
 												<div class="hide--lg hide--md" aria-hidden="false">
 												{{end}}
-												<label class="block" for="youngest">
+												<label class="block margin-bottom--1" for="oldest">
 													Oldest
 												</label>
 												{{if eq $i $len }}
 												</div>
 												{{end}}
-												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg margin-top--1 padding-top--2">
+												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 													<div class="select-alt">
 														<select class="select width-sm--10 width-md--10 width-lg--10" id="oldest">
 															<option value="select">select</option>
@@ -82,8 +85,8 @@
 												</div>
 											</div>
 
-											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} margin-top-md--1 margin-top-lg--1 {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--2 margin-bottom--2 border-top--gallery-md border-top--gallery-lg">
-												<a class="text-right--lg text-right--md block padding-top--half" href="{{if eq $i $len }} {{$.Data.AddAges.URL}}">{{$.Data.AddAges.Label}} {{else}} {{$.Data.RemoveRange.URL}}">{{$.Data.RemoveRange.Label}} {{end}}</a>
+											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--2 margin-bottom--2 border-top--gallery-md border-top--gallery-lg text-right--lg text-right--md block">
+												<a href="{{if eq $i $len }} {{$.Data.AddAges.URL}}">{{$.Data.AddAges.Label}} {{else}} {{$.Data.RemoveRange.URL}}">{{$.Data.RemoveRange.Label}} {{end}}</a>
 											</div>
 											{{end}}
 										</div>
@@ -91,14 +94,23 @@
 												<a href="{{$.Data.AddNewRange.URL}}">Add new range</a>
 										</div>
 									</div>
-								</form>
-              </div>
-						</div>
+									<div class="margin-bottom--8">
+				              <input type="submit" value="Save and return to filter options" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">
+				              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
+										</div>
+									</div>
+									<aside>
+										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
+										  <div class="margin-bottom--6 hide--sm">
+										      <input type="submit" value="Save and return to filter options" class="btn btn--primary btn--thick btn--wide btn--big btn--focus font-weight-700 font-size--17 text-wrap full-width">
+										  </div>
+											{{ template "partials/filter-selection" . }}
+										</div>
+								</aside>
+							</form>
+          	</div>
 					</div>
-          <div class="margin-bottom--8">
-              <a class="btn btn--primary btn--thick btn--wide btn--big margin-right--2 font-weight-700 font-size--17" href="{{.Data.SaveAndReturn.URL}}">Save and return to filter options</a>
-              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
-          </div>
-      </div>
-  </div>
+				</div>
+  		</div>
+		</div>
 </div>

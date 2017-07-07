@@ -9,16 +9,22 @@
 			"revisionTime": "2017-06-20T08:14:29Z"
 		},
 		{
-			"checksumSHA1": "2AW4X1Sqj1kexRG7/E1Wz5Xpnrg=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/cmd/ageSelector",
-			"revision": "5b62c3ef4e3ce4e0869cde58b29f2511fb7ee593",
-			"revisionTime": "2017-06-30T10:15:37Z"
+			"checksumSHA1": "EBdr1h+USAN3e3A/mTM5KNaDzvw=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorList",
+			"revision": "e8a4361dc60eba9a1ea1bbdab438bf158cae9ad3",
+			"revisionTime": "2017-07-05T11:07:00Z"
 		},
 		{
-			"checksumSHA1": "FuxAKkb9gyOoL/+vbjtBlxjClv8=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/cmd/filterOverview",
-			"revision": "4e75376c5d4d05b38c97867eee71565a54a8aaab",
-			"revisionTime": "2017-06-30T08:15:20Z"
+			"checksumSHA1": "umAXgjRIrNqUpI9IoMbl6hJvzrI=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorRange",
+			"revision": "e8a4361dc60eba9a1ea1bbdab438bf158cae9ad3",
+			"revisionTime": "2017-07-05T11:07:00Z"
+		},
+		{
+			"checksumSHA1": "o2e+cT46YQxsEt6a6/itIlFFtcU=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/filterOverview",
+			"revision": "e8a4361dc60eba9a1ea1bbdab438bf158cae9ad3",
+			"revisionTime": "2017-07-05T11:07:00Z"
 		},
 		{
 			"checksumSHA1": "fAyPS71FyNTWhcs+JmSkZupUaeE=",
