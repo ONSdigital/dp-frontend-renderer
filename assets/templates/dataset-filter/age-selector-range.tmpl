@@ -1,0 +1,116 @@
+<div class="adjust-font-size--16">
+	<div class="page-intro">
+		<div class="wrapper">
+			<div class="col-wrap">
+				<div class="col">
+					<div class="col col--md-47 col--lg-39">
+						<h1 class="page-intro__title font-weight-700">Age</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="page-content underline-all-links">
+	  <div class="wrapper">
+	      <div class="col-wrap">
+					<div class="col">
+						<div class="col col--md-47 col--lg-59">
+							<div class="col col--md-29 col--lg-29">
+								<details role="group" class="margin-bottom--4">
+								  <summary><span class="summary">Learn more about range</span></summary>
+								  <div class="panel">
+								  	<h3 class="margin-bottom--0 w-700">Some title</h3>
+								    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
+								  </div>
+								</details>
+							</div>
+							<form class="form adjust-font-size--16 clear-left" action="/jobs/{{.JobID}}/dimensions">
+								<div class="col col--md-29 col--lg-29">
+									<div class="checkbox margin-bottom--4">
+										<input type="checkbox" class="checkbox__input" id="All ages" name="All ages" value="All ages" checked>
+										<label class="checkbox__label" for="All ages">
+											All ages
+										</label>
+									</div>
+									<div class="margin-bottom--8">
+										<span class="block margin-bottom--2"><span class="font-size--17">Add age range</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
+
+										<div class="border-bottom--gallery-sm border-bottom--gallery-md border-bottom--gallery-lg clearfix">
+											{{$val := .Data.FiltersAmount}}
+											{{$len := subtract $val 1}}
+											{{ range $i, $v := loop 0 $val}}
+											<div class="col col--md-12 col--lg-12 margin-bottom--2">
+												{{if eq $i $len }}
+												<div class="hide--lg hide--md" aria-hidden="false">
+												{{end}}
+													<label class="block margin-bottom--1" for="youngest">
+														Youngest
+													</label>
+												{{if eq $i $len }}
+												</div>
+												{{end}}
+												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
+													<div class="select-alt">
+														<select class="select width-sm--10 width-md--10 width-lg--10" id="youngest">
+														  <option value="select">select</option>
+															{{ range $i, $v := loop $.Data.AgeRange.StartNum $.Data.AgeRange.EndNum }}
+															<option value="{{$v}}">{{$v}}</option>
+															{{ end }}
+															<option value="{{ $.Data.AgeRange.EndNum }} and over">{{ $.Data.AgeRange.EndNum }} and over</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div class="col col--lg-11 col--md-11 margin-bottom--2">
+												{{if eq $i $len }}
+												<div class="hide--lg hide--md" aria-hidden="false">
+												{{end}}
+												<label class="block margin-bottom--1" for="oldest">
+													Oldest
+												</label>
+												{{if eq $i $len }}
+												</div>
+												{{end}}
+												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
+													<div class="select-alt">
+														<select class="select width-sm--10 width-md--10 width-lg--10" id="oldest">
+															<option value="select">select</option>
+															{{ range $i, $v := loop $.Data.AgeRange.StartNum $.Data.AgeRange.EndNum }}
+															<option value="{{$v}}">{{$v}}</option>
+															{{ end }}
+															<option value="{{ $.Data.AgeRange.EndNum }} and over">{{ $.Data.AgeRange.EndNum }} and over</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--2 margin-bottom--2 border-top--gallery-md border-top--gallery-lg text-right--lg text-right--md block">
+												<a href="{{if eq $i $len }} {{$.Data.AddAges.URL}}">{{$.Data.AddAges.Label}} {{else}} {{$.Data.RemoveRange.URL}}">{{$.Data.RemoveRange.Label}} {{end}}</a>
+											</div>
+											{{end}}
+										</div>
+										<div class="margin-top">
+												<a href="{{$.Data.AddNewRange.URL}}">Add new range</a>
+										</div>
+									</div>
+									<div class="margin-bottom--8">
+				              <input type="submit" value="Save and return to filter options" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">
+				              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
+										</div>
+									</div>
+									<aside>
+										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
+										  <div class="margin-bottom--6 hide--sm">
+										      <input type="submit" value="Save and return to filter options" class="btn btn--primary btn--thick btn--wide btn--big btn--focus font-weight-700 font-size--17 text-wrap full-width">
+										  </div>
+											{{ template "partials/filter-selection" . }}
+										</div>
+								</aside>
+							</form>
+          	</div>
+					</div>
+				</div>
+  		</div>
+		</div>
+</div>
