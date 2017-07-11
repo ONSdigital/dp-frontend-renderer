@@ -86,7 +86,7 @@ func main() {
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
-	router.Post("/dataset-filter/geography-search", geography.Handler)
+	router.Post("/dataset-filter/geography", geography.Handler)
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
 	router.Post("/dataset-filter/age-selector-range", ageSelectorRange.Handler)
 	router.Post("/dataset-filter/age-selector-list", ageSelectorList.Handler)
