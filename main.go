@@ -4,11 +4,15 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"reflect"
 	"strconv"
 	"time"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelectorList"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelectorRange"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/middlePage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/startPage"
@@ -61,6 +65,21 @@ func main() {
 				}
 				return template.HTML(t.Format("02 January 2006"))
 			},
+			"last": func(x int, a interface{}) bool {
+				return x == reflect.ValueOf(a).Len()-1
+			},
+			"loop": func(n, m int) []int {
+				arr := make([]int, m-n)
+				v := n
+				for i := 0; i < m-v; i++ {
+					arr[i] = n
+					n++
+				}
+				return arr
+			},
+			"subtract": func(x, y int) int {
+				return x - y
+			},
 		}},
 	})
 
@@ -77,6 +96,9 @@ func main() {
 	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
+	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
+	router.Post("/dataset-filter/age-selector-range", ageSelectorRange.Handler)
+	router.Post("/dataset-filter/age-selector-list", ageSelectorList.Handler)
 	router.Post("/dataset/startpage", startPage.Handler)
 	router.Post("/dataset/middlepage", middlePage.Handler)
 	router.Post("/dataset/finishpage", finishPage.Handler)
