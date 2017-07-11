@@ -25,6 +25,7 @@ import (
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/c2h5oh/datasize"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
@@ -54,6 +55,9 @@ func main() {
 		IsDevelopment: config.DebugMode,
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
+			"humanSize": func(s int) string {
+				return datasize.ByteSize(s).HumanReadable()
+			},
 			"safeHTML": func(s string) template.HTML {
 				return template.HTML(s)
 			},

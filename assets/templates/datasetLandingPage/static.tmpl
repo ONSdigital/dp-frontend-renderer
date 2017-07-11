@@ -2,16 +2,6 @@
     <div class="wrapper">
         <div class="col-wrap">
             <div class="col">
-                <nav>
-                    <div class="breadcrumb print--hide">
-                        <ul class="breadcrumb__list">
-                            {{ range .Page.Breadcrumb }}
-                                <li class="breadcrumb__item"><a href="{{ .URI }}">{{ .Title }}</a></li>
-                            {{ end }}
-                            <li class="breadcrumb__item">{{ .Metadata.Title }}</li>
-                        </ul>
-                    </div>
-                </nav>
                 <h1 class="page-intro__title margin-bottom--4">
                     <span class="page-intro__type">Dataset</span>
                     {{ .Metadata.Title }}
@@ -107,7 +97,7 @@
                     <dd>{{ .DatasetLandingPage.NextRelease }}</dd>
                 </div>
             {{ end }}
-        </dl> 
+        </dl>
     </div>
 </div>
 
@@ -128,7 +118,7 @@
                             <div class="inline-block--md margin-bottom-sm--1">
                                 <a href="/file?uri={{ $timeseriesDataset.URI }}/{{ .URI }}" class="btn btn--primary btn--thick">
                                     <span class="visuallyhidden">Download {{ $.Metadata.Title }} in {{ .Extension }} format</span>
-                                    <span class="uppercase">{{ .Extension }} {{ .Size }}</span>
+                                    <span class="uppercase">{{ .Extension }} {{ humanSize .Size }}</span>
                                 </a>
                             </div>
                         {{ end }}
@@ -138,7 +128,7 @@
                                 {{ range $timeseriesDataset.SupplementaryFiles }}
                                     <li class="margin-top--0 margin-bottom--0">
                                         <a href="/file?uri={{ $timeseriesDataset.URI }}/{{ .URI }}">{{ .Title }}</a>
-                                        <span class="uppercase">({{ .Extension }}, {{ .Size }})</span>
+                                        <span class="uppercase">({{ .Extension }}, {{ humanSize .Size }})</span>
                                     </li>
                                 {{ end }}
                             </ul>
@@ -156,7 +146,7 @@
                                             <div class="inline-block--md margin-bottom-sm--1">
                                                 <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}" class="btn btn--primary btn--thick">
                                                     <span class="visuallyhidden">Download {{$.Metadata.Title}}: {{$dataset.Title}} in {{ .Extension }} format</span>
-                                                    <span class="uppercase">{{ .Extension }} {{ .Size }}</span>
+                                                    <span class="uppercase">{{ .Extension }} {{ humanSize .Size }}</span>
                                                 </a>
                                             </div>
                                         {{ end }}
@@ -173,7 +163,7 @@
                                             {{ range .SupplementaryFiles }}
                                                 <li class="margin-top--0 margin-bottom--0">
                                                     <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}">{{ .Title }}</a>
-                                                    <span class="uppercase">({{ .Extension }}, {{ .Size }})</span>
+                                                    <span class="uppercase">({{ .Extension }}, {{ humanSize .Size }})</span>
                                                 </li>
                                             {{ end }}
                                         </ul>
