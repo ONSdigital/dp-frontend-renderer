@@ -33,6 +33,12 @@
 			"revisionTime": "2017-07-07T10:35:20Z"
 		},
 		{
+			"checksumSHA1": "CZruTnZcm4qZsHHRsLw87LafIC4=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
+			"revision": "4cd5414dde548c7126a7360d63907f04318e3923",
+			"revisionTime": "2017-07-11T12:32:20Z"
+		},
+		{
 			"checksumSHA1": "fAyPS71FyNTWhcs+JmSkZupUaeE=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/finishPage",
 			"revision": "145436a66b9a9e760de0132daa25563d2088501e",
