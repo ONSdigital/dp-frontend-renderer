@@ -477,23 +477,23 @@ func AssetNames() []string {
 
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
-	"templates/dataset/finishpage.tmpl":                templatesDatasetFinishpageTmpl,
-	"templates/dataset/index.tmpl":                     templatesDatasetIndexTmpl,
-	"templates/dataset/middlepage.tmpl":                templatesDatasetMiddlepageTmpl,
-	"templates/dataset-filter/age-selector-list.tmpl":  templatesDatasetFilterAgeSelectorListTmpl,
+	"templates/dataset/finishpage.tmpl": templatesDatasetFinishpageTmpl,
+	"templates/dataset/index.tmpl": templatesDatasetIndexTmpl,
+	"templates/dataset/middlepage.tmpl": templatesDatasetMiddlepageTmpl,
+	"templates/dataset-filter/age-selector-list.tmpl": templatesDatasetFilterAgeSelectorListTmpl,
 	"templates/dataset-filter/age-selector-range.tmpl": templatesDatasetFilterAgeSelectorRangeTmpl,
-	"templates/dataset-filter/filter-overview.tmpl":    templatesDatasetFilterFilterOverviewTmpl,
-	"templates/dataset-filter/geography.tmpl":          templatesDatasetFilterGeographyTmpl,
-	"templates/dataset-filter/preview-page.tmpl":       templatesDatasetFilterPreviewPageTmpl,
-	"templates/datasetLandingPage/filterable.tmpl":     templatesDatasetlandingpageFilterableTmpl,
-	"templates/datasetLandingPage/static.tmpl":         templatesDatasetlandingpageStaticTmpl,
-	"templates/error.tmpl":                             templatesErrorTmpl,
-	"templates/homepage.tmpl":                          templatesHomepageTmpl,
-	"templates/main.tmpl":                              templatesMainTmpl,
-	"templates/partials/filter-selection.tmpl":         templatesPartialsFilterSelectionTmpl,
-	"templates/partials/footer.tmpl":                   templatesPartialsFooterTmpl,
-	"templates/partials/header.tmpl":                   templatesPartialsHeaderTmpl,
-	"templates/productPage.tmpl":                       templatesProductpageTmpl,
+	"templates/dataset-filter/filter-overview.tmpl": templatesDatasetFilterFilterOverviewTmpl,
+	"templates/dataset-filter/geography.tmpl": templatesDatasetFilterGeographyTmpl,
+	"templates/dataset-filter/preview-page.tmpl": templatesDatasetFilterPreviewPageTmpl,
+	"templates/datasetLandingPage/filterable.tmpl": templatesDatasetlandingpageFilterableTmpl,
+	"templates/datasetLandingPage/static.tmpl": templatesDatasetlandingpageStaticTmpl,
+	"templates/error.tmpl": templatesErrorTmpl,
+	"templates/homepage.tmpl": templatesHomepageTmpl,
+	"templates/main.tmpl": templatesMainTmpl,
+	"templates/partials/filter-selection.tmpl": templatesPartialsFilterSelectionTmpl,
+	"templates/partials/footer.tmpl": templatesPartialsFooterTmpl,
+	"templates/partials/header.tmpl": templatesPartialsHeaderTmpl,
+	"templates/productPage.tmpl": templatesProductpageTmpl,
 }
 
 // AssetDir returns the file names below a certain
@@ -535,32 +535,31 @@ type bintree struct {
 	Func     func() (*asset, error)
 	Children map[string]*bintree
 }
-
 var _bintree = &bintree{nil, map[string]*bintree{
 	"templates": &bintree{nil, map[string]*bintree{
 		"dataset": &bintree{nil, map[string]*bintree{
 			"finishpage.tmpl": &bintree{templatesDatasetFinishpageTmpl, map[string]*bintree{}},
-			"index.tmpl":      &bintree{templatesDatasetIndexTmpl, map[string]*bintree{}},
+			"index.tmpl": &bintree{templatesDatasetIndexTmpl, map[string]*bintree{}},
 			"middlepage.tmpl": &bintree{templatesDatasetMiddlepageTmpl, map[string]*bintree{}},
 		}},
 		"dataset-filter": &bintree{nil, map[string]*bintree{
-			"age-selector-list.tmpl":  &bintree{templatesDatasetFilterAgeSelectorListTmpl, map[string]*bintree{}},
+			"age-selector-list.tmpl": &bintree{templatesDatasetFilterAgeSelectorListTmpl, map[string]*bintree{}},
 			"age-selector-range.tmpl": &bintree{templatesDatasetFilterAgeSelectorRangeTmpl, map[string]*bintree{}},
-			"filter-overview.tmpl":    &bintree{templatesDatasetFilterFilterOverviewTmpl, map[string]*bintree{}},
-			"geography.tmpl":          &bintree{templatesDatasetFilterGeographyTmpl, map[string]*bintree{}},
-			"preview-page.tmpl":       &bintree{templatesDatasetFilterPreviewPageTmpl, map[string]*bintree{}},
+			"filter-overview.tmpl": &bintree{templatesDatasetFilterFilterOverviewTmpl, map[string]*bintree{}},
+			"geography.tmpl": &bintree{templatesDatasetFilterGeographyTmpl, map[string]*bintree{}},
+			"preview-page.tmpl": &bintree{templatesDatasetFilterPreviewPageTmpl, map[string]*bintree{}},
 		}},
 		"datasetLandingPage": &bintree{nil, map[string]*bintree{
 			"filterable.tmpl": &bintree{templatesDatasetlandingpageFilterableTmpl, map[string]*bintree{}},
-			"static.tmpl":     &bintree{templatesDatasetlandingpageStaticTmpl, map[string]*bintree{}},
+			"static.tmpl": &bintree{templatesDatasetlandingpageStaticTmpl, map[string]*bintree{}},
 		}},
-		"error.tmpl":    &bintree{templatesErrorTmpl, map[string]*bintree{}},
+		"error.tmpl": &bintree{templatesErrorTmpl, map[string]*bintree{}},
 		"homepage.tmpl": &bintree{templatesHomepageTmpl, map[string]*bintree{}},
-		"main.tmpl":     &bintree{templatesMainTmpl, map[string]*bintree{}},
+		"main.tmpl": &bintree{templatesMainTmpl, map[string]*bintree{}},
 		"partials": &bintree{nil, map[string]*bintree{
 			"filter-selection.tmpl": &bintree{templatesPartialsFilterSelectionTmpl, map[string]*bintree{}},
-			"footer.tmpl":           &bintree{templatesPartialsFooterTmpl, map[string]*bintree{}},
-			"header.tmpl":           &bintree{templatesPartialsHeaderTmpl, map[string]*bintree{}},
+			"footer.tmpl": &bintree{templatesPartialsFooterTmpl, map[string]*bintree{}},
+			"header.tmpl": &bintree{templatesPartialsHeaderTmpl, map[string]*bintree{}},
 		}},
 		"productPage.tmpl": &bintree{templatesProductpageTmpl, map[string]*bintree{}},
 	}},
@@ -612,3 +611,4 @@ func _filePath(dir, name string) string {
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(cannonicalName, "/")...)...)
 }
+
