@@ -13,8 +13,9 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelectorList"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelectorRange"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/middlePage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/startPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
@@ -100,11 +101,12 @@ func main() {
 	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
+	router.Post("/dataset-filter/preview-page", previewPage.Handler)
+	router.Post("/dataset-filter/geography", geography.Handler)
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
 	router.Post("/dataset-filter/age-selector-range", ageSelectorRange.Handler)
 	router.Post("/dataset-filter/age-selector-list", ageSelectorList.Handler)
 	router.Post("/dataset/startpage", startPage.Handler)
-	router.Post("/dataset/middlepage", middlePage.Handler)
 	router.Post("/dataset/finishpage", finishPage.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})

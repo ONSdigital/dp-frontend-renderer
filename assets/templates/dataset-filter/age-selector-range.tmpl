@@ -32,7 +32,7 @@
 											All ages
 										</label>
 									</div>
-									<div class="margin-bottom--8">
+									<div class="margin-bottom--4">
 										<span class="block margin-bottom--2"><span class="font-size--17">Add age range</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
 
 										<div class="border-bottom--gallery-sm border-bottom--gallery-md border-bottom--gallery-lg clearfix">
@@ -85,8 +85,8 @@
 												</div>
 											</div>
 
-											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--2 margin-bottom--2 border-top--gallery-md border-top--gallery-lg text-right--lg text-right--md block">
-												<a href="{{if eq $i $len }} {{$.Data.AddAges.URL}}">{{$.Data.AddAges.Label}} {{else}} {{$.Data.RemoveRange.URL}}">{{$.Data.RemoveRange.Label}} {{end}}</a>
+											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--1 margin-bottom--2 border-top--gallery-md border-top--gallery-lg text-right--lg text-right--md block">
+												<input type="submit" class="btn btn--link underline-link padding-top--1" value="{{if eq $i $len }}Add ages{{else}}Remove{{end}}">
 											</div>
 											{{end}}
 										</div>
@@ -95,14 +95,14 @@
 										</div>
 									</div>
 									<div class="margin-bottom--8">
-				              <input type="submit" value="Save and return to filter options" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">
+				              <a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">Return to filter options</a>
 				              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
 										</div>
 									</div>
 									<aside>
 										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
 										  <div class="margin-bottom--6 hide--sm">
-										      <input type="submit" value="Save and return to filter options" class="btn btn--primary btn--thick btn--wide btn--big btn--focus font-weight-700 font-size--17 text-wrap full-width">
+												<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width">Return to filter options</a>
 										  </div>
 											{{ template "partials/filter-selection" . }}
 										</div>
