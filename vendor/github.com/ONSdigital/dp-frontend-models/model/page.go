@@ -6,9 +6,9 @@ type Page struct {
 	URI                              string         `json:"uri"`
 	Taxonomy                         []TaxonomyNode `json:"taxonomy"`
 	Breadcrumb                       []TaxonomyNode `json:"breadcrumb"`
-	ServiceMessage                   string         `json:"serviceMessage"`
+	ServiceMessage                   string         `json:"service_message"`
 	Metadata                         Metadata       `json:"metadata"`
-	SearchDisabled                   bool           `json:"searchDisabled"`
+	SearchDisabled                   bool           `json:"search_disabled"`
 	SiteDomain                       string         `json:"-"`
 	PatternLibraryAssetsPath         string         `json:"-"`
 	Language                         string         `json:"-"`

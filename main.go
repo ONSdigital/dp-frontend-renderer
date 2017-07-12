@@ -17,6 +17,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/startPage"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
@@ -25,6 +26,7 @@ import (
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/c2h5oh/datasize"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
@@ -54,8 +56,26 @@ func main() {
 		IsDevelopment: config.DebugMode,
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
+			"humanSize": func(size string) (string, error) {
+				if size == "" {
+					return "", nil
+				}
+				s, err := strconv.Atoi(size)
+				if err != nil {
+					return "", err
+				}
+				return datasize.ByteSize(s).HumanReadable(), nil
+			},
 			"safeHTML": func(s string) template.HTML {
 				return template.HTML(s)
+			},
+			"dateFormat": func(s string) template.HTML {
+				t, err := time.Parse(time.RFC3339, s)
+				if err != nil {
+					log.Error(err, nil)
+					return template.HTML(s)
+				}
+				return template.HTML(t.Format("02 January 2006"))
 			},
 			"last": func(x int, a interface{}) bool {
 				return x == reflect.ValueOf(a).Len()-1
@@ -84,6 +104,8 @@ func main() {
 
 	router.Get("/healthcheck", healthcheck.Handler)
 	router.Post("/homepage", homepage.Handler)
+	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler)
+	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
 	router.Post("/dataset-filter/preview-page", previewPage.Handler)
