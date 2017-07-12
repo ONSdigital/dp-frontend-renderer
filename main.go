@@ -56,8 +56,12 @@ func main() {
 		IsDevelopment: config.DebugMode,
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
-			"humanSize": func(s int) string {
-				return datasize.ByteSize(s).HumanReadable()
+			"humanSize": func(size string) (string, error) {
+				s, err := strconv.Atoi(size)
+				if err != nil {
+					return "", err
+				}
+				return datasize.ByteSize(s).HumanReadable(), nil
 			},
 			"safeHTML": func(s string) template.HTML {
 				return template.HTML(s)
