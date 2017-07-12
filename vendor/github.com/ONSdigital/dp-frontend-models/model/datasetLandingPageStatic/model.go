@@ -6,10 +6,11 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 type Page struct {
 	model.Page
 	DatasetLandingPage DatasetLandingPage `json:"data"`
+	FilterID           string             `json:"filter_id"`
 	model.ContactDetails
 }
 
-//DatasetLandingPage ...
+//DatasetLandingPage represents a frontend dataset landing page
 type DatasetLandingPage struct {
 	DatasetID           string    `json:"dataset_id"`
 	FilterID            string    `json:"filter_id"`
@@ -23,7 +24,7 @@ type DatasetLandingPage struct {
 	IsTimeseries        bool      `json:"is_timeseries"`
 	Corrections         []Message `json:"corrections"`
 	Notices             []Message `json:"notices"`
-	ParentPath          string    `json:"parent-path"`
+	ParentPath          string    `json:"parent_path"`
 }
 
 //Related content (split by type) to this page
