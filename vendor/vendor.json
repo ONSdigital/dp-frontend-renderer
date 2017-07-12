@@ -27,6 +27,12 @@
 			"revisionTime": "2017-07-05T11:07:00Z"
 		},
 		{
+			"checksumSHA1": "Ltupdc928RyfKgoy9YZOm/G7lrs=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/geography",
+			"revision": "28df0d18a54ddc7c4aef5a1fd16aa2436fa93c8e",
+			"revisionTime": "2017-07-07T10:35:20Z"
+		},
+		{
 			"checksumSHA1": "fAyPS71FyNTWhcs+JmSkZupUaeE=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/finishPage",
 			"revision": "145436a66b9a9e760de0132daa25563d2088501e",

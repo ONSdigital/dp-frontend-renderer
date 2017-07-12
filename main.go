@@ -13,6 +13,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelectorList"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelectorRange"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/finishPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/middlePage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset/startPage"
@@ -85,6 +86,7 @@ func main() {
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
+	router.Post("/dataset-filter/geography", geography.Handler)
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
 	router.Post("/dataset-filter/age-selector-range", ageSelectorRange.Handler)
 	router.Post("/dataset-filter/age-selector-list", ageSelectorList.Handler)
