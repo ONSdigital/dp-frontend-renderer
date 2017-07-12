@@ -57,6 +57,9 @@ func main() {
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
 			"humanSize": func(size string) (string, error) {
+				if size == "" {
+					return "", nil
+				}
 				s, err := strconv.Atoi(size)
 				if err != nil {
 					return "", err
