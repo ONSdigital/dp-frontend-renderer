@@ -51,15 +51,17 @@
         <nav>
             <ul class="nav--controls">
                 <li class="nav--controls__item">
-                    <a href="#nav-primary" id="menu-toggle" aria-controls="nav-primary" class="nav--controls__menu">
+                    <a href="#nav-primary" id="menu-toggle" aria-controls="nav-primary" class="nav--controls__menu {{if .SearchDisabled}} nav--controls__no-search{{end}}">
                         <span class="nav--controls__text">Menu</span>
                     </a>
                 </li>
+                {{if not .SearchDisabled}}
                 <li class="nav--controls__item ">
                     <a href="#nav-search" id="search-toggle" aria-controls="nav-search" class="nav--controls__search">
                         <span class="nav--controls__text">Search</span>
                     </a>
                 </li>
+                {{end}}
             </ul>
             <div class="wrapper nav-main--hidden" id="nav-primary" aria-expanded="false">
                 <ul class="primary-nav__list">
