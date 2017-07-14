@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
+			"revision": "13e14fe53f302f93700b2408d9216b4eb22f2e2b",
+			"revisionTime": "2017-07-03T13:55:43Z"
+		},
+		{
 			"checksumSHA1": "mA4j3aknt5TTNyQXPJOM0hen0mc=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "0a740088ce959a2df8be8679cd99cfce14680e42",
@@ -37,6 +43,12 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
 			"revision": "4cd5414dde548c7126a7360d63907f04318e3923",
 			"revisionTime": "2017-07-11T12:32:20Z"
+		},
+		{
+			"checksumSHA1": "2Ww7ArlxDH4Cs/1S01vx1heMAow=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageStatic",
+			"revision": "68099c8c0a883488fb056b2ad1500c4c478bf883",
+			"revisionTime": "2017-07-11T09:57:28Z"
 		},
 		{
 			"checksumSHA1": "fAyPS71FyNTWhcs+JmSkZupUaeE=",
