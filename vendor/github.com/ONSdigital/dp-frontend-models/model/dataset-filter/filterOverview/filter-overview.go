@@ -18,9 +18,9 @@ type FilterOverview struct {
 
 // Dimension ...
 type Dimension struct {
-	Filter          string `json:"filter"`
-	AddedCategories string `json:"added_categories"`
-	Link            Link   `json:"link"`
+	Filter          string   `json:"filter"`
+	AddedCategories []string `json:"added_categories"`
+	Link            Link     `json:"link"`
 }
 
 // Link ...
