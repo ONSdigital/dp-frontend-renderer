@@ -5,8 +5,8 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 // Page ...
 type Page struct {
 	model.Page
-	Data  AgeSelectorRange `json:"data"`
-	JobID string           `json:"job_id"`
+	Data     AgeSelectorRange `json:"data"`
+	FilterID string           `json:"filter_id"`
 }
 
 // AgeSelectorRange ...

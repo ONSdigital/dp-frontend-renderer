@@ -10,5 +10,5 @@ type Page struct {
 
 // PreviewPage ...
 type PreviewPage struct {
-	JobID string `json:"job_id"`
+	FilterID string `json:"filter_id"`
 }
