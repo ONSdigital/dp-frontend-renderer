@@ -16,17 +16,17 @@
           <div class="col-wrap">
               <div class="col">
                   <div class="col col--md-47 col--lg-39 margin-bottom--4">
-                      <ul class="list--neutral">
+                      <ul class="list--neutral filter-overview">
                         <li class="hide--sm margin-left--0 padding-bottom--2 padding-top--2 border-bottom--gallery-sm border-bottom--gallery-md col-wrap width-lg--39">
-                            <div class="col col--md-24 col--lg-19"><h2 class="font-size--17 margin-top--0">Dimensions</h2></div>
-                            <div class="col col--md-17 col--lg-14"><h2 class="font-size--17 margin-top--0">Filters</h2></div>
+                            <div class="col col--md-17 col--lg-14"><h2 class="font-size--17 margin-top--0">Dimensions</h2></div>
+                            <div class="col col--md-24 col--lg-19"><h2 class="font-size--17 margin-top--0">Filters</h2></div>
                         </li>
                         {{ range .Data.Dimensions}}
                         <li class="margin-left--0 padding-bottom--2 padding-top--2 border-bottom--gallery-sm border-top--gallery-md border-bottom--gallery-md col-wrap width-lg--39 border-top--gallery-sm">
-                            <div class="col col--md-24 col--lg-19"><strong>{{.Filter}}</strong></div>
-                            <div class="col col--md-17 col--lg-14">{{$length := len .AddedCategories}}{{$categories := .AddedCategories}}({{$length}}){{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }},{{end}}{{end}}</div>
+                            <div class="col col--md-17 col--lg-14"><strong>{{.Filter}}</strong></div>
+                            <div class="col col--md-24 col--lg-19 filter-overview__filter">{{$length := len .AddedCategories}}{{$categories := .AddedCategories}}({{$length}}){{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }},{{end}}{{end}}</div>
                             <div class="col col--md-6 col--lg-6">
-                                <a class="float-right--md float-right--lg" href="{{.Link.URL}}">{{.Link.Label}}</a>
+                                <a class="float-el--right-md float-el--right-lg" href="{{.Link.URL}}">{{.Link.Label}}</a>
                             </div>
                         </li>
                         {{ end }}
