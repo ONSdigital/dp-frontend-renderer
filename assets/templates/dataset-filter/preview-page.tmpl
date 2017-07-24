@@ -17,8 +17,8 @@
       	<div class="col">
 					<a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
 					<ul class="list--neutral">
-						{{ range .Data.Dimensions }}
-						<li class="margin-bottom--0 margin-bottom--0">{{.Title}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
+						{{if gt (len .Data.Dimensions) 0}}{{ range .Data.Dimensions }}
+						<li class="margin-bottom--0 margin-bottom--0">{{.Name}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
 						{{ end }}
 					</ul>
 					<div class="table-preview">
@@ -26,7 +26,7 @@
 		          <thead>
 		            <tr>
 									{{ range .Data.Dimensions }}
-		              <th scope="col">{{.Title}}</th>
+		              <th scope="col">{{.Name}}</th>
 									{{ end }}
 		            </tr>
 		          </thead>
@@ -42,13 +42,14 @@
 		          </tbody>
 		        </table>
 					</div>
+					{{end}}
 					<div class="margin-bottom--8">
 						<h2 class="margin-bottom">Download filtered dataset</h2>
 	          <details role="group" class="margin-bottom--2 font-size--16">
-	            <summary><span class="summary">Help with this dataset</span></summary>
+	            <summary><span class="summary">Help with filetypes</span></summary>
 	            <div class="panel">
-	              <h3 class="margin-bottom--0 font-weight-700">{{ .Data.DatasetTitle }}</h3>
-	              <p class="margin-top--0">{{ .Data.DatasetDescription }}</p>
+	              <h3 class="margin-bottom--0 font-weight-700">Filetypes</h3>
+	              <p class="margin-top--0">A description on filetypes ...</p>
 	            </div>
 	          </details>
 						{{ range .Data.Downloads}}
