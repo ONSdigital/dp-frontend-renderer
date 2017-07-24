@@ -1,63 +1,63 @@
 <div class="adjust-font-size--16">
-	<div class="page-intro">
-		<div class="wrapper">
-			<div class="col-wrap">
-				<div class="col">
-					{{ template "partials/breadcrumb" . }}
-					<div class="col col--md-47 col--lg-39">
-						<h1 class="page-intro__title font-weight-700">Preview of filtered dataset</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-  <div class="page-content underline-all-links">
-    <div class="wrapper">
-    	<div class="col-wrap">
-      	<div class="col">
-					<a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
-					<ul class="list--neutral">
-						{{if gt (len .Data.Dimensions) 0}}{{ range .Data.Dimensions }}
-						<li class="margin-bottom--0 margin-bottom--0">{{.Name}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
-						{{ end }}
-					</ul>
-					<div class="table-preview">
-						<table>
-		          <thead>
-		            <tr>
-									{{ range .Data.Dimensions }}
-		              <th scope="col">{{.Name}}</th>
-									{{ end }}
-		            </tr>
-		          </thead>
-		          <tbody>
-								{{ $dimensions := .Data.Dimensions }}
-								{{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
-		            <tr>
-									{{ range $j, $dimension := $dimensions }}
-										<td>{{ index $dimension.Values $i }}</td>
-									{{ end }}
-		            </tr>
-								{{ end }}
-		          </tbody>
-		        </table>
-					</div>
-					{{end}}
-					<div class="margin-bottom--8">
-						<h2 class="margin-bottom">Download filtered dataset</h2>
-	          <details role="group" class="margin-bottom--2 font-size--16">
-	            <summary><span class="summary">Help with filetypes</span></summary>
-	            <div class="panel">
-	              <h3 class="margin-bottom--0 font-weight-700">Filetypes</h3>
-	              <p class="margin-top--0">A description on filetypes ...</p>
-	            </div>
-	          </details>
-						{{ range .Data.Downloads}}
-	          		<a class="btn btn--primary" href="{{.URI}}"><strong>{{ .Extension }}</strong> {{ humanSize .Size }}</a>
-						{{ end }}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+   <div class="page-intro">
+      <div class="wrapper">
+         <div class="col-wrap">
+            <div class="col">
+               {{ template "partials/breadcrumb" . }}
+               <div class="col col--md-47 col--lg-39">
+                  <h1 class="page-intro__title font-weight-700">Preview of filtered dataset</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="page-content underline-all-links">
+      <div class="wrapper">
+         <div class="col-wrap">
+            <div class="col">
+               <a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
+               <ul class="list--neutral">
+                  {{if gt (len .Data.Dimensions) 0}}{{ range .Data.Dimensions }}
+                  <li class="margin-bottom--0 margin-bottom--0">{{.Name}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
+                  {{ end }}
+               </ul>
+               <div class="table-preview">
+                  <table>
+                     <thead>
+                        <tr>
+                           {{ range .Data.Dimensions }}
+                           <th scope="col">{{.Name}}</th>
+                           {{ end }}
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {{ $dimensions := .Data.Dimensions }}
+                        {{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
+                        <tr>
+                           {{ range $j, $dimension := $dimensions }}
+                           <td>{{ index $dimension.Values $i }}</td>
+                           {{ end }}
+                        </tr>
+                        {{ end }}
+                     </tbody>
+                  </table>
+               </div>
+               {{end}}
+               <div class="margin-bottom--8">
+                  <h2 class="margin-bottom">Download filtered dataset</h2>
+                  <details role="group" class="margin-bottom--2 font-size--16">
+                     <summary><span class="summary">Help with filetypes</span></summary>
+                     <div class="panel">
+                        <h3 class="margin-bottom--0 font-weight-700">Filetypes</h3>
+                        <p class="margin-top--0">A description on filetypes ...</p>
+                     </div>
+                  </details>
+                  {{ range .Data.Downloads}}
+                  <a class="btn btn--primary" href="{{.URI}}"><strong>{{ .Extension }}</strong> {{ humanSize .Size }}</a>
+                  {{ end }}
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
