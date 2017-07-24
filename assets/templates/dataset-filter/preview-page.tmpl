@@ -15,77 +15,30 @@
     <div class="wrapper">
     	<div class="col-wrap">
       	<div class="col">
-					<a href="/filters/12345/dimensions">< Adjust filter options</a>
+					<a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
 					<ul class="list--neutral">
-						<li class="margin-bottom--0">Year: 2014</li>
-						<li class="margin-top--1 margin-bottom--0">Sex: All persons</li>
-						<li class="margin-top--1 margin-bottom--0">Value: Population</li>
+						{{ range .Data.Dimensions }}
+						<li class="margin-bottom--0 margin-bottom--0">{{.Title}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
+						{{ end }}
 					</ul>
 					<div class="table-preview">
 						<table>
 		          <thead>
 		            <tr>
-		              <th scope="col">Year</th>
-		              <th scope="col">Geographic area</th>
-		              <th scope="col">Age</th>
-		              <th scope="col">Sex</th>
-		              <th scope="col">Dimension 5</th>
-		              <th scope="col">Dimension 6</th>
-		              <th scope="col">Dimension 7</th>
-		              <th scope="col">Dimension 8</th>
+									{{ range .Data.Dimensions }}
+		              <th scope="col">{{.Title}}</th>
+									{{ end }}
 		            </tr>
 		          </thead>
 		          <tbody>
+								{{ $dimensions := .Data.Dimensions }}
+								{{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
 		            <tr>
-		              <th scope="row">2001</th>
-		              <td>West Midlands</td>
-		              <td>65</td>
-		              <td>Male</td>
-		              <td>Value 1</td>
-		              <td>Value 2</td>
-		              <td>Value 3</td>
-		              <td>Value 4</td>
+									{{ range $j, $dimension := $dimensions }}
+										<td>{{ index $dimension.Values $i }}</td>
+									{{ end }}
 		            </tr>
-		            <tr>
-		              <th scope="row">2002</th>
-		              <td>West Midlands</td>
-		              <td>65</td>
-		              <td>Male</td>
-		              <td>Value 1</td>
-		              <td>Value 2</td>
-		              <td>Value 3</td>
-		              <td>Value 4</td>
-		            </tr>
-		            <tr>
-		              <th scope="row">2003</th>
-		              <td>West Midlands</td>
-		              <td>65</td>
-		              <td>Male</td>
-		              <td>Value 1</td>
-		              <td>Value 2</td>
-		              <td>Value 3</td>
-		              <td>Value 4</td>
-		            </tr>
-		            <tr>
-		              <th scope="row">2004</th>
-		              <td>West Midlands</td>
-		              <td>65</td>
-		              <td>Male</td>
-		              <td>Value 1</td>
-		              <td>Value 2</td>
-		              <td>Value 3</td>
-		              <td>Value 4</td>
-		            </tr>
-		            <tr>
-		              <th scope="row">2005</th>
-		              <td>West Midlands</td>
-		              <td>65</td>
-		              <td>Male</td>
-		              <td>Value 1</td>
-		              <td>Value 2</td>
-		              <td>Value 3</td>
-		              <td>Value 4</td>
-		            </tr>
+								{{ end }}
 		          </tbody>
 		        </table>
 					</div>
@@ -94,13 +47,13 @@
 	          <details role="group" class="margin-bottom--2 font-size--16">
 	            <summary><span class="summary">Help with this dataset</span></summary>
 	            <div class="panel">
-	              <h3 class="margin-bottom--0 font-weight-700">Some title</h3>
-	              <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
+	              <h3 class="margin-bottom--0 font-weight-700">{{ .Data.DatasetTitle }}</h3>
+	              <p class="margin-top--0">{{ .Data.DatasetDescription }}</p>
 	            </div>
 	          </details>
-	          <div class="btn btn--primary"><strong>CSV</strong> 10.2 mb</div>
-	          <div class="btn btn--primary"><strong>XLS</strong> 10.2 mb</div>
-	          <div class="btn btn--primary"><strong>JSON</strong> 10.2 mb</div>
+						{{ range .Data.Downloads}}
+	          		<a class="btn btn--primary" href="{{.URI}}"><strong>{{ .Extension }}</strong> {{ humanSize .Size }}</a>
+						{{ end }}
 					</div>
 				</div>
 			</div>
