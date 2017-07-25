@@ -53,7 +53,7 @@
                      </div>
                   </details>
                   {{ range .Data.Downloads}}
-                  <a class="btn btn--primary" href="{{.URI}}"><strong>{{ .Extension }}</strong> {{ humanSize .Size }}</a>
+                  <a class="btn btn--primary uppercase" href="{{.URI}}"><strong>{{ .Extension }}</strong> {{ humanSize .Size }}</a>
                   {{ end }}
                </div>
             </div>
