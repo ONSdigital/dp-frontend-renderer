@@ -30,11 +30,11 @@
 									<div class="checkbox margin-bottom--4">
 										<input type="checkbox" class="checkbox__input" id="All ages" name="All ages" value="All ages" checked>
 										<label class="checkbox__label" for="All ages">
-											All ages
+											{{ $.Data.AddAllInRange.Label }}
 										</label>
 									</div>
 									<div class="margin-bottom--4">
-										<span class="block margin-bottom--2"><span class="font-size--17">Add age range</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
+										<span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
 
 										<div class="border-bottom--gallery-sm border-bottom--gallery-md border-bottom--gallery-lg clearfix">
 											{{$val := .Data.FiltersAmount}}
@@ -44,20 +44,20 @@
 												{{if eq $i $len }}
 												<div class="hide--lg hide--md" aria-hidden="false">
 												{{end}}
-													<label class="block margin-bottom--1" for="youngest">
-														Youngest
+													<label class="block margin-bottom--1" for="{{ $.Data.RangeData.StartLabel }}">
+														{{ $.Data.RangeData.StartLabel }}
 													</label>
 												{{if eq $i $len }}
 												</div>
 												{{end}}
 												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 													<div class="select-alt">
-														<select class="select width-sm--10 width-md--10 width-lg--10" id="youngest">
+														<select class="select width-sm--10 width-md--10 width-lg--10" id="{{ $.Data.RangeData.StartLabel }}">
 														  <option value="select">select</option>
-															{{ range $i, $v := loop $.Data.AgeRange.StartNum $.Data.AgeRange.EndNum }}
+															{{ range $i, $v := loop $.Data.RangeData.StartNum $.Data.RangeData.EndNum }}
 															<option value="{{$v}}">{{$v}}</option>
 															{{ end }}
-															<option value="{{ $.Data.AgeRange.EndNum }} and over">{{ $.Data.AgeRange.EndNum }} and over</option>
+															<option value="{{ $.Data.RangeData.EndNum }} and over">{{ $.Data.RangeData.EndNum }} {{ if $.Data.RangeData.AppendString }}{{ $.Data.RangeData.AppendString }}{{end}}</option>
 														</select>
 													</div>
 												</div>
@@ -67,20 +67,20 @@
 												{{if eq $i $len }}
 												<div class="hide--lg hide--md" aria-hidden="false">
 												{{end}}
-												<label class="block margin-bottom--1" for="oldest">
-													Oldest
+												<label class="block margin-bottom--1" for="{{ $.Data.RangeData.EndLabel }}">
+													{{ $.Data.RangeData.EndLabel }}
 												</label>
 												{{if eq $i $len }}
 												</div>
 												{{end}}
 												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 													<div class="select-alt">
-														<select class="select width-sm--10 width-md--10 width-lg--10" id="oldest">
+														<select class="select width-sm--10 width-md--10 width-lg--10" id="{{ $.Data.RangeData.EndLabel }}">
 															<option value="select">select</option>
-															{{ range $i, $v := loop $.Data.AgeRange.StartNum $.Data.AgeRange.EndNum }}
+															{{ range $i, $v := loop $.Data.RangeData.StartNum $.Data.RangeData.EndNum }}
 															<option value="{{$v}}">{{$v}}</option>
 															{{ end }}
-															<option value="{{ $.Data.AgeRange.EndNum }} and over">{{ $.Data.AgeRange.EndNum }} and over</option>
+															<option value="{{ $.Data.RangeData.EndNum }} and over">{{ $.Data.RangeData.EndNum }} {{ if $.Data.RangeData.AppendString }}{{ $.Data.RangeData.AppendString }}{{end}}<</option>
 														</select>
 													</div>
 												</div>

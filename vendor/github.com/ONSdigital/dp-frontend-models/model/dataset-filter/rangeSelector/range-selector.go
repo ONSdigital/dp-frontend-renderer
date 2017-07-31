@@ -5,15 +5,16 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 // Page ...
 type Page struct {
 	model.Page
-	Data     rangeSelector `json:"data"`
-	FilterID string           `json:"filter_id"`
+	Data     RangeSelector `json:"data"`
+	FilterID string        `json:"job_id"`
 }
 
-// rangeSelector ...
-type rangeSelector struct {
+// RangeSelector ...
+type RangeSelector struct {
 	AddFromList       Link     `json:"add_from_list"`
 	NumberOfSelectors int      `json:"num_of_selectors"`
-	AddAges           Link     `json:"add_ages"`
+	AddAllInRange     Link     `json:"add_all"`
+	AddRange          Link     `json:"add_range"`
 	AddNewRange       Link     `json:"add_new_range"`
 	RemoveRange       Link     `json:"remove_range"`
 	SaveAndReturn     Link     `json:"save_and_return"`
@@ -21,7 +22,7 @@ type rangeSelector struct {
 	FiltersAmount     int      `json:"filters_amount"`
 	FiltersAdded      []Filter `json:"filters_added"`
 	RemoveAll         Link     `json:"remove_all"`
-	AgeRange          Range    `json:"age_range"`
+	RangeData         Range    `json:"range_values"`
 }
 
 // Link ...
@@ -38,6 +39,9 @@ type Filter struct {
 
 // Range ...
 type Range struct {
-	StartNum int `json:"start_num"`
-	EndNum   int `json:"end_num"`
+	StartNum     int    `json:"start_num"`
+	EndNum       int    `json:"end_num"`
+	StartLabel   string `json:"start_label"`
+	EndLabel     string `json:"end_label"`
+	AppendString string `json:"append_string"`
 }

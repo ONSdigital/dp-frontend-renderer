@@ -21,12 +21,6 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "S9OZrmzfuejsxhrtc0CLwiSFLz4=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorRange",
-			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
-			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
 			"checksumSHA1": "qVbLrqNkeYuRauL+C7MharQ1REs=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/filterOverview",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
@@ -43,6 +37,18 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
+		},
+		{
+			"checksumSHA1": "Qobw+xRyZRC3Xne7hT+Sp+j8VVM=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
+			"revision": "5e736eb8594125cec81f10b27705395a5adfaa53",
+			"revisionTime": "2017-07-11T14:39:42Z"
+		},
+		{
+			"checksumSHA1": "ups4bVyc9n3nvuZxP/3118bqwAU=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
+			"revision": "5e736eb8594125cec81f10b27705395a5adfaa53",
+			"revisionTime": "2017-07-11T14:39:42Z"
 		},
 		{
 			"checksumSHA1": "2Ww7ArlxDH4Cs/1S01vx1heMAow=",
