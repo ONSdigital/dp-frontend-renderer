@@ -3,16 +3,16 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
-			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
 			"checksumSHA1": "mA4j3aknt5TTNyQXPJOM0hen0mc=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "0a740088ce959a2df8be8679cd99cfce14680e42",
 			"revisionTime": "2017-06-20T08:14:29Z"
+		},
+		{
+			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
+			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
+			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
 			"checksumSHA1": "o0XvWcvnMQKkkfwOjZ/kTb2QWqw=",
@@ -33,19 +33,25 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
+			"checksumSHA1": "r/LSqsdB2RSCdmWfT5v0zoo2D+Y=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/listSelector",
+			"revision": "6b06fdb89299c5c6534f46d661a27e5b52366a09",
+			"revisionTime": "2017-07-31T13:06:09Z"
+		},
+		{
 			"checksumSHA1": "4uRiiVK0fCA9oQdzI7yi6a3LdJM=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "Qobw+xRyZRC3Xne7hT+Sp+j8VVM=",
+			"checksumSHA1": "ups4bVyc9n3nvuZxP/3118bqwAU=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
 			"revision": "5e736eb8594125cec81f10b27705395a5adfaa53",
 			"revisionTime": "2017-07-11T14:39:42Z"
 		},
 		{
-			"checksumSHA1": "ups4bVyc9n3nvuZxP/3118bqwAU=",
+			"checksumSHA1": "Qobw+xRyZRC3Xne7hT+Sp+j8VVM=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
 			"revision": "5e736eb8594125cec81f10b27705395a5adfaa53",
 			"revisionTime": "2017-07-11T14:39:42Z"

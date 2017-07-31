@@ -28,8 +28,8 @@
 							<form class="form adjust-font-size--16 clear-left" action="/filters/{{.FilterID}}/dimensions">
 								<div class="col col--md-29 col--lg-29">
 									<div class="checkbox margin-bottom--4">
-										<input type="checkbox" class="checkbox__input" id="All ages" name="All ages" value="All ages" checked>
-										<label class="checkbox__label" for="All ages">
+										<input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="{{ $.Data.AddAllInRange.Label }}" value="{{ $.Data.AddAllInRange.Label }}" checked>
+										<label class="checkbox__label" for="{{ $.Data.AddAllInRange.Label }}">
 											{{ $.Data.AddAllInRange.Label }}
 										</label>
 									</div>

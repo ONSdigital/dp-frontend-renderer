@@ -11,5 +11,5 @@ import (
 func Handler(w http.ResponseWriter, req *http.Request) {
 	var page rangeSelector.Page
 
-	render.Handler(w, req, &page, &page.Page, "dataset-filter/age-selector-range", nil)
+	render.Handler(w, req, &page, &page.Page, "dataset-filter/range-selector", nil)
 }
