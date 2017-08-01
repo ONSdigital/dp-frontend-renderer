@@ -87,7 +87,7 @@
 											</div>
 
 											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--1 margin-bottom--2 border-top--gallery-md border-top--gallery-lg text-right--lg text-right--md block">
-												<input type="submit" class="btn btn--link underline-link padding-top--1" value="{{if eq $i $len }}Add ages{{else}}Remove{{end}}">
+												<input type="submit" class="btn btn--link underline-link padding-top--1" value="{{if eq $i $len }}{{$.Data.AddRange.Label}}{{else}}Remove{{end}}">
 											</div>
 											{{end}}
 										</div>
