@@ -19,8 +19,16 @@ job "dp-frontend-renderer" {
     task "dp-frontend-renderer-web" {
       driver = "docker"
 
+      artifact {
+        source = "s3::https://s3-eu-west-1.amazonaws.com/{{DEPLOYMENT_BUCKET}}/dp-frontend-renderer/{{REVISION}}.tar.gz"
+      }
+
       config {
-        image = "s3::https://s3-eu-west-1.amazonaws.com/{{DEPLOYMENT_BUCKET}}/dp-frontend-renderer/{{REVISION}}.tar.gz"
+        command = "${NOMAD_TASK_DIR}/start-task"
+
+        args = ["./dp-frontend-renderer"]
+
+        image = "{{ECR_URL}}:concourse-{{REVISION}}"
 
         port_map {
           http = 8080
@@ -41,6 +49,15 @@ job "dp-frontend-renderer" {
           port "http" {}
         }
       }
+
+      template {
+        source      = "${NOMAD_TASK_DIR}/vars-template"
+        destination = "${NOMAD_TASK_DIR}/vars"
+      }
+
+      vault {
+        policies = ["dp-frontend-renderer-web"]
+      }
     }
   }
 
@@ -55,8 +72,16 @@ job "dp-frontend-renderer" {
     task "dp-frontend-renderer-publishing" {
       driver = "docker"
 
+      artifact {
+        source = "s3::https://s3-eu-west-1.amazonaws.com/{{DEPLOYMENT_BUCKET}}/dp-frontend-renderer/{{REVISION}}.tar.gz"
+      }
+
       config {
-        image = "s3::https://s3-eu-west-1.amazonaws.com/{{DEPLOYMENT_BUCKET}}/dp-frontend-renderer/{{REVISION}}.tar.gz"
+        command = "${NOMAD_TASK_DIR}/start-task"
+
+        args = ["./dp-frontend-renderer"]
+
+        image = "{{ECR_URL}}:concourse-{{REVISION}}"
 
         port_map {
           http = 8080
@@ -76,6 +101,15 @@ job "dp-frontend-renderer" {
         network {
           port "http" {}
         }
+      }
+
+      template {
+        source      = "${NOMAD_TASK_DIR}/vars-template"
+        destination = "${NOMAD_TASK_DIR}/vars"
+      }
+
+      vault {
+        policies = ["dp-frontend-renderer-publishing"]
       }
     }
   }
