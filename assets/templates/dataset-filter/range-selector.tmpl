@@ -5,7 +5,7 @@
 				<div class="col">
 					{{ template "partials/breadcrumb" . }}
 					<div class="col col--md-47 col--lg-39">
-						<h1 class="page-intro__title font-weight-700">Age</h1>
+						<h1 class="page-intro__title font-weight-700">{{.Data.Title}}</h1>
 					</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 								  </div>
 								</details>
 							</div>
-							<form class="form adjust-font-size--16 clear-left" action="/filters/{{.FilterID}}/dimensions">
+							<div class="form adjust-font-size--16 clear-left">
 								<div class="col col--md-29 col--lg-29">
 									<div class="checkbox margin-bottom--4">
 										<input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="{{ $.Data.AddAllInRange.Label }}" value="{{ $.Data.AddAllInRange.Label }}" checked>
@@ -37,9 +37,10 @@
 										<span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
 
 										<div class="border-bottom--gallery-sm border-bottom--gallery-md border-bottom--gallery-lg clearfix">
-											{{$val := .Data.FiltersAmount}}
+											{{$val := .Data.NumberOfSelectors}}
 											{{$len := subtract $val 1}}
-											{{ range $i, $v := loop 0 $val}}
+											{{ range $i, $v := loop 0 $len}}
+											<form action="{{$.Data.RangeData.URL}}{{if eq $i (subtract $len 1) }}-add{{else}}-delete{{end}}?nSelectors={{$len}}" method="post">
 											<div class="col col--md-12 col--lg-12 margin-bottom--2">
 												{{if eq $i $len }}
 												<div class="hide--lg hide--md" aria-hidden="false">
@@ -52,12 +53,11 @@
 												{{end}}
 												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 													<div class="select-alt">
-														<select class="select width-sm--10 width-md--10 width-lg--10" id="{{ $.Data.RangeData.StartLabel }}">
+														<select class="select width-sm--10 width-md--10 width-lg--10" name="start" id="{{ $.Data.RangeData.StartLabel }}">
 														  <option value="select">select</option>
-															{{ range $i, $v := loop $.Data.RangeData.StartNum $.Data.RangeData.EndNum }}
-															<option value="{{$v}}">{{$v}}</option>
+															{{ range $.Data.RangeData.Values }}
+															<option value="{{.}}">{{.}}</option>
 															{{ end }}
-															<option value="{{ $.Data.RangeData.EndNum }} and over">{{ $.Data.RangeData.EndNum }} {{ if $.Data.RangeData.AppendString }}{{ $.Data.RangeData.AppendString }}{{end}}</option>
 														</select>
 													</div>
 												</div>
@@ -75,21 +75,21 @@
 												{{end}}
 												<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 													<div class="select-alt">
-														<select class="select width-sm--10 width-md--10 width-lg--10" id="{{ $.Data.RangeData.EndLabel }}">
+														<select class="select width-sm--10 width-md--10 width-lg--10" name="end" id="{{ $.Data.RangeData.EndLabel }}">
 															<option value="select">select</option>
-															{{ range $i, $v := loop $.Data.RangeData.StartNum $.Data.RangeData.EndNum }}
-															<option value="{{$v}}">{{$v}}</option>
+															{{ range $.Data.RangeData.Values }}
+															<option value="{{.}}">{{.}}</option>
 															{{ end }}
-															<option value="{{ $.Data.RangeData.EndNum }} and over">{{ $.Data.RangeData.EndNum }} {{ if $.Data.RangeData.AppendString }}{{ $.Data.RangeData.AppendString }}{{end}}<</option>
 														</select>
 													</div>
 												</div>
 											</div>
 
 											<div class="col col--lg-6 col--md-6 {{if eq $i $len }} {{else}}margin-top-md--4 margin-top-lg--4 {{end}} padding-top--1 margin-bottom--2 border-top--gallery-md border-top--gallery-lg text-right--lg text-right--md block">
-												<input type="submit" class="btn btn--link underline-link padding-top--1" value="{{if eq $i $len }}Add ages{{else}}Remove{{end}}">
+												<input type="submit" class="btn btn--link underline-link padding-top--1" value="{{if eq $i (subtract $len 1) }}Add range{{else}}Remove{{end}}">
 											</div>
-											{{end}}
+										</form>
+										{{end}}
 										</div>
 										<div class="margin-top">
 												<a href="{{$.Data.AddNewRange.URL}}">Add new range</a>
@@ -108,7 +108,7 @@
 											{{ template "partials/filter-selection" . }}
 										</div>
 								</aside>
-							</form>
+							</div>
           	</div>
 					</div>
 				</div>
