@@ -31,7 +31,6 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		log.ErrorR(req, err, nil)
 		return
 	}
-	log.Debug("populated model", log.Data{"model": page})
 
 	log.Debug("incoming request json payload", log.Data{"json": string(b)})
 
