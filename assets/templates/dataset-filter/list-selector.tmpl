@@ -40,11 +40,11 @@
 												</legend>
 												<div class="checkbox-group">
 													{{ $val := .Data.FiltersAmount }}
-													{{ range $i, $v := loop $.Data.RangeData.StartNum $.Data.RangeData.EndNum }}
+													{{ range .Data.RangeData.Values }}
 													<div class="checkbox">
-														<input type="checkbox" class="checkbox__input" id="id-{{$v}}" name="{{$v}}" value="{{$v}}">
-														<label class="checkbox__label" for="id-{{$v}}">
-															{{$v}}
+														<input type="checkbox" class="checkbox__input" id="id-{{.Label}}" name="{{.Label}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
+														<label class="checkbox__label" for="id-{{.Label}}">
+															{{.Label}}
 														</label>
 													</div>
 													{{end}}
