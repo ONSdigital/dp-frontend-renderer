@@ -5,7 +5,7 @@
 				<div class="col">
 					{{ template "partials/breadcrumb" . }}
 					<div class="col col--md-47 col--lg-39">
-						<h1 class="page-intro__title font-weight-700">Age</h1>
+						<h1 class="page-intro__title font-weight-700">{{.Data.Title}}</h1>
 					</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 								  </div>
 								</details>
 							</div>
-							<form class="form adjust-font-size--16 clear-left" action="/filters/{{.FilterID}}/dimensions">
+							<form class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
 								<div class="col col--md-29 col--lg-29">
 									<div class="checkbox margin-bottom--4">
 										<input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="{{ $.Data.AddAllInRange.Label }}" value="{{ $.Data.AddAllInRange.Label }}" checked>
@@ -54,7 +54,7 @@
 												<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 											</div>
 											<div class="margin-bottom--8 margin-top--2">
-												<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">Return to filter options</a>
+												<input type="submit" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return" />
 						            <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
 											</div>
 										</div>
@@ -62,7 +62,7 @@
 									<aside>
 										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
 										  <div class="margin-bottom--6 hide--sm">
-												<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width">Return to filter options</a>
+												<input type="submit" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return" />
 										  </div>
 											{{ template "partials/filter-selection" . }}
 										</div>

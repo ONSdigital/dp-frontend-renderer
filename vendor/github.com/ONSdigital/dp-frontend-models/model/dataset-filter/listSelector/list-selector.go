@@ -11,6 +11,7 @@ type Page struct {
 
 // ListSelector ...
 type ListSelector struct {
+	Title         string   `json:"title"`
 	AddFromRange  Link     `json:"add_from_range"`
 	SaveAndReturn Link     `json:"save_and_return"`
 	Cancel        Link     `json:"cancel"`
