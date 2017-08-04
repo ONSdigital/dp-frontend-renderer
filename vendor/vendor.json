@@ -3,26 +3,20 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
-			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
 			"checksumSHA1": "mA4j3aknt5TTNyQXPJOM0hen0mc=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "0a740088ce959a2df8be8679cd99cfce14680e42",
 			"revisionTime": "2017-06-20T08:14:29Z"
 		},
 		{
-			"checksumSHA1": "o0XvWcvnMQKkkfwOjZ/kTb2QWqw=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorList",
+			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "S9OZrmzfuejsxhrtc0CLwiSFLz4=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorRange",
+			"checksumSHA1": "o0XvWcvnMQKkkfwOjZ/kTb2QWqw=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorList",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
@@ -37,6 +31,24 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/geography",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
+		},
+		{
+			"checksumSHA1": "HN/HL0o8Ep+mcd009giqwwxo6rI=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/listSelector",
+			"revision": "2c25a736661c902a9d24197ca13d5934fa23836b",
+			"revisionTime": "2017-08-02T11:37:15Z"
+		},
+		{
+			"checksumSHA1": "sHDodVbm939D/6IsVUko8Lq8Sqo=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
+			"revision": "8e300e8e9b6b70e4ac92de84cf8f42cdbd65478c",
+			"revisionTime": "2017-08-01T11:06:59Z"
+		},
+		{
+			"checksumSHA1": "PNDiOZAMkjc7uuR3n74Y1xvRP50=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
+			"revision": "a066a96864df2e5b4b98d3867a26c476d613e645",
+			"revisionTime": "2017-08-02T14:32:41Z"
 		},
 		{
 			"checksumSHA1": "XiB1eoyvRBkRzkGyrjjJwsXA+Go=",
