@@ -9,7 +9,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/murlokswarm/log"
+	"github.com/ONSdigital/go-ns/log"
 )
 
 type TimeSlice []time.Time
