@@ -51,10 +51,16 @@
 			"revisionTime": "2017-08-02T14:32:41Z"
 		},
 		{
-			"checksumSHA1": "Qobw+xRyZRC3Xne7hT+Sp+j8VVM=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
-			"revision": "5e736eb8594125cec81f10b27705395a5adfaa53",
-			"revisionTime": "2017-07-11T14:39:42Z"
+			"checksumSHA1": "XiB1eoyvRBkRzkGyrjjJwsXA+Go=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
+			"revision": "87180bd5ba6e86bf6e1d756daaedd77ef3acd72d",
+			"revisionTime": "2017-07-24T10:41:27Z"
+		},
+		{
+			"checksumSHA1": "dIN68DBlfqRmqv6L+TbRb3SNC+g=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable",
+			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
+			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
 			"checksumSHA1": "2Ww7ArlxDH4Cs/1S01vx1heMAow=",
