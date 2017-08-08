@@ -1,16 +1,16 @@
-package ageSelectorRange
+package rangeSelector
 
 import "github.com/ONSdigital/dp-frontend-models/model"
 
 // Page ...
 type Page struct {
 	model.Page
-	Data     AgeSelectorRange `json:"data"`
+	Data     rangeSelector `json:"data"`
 	FilterID string           `json:"filter_id"`
 }
 
-// AgeSelectorRange ...
-type AgeSelectorRange struct {
+// rangeSelector ...
+type rangeSelector struct {
 	AddFromList       Link     `json:"add_from_list"`
 	NumberOfSelectors int      `json:"num_of_selectors"`
 	AddAges           Link     `json:"add_ages"`

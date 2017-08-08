@@ -5,7 +5,8 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 // Page ...
 type Page struct {
 	model.Page
-	Data PreviewPage `json:"data"`
+	Data            PreviewPage `json:"data"`
+	IsContentLoaded bool        `json:"is_content_loaded"`
 }
 
 // PreviewPage ...
