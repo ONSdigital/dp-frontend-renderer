@@ -1,8 +1,8 @@
 <div class="filter-selection">
   <header>
     <div class="filter-selection__header">
-      <h2>{{ .Data.FiltersAmount }} added</h2>
-      {{ $val := .Data.FiltersAmount }}
+      <h2>{{ len .Data.FiltersAdded }} added</h2>
+      {{ $val := len .Data.FiltersAdded }}
       {{ if ne $val 0 }}
       <a href="{{ .Data.RemoveAll.URL }}">Remove all</a>
       {{ end }}

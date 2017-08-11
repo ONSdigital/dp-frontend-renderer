@@ -12,6 +12,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/hierarchy"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/listSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/rangeSelector"
@@ -108,6 +109,7 @@ func main() {
 	router.Post("/error", errorPage.Handler)
 	router.Post("/dataset-filter/preview-page", previewPage.Handler)
 	router.Post("/dataset-filter/geography", geography.Handler)
+	router.Post("/dataset-filter/hierarchy", hierarchy.Handler)
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
 	router.Post("/dataset-filter/range-selector", rangeSelector.Handler)
 	router.Post("/dataset-filter/list-selector", listSelector.Handler)

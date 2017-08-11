@@ -1,0 +1,81 @@
+<div class="adjust-font-size--16">
+	<div class="page-intro">
+		<div class="wrapper">
+			<div class="col-wrap">
+				<div class="col">
+					{{ template "partials/breadcrumb" . }}
+					<div class="col col--md-47 col--lg-39">
+						<h1 class="page-intro__title font-weight-700">{{ .Data.Title }}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="page-content underline-all-links">
+      <div class="wrapper">
+          <div class="col-wrap">
+              <div class="col col--md-29 col--lg-29 margin-left-md--1">
+								<details role="group" class="margin-bottom--4">
+								  <summary><span class="summary">Learn more about {{.Data.Metadata.Name}}</span></summary>
+								  <div class="panel">
+								  	<h3 class="margin-bottom--0 w-700">{{.Data.Metadata.Name}}</h3>
+								    <p class="margin-top--0">{{.Data.Metadata.Description}}</p>
+								  </div>
+								</details>
+            		<form class="margin-bottom--5" action="/search">
+									<div class="clearfix">
+              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-25 col--lg-25" id="nav-search" name="q" value="">
+              			<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
+              				<span class="visuallyhidden">Search</span>
+              				<span class="icon icon-search--light"></span>
+              			</button>
+									</div>
+            		</form>
+								<form class="margin-bottom--5" action="/add-to-selection">
+									<fieldset>
+										<legend>
+											{{ if .Data.Parent }}
+											<span class="block font-size--17 padding-bottom--2"><a href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
+											{{ end }}
+										</legend>
+										<a class="underline-link" href="{{.Data.AddAllFilters.URL}}">Add all</a>&nbsp; &nbsp;
+                    <a class="underline-link" href="{{.Data.RemoveAll.URL}}">Remove all</a>
+										<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
+											{{ range $i, $v := .Data.FilterList }}
+											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1">
+												<div class="width-md--24 inline-block">
+													<input type="checkbox" class="checkbox__input" id="id-{{$i}}" name="" value="" {{if .Selected}}checked{{end}}>
+													<label class="checkbox__label" for="id-{{$i}}">
+														{{ .Label }}
+													</label>
+												</div>
+												{{ if ne .SubNum "0" }}
+												<a href="{{ .SubURL }}" class="underline-link float-el--right-md padding-top--1">View ({{.SubNum}})</a>
+												{{ end }}
+											</div>
+											{{ end }}
+										</div>
+									</fieldset>
+									<div class="margin-top js-hidden">
+										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
+									</div>
+									<div class="margin-bottom--8 margin-top--2">
+										<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">Save and return to filter options</a>
+										<a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
+									</div>
+								</div>
+							<aside>
+								<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
+									<div class="margin-bottom--6 hide--sm">
+										<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width">Save and return to filter options</a>
+									</div>
+                  {{ template "partials/filter-selection" . }}
+								</div>
+							</aside>
+						</form>
+          </div>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
