@@ -28,7 +28,7 @@
 							<form class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
 								<div class="col col--md-29 col--lg-29">
 									<div class="checkbox margin-bottom--4">
-										<input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="{{ $.Data.AddAllInRange.Label }}" value="{{ $.Data.AddAllInRange.Label }}" checked>
+										<input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="add-all" value="{{ $.Data.AddAllInRange.Label }}" {{if $.Data.AddAllChecked}}checked{{end}}>
 										<label class="checkbox__label" for="{{ $.Data.AddAllInRange.Label }}">
 											{{ $.Data.AddAllInRange.Label }}
 										</label>
@@ -54,15 +54,15 @@
 												<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 											</div>
 											<div class="margin-bottom--8 margin-top--2">
-												<input type="submit" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return" />
-						            <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
+												<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
+                        <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
 											</div>
 										</div>
 									</div>
 									<aside>
 										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
 										  <div class="margin-bottom--6 hide--sm">
-												<input type="submit" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return" />
+												<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return to filter options" />
 										  </div>
 											{{ template "partials/filter-selection" . }}
 										</div>

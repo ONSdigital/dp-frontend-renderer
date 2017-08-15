@@ -1,93 +1,91 @@
 <div class="adjust-font-size--16">
-	<div class="page-intro">
-		<div class="wrapper">
-			<div class="col-wrap">
-				<div class="col">
-					{{ template "partials/breadcrumb" . }}
-					<div class="col col--md-47 col--lg-39">
-						<h1 class="page-intro__title font-weight-700">{{.Data.Title}}</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-  <div class="page-content underline-all-links">
-	  <div class="wrapper">
-	      <div class="col-wrap">
-					<div class="col">
-						<div class="col col--md-47 col--lg-59">
-							<div class="col col--md-29 col--lg-29">
-								<details role="group" class="margin-bottom--4">
-								  <summary><span class="summary">Learn more about range</span></summary>
-								  <div class="panel">
-								  	<h3 class="margin-bottom--0 w-700">Some title</h3>
-								    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
-								  </div>
-								</details>
-							</div>
-							<div class="form adjust-font-size--16 clear-left">
-								<div class="col col--md-29 col--lg-29">
-									<div class="checkbox margin-bottom--4">
-										<input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="{{ $.Data.AddAllInRange.Label }}" value="{{ $.Data.AddAllInRange.Label }}" checked>
-										<label class="checkbox__label" for="{{ $.Data.AddAllInRange.Label }}">
-											{{ $.Data.AddAllInRange.Label }}
-										</label>
-									</div>
-									<div class="margin-bottom--4">
-										<span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
-
-										<div class="clearfix">
-											<form action="{{$.Data.RangeData.URL}}" method="post">
-												<div class="col col--md-12 col--lg-12 margin-bottom--2">
-														<label class="block margin-bottom--1" for="{{ $.Data.RangeData.StartLabel }}">
-															{{ $.Data.RangeData.StartLabel }}
-														</label>
-														<div class="select-alt">
-															<select class="select width-sm--10 width-md--10 width-lg--10" name="start" id="{{ $.Data.RangeData.StartLabel }}">
-															  <option value="select">select</option>
-																{{ range $.Data.RangeData.Values }}
-																<option value="{{.}}">{{.}}</option>
-																{{ end }}
-															</select>
-														</div>
-												</div>
-												<div class="col col--lg-11 col--md-11 margin-bottom--2">
-													<label class="block margin-bottom--1" for="{{ $.Data.RangeData.EndLabel }}">
-														{{ $.Data.RangeData.EndLabel }}
-													</label>
-														<div class="select-alt">
-															<select class="select width-sm--10 width-md--10 width-lg--10" name="end" id="{{ $.Data.RangeData.EndLabel }}">
-																<option value="select">select</option>
-																{{ range $.Data.RangeData.Values }}
-																<option value="{{.}}">{{.}}</option>
-																{{ end }}
-															</select>
-														</div>
-												</div>
-
-												<div class="col col--lg-6 col--md-6 margin-top-md--3 margin-top-lg--3 text-right--lg text-right--md block">
-													<input type="submit" class="btn btn--link underline-link padding-top--1" value="Add range">
-												</div>
-											</form>
-										</div>
-									</div>
-									<div class="margin-bottom--8">
-				              <a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">Save and Return</a>
-				              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
-										</div>
-									</div>
-									<aside>
-										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
-										  <div class="margin-bottom--6 hide--sm">
-												<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width">Save and Return</a>
-										  </div>
-											{{ template "partials/filter-selection" . }}
-										</div>
-								</aside>
-							</div>
-          	</div>
-					</div>
-				</div>
-  		</div>
-		</div>
+   <div class="page-intro">
+      <div class="wrapper">
+         <div class="col-wrap">
+            <div class="col">
+               {{ template "partials/breadcrumb" . }}
+               <div class="col col--md-47 col--lg-39">
+                  <h1 class="page-intro__title font-weight-700">{{.Data.Title}}</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="page-content underline-all-links">
+      <div class="wrapper">
+         <div class="col-wrap">
+            <div class="col">
+               <div class="col col--md-47 col--lg-59">
+                  <div class="col col--md-29 col--lg-29">
+                     <details role="group" class="margin-bottom--4">
+                        <summary><span class="summary">Learn more about range</span></summary>
+                        <div class="panel">
+                           <h3 class="margin-bottom--0 w-700">Some title</h3>
+                           <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
+                        </div>
+                     </details>
+                  </div>
+                  <form action="{{$.Data.RangeData.URL}}" method="post">
+                     <div class="form adjust-font-size--16 clear-left">
+                        <div class="col col--md-29 col--lg-29">
+                           <div class="checkbox margin-bottom--4">
+                              <input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="add-all" value="{{ $.Data.AddAllInRange.Label }}" {{if $.Data.AddAllChecked }} checked{{end}}>
+                              <label class="checkbox__label" for="{{ $.Data.AddAllInRange.Label }}">
+                              {{ $.Data.AddAllInRange.Label }}
+                              </label>
+                           </div>
+                           <div class="margin-bottom--4">
+                              <span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
+                              <div class="clearfix">
+                                 <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                    <label class="block margin-bottom--1" for="{{ $.Data.RangeData.StartLabel }}">
+                                    {{ $.Data.RangeData.StartLabel }}
+                                    </label>
+                                    <div class="select-alt">
+                                       <select class="select width-sm--10 width-md--10 width-lg--10" name="start" id="{{ $.Data.RangeData.StartLabel }}">
+                                          <option value="select">select</option>
+                                          {{ range $.Data.RangeData.Values }}
+                                          <option value="{{.}}">{{.}}</option>
+                                          {{ end }}
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                    <label class="block margin-bottom--1" for="{{ $.Data.RangeData.EndLabel }}">
+                                    {{ $.Data.RangeData.EndLabel }}
+                                    </label>
+                                    <div class="select-alt">
+                                       <select class="select width-sm--10 width-md--10 width-lg--10" name="end" id="{{ $.Data.RangeData.EndLabel }}">
+                                          <option value="select">select</option>
+                                          {{ range $.Data.RangeData.Values }}
+                                          <option value="{{.}}">{{.}}</option>
+                                          {{ end }}
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="col col--lg-6 col--md-6 margin-top-md--3 margin-top-lg--3 text-right--lg text-right--md block">
+                                    <input type="submit" class="btn btn--link underline-link padding-top--1" value="Add range">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="margin-bottom--8">
+                              <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
+                              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
+                           </div>
+                        </div>
+                        <aside>
+                           <div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
+                              <div class="margin-bottom--6 hide--sm">
+                                 <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return to filter options" />
+                              </div>
+                              {{ template "partials/filter-selection" . }}
+                           </div>
+                        </aside>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>

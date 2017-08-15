@@ -13,6 +13,7 @@ type Page struct {
 type ListSelector struct {
 	Title         string   `json:"title"`
 	AddFromRange  Link     `json:"add_from_range"`
+	AddAllChecked bool     `json:"add_all_checked"`
 	SaveAndReturn Link     `json:"save_and_return"`
 	Cancel        Link     `json:"cancel"`
 	FiltersAmount int      `json:"filters_amount"`
