@@ -47,6 +47,7 @@ type List struct {
 	Label    string `json:"label"`
 	Selected bool   `json:"selected"`
 	SubNum   string `json:"sub_num"`
+	ID       string `json:"id"`
 	SubType  string `json:"sub_type"`
 	SubURL   string `json:"sub_url"`
 }

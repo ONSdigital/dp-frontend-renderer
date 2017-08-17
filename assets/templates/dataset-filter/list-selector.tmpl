@@ -42,7 +42,7 @@
 													{{ $val := .Data.FiltersAmount }}
 													{{ range .Data.RangeData.Values }}
 													<div class="checkbox">
-														<input type="checkbox" class="checkbox__input" id="id-{{.Label}}" name="{{.Label}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
+														<input type="checkbox" class="checkbox__input" id="id-{{.Label}}" name="{{.ID}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
 														<label class="checkbox__label" for="id-{{.Label}}">
 															{{.Label}}
 														</label>

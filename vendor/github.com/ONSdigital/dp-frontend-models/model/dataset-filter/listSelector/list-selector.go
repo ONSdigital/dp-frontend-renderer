@@ -44,5 +44,6 @@ type Range struct {
 // Value ...
 type Value struct {
 	Label      string `json:"label"`
+	ID         string `json:"id"`
 	IsSelected bool   `json:"is_selected"`
 }
