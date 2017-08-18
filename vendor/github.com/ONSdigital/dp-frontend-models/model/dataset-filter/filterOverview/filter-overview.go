@@ -11,9 +11,11 @@ type Page struct {
 
 // FilterOverview ...
 type FilterOverview struct {
-	Dimensions         []Dimension `json:"dimensions"`
-	PreviewAndDownload Link        `json:"preview_and_download"`
-	Cancel             Link        `json:"cancel"`
+	Dimensions                 []Dimension `json:"dimensions"`
+	PreviewAndDownload         Link        `json:"preview_and_download"`
+	PreviewAndDownloadDisabled bool        `json:"preview_and_download_disabled"`
+	ClearAll                   Link        `json:"clear_all"`
+	Cancel                     Link        `json:"cancel"`
 }
 
 // Dimension ...

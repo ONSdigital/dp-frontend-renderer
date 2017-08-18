@@ -28,14 +28,12 @@
                   <form action="{{$.Data.RangeData.URL}}" method="post">
                      <div class="form adjust-font-size--16 clear-left">
                         <div class="col col--md-29 col--lg-29">
-                           <div class="checkbox margin-bottom--4">
-                              <input type="checkbox" class="checkbox__input" id="{{ $.Data.AddAllInRange.Label }}" name="add-all" value="{{ $.Data.AddAllInRange.Label }}" {{if $.Data.AddAllChecked }} checked{{end}}>
-                              <label class="checkbox__label" for="{{ $.Data.AddAllInRange.Label }}">
-                              {{ $.Data.AddAllInRange.Label }}
-                              </label>
-                           </div>
                            <div class="margin-bottom--4">
                               <span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
+                              <div class="checkbox margin-bottom--2">
+								<input class="btn btn--link underline-link" type="submit" value="Add all" name="add-all-range" />&nbsp; &nbsp;
+                        		<input class="btn btn--link underline-link" type="submit" value="Remove all" name="remove-all-range" />
+							  </div>
                               <div class="clearfix">
                                  <div class="col col--md-12 col--lg-12 margin-bottom--2">
                                     <label class="block margin-bottom--1" for="{{ $.Data.RangeData.StartLabel }}">
@@ -70,7 +68,6 @@
                            </div>
                            <div class="margin-bottom--8">
                               <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
-                              <a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
                            </div>
                         </div>
                         <aside>
