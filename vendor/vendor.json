@@ -123,6 +123,12 @@
 			"revisionTime": "2017-07-17T12:56:40Z"
 		},
 		{
+			"checksumSHA1": "jQ7JB1XsEO3528jVoX9wKM/9wWU=",
+			"path": "github.com/c2h5oh/datasize",
+			"revision": "54516c931ae99c3c74637b9ea2390cf9a6327f26",
+			"revisionTime": "2017-05-19T14:33:21Z"
+		},
+		{
 			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",
 			"path": "github.com/gorilla/context",
 			"revision": "08b5f424b9271eedf6f9f0ce86cb9396ed337a42",
