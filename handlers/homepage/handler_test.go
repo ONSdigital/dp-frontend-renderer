@@ -12,7 +12,6 @@ import (
 	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/ONSdigital/go-ns/log"
 	. "github.com/smartystreets/goconvey/convey"
 	unrolled "github.com/unrolled/render"
 )
@@ -69,7 +68,6 @@ func TestHandler(t *testing.T) {
 		So(recorder.Code, ShouldEqual, 200)
 		So(f.binding, ShouldHaveSameTypeAs, &homepage.Page{})
 		p := f.binding.(*homepage.Page)
-		log.Debug("page", log.Data{"p": p})
 		So(p.ServiceMessage, ShouldEqual, "Foo bar")
 		So(p.PatternLibraryAssetsPath, ShouldEqual, config.PatternLibraryAssetsPath)
 	})
