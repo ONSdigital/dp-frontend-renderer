@@ -21,9 +21,9 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/ONSdigital/go-ns/handlers/healthcheck"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
+	"github.com/ONSdigital/go-ns/healthcheck"
 	"github.com/ONSdigital/go-ns/log"
 	"github.com/c2h5oh/datasize"
 	"github.com/gorilla/pat"
@@ -101,7 +101,7 @@ func main() {
 		requestID.Handler(16),
 	).Then(router)
 
-	router.Get("/healthcheck", healthcheck.Handler)
+	router.Get("/healthcheck", healthcheck.Do)
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler)
 	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
