@@ -2,52 +2,52 @@ package rangeSelector
 
 import "github.com/ONSdigital/dp-frontend-models/model"
 
-// Page ...
+// Page represents a range selector page
 type Page struct {
 	model.Page
 	Data     RangeSelector `json:"data"`
 	FilterID string        `json:"job_id"`
 }
 
-// RangeSelector ...
+// RangeSelector represents data fields on the page
 type RangeSelector struct {
-	Title             string    `json:"title"`
-	AddFromList       Link      `json:"add_from_list"`
-	NumberOfSelectors int       `json:"num_of_selectors"`
-	AddAllInRange     Link      `json:"add_all"`
 	AddAllChecked     bool      `json:"add_all_checked"`
+	AddAllInRange     Link      `json:"add_all"`
+	AddFromList       Link      `json:"add_from_list"`
 	AddRange          Link      `json:"add_range"`
 	AddNewRange       Link      `json:"add_new_range"`
-	RemoveRange       Link      `json:"remove_range"`
-	SaveAndReturn     Link      `json:"save_and_return"`
 	Cancel            Link      `json:"cancel"`
+	DateRangeData     DateRange `json:"date_range,omitempty"`
 	FiltersAmount     int       `json:"filters_amount"`
 	FiltersAdded      []Filter  `json:"filters_added"`
+	NumberOfSelectors int       `json:"num_of_selectors"`
+	RemoveRange       Link      `json:"remove_range"`
 	RemoveAll         Link      `json:"remove_all"`
 	RangeData         Range     `json:"range_values"`
-	DateRangeData     DateRange `json:"date_range,omitempty"`
+	SaveAndReturn     Link      `json:"save_and_return"`
+	Title             string    `json:"title"`
 }
 
-// Link ...
+// Link represents a link
 type Link struct {
-	URL   string `json:"url"`
 	Label string `json:"label"`
+	URL   string `json:"url"`
 }
 
-// Filter ...
+// Filter represents an item in the filter basket
 type Filter struct {
 	Label     string `json:"label"`
 	RemoveURL string `json:"remove_url"`
 }
 
-// DateRange ...
+// DateRange extends range with month and year values
 type DateRange struct {
 	Range
 	MonthValues []string `json:"month_values"`
 	YearValues  []string `json:"year_values"`
 }
 
-// Range ...
+// Range represents a range on the page
 type Range struct {
 	URL        string   `json:"url"`
 	Values     []string `json:"values"`

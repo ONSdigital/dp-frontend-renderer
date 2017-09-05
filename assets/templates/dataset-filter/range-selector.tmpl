@@ -25,15 +25,15 @@
                         </div>
                      </details>
                   </div>
-                  <form action="{{$.Data.RangeData.URL}}" method="post">   
+                  <form action="{{$.Data.RangeData.URL}}" method="post">
                      <div class="form adjust-font-size--16 clear-left">
                         <div class="col col--md-29 col--lg-29">
                            <div class="margin-bottom--4">
                               <span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
                               <div class="checkbox margin-bottom--2">
-								<input class="btn btn--link underline-link" type="submit" value="Add all" name="add-all-range" />&nbsp; &nbsp;
-                        		<input class="btn btn--link underline-link" type="submit" value="Remove all" name="remove-all-range" />
-							  </div>
+                                 <input class="btn btn--link underline-link" type="submit" value="Add all" name="add-all-range" />&nbsp; &nbsp;
+                                 <input class="btn btn--link underline-link" type="submit" value="Remove all" name="remove-all-range" />
+                              </div>
                               <div class="clearfix">
                                  {{if eq $.Data.Title "Time"}}
                                  <div class="margin-bottom--1">
@@ -92,9 +92,9 @@
                                        </select>
                                     </div>
                                  </div>
-                                <div class="col col--lg-6 col--md-6 margin-top-md--3 margin-top-lg--3 text-right--lg text-right--md block">
+                                 <div class="col col--lg-6 col--md-6 margin-top-md--3 margin-top-lg--3 text-right--lg text-right--md block">
                                     <input type="submit" class="btn btn--link underline-link padding-top--1" value="Add range">
-                                </div>
+                                 </div>
                                  {{else}}
                                  <div class="col col--md-12 col--lg-12 margin-bottom--2">
                                     <label class="block margin-bottom--1" for="{{ $.Data.RangeData.StartLabel }}">
