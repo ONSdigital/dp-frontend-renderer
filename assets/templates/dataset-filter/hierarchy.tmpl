@@ -46,7 +46,7 @@
 											{{ range $i, $v := .Data.FilterList }}
 											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1">
 												<div class="width-md--24 inline-block">
-													<input type="checkbox" class="checkbox__input js-filter" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
+													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
 													<label class="checkbox__label" for="id-{{$i}}">
 														{{ .Label }}
 													</label>

@@ -10,7 +10,7 @@
   </header>
   <ul class="list list--neutral">
     {{ range .Data.FiltersAdded }}
-    <li><span class="col col--md-6 col--lg-12">{{ .Label }}</span><span class="remove-link js-filter"><a href="{{ .RemoveURL }}">Remove</a></span></li>
+    <li><span class="col col--md-6 col--lg-12">{{ .Label }}</span><span class="remove-link js-filter"><a id="{{.ID}}" href="{{ .RemoveURL }}">Remove</a></span></li>
     {{ end }}
   </ul>
 </div>

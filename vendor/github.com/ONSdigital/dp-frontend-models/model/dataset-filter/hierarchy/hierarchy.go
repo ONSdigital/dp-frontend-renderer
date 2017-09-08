@@ -40,6 +40,7 @@ type Metadata struct {
 type Filter struct {
 	Label     string `json:"label"`
 	RemoveURL string `json:"remove_url"`
+	ID        string `json:"id"`
 }
 
 // List ...
