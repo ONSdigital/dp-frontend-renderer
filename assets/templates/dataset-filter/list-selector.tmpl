@@ -25,7 +25,7 @@
 								  </div>
 								</details>
 							</div>
-							<form class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
+							<form id="filter-form" class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
 								<div class="col col--md-29 col--lg-29">
 										<div class="margin-bottom--8">
 											<fieldset>
@@ -34,13 +34,13 @@
 												</legend>
 												<div class="checkbox-group">
 													<div class="checkbox margin-bottom--2">
-														<input class="btn btn--link underline-link" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
-                    				<input class="btn btn--link underline-link" type="submit" value="Remove all" name="remove-all" />
+														<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all from list" name="add-all" />&nbsp; &nbsp;
+				                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all from list" name="remove-all" />
 													</div>
 													{{ $val := .Data.FiltersAmount }}
 													{{ range .Data.RangeData.Values }}
 													<div class="checkbox">
-														<input type="checkbox" class="checkbox__input" id="id-{{.Label}}" name="{{.ID}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
+														<input type="checkbox" class="checkbox__input js-filter" id="id-{{.Label}}" name="{{.ID}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
 														<label class="checkbox__label" for="id-{{.Label}}">
 															{{.Label}}
 														</label>
