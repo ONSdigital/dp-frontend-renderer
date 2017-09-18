@@ -24,27 +24,29 @@
 								</details>
             		<form class="margin-bottom--5" action="/search">
 									<div class="clearfix">
-              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-25 col--lg-25" id="nav-search" name="q" value="">
+										<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search</label>
+              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-25 col--lg-25" name="q" placeholder="Search {{ .Data.Title }}">
               			<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
               				<span class="visuallyhidden">Search</span>
               				<span class="icon icon-search--light"></span>
               			</button>
 									</div>
             		</form>
-								<form class="margin-bottom--5" action="{{.Data.SaveAndReturn.URL}}" method="post">
+								<form id="filter-form" class="margin-bottom--5" action="{{.Data.SaveAndReturn.URL}}" method="post">
 									<fieldset>
 										<legend>
+											<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>
 											{{ if .Data.Parent }}
 											<span class="block font-size--17 padding-bottom--2"><a href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
 											{{ end }}
 										</legend>
-										<input class="btn btn--link underline-link" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
-                    <input class="btn btn--link underline-link" type="submit" value="Remove all" name="remove-all" />
+										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
+                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" name="remove-all" />
 										<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
 											{{ range $i, $v := .Data.FilterList }}
 											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1">
 												<div class="width-md--24 inline-block">
-													<input type="checkbox" class="checkbox__input" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
+													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
 													<label class="checkbox__label" for="id-{{$i}}">
 														{{ .Label }}
 													</label>
@@ -59,7 +61,7 @@
 									<div class="margin-top js-hidden">
 										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 									</div>
-									<div class="margin-bottom--8">
+									<div class="margin-bottom--8 margin-top--2">
                   	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
                   </div>
 								</div>

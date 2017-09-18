@@ -38,6 +38,7 @@ type Link struct {
 type Filter struct {
 	Label     string `json:"label"`
 	RemoveURL string `json:"remove_url"`
+	ID        string `json:"id"`
 }
 
 // DateRange extends range with month and year values
