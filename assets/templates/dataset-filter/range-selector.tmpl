@@ -25,14 +25,14 @@
                         </div>
                      </details>
                   </div>
-                  <form action="{{$.Data.RangeData.URL}}" method="post">
+                  <form action="{{$.Data.RangeData.URL}}" id="filter-form" method="post">
                      <div class="form adjust-font-size--16 clear-left">
                         <div class="col col--md-29 col--lg-29">
                            <div class="margin-bottom--4">
                               <span class="block margin-bottom--2"><span class="font-size--17">{{.Data.AddFromList.Label}}</span> or <a href="{{.Data.AddFromList.URL}}">add from list</a></span>
                               <div class="checkbox margin-bottom--2">
-                                 <input class="btn btn--link underline-link" type="submit" value="Add all" name="add-all-range" />&nbsp; &nbsp;
-                                 <input class="btn btn--link underline-link" type="submit" value="Remove all" name="remove-all-range" />
+                                 <input class="btn btn--link underline-link js-filter add-all-range" type="submit" value="Add all" name="add-all-range" />&nbsp; &nbsp;
+                                 <input class="btn btn--link underline-link js-filter remove-all-range" type="submit" value="Remove all" name="remove-all-range" />
                               </div>
                               <div class="clearfix">
                                  {{if eq $.Data.Title "Time"}}
@@ -40,9 +40,7 @@
                                     <span class="font-size-17"><strong>Start Date</strong></span>
                                  </div>
                                  <div class="col col--md-12 col--lg-12 margin-bottom--2">
-                                    <label class="block margin-bottom--1" for="Month">
-                                       <strong>Month</strong>
-                                    </label>
+                                    <label class="block margin-bottom--1" for="start-month">Month</label>
                                     <div class="select-alt">
                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="start-month" id="start-month">
                                           {{ range $.Data.DateRangeData.MonthValues }}
@@ -52,9 +50,7 @@
                                     </div>
                                  </div>
                                  <div class="col col--lg-11 col--md-11 margin-bottom--2">
-                                    <label class="block margin-bottom--1" for="Year">
-                                       <strong>Year</strong>
-                                    </label>
+                                    <label class="block margin-bottom--1" for="start-year">Year</label>
                                     <div class="select-alt">
                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="start-year" id="start-year">
                                           {{ range $.Data.DateRangeData.YearValues }}
@@ -69,9 +65,7 @@
                                     <span class="font-size-17"><strong>End Date</strong></span>
                                  </div>
                                  <div class="col col--md-12 col--lg-12 margin-bottom--2">
-                                    <label class="block margin-bottom--1" for="Month">
-                                       <strong>Month</strong>
-                                    </label>
+                                    <label class="block margin-bottom--1" for="end-month">Month</label>
                                     <div class="select-alt">
                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="end-month" id="end-month">
                                           {{ range $.Data.DateRangeData.MonthValues }}
@@ -81,9 +75,7 @@
                                     </div>
                                  </div>
                                  <div class="col col--lg-11 col--md-11 margin-bottom--2">
-                                    <label class="block margin-bottom--1" for="Year">
-                                       <strong>Year</strong>
-                                    </label>
+                                    <label class="block margin-bottom--1" for="end-year">Year</label>
                                     <div class="select-alt">
                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="end-year" id="end-year">
                                           {{ range $.Data.DateRangeData.YearValues }}
@@ -93,7 +85,7 @@
                                     </div>
                                  </div>
                                  <div class="col col--lg-6 col--md-6 margin-top-md--3 margin-top-lg--3 text-right--lg text-right--md block">
-                                    <input type="submit" class="btn btn--link underline-link padding-top--1" value="Add range">
+                                    <input type="submit" class="btn btn--link underline-link padding-top--1 js-filter add-range" value="Add range">
                                  </div>
                                  {{else}}
                                  <div class="col col--md-12 col--lg-12 margin-bottom--2">
