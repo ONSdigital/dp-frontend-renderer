@@ -15,12 +15,19 @@
       <div class="wrapper">
          <div class="col-wrap">
             <div class="col">
-               <a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
-               <ul class="list--neutral">
-                  {{if gt (len .Data.Dimensions) 0}}{{ range .Data.Dimensions }}
-                  <li class="margin-bottom--0 margin-bottom--0">{{.Name}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
-                  {{ end }}
-               </ul>
+              {{if not .Data.IsLatestVersion}}
+              <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
+                <div class="alert__title">This is not the latest release</div>
+                <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}"><strong>Apply these filters to the latest release</a>
+                <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
+              </div>
+              {{ end }}
+              <a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
+              <ul class="list--neutral">
+                {{if gt (len .Data.Dimensions) 0}}{{ range .Data.Dimensions }}
+                <li class="margin-bottom--0 margin-bottom--0">{{.Name}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
+                {{ end }}
+              </ul>
 							{{if not .IsContentLoaded}}
               <meta http-equiv="refresh" content="2"/>
 		 					<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2 text-center">
