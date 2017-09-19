@@ -9,7 +9,7 @@ type Page struct {
 	FilterID string       `json:"job_id"`
 }
 
-// ListSelector ...
+// ListSelector ..
 type ListSelector struct {
 	Title         string   `json:"title"`
 	AddFromRange  Link     `json:"add_from_range"`
@@ -33,6 +33,7 @@ type Link struct {
 type Filter struct {
 	Label     string `json:"label"`
 	RemoveURL string `json:"remove_url"`
+	ID        string `json:"id"`
 }
 
 // Range ...
