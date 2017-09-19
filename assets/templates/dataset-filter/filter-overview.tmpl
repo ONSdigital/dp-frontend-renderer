@@ -15,6 +15,13 @@
       <div class="wrapper">
           <div class="col-wrap">
               <div class="col">
+								{{if not .Data.IsLatestVersion}}
+	              <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
+	                <div class="alert__title">This is not the latest release</div>
+	                <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}"><strong>Apply these filters to the latest release</a>
+	                <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}">View latest release</a>
+	              </div>
+	              {{ end }}
                   <div class="col col--md-47 col--lg-39 margin-bottom--4">
                       <ul class="list--neutral filter-overview">
                         <li class="hide--sm margin-left--0 padding-bottom--2 padding-top--2 border-bottom--gallery-sm border-bottom--gallery-md col-wrap width-lg--39">
