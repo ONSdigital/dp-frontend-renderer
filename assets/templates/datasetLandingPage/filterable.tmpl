@@ -77,11 +77,6 @@
             {{range .DatasetLandingPage.Dimensions}}
             <div class="margin-bottom--3">
                <h3>{{.Title}}:</h3>
-               <ul>
-                  {{range .Values}}
-                  <li>{{.}}</li>
-                  {{end}}
-               </ul>
                <details role="group" class="margin-bottom--4">
                   <summary><span class="summary">Learn more about {{.Title}} in this dataset</span></summary>
                   <div class="panel">
@@ -89,6 +84,14 @@
                      <p class="margin-top--0">{{.Description}}</p>
                   </div>
                </details>
+               <ul>
+                  {{$val_length := len .Values}}{{range .Values}}
+                  <li>{{.}}</li>
+                  {{end}}
+               </ul>
+               {{if gt $val_length 4}}
+               <p>A full range of options for {{.Title}} are <a href="{{.OptionsURL}}">available here</a></p>
+               {{end}}
             </div>
             {{ end }}
             <h2>Usage Information</h2>
