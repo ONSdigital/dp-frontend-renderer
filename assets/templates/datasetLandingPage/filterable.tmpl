@@ -52,12 +52,14 @@
                <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
                   <input type="submit" value="Filter and Download" class="btn btn--primary btn--thick margin-bottom--4">
                </form>
-               <h3>Download complete dataset</h3>
-               <div class="margin-bottom-10">
-                  {{range $i, $download := $v.Downloads}}
-                  <a class="btn btn--primary" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
-                  {{end}}
-               </div>
+               {{ if gt (len $v.Downloads) 0}}
+                <h3>Download complete dataset</h3>
+                <div class="margin-bottom-10">
+                    {{range $i, $download := $v.Downloads}}
+                    <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                    {{end}}
+                </div>
+               {{ end }}
                <br>
                <div>
                   Release date: {{$v.ReleaseDate}}<br>
