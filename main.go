@@ -16,6 +16,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/listSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/rangeSelector"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/timeSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
@@ -113,6 +114,7 @@ func main() {
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
 	router.Post("/dataset-filter/range-selector", rangeSelector.Handler)
 	router.Post("/dataset-filter/list-selector", listSelector.Handler)
+	router.Post("/dataset-filter/time", timeSelector.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 

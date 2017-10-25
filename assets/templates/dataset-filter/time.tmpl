@@ -1,0 +1,151 @@
+<div>
+    <div class="page-intro">
+        <div class="wrapper">
+            <div class="col-wrap">
+                <div class="col">
+                    {{ template "partials/breadcrumb" . }}
+                    <div class="col col--md-47 col--lg-39">
+                        <h1 class="page-intro__title font-weight-700">Time</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content underline-all-links">
+        <div class="wrapper">
+            <div class="col col--md-47 col--lg-59">
+                <div class="col col--md-29 col--lg-29">
+                    <p class="font-size--17">Data available from {{.Data.FirstTime.Month}} {{.Data.FirstTime.Year}} until {{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}}</p>
+                </div>
+                <form id="time-form" method="post" action="{{.Data.FormAction.URL}}">
+                    <div class="form adjust-font-size--16 clear-left">
+                        <div class="col col--md-29 col--lg-29 margin-top--2">
+                            <div class="margin-bottom--6">
+                                <div class="multiple-choice">
+                                    <input type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
+                                    <label class="multiple-choice__label">I just want the latest data</label>
+                                    <div class="multiple-choice__content padding-top--2">
+                                        <input type="hidden" name="latest-option" value="{{.Data.LatestTime.Option}}">
+                                        <span class="margin-left--1">{{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}} (latest)</span>
+                                    </div>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input type="radio" class="multiple-choice__input" name="time-selection" value="single" {{if eq .Data.CheckedRadio "single"}}checked{{end}}>
+                                    <label class="multiple-choice__label">Add a single time</label>
+                                    <div class="multiple-choice__content padding-top--2">
+                                        <div class="margin-left--1">
+                                            <div class="clearfix">
+                                                <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="month-single">Month</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="month-single" id="month-single">
+                                                        {{ range $.Data.Months }}
+                                                            <option value="{{.}}">{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="year-single">Year</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="year-single" id="year-single">
+                                                        {{ range $.Data.Years }}
+                                                            <option value="{{.}}">{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input type="radio" name="time-selection" class="multiple-choice__input" value="range" {{if eq .Data.CheckedRadio "range"}}checked{{end}}>
+                                    <label class="multiple-choice__label">Add a time range</label>
+                                    <div class="multiple-choice__content padding-top--2">
+                                        <div class="margin-left--1">
+                                            <div class="clearfix">
+                                                <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="start-month">Month</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="start-month" id="start-month">
+                                                        {{ range $.Data.Months }}
+                                                            <option value="{{.}}">{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="start-year">Year</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="start-year" id="start-year">
+                                                        {{ range $.Data.Years }}
+                                                            <option value="{{.}}">{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="margin-bottom--1">
+                                                    <span class="font-size-17"><strong>To</strong></span>
+                                                </div>
+                                                <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="end-month">Month</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="end-month" id="end-month">
+                                                        {{ range $.Data.Months }}
+                                                            <option value="{{.}}">{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="end-year">Year</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="end-year" id="end-year">
+                                                        {{ range $.Data.Years }}
+                                                            <option value="{{.}}">{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input type="radio" name="time-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
+                                    <label class="multiple-choice__label">Add a time from list</label>
+                                        <div class="multiple-choice__content padding-top--2">
+                                            <div class="margin-left--1">
+                                                <fieldset>
+                                                    <div class="checkbox-group">
+                                                        <div class="checkbox margin-bottom--2">
+                                                            <input class="btn btn--link underline-link add-all" type="submit" value="Add all" name="add-all" />
+                                                        </div>
+                                                        {{ range $i, $v := .Data.Values }}
+                                                        <div class="checkbox">
+                                                            <input type="checkbox" class="checkbox__input {{if $v.IsSelected}} checked{{end}}" id="id-{{$v.Month}}-{{$v.Year}}" name="{{$v.Option}}" value="{{$v.Month}} {{$v.Year}}" {{if $v.IsSelected}}checked{{end}}>
+                                                            <label class="checkbox__label" for="id-{{$v.Month}}-{{$v.Year}}">
+                                                                {{$v.Month}} {{$v.Year}} {{if eq $i 0}} (latest) {{end}}
+                                                            </label>
+                                                        </div>
+                                                        {{end}}
+                                                    </div>
+                                                </fieldset>
+										    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col--md-20 col--lg-20 width-sm--20 margin-bottom--8">
+                                <input name="save-and-return" class="btn btn--primary btn--thick btn--full-width btn--big btn--focus" type="submit" value="Save and return" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

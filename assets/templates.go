@@ -10,6 +10,7 @@
 // templates/dataset-filter/list-selector.tmpl
 // templates/dataset-filter/preview-page.tmpl
 // templates/dataset-filter/range-selector.tmpl
+// templates/dataset-filter/time.tmpl
 // templates/datasetLandingPage/filterable.tmpl
 // templates/datasetLandingPage/static.tmpl
 // templates/error.tmpl
@@ -102,7 +103,7 @@ func templatesDatasetFinishpageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset/finishpage.tmpl", size: 256, mode: os.FileMode(420), modTime: time.Unix(1499846018, 0)}
+	info := bindataFileInfo{name: "templates/dataset/finishpage.tmpl", size: 256, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -122,7 +123,7 @@ func templatesDatasetIndexTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset/index.tmpl", size: 310, mode: os.FileMode(420), modTime: time.Unix(1499846018, 0)}
+	info := bindataFileInfo{name: "templates/dataset/index.tmpl", size: 310, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -142,7 +143,7 @@ func templatesDatasetMiddlepageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset/middlepage.tmpl", size: 2760, mode: os.FileMode(420), modTime: time.Unix(1500457763, 0)}
+	info := bindataFileInfo{name: "templates/dataset/middlepage.tmpl", size: 2760, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -162,7 +163,7 @@ func templatesDatasetFilterFilterOverviewTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/filter-overview.tmpl", size: 3272, mode: os.FileMode(420), modTime: time.Unix(1506524033, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/filter-overview.tmpl", size: 3272, mode: os.FileMode(420), modTime: time.Unix(1505820391, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -182,7 +183,7 @@ func templatesDatasetFilterGeographyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/geography.tmpl", size: 4068, mode: os.FileMode(420), modTime: time.Unix(1500278031, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/geography.tmpl", size: 4068, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -202,7 +203,7 @@ func templatesDatasetFilterHierarchyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 4328, mode: os.FileMode(420), modTime: time.Unix(1505736610, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 4328, mode: os.FileMode(420), modTime: time.Unix(1508498305, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -222,7 +223,7 @@ func templatesDatasetFilterListSelectorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3554, mode: os.FileMode(420), modTime: time.Unix(1505736610, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3554, mode: os.FileMode(420), modTime: time.Unix(1505739428, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -242,7 +243,7 @@ func templatesDatasetFilterPreviewPageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 5058, mode: os.FileMode(420), modTime: time.Unix(1506524033, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 5058, mode: os.FileMode(420), modTime: time.Unix(1505820391, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -262,7 +263,27 @@ func templatesDatasetFilterRangeSelectorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/range-selector.tmpl", size: 9614, mode: os.FileMode(420), modTime: time.Unix(1505736610, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/range-selector.tmpl", size: 9614, mode: os.FileMode(420), modTime: time.Unix(1508757565, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var _templatesDatasetFilterTimeTmpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xec\x5a\x5b\x8b\xe3\xb6\x17\x7f\xfe\xff\x3f\xc5\xc1\xcc\x43\x0b\x55\x6e\x6d\x77\xba\x25\x09\x2c\x2d\x85\x85\x2d\x85\xdd\x6d\xa1\x4f\x41\xb1\x94\x44\x1d\x59\x72\x65\x39\xb3\x5b\xe3\xef\x5e\x24\x39\x8e\xed\xd8\x89\xed\x64\xba\x99\x21\x79\x19\xdb\x3a\xf7\xcb\x4f\x07\x8d\xa6\x84\x6d\xe7\xff\x07\x00\x30\x4f\xe0\x73\x1c\x45\x33\x2f\xc4\x6b\x8a\x98\xd0\x4a\x7a\x6e\xb1\x4a\xf0\xa8\x70\x18\x52\x55\x58\xad\x52\xf8\x92\x23\x43\x55\x21\xa9\x21\xab\xa1\x30\xbf\x24\x01\x4d\x83\x90\x63\x4d\xc1\x0b\xb1\xd2\x0c\xf3\x68\xb8\x54\x14\x13\x5f\xc5\xc1\xd2\x83\x01\xa4\x69\x2d\x6b\x45\x01\x18\x5b\x50\x40\xd0\x77\xf7\xee\x91\xaf\xd1\xb7\xaf\x1b\xd4\x5a\xfe\xcd\xf8\x30\x12\x8b\x85\x66\x9a\x53\x58\x49\xa1\xd1\x23\x65\xeb\x8d\x46\xf7\xa3\x91\x37\xff\xc8\x02\x3a\x1d\x6e\xc6\xf5\xf2\xa6\xc3\x3c\xc2\x27\x3e\x57\x3e\x15\x5e\x8b\x8f\xd5\x2c\xf9\x52\x68\x2a\x34\xc4\x82\x50\xc5\x99\xa0\x08\x73\x8e\x38\x13\x0f\xd1\x39\xb9\xab\x8b\xd9\xf7\x75\x31\x6b\xe2\x9b\xbc\xce\xf9\x26\x4d\xb1\x9e\x86\x3b\x4e\x1b\xd4\x88\xfd\x43\x11\x1a\xdf\x7b\xf3\x9f\xb1\xc6\x80\xb7\x98\x71\xbc\x34\x21\x57\x32\x80\x24\x19\x98\xcf\x83\x5f\x98\x8a\xb4\x89\xf9\xe0\x57\x29\xf4\x26\x4d\x6b\x56\xfe\xa4\x58\xa5\x29\xc4\x42\x33\x9e\x2f\xbf\xc3\x9a\x36\x70\x16\x96\x1c\xeb\x74\x18\xb6\xca\x99\xfd\xbc\x92\x2a\x00\x46\x66\x9e\x66\x01\x45\xe6\xcd\x83\x80\xea\x8d\x24\x33\x2f\x94\x91\xf6\x00\xfb\x9a\x49\x31\xf3\x72\x4b\xa5\x0a\xde\xd8\x6f\x83\xdf\xdf\xbf\x4b\xd3\xa6\xf8\x14\x62\x6b\x95\x60\xf2\x57\x1c\x69\x54\x8c\xd6\x2b\xf0\x39\xc5\x0a\x71\xba\xd2\xc7\x4a\xba\x4d\x9a\x20\xc0\x6a\xcd\x04\xd2\x32\x44\x68\x72\x44\x5a\x55\x62\xc6\xb7\x94\x5a\xcb\x00\xa1\x57\x27\x58\x0f\xd8\x63\xae\x59\xc8\x29\xf2\x37\x92\xf9\xb4\x05\xb7\x95\xc0\x44\x18\x6b\xd0\x9f\x43\x3a\xf3\x14\x26\x4c\x7a\x0d\x02\x17\x0b\x4b\xea\x81\xc0\x01\xcd\xd2\x14\x51\x4e\x6d\x06\x3c\xd8\x62\x1e\xd3\x99\xc7\x6d\x11\x78\x90\x24\x6c\x05\xf4\x6f\x70\xa9\xfa\x69\x43\xfd\x07\x4a\xde\x1b\xf9\xb0\xa3\x49\x53\xdf\x7d\x4e\x12\x2a\x48\x9a\xb6\x34\x98\xe3\x25\xe5\x8d\x36\xda\x55\x6f\xfe\x16\x4c\x8e\xe1\x11\x0b\x0d\x7a\x43\xc1\xa9\x04\x82\x35\x9e\x0e\x2d\x4d\x4b\x6d\xcd\x01\x5e\x2c\x76\xa8\x11\x62\x42\x98\x58\xb7\xcb\x78\x63\xf0\x37\x8c\x10\x2a\x76\xe1\x75\x06\x23\x19\x96\xa2\x5b\xd3\x6a\xbf\x59\x8a\xc6\xea\xaf\x55\x1b\x85\x58\x54\xaa\xce\x54\x3e\x42\x63\x6f\xde\xa7\xd1\xe1\x2b\x67\xee\xd7\xd3\xa1\x11\xdd\x32\xb4\xf5\x40\xd0\x97\xec\xea\x3a\x21\x62\x62\xcd\xe9\xf1\x4e\xc8\x68\x9e\xb2\x13\xde\x10\x02\x18\x9c\x22\xd0\x76\x97\xbd\x9e\xfa\x3f\x44\xbf\xbc\x0e\x5b\x0b\xa9\x0a\xb2\x48\xbe\x62\x9f\x3a\x8a\x38\x10\x53\xc0\xf7\xf1\x24\xc7\xf7\xf1\x04\x2a\x38\xdd\xc5\xe1\x92\xb2\x52\xfa\x96\x5c\xfa\x0f\x55\xd1\x63\x0f\x56\x52\xcd\xbc\xc0\x34\x20\xca\x8a\x65\x6e\xdb\xb1\x53\x16\x8f\xf9\xe9\x0a\x17\x61\x7e\x6c\xe3\x3b\x29\xd0\x49\x29\xcb\x84\x47\x46\x8c\xd9\xc6\x91\x51\xf6\x12\x90\xc2\x0b\x5f\x9b\x97\x5d\x1b\x95\x9c\xb4\x93\x40\xd9\xed\xde\xc6\x25\x09\x28\x2c\xd6\x14\xee\x5c\x0b\xda\xf8\x45\x4d\x63\x6f\x6b\x97\x1d\x34\x17\x90\xd9\x60\xb0\xfd\x33\x1d\xba\xb5\xb3\x4c\xa6\x82\x9c\x63\xe2\x74\xe8\x92\xd0\xb3\x40\xda\x81\xee\xa5\xd8\xea\xda\xce\xf4\xda\x78\xdf\x81\xe3\x2f\xd0\x76\x9f\xcd\x48\xb8\x2b\x3f\xb3\xd3\xbd\xbc\xa6\x2b\xba\x68\x7b\xae\xe4\xf3\xc5\x5a\xce\x04\xef\xd6\x71\xc7\xb9\xff\xab\x8e\xeb\xc8\xd2\x81\xfc\x39\x4c\x74\xf5\x23\xdb\x89\x39\x2f\xab\x38\x5b\xd2\xc7\x07\x3a\x47\xf2\xf4\xf3\x9c\x71\xc0\xb5\xd8\x6d\x9c\x6b\x27\xe6\x8a\xc6\xb9\x48\x63\xa5\x91\x9d\x6e\x5e\xec\x34\x57\xf4\xd1\x6e\x2c\x25\xa7\x6f\xb3\x5c\x27\xf3\x9e\xc9\xce\x02\x57\x3c\xcb\xb9\xf2\x33\xd3\xcd\x4b\x1d\xe5\x0a\x1e\x16\x1a\xce\x79\x7c\x1b\xe4\xba\x98\xf7\x4c\xda\xad\x0f\xcb\xe5\x37\xd6\x83\x7e\xeb\x19\xb6\xe2\x99\xe4\xfe\x68\x7e\x7c\xef\xcd\xa7\x91\x56\x52\xac\xe7\x1f\xe5\x74\x98\x3d\x76\x39\x67\x2c\x69\xb9\x20\xa8\x5d\xc1\x20\x41\x05\x79\xe1\x63\xc4\xde\x43\x8b\x69\x05\x87\x6f\x23\x44\x27\xf3\x9e\x09\xa6\xc1\x15\x8f\x10\xa6\xf8\x5e\xf2\x00\x91\xfb\x97\xb7\xda\x6d\x78\xe8\x6e\xde\x33\x69\xb4\xdb\x29\x50\xdf\x53\x20\xce\x4e\xfe\x7f\x9b\x3d\xf1\x7f\xb7\x0b\x67\x40\xf6\x56\x87\x51\xd8\x19\x8f\x9e\xf6\x2c\xe8\x40\xc3\x39\xe7\x41\x56\xd8\x8a\x51\x4e\x22\xda\xb7\xb3\x8a\x9b\x8a\x49\xcc\x52\x7e\x42\x6b\x25\xe3\xba\xbb\x55\xe7\x08\xbd\xd4\xc6\x94\xeb\x70\xe5\xbb\xdb\xa0\xb4\x80\xa5\x16\xc8\xde\x4d\x2a\x5c\x57\xb2\xaf\x98\x10\x84\x39\xf7\xb2\x5a\x8f\xe2\x65\xc0\xf6\x75\x6b\x8b\xc6\xac\xba\xe2\xcf\x89\x87\x67\xf8\xdf\x0f\xae\x76\xbf\xfd\xfe\xc0\xbe\x81\xbb\x2d\xfc\x38\xcb\xda\xe9\x0f\x63\xf1\x59\x3b\x45\x5d\x66\x2e\x93\x08\x17\xdb\x5c\x66\x55\x49\x86\x16\x0e\x1f\xee\xb6\x83\xb7\xd1\x07\x0b\x30\x94\xa4\x29\x94\x11\xc1\xed\xb3\x8c\xa0\x24\xb9\xdb\xee\x2e\x59\xb8\x17\x77\xad\x62\x97\x2a\xfb\x29\xbf\xe7\xb1\xdf\xf9\xf6\x5c\x50\xe2\xaa\xd3\xdd\x07\x8c\x1a\x23\x51\x02\xa9\xbd\xe7\x0e\x9d\xdc\xb0\x74\xcc\xad\xf3\xb4\x83\xad\x9c\x7a\xdf\x73\x58\xbe\x63\x30\x2a\xdc\x4b\x81\xcc\xef\xf3\xdc\x3e\x67\xe2\x83\x4b\xb4\x4b\x7f\x1f\x7a\x0f\x16\x7b\xd4\xfd\x5f\xfe\xeb\x21\xf0\x8b\xcc\x0f\x6d\x48\x2a\x97\x6d\xed\x6d\xbe\xd1\xfe\x36\xdf\xa8\x30\x43\x4f\x46\x55\x6c\xff\xa1\xcd\x15\x3d\x87\x07\xd9\x19\x1d\xde\x52\x84\x05\x41\x8a\xea\x58\xed\x47\x8e\x1c\xd6\x43\xc5\x02\xac\x3e\xbb\x17\xbd\x61\xfe\x83\x7b\x5c\xc5\x9c\x23\x6b\x8a\x7b\x5f\xb2\x75\xb6\x20\xfd\x38\x6a\x40\xfc\x0f\x78\x4b\x01\x0b\x02\x3b\x6d\x27\xa0\xfe\x44\xbc\x8e\x2c\x37\xde\xcf\x5d\x49\x15\x74\xbc\xa0\xeb\xfe\xfc\x1b\x00\x00\xff\xff\x8a\x50\x61\x5f\x53\x2d\x00\x00")
+
+func templatesDatasetFilterTimeTmplBytes() ([]byte, error) {
+	return bindataRead(
+		_templatesDatasetFilterTimeTmpl,
+		"templates/dataset-filter/time.tmpl",
+	)
+}
+
+func templatesDatasetFilterTimeTmpl() (*asset, error) {
+	bytes, err := templatesDatasetFilterTimeTmplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 11603, mode: os.FileMode(420), modTime: time.Unix(1508936261, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -282,7 +303,7 @@ func templatesDatasetlandingpageFilterableTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/filterable.tmpl", size: 7189, mode: os.FileMode(420), modTime: time.Unix(1508838829, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/filterable.tmpl", size: 7189, mode: os.FileMode(420), modTime: time.Unix(1508939224, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -302,7 +323,7 @@ func templatesDatasetlandingpageStaticTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/static.tmpl", size: 13800, mode: os.FileMode(420), modTime: time.Unix(1500278031, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/static.tmpl", size: 13800, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -322,7 +343,7 @@ func templatesErrorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/error.tmpl", size: 684, mode: os.FileMode(420), modTime: time.Unix(1497282587, 0)}
+	info := bindataFileInfo{name: "templates/error.tmpl", size: 684, mode: os.FileMode(420), modTime: time.Unix(1504004336, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -342,7 +363,7 @@ func templatesHomepageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/homepage.tmpl", size: 11472, mode: os.FileMode(420), modTime: time.Unix(1497008237, 0)}
+	info := bindataFileInfo{name: "templates/homepage.tmpl", size: 11472, mode: os.FileMode(420), modTime: time.Unix(1504004336, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -362,7 +383,7 @@ func templatesMainTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/main.tmpl", size: 3692, mode: os.FileMode(420), modTime: time.Unix(1500480598, 0)}
+	info := bindataFileInfo{name: "templates/main.tmpl", size: 3692, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -382,7 +403,7 @@ func templatesPartialsBreadcrumbTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/breadcrumb.tmpl", size: 618, mode: os.FileMode(420), modTime: time.Unix(1500456609, 0)}
+	info := bindataFileInfo{name: "templates/partials/breadcrumb.tmpl", size: 618, mode: os.FileMode(420), modTime: time.Unix(1504004349, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -402,7 +423,7 @@ func templatesPartialsFilterSelectionTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/filter-selection.tmpl", size: 626, mode: os.FileMode(420), modTime: time.Unix(1505736610, 0)}
+	info := bindataFileInfo{name: "templates/partials/filter-selection.tmpl", size: 626, mode: os.FileMode(420), modTime: time.Unix(1505739428, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -422,7 +443,7 @@ func templatesPartialsFooterTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 5333, mode: os.FileMode(420), modTime: time.Unix(1499846018, 0)}
+	info := bindataFileInfo{name: "templates/partials/footer.tmpl", size: 5333, mode: os.FileMode(420), modTime: time.Unix(1504004483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -442,7 +463,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 10554, mode: os.FileMode(420), modTime: time.Unix(1508838829, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 10554, mode: os.FileMode(420), modTime: time.Unix(1508939227, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -462,7 +483,7 @@ func templatesProductpageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/productPage.tmpl", size: 2869, mode: os.FileMode(420), modTime: time.Unix(1497282587, 0)}
+	info := bindataFileInfo{name: "templates/productPage.tmpl", size: 2869, mode: os.FileMode(420), modTime: time.Unix(1504004336, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -528,6 +549,7 @@ var _bindata = map[string]func() (*asset, error){
 	"templates/dataset-filter/list-selector.tmpl": templatesDatasetFilterListSelectorTmpl,
 	"templates/dataset-filter/preview-page.tmpl": templatesDatasetFilterPreviewPageTmpl,
 	"templates/dataset-filter/range-selector.tmpl": templatesDatasetFilterRangeSelectorTmpl,
+	"templates/dataset-filter/time.tmpl": templatesDatasetFilterTimeTmpl,
 	"templates/datasetLandingPage/filterable.tmpl": templatesDatasetlandingpageFilterableTmpl,
 	"templates/datasetLandingPage/static.tmpl": templatesDatasetlandingpageStaticTmpl,
 	"templates/error.tmpl": templatesErrorTmpl,
@@ -593,6 +615,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 			"list-selector.tmpl": &bintree{templatesDatasetFilterListSelectorTmpl, map[string]*bintree{}},
 			"preview-page.tmpl": &bintree{templatesDatasetFilterPreviewPageTmpl, map[string]*bintree{}},
 			"range-selector.tmpl": &bintree{templatesDatasetFilterRangeSelectorTmpl, map[string]*bintree{}},
+			"time.tmpl": &bintree{templatesDatasetFilterTimeTmpl, map[string]*bintree{}},
 		}},
 		"datasetLandingPage": &bintree{nil, map[string]*bintree{
 			"filterable.tmpl": &bintree{templatesDatasetlandingpageFilterableTmpl, map[string]*bintree{}},
