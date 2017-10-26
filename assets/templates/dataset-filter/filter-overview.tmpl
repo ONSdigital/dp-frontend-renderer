@@ -50,8 +50,10 @@
                   </div>
               </div>
           </div>
-          <div class="margin-bottom--8">
-              <a class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" href="{{.Data.PreviewAndDownload.URL}}">Preview and download</a>
+          <div class="margin-bottom--8 {{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}}">
+            <form method="post" action="/filters/{{.FilterID}}/submit">
+                <input type="submit" {{if .Data.PreviewAndDownloadDisabled}}disabled{{end}} value="Preview and Download" class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" name="preview-and-download" />
+            </form>
           </div>
       </div>
   </div>
