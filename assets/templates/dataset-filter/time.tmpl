@@ -22,7 +22,7 @@
                         <div class="col col--md-29 col--lg-29 margin-top--2">
                             <div class="margin-bottom--6">
                                 <div class="multiple-choice">
-                                    <input type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
+                                    <input id="time-selection-latest" type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
                                     <label class="multiple-choice__label">I just want the latest data</label>
                                     <div class="multiple-choice__content padding-top--2">
                                         <input type="hidden" name="latest-option" value="{{.Data.LatestTime.Option}}">
