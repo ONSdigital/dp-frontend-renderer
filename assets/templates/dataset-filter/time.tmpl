@@ -23,7 +23,7 @@
                             <div class="margin-bottom--6">
                                 <div class="multiple-choice">
                                     <input id="time-selection-latest" type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
-                                    <label class="multiple-choice__label">I just want the latest data</label>
+                                    <label for="time-selection-latest" class="multiple-choice__label">I just want the latest data</label>
                                     <div class="multiple-choice__content padding-top--2">
                                         <input type="hidden" name="latest-option" value="{{.Data.LatestTime.Option}}">
                                         <span class="margin-left--1">{{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}} (latest)</span>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="time-selection-single" type="radio" class="multiple-choice__input" name="time-selection" value="single" {{if eq .Data.CheckedRadio "single"}}checked{{end}}>
-                                    <label class="multiple-choice__label">Add a single time</label>
+                                    <label for="time-selection-single" class="multiple-choice__label">Add a single time</label>
                                     <div class="multiple-choice__content padding-top--2">
                                         <div class="margin-left--1">
                                             <div class="clearfix">
@@ -40,7 +40,7 @@
                                                     <div class="select-alt">
                                                         <select class="select width-sm--10 width-md--10 width-lg--10" name="month-single" id="month-single">
                                                         {{ range $.Data.Months }}
-                                                            <option value="{{.}}">{{.}}</option>
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "single"}}{{if eq . $.Data.SelectedStartMonth}}selected{{end}}{{end}}>{{.}}</option>
                                                         {{ end }}
                                                         </select>
                                                     </div>
@@ -50,7 +50,7 @@
                                                     <div class="select-alt">
                                                         <select class="select width-sm--10 width-md--10 width-lg--10" name="year-single" id="year-single">
                                                         {{ range $.Data.Years }}
-                                                            <option value="{{.}}">{{.}}</option>
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "single"}}{{if eq . $.Data.SelectedStartYear}}selected{{end}}{{end}}>{{.}}</option>
                                                         {{ end }}
                                                         </select>
                                                     </div>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="time-selection-range" type="radio" name="time-selection" class="multiple-choice__input" value="range" {{if eq .Data.CheckedRadio "range"}}checked{{end}}>
-                                    <label class="multiple-choice__label">Add a time range</label>
+                                    <label for="time-selection-range" class="multiple-choice__label">Add a time range</label>
                                     <div class="multiple-choice__content padding-top--2">
                                         <div class="margin-left--1">
                                             <div class="clearfix">
@@ -70,7 +70,7 @@
                                                     <div class="select-alt">
                                                         <select class="select width-sm--10 width-md--10 width-lg--10" name="start-month" id="start-month">
                                                         {{ range $.Data.Months }}
-                                                            <option value="{{.}}">{{.}}</option>
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedStartMonth}}selected{{end}}{{end}}>{{.}}</option>
                                                         {{ end }}
                                                         </select>
                                                     </div>
@@ -80,7 +80,7 @@
                                                     <div class="select-alt">
                                                         <select class="select width-sm--10 width-md--10 width-lg--10" name="start-year" id="start-year">
                                                         {{ range $.Data.Years }}
-                                                            <option value="{{.}}">{{.}}</option>
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedStartYear}}selected{{end}}{{end}}>{{.}}</option>
                                                         {{ end }}
                                                         </select>
                                                     </div>
@@ -95,7 +95,7 @@
                                                     <div class="select-alt">
                                                         <select class="select width-sm--10 width-md--10 width-lg--10" name="end-month" id="end-month">
                                                         {{ range $.Data.Months }}
-                                                            <option value="{{.}}">{{.}}</option>
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedEndMonth}}selected{{end}}{{end}}>{{.}}</option>
                                                         {{ end }}
                                                         </select>
                                                     </div>
@@ -105,7 +105,7 @@
                                                     <div class="select-alt">
                                                         <select class="select width-sm--10 width-md--10 width-lg--10" name="end-year" id="end-year">
                                                         {{ range $.Data.Years }}
-                                                            <option value="{{.}}">{{.}}</option>
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedEndYear}}selected{{end}}{{end}}>{{.}}</option>
                                                         {{ end }}
                                                         </select>
                                                     </div>
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="time-selection-list" type="radio" name="time-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
-                                    <label class="multiple-choice__label">Add a time from list</label>
+                                    <label for="time-selection-list" class="multiple-choice__label">Add a time from list</label>
                                         <div class="multiple-choice__content padding-top--2">
                                             <div class="margin-left--1">
                                                 <fieldset>

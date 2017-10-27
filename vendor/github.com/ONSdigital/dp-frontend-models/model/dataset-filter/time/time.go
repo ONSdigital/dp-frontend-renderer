@@ -11,13 +11,17 @@ type Page struct {
 
 // Data represents the data for the time page
 type Data struct {
-	LatestTime   Value    `json:"latest_value"`
-	FirstTime    Value    `json:"fist_time"`
-	Values       []Value  `json:"values"`
-	Months       []string `json:"months"`
-	Years        []string `json:"years"`
-	CheckedRadio string   `json:"checked_radio"`
-	FormAction   Link     `json:"form_action"`
+	LatestTime         Value    `json:"latest_value"`
+	FirstTime          Value    `json:"fist_time"`
+	Values             []Value  `json:"values"`
+	Months             []string `json:"months"`
+	Years              []string `json:"years"`
+	CheckedRadio       string   `json:"checked_radio"`
+	FormAction         Link     `json:"form_action"`
+	SelectedStartMonth string   `json:"selected_start_month"`
+	SelectedStartYear  string   `json:"selected_start_year"`
+	SelectedEndMonth   string   `json:"selected_end_month"`
+	SelectedEndYear    string   `json:"selected_end_year"`
 }
 
 // Link represents a link
