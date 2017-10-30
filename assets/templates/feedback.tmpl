@@ -4,7 +4,7 @@
             <div class="col margin-top--1">
                 {{ template "partials/breadcrumb" . }}
                 <h1 class="page-intro__title margin-bottom--4">
-                    Feedback
+                    {{.Metadata.Title}}
                 </h1>
             </div>
         </div>
@@ -13,11 +13,12 @@
 <div class="wrapper">
     <div class="col-wrap margin-bottom--4">
         <div class="col col--lg-two-thirds col--md-two-thirds">
+            {{if eq .Metadata.Title "Feedback"}}
             <div>
                 <p class="font-size--16">You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK</p>
             </div>
             <div class="margin--top-4">
-                <form>
+                <form action="/feedback" method="post">
                     <div>
                         <strong><span class="font-size--16">What's it to do with?</span></strong>
                     </div>
@@ -42,21 +43,24 @@
                         <textarea id="description-field" class="form-control" name="description" rows="5"></textarea>
                     </div>
                     <div>
-                        <label class="form-label-bold" for="name-field">
-                            Name (optional)
-                            <span class="form-hint">Include your name and email address if you'd like us to get back to you.</span>
-                        </label>
-                        <input id="name-field" class="form-control" type="text" name="name">
+                        <strong><span class="font-size--16">Name (optional)</span></strong>
+                        <span class="form-hint">Include your name and email address if you would like us to get back to you.</span>
+                        <input class="form-control" type="text" name="name">
                     </div>
                     <div>
-                        <label class="form-label-bold" for="email-field">Email (optional)</label>
-                        <input id="email-field" class="form-control" type="text" name="email">
+                        <strong><span class="font-size--16">Email (optional)</span></strong>
+                        <input class="form-control" type="text" name="email">
                     </div>
                     <div>
-                        <input id="feedback-form-submit" class="btn btn--primary" type="submit" value="Send message">
+                        <input class="btn btn--primary" type="submit" value="Send message">
                     </div>
                 </form>
             </div>
+            {{else}}
+                <div class="font-size--16 margin-top--4">
+                    Return to <a href="{{.Metadata.Description}}">{{.Metadata.Description}}</a>
+                </div>
+            {{end}}
         </div>
     </div>
 </div>
