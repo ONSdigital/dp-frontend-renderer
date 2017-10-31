@@ -40,7 +40,8 @@
                     <div>
                         <strong><span class="font-size--16">Can you provide me with more detail?</span></strong>
                         <span class="form-hint">For example if you were searching for something, what did you type in the search box?</span>
-                        <textarea id="description-field" class="form-control" name="description" rows="5"></textarea>
+                        {{if .ServiceMessage}}<span class="form-error">{{.ServiceMessage}}</span>{{end}}
+                        <textarea id="description-field" class="form-control {{if .ServiceMessage}}form-control__error{{end}}" name="description" rows="5"></textarea>
                     </div>
                     <div>
                         <strong><span class="font-size--16">Name (optional)</span></strong>
