@@ -1,7 +1,7 @@
 <div class="filter-selection">
   <header>
     <div class="filter-selection__header">
-      <h2><span class="font-size--21">{{ len .Data.FiltersAdded }}</span> added</h2>
+      <h2 class="font-weight-700"><span class="font-size--21">{{ len .Data.FiltersAdded }}</span> item{{if ne (len .Data.FiltersAdded) 1 }}s{{end}} added</h2>
       {{ $val := len .Data.FiltersAdded }}
       {{ if ne $val 0 }}
       <a class="remove-all js-filter" href="{{ .Data.RemoveAll.URL }}">Remove all</a>
