@@ -30,7 +30,7 @@
 										<legend>
 											{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>{{end}}
 											{{ if .Data.Parent }}
-											<span class="block font-size--17 padding-bottom--2 margin-top--2"><a href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
+											<span class="block font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
 											{{ end }}
 										</legend>
 										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
@@ -40,12 +40,12 @@
 											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1">
 												<div class="width-md--24 inline-block">
 													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
-													<label class="checkbox__label" for="id-{{$i}}">
+													<label id="{{.ID}}" class="checkbox__label" for="id-{{$i}}">
 														{{ .Label }}
 													</label>
 												</div>
 												{{ if ne .SubNum "0" }}
-												<input name="{{ .SubURL }}" type="submit" class="btn btn--link underline-link float-el--right-md padding-top--1" value="View ({{.SubNum}})" />
+												<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="btn btn--link underline-link float-el--right-md padding-top--1" value="View ({{.SubNum}})" />
 												{{ end }}
 											</div>
 											{{ end }}
