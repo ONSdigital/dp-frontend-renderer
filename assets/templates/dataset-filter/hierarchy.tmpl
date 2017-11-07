@@ -5,7 +5,7 @@
 				<div class="col">
 					{{ template "partials/breadcrumb" . }}
 					<div class="col col--md-47 col--lg-39">
-						<h1 class="page-intro__title font-weight-700">{{ .Data.Title }}</h1>
+						<h1 class="page-intro__title font-weight-700">{{ .Data.DimensionName }}</h1>
 					</div>
 				</div>
 			</div>
@@ -15,17 +15,10 @@
       <div class="wrapper">
           <div class="col-wrap">
               <div class="col col--md-29 col--lg-29 margin-left-md--1">
-								<details role="group" class="margin-bottom--4">
-								  <summary><span class="summary">Learn more about {{.Data.Metadata.Name}}</span></summary>
-								  <div class="panel">
-								  	<h3 class="margin-bottom--0 w-700">{{.Data.Metadata.Name}}</h3>
-								    <p class="margin-top--0">{{.Data.Metadata.Description}}</p>
-								  </div>
-								</details>
-            		<form class="margin-bottom--5" action="/search">
+            		<form class="margin-bottom--2" action="/search">
 									<div class="clearfix">
 										<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search</label>
-              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-25 col--lg-25" name="q" placeholder="Search {{ .Data.Title }}">
+              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-25 col--lg-25" name="q" placeholder="Search {{.Data.DimensionName}}">
               			<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
               				<span class="visuallyhidden">Search</span>
               				<span class="icon icon-search--light"></span>
@@ -35,9 +28,9 @@
 								<form id="filter-form" class="margin-bottom--5" action="{{.Data.SaveAndReturn.URL}}" method="post">
 									<fieldset>
 										<legend>
-											<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>
+											{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>{{end}}
 											{{ if .Data.Parent }}
-											<span class="block font-size--17 padding-bottom--2"><a href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
+											<span class="block font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
 											{{ end }}
 										</legend>
 										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
@@ -47,12 +40,12 @@
 											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1">
 												<div class="width-md--24 inline-block">
 													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
-													<label class="checkbox__label" for="id-{{$i}}">
+													<label id="{{.ID}}" class="checkbox__label" for="id-{{$i}}">
 														{{ .Label }}
 													</label>
 												</div>
 												{{ if ne .SubNum "0" }}
-												<input name="{{ .SubURL }}" type="submit" class="btn btn--link underline-link float-el--right-md padding-top--1" value="View ({{.SubNum}})" />
+												<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="btn btn--link underline-link float-el--right-md padding-top--1" value="View ({{.SubNum}})" />
 												{{ end }}
 											</div>
 											{{ end }}
@@ -61,14 +54,14 @@
 									<div class="margin-top js-hidden">
 										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 									</div>
-									<div class="margin-bottom--8 margin-top--2">
-                  	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
+									<div class="margin-bottom--8 margin-top--5">
+                  	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
                   </div>
 								</div>
 							<aside>
 								<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
 									<div class="margin-bottom--6 hide--sm">
-										<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return to filter options" />
+										<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return" />
 									</div>
                   {{ template "partials/filter-selection" . }}
 								</div>

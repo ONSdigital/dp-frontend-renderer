@@ -20,6 +20,7 @@ type Hierarchy struct {
 	FiltersAdded  []Filter `json:"filters_added"`
 	RemoveAll     Link     `json:"remove_all"`
 	GoBack        Link     `json:"go_back"`
+	DimensionName string   `json:"dimension_name"`
 	Parent        string   `json:"parent"`
 	Metadata      Metadata `json:"metadata"`
 }
