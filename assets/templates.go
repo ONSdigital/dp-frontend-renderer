@@ -11,6 +11,7 @@
 // templates/dataset-filter/preview-page.tmpl
 // templates/dataset-filter/range-selector.tmpl
 // templates/dataset-filter/time.tmpl
+// templates/datasetLandingPage/edition-list.tmpl
 // templates/datasetLandingPage/filterable.tmpl
 // templates/datasetLandingPage/static.tmpl
 // templates/error.tmpl
@@ -205,7 +206,7 @@ func templatesDatasetFilterHierarchyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 4057, mode: os.FileMode(420), modTime: time.Unix(1510066730, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 4057, mode: os.FileMode(420), modTime: time.Unix(1510067232, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -286,6 +287,26 @@ func templatesDatasetFilterTimeTmpl() (*asset, error) {
 	}
 
 	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 12431, mode: os.FileMode(420), modTime: time.Unix(1509524153, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var _templatesDatasetlandingpageEditionListTmpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x74\x52\xc1\x6e\xdb\x30\x0c\xbd\xf7\x2b\x08\xdd\x65\xb5\xc1\x4e\x83\xea\xd3\x06\xec\xb2\xd3\x76\x2f\x18\x49\xb5\x89\xc9\x92\x20\xd1\x29\x0a\x23\xff\x3e\x28\xa9\x13\xc7\x4e\x4e\xb6\xf8\xf8\xc8\xc7\x47\x6a\x4b\x07\x30\x1e\x4b\x79\x15\x09\x3b\x27\x29\x70\x8e\xb0\x47\xf3\xaf\xcb\x71\x0c\x56\xca\x0e\xbd\x77\xf9\x53\xb4\x4f\x00\xb0\xcc\xff\xc8\x98\x92\xcb\x67\x60\x85\x99\xe8\x65\xc5\x2f\xe0\x16\x5f\x42\x00\x30\x4d\xc0\x6e\x48\x1e\xd9\x81\x48\x98\x99\xd0\x17\xb5\xcf\x0e\xad\xc9\xe3\xb0\x17\xd0\xc0\xf1\x78\x43\xd1\xfd\xcb\x56\xfb\xdb\x1b\x13\x7b\x07\x03\xe6\x8e\x82\xdc\x47\xe6\x38\x48\xf9\x6d\xd5\xae\xd2\x4b\xc2\x70\xb7\xc0\x67\x72\xa2\xfd\x69\x89\x29\x86\xf2\x5d\xab\x9a\xb8\xa1\x4f\x13\x34\xbf\x1d\xa3\x45\xc6\xe6\xef\xa9\xe7\x5a\x9f\xea\x5f\x96\xf3\x2b\x4b\x87\x8b\x59\x97\xc7\xd7\xdf\xfc\x79\x64\xf0\x3d\x77\x21\xa1\xb5\x14\x3a\xc9\x31\x49\xb9\x7b\x3c\xf3\x8a\x0c\xb5\x80\xf4\x9d\xe4\x8f\x28\xb9\xa7\x6c\xcb\x39\x34\xd8\x45\x68\xe1\xd8\xcd\xac\x3f\x5c\x31\x99\x52\x35\xa7\x4e\xfc\x74\x5d\xc7\xae\xfd\xe3\xbc\x33\x0c\x18\xc0\x9d\xed\xd3\xaa\xdf\x5d\xeb\xe8\x34\xab\xf8\x92\x7a\x12\xfe\x2c\xda\x5f\x54\x38\x66\x32\x50\x3b\x00\x15\x28\xc9\x13\x03\x05\x8e\x80\x21\x8c\xe8\xe7\x82\x05\x6a\xc8\x98\x38\x06\x86\xf7\x98\xc1\xf4\x18\x3a\x57\x20\x1e\x5c\x06\xa6\xc1\x35\x5a\xa5\x76\x21\x6b\xf4\x9b\x4b\xcb\x95\x02\xcd\xbc\xe2\xd5\xde\x4e\x2c\x4f\x77\xa5\xae\x3d\x7e\x16\xad\x46\xe8\xb3\x7b\x7f\x15\xb3\x42\x55\xed\x9a\x2f\x42\xb4\xd3\x74\x7e\x1c\x8f\x5a\x61\xab\x95\xa7\x8d\x1e\x17\xec\xf2\x78\xb4\xba\x6a\x7e\x70\x28\xff\x03\x00\x00\xff\xff\xcb\x84\xd0\x6e\xb9\x03\x00\x00")
+
+func templatesDatasetlandingpageEditionListTmplBytes() ([]byte, error) {
+	return bindataRead(
+		_templatesDatasetlandingpageEditionListTmpl,
+		"templates/datasetLandingPage/edition-list.tmpl",
+	)
+}
+
+func templatesDatasetlandingpageEditionListTmpl() (*asset, error) {
+	bytes, err := templatesDatasetlandingpageEditionListTmplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "templates/datasetLandingPage/edition-list.tmpl", size: 953, mode: os.FileMode(420), modTime: time.Unix(1510222255, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -592,6 +613,7 @@ var _bindata = map[string]func() (*asset, error){
 	"templates/dataset-filter/preview-page.tmpl": templatesDatasetFilterPreviewPageTmpl,
 	"templates/dataset-filter/range-selector.tmpl": templatesDatasetFilterRangeSelectorTmpl,
 	"templates/dataset-filter/time.tmpl": templatesDatasetFilterTimeTmpl,
+	"templates/datasetLandingPage/edition-list.tmpl": templatesDatasetlandingpageEditionListTmpl,
 	"templates/datasetLandingPage/filterable.tmpl": templatesDatasetlandingpageFilterableTmpl,
 	"templates/datasetLandingPage/static.tmpl": templatesDatasetlandingpageStaticTmpl,
 	"templates/error.tmpl": templatesErrorTmpl,
@@ -662,6 +684,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 			"time.tmpl": &bintree{templatesDatasetFilterTimeTmpl, map[string]*bintree{}},
 		}},
 		"datasetLandingPage": &bintree{nil, map[string]*bintree{
+			"edition-list.tmpl": &bintree{templatesDatasetlandingpageEditionListTmpl, map[string]*bintree{}},
 			"filterable.tmpl": &bintree{templatesDatasetlandingpageFilterableTmpl, map[string]*bintree{}},
 			"static.tmpl": &bintree{templatesDatasetlandingpageStaticTmpl, map[string]*bintree{}},
 		}},
