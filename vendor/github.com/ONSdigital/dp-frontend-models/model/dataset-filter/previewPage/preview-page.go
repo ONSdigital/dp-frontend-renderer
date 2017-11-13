@@ -16,6 +16,9 @@ type PreviewPage struct {
 	Dimensions      []Dimension   `json:"dimensions"`
 	IsLatestVersion bool          `json:"is_latest_version"`
 	LatestVersion   LatestVersion `json:"latest_version"`
+	DatasetTitle    string        `json:"dataset_title"`
+	DatasetID       string        `json:"dataset_id"`
+	ReleaseDate     string        `json:"release_date"`
 }
 
 // Download has the details for an individual downloadable files

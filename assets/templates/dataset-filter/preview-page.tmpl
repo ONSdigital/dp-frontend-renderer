@@ -23,10 +23,10 @@
               </div>
               {{ end }}
               <a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
-              <ul class="list--neutral">
-                {{if gt (len .Data.Dimensions) 0}}{{ range .Data.Dimensions }}
-                <li class="margin-bottom--0 margin-bottom--0">{{.Name}}: {{$vals := .Values}}{{range $i, $v := $vals}}{{$v}}{{if not (last $i $vals) }}, {{end}}{{end}}</li>
-                {{ end }}
+              <ul class="list--neutral margin-bottom--3 margin-top--3">
+                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.Data.DatasetTitle}}</li>
+                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
+                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{.Data.ReleaseDate}}</li>
               </ul>
 							{{if not .IsContentLoaded}}
               <meta http-equiv="refresh" content="2"/>
@@ -93,7 +93,7 @@
                   {{ end }}
                </div>
             </div>
-						{{end}}{{end}}
+						{{end}}
          </div>
       </div>
    </div>
