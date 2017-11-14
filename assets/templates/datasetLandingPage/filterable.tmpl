@@ -15,7 +15,7 @@
    <div class="wrapper">
       <dl class="col-wrap">
          <div class="col col--md-16 col--lg-20 meta__item meta__item font-size--21">
-           {{$versions := .DatasetLandingPage.Versions}}{{range $v := $versions}}{{$v.Edition}}{{end}}
+           {{.DatasetLandingPage.Edition}}
          </div>
          <div class="col col--md-16 col--lg-20 meta__item meta__item">
             <dt class="meta__term inline">Release date:</dt>
