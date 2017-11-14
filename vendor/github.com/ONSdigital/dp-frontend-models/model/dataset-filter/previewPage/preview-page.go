@@ -7,6 +7,7 @@ type Page struct {
 	model.Page
 	Data            PreviewPage `json:"data"`
 	IsContentLoaded bool        `json:"is_content_loaded"`
+	NoDimensionData bool        `json:"no_dimension_data"`
 }
 
 // PreviewPage ...

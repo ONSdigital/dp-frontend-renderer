@@ -5,7 +5,7 @@
             <div class="col">
                {{ template "partials/breadcrumb" . }}
                <div class="col col--md-47 col--lg-39">
-                  <h1 class="page-intro__title font-weight-700">Preview of filtered dataset</h1>
+                  <h1 class="page-intro__title font-weight-700">{{if not .NoDimensionData}}Preview of filtered dataset{{else}}We can't create a preview{{end}}</h1>
                </div>
             </div>
          </div>
@@ -15,6 +15,7 @@
       <div class="wrapper">
          <div class="col-wrap">
             <div class="col">
+              {{if not .NoDimensionData}}
               {{if not .Data.IsLatestVersion}}
               <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
                 <div class="alert__title">This is not the latest release</div>
@@ -30,14 +31,13 @@
               </ul>
 							{{if not .IsContentLoaded}}
               <meta http-equiv="refresh" content="2"/>
-		 					<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2 text-center">
-		 						<div class="margin-right--auto margin-left--auto width--4">
+		 					<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
 		 						  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 						   width="50px" height="50px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-		 							  <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+		 						   width="80px" height="80px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+		 							  <path opacity="0.3" fill="#206095" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
 		 							    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
 		 							    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-		 							  <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+		 							  <path fill="#206095" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
 		 						    C22.32,8.481,24.301,9.057,26.013,10.047z">
 		 						    <animateTransform attributeType="xml"
 		 						      attributeName="transform"
@@ -48,8 +48,7 @@
 		 						      repeatCount="indefinite"/>
 		 						    </path>
 		 						  </svg>
-		 						</div>
-		 						<h3 class="inline-block margin-top--0 padding-top--0 height--8 v-mid">Please wait, building preview and download files...</h3>
+		 						<p class="margin-top--0 padding-top--0 height--8">Please wait whle we generate your preview and files...</p>
 		 					 </div>
 
 		 					{{ else }}
@@ -74,26 +73,22 @@
                      </tbody>
                   </table>
                </div>
-               <div class="margin-top margin-bottom font-size--17">
-                Display rows 1-10 of 500
-               </div>
                <div class="margin-bottom--8">
                   <h2 class="margin-bottom">Download filtered dataset</h2>
-                  <details role="group" class="margin-bottom--2 font-size--16">
-                     <summary><span class="summary">Help with filetypes</span></summary>
-                     <div class="panel">
-                        <h3 class="margin-bottom--0 font-weight-700">Filetypes</h3>
-                        <p class="margin-top--0">A description on filetypes ...</p>
-                     </div>
-                  </details>
                   {{ range .Data.Downloads}}
                   {{if not (eq .Size "") }}
                   <a class="btn btn--primary uppercase" href="{{.URI}}"><strong>{{ .Extension }}</strong> {{ humanSize .Size }}</a>
                   {{end}}
                   {{ end }}
                </div>
+               {{end}}
+               {{else}}
+               <div class="alert alert--light">
+                 <p class="margin-bottom--half padding-bottom--0">Your selection were too specific, so there is no data to display</p>
+                 <a class="inline-block margin-bottom--half" href="/filters/{{.Data.FilterID}}/dimensions">Please go back and adjust filter options</a>
+               </div>
+               {{end}}
             </div>
-						{{end}}
          </div>
       </div>
    </div>
