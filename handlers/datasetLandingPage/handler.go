@@ -7,7 +7,6 @@ import (
 	"github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable"
 	"github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageStatic"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/ian-kent/go-log/log"
 )
 
 const xRequestIDParam = "X-Request-Id"
@@ -28,7 +27,6 @@ func StaticHandler(w http.ResponseWriter, req *http.Request) {
 
 //EditionListHandler ...
 func EditionListHandler(w http.ResponseWriter, req *http.Request) {
-	log.Debug("IN HERE", nil)
 	var page datasetEditionsList.Page
 
 	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/edition-list", nil)
