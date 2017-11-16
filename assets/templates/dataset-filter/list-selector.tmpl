@@ -18,7 +18,7 @@
 						<div class="col col--md-47 col--lg-59">
 							<div class="col col--md-29 col--lg-29">
 								<details role="group" class="margin-bottom--4">
-								  <summary><span class="summary">Learn more about range</span></summary>
+								  <summary><span class="summary">Learn more</span></summary>
 								  <div class="panel">
 								  	<h3 class="margin-bottom--0 w-700">Some title</h3>
 								    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
@@ -29,13 +29,10 @@
 								<div class="col col--md-29 col--lg-29">
 										<div class="margin-bottom--8">
 											<fieldset>
-												<legend>
-													<span class="block padding-bottom--2"><span class="font-size--17">Add from list  or</span> <a href="{{.Data.AddFromRange.URL}}">{{.Data.AddFromRange.Label}}</a> </span>
-												</legend>
 												<div class="checkbox-group">
 													<div class="checkbox margin-bottom--2">
 														<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
-				                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" name="remove-all" />
+				                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" id="remove-all" name="remove-all" />
 													</div>
 													{{ $val := .Data.FiltersAmount }}
 													{{ range .Data.RangeData.Values }}
@@ -52,14 +49,14 @@
 												<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 											</div>
 											<div class="margin-bottom--8 margin-top--2">
-												<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
+												<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
 											</div>
 										</div>
 									</div>
 									<aside>
 										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
 										  <div class="margin-bottom--6 hide--sm">
-												<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return to filter options" />
+												<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return" />
 										  </div>
 											{{ template "partials/filter-selection" . }}
 										</div>
