@@ -3,102 +3,102 @@
       <div class="col-wrap">
          <div class="col">
             {{ template "partials/breadcrumb" . }}
-            <h1 class="page-intro__title margin-bottom--4">
+            <h1 class="page-intro__title margin-bottom--3">
                <span class="page-intro__type">Dataset:</span>
-               {{ .Metadata.Title }}
+               <strong>{{ .Metadata.Title }}</strong>
             </h1>
          </div>
       </div>
    </div>
 </div>
-<div class="meta-wrap">
+<div class="meta-wrap meta-wrap--thin">
    <div class="wrapper">
       <dl class="col-wrap">
-         <div class="col col--md-12 col--lg-15 meta__item">
-            <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">
-            <img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo">
-            </a>
-            <dt class="meta__term">Contact:</dt>
-            <dd>
-               <a>{{.ContactDetails.Name}}</a>
-            </dd>
+         <div class="col col--md-16 col--lg-20 meta__item meta__item font-size--21">
+           {{.DatasetLandingPage.Edition}}
          </div>
-         <div class="col col--md-12 col--lg-15 meta__item">
-            <dt class="meta__term">Release date</dt>
-            <dd>{{ .DatasetLandingPage.ReleaseDate }}</dd>
+         <div class="col col--md-16 col--lg-20 meta__item meta__item">
+            <dt class="meta__term inline">Release date:</dt>
+            <dd class="inline">{{ .DatasetLandingPage.ReleaseDate }}</dd>
          </div>
-         <div class="col col--md-12 col--lg-15 meta__item">
-            <dt class="meta__term">Next release</dt>
-            <dd>{{ .DatasetLandingPage.NextRelease }}</dd>
+         <div class="col col--md-16 col--lg-20 meta__item meta__item">
+            <dt class="meta__term inline">Next release:</dt>
+            <dd class="inline">{{ .DatasetLandingPage.NextRelease }}</dd>
          </div>
       </dl>
    </div>
 </div>
-<div class="wrapper">
+<div class="wrapper adjust-font-size--16">
    <div class="col-wrap margin-bottom--4">
-      <div class="col col--lg-two-thirds col--md-two-thirds">
+      <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4">
          <section>
-            <h2>About this dataset</h2>
-            {{ .Metadata.Description }}
+            <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
          </section>
          <section>
-            <div class="border-bottom--abbey-sm border-bottom--abbey-md border-bottom--abbey-lg">
-               <h2 class="margin-bottom--2">Your download options</h2>
-            </div>
             {{$datasetID := .DatasetLandingPage.DatasetID}}{{$versions := .DatasetLandingPage.Versions}}{{range $i, $v := $versions}}
-            <div class="show-hide show-hide--light border-bottom--abbey-sm border-bottom--abbey-md border-bottom--abbey-lg margin-top--negative-two-fix margin-bottom--1">
-               <h3 class="margin-bottom--2">
-               {{$v.Edition}} </h2>
                <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
                   <input type="submit" value="Filter and Download" class="btn btn--primary btn--thick margin-bottom--4">
                </form>
                {{ if gt (len $v.Downloads) 0}}
-                <h3>Download complete dataset</h3>
-                <div class="margin-bottom-10">
-                    {{range $i, $download := $v.Downloads}}
-                    <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
-                    {{end}}
+               <div class="js-show-hide show-hide show-hide--light border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
+                 <div class="js-show-hide__title show-hide__title">
+                  <h3 class="margin-top--0">Other download options</h3>
+                </div>
+                <div class="js-show-hide__content show-hide__content">
+                  <div class="margin-bottom--8">
+                      {{range $i, $download := $v.Downloads}}
+                      <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                      {{end}}
+                  </div>
+                </div>
                 </div>
                {{ end }}
-               <br>
-               <div>
-                  Release date: {{$v.ReleaseDate}}<br>
-               </div>
-               <details role="group" class="margin-bottom--4">
-                  <summary><span class="summary">What has changed in this edition?</span></summary>
-                  <div class="panel">
-                     <h3 class="margin-bottom--0 w-700">{{ $v.Title }}</h3>
-                     <p class="margin-top--0">{{ $v.Description }}</p>
-                  </div>
-               </details>
-            </div>
             {{ end }}
          </section>
          <section>
-            <h2>In this dataset</h2>
-            {{range .DatasetLandingPage.Dimensions}}
-            <div class="margin-bottom--3">
-               <h3>{{.Title}}:</h3>
-               <details role="group" class="margin-bottom--4">
-                  <summary><span class="summary">Learn more about {{.Title}} in this dataset</span></summary>
-                  <div class="panel">
-                     <h3 class="margin-bottom--0 w-700">{{.Title}}</h3>
-                     <p class="margin-top--0">{{.Description}}</p>
-                  </div>
-               </details>
-               <ul>
-                  {{$val_length := len .Values}}{{range .Values}}
-                  <li>{{.}}</li>
+           <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
+             <h2 class="table-of-contents__title">Supporting information: table of contents</h2>
+             <ol id="toc" class="table-of-contents__list">
+               <li class="table-of-contents__item">
+                 <a href="#id-1" class="js-scroll">In this dataset</a>
+               </li>
+               <li class="table-of-contents__item">
+                 <a href="#id-2" class="js-scroll">Usage</a>
+               </li>
+             </ol>
+           </div>
+        </section>
+
+         <section class="js-sticky-toc__trigger">
+            <div id="id-1" class="section__content--markdown js-sticky-toc__section">
+              <h2><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
+              {{range .DatasetLandingPage.Dimensions}}
+              <div class="margin-bottom--3">
+                 <h3 class="font-size--17 font-weight-700">{{.Title}}:</h3>
+                  {{$val_length := len .Values}}
+                  {{$vals := .Values}}{{range $i, $v := $vals}}
+                  <span>{{.}} {{if not (last $i $vals) }}| {{end}}</span>
                   {{end}}
-               </ul>
-               {{if gt $val_length 4}}
-               <p>A full range of options for {{.Title}} are <a href="{{.OptionsURL}}">available here</a></p>
-               {{end}}
-            </div>
-            {{ end }}
-            <h2>Usage Information</h2>
-            <p>Free for public use.</p>
-            Citation: www.ons.gov.uk 2017, Source 2011
+                  {{if gt $val_length 4}}
+                 <span>| <a href="{{.OptionsURL}}">See all</a></span>
+                 {{end}}
+                 <details role="group" class="margin-bottom--4">
+                    <summary><span class="summary">Learn more</span></summary>
+                    <div class="panel">
+                       <h3 class="margin-bottom--0 w-700">{{.Title}}</h3>
+                       <p class="margin-top--0">{{.Description}}</p>
+                    </div>
+                 </details>
+             </div>
+             {{ end }}
+             <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+          </div>
+          <div id="id-2" class="section__content--markdown js-sticky-toc__section">
+            <h2><span class="section__content-number font-size--24">2.</span>Usage Information</h2>
+            <p class="margin-bottom--0">Free for public use.</p>
+            <p>Citation: www.ons.gov.uk 2017, Source 2011</p>
+            <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+          </div>
          </section>
       </div>
       <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
