@@ -4,11 +4,14 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"sync"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/go-ns/log"
 )
+
+var mutex = &sync.Mutex{}
 
 //Handler ... page and page2 need to be a pointer to the same value
 func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *model.Page, templateName string, f func()) {
@@ -48,6 +51,10 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	page2.SiteDomain = config.SiteDomain
 
 	log.DebugR(req, "rendered template", log.Data{"template": templateName})
+
+	mutex.Lock()
+	defer mutex.Unlock()
+
 	err = HTML(w, 200, templateName, page)
 	if err != nil {
 		JSON(w, 500, model.ErrorResponse{

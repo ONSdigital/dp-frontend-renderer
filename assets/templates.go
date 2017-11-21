@@ -244,7 +244,7 @@ func templatesDatasetFilterPreviewPageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 5104, mode: os.FileMode(420), modTime: time.Unix(1511255995, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 5104, mode: os.FileMode(420), modTime: time.Unix(1511275923, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -264,7 +264,7 @@ func templatesDatasetFilterTimeTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 12463, mode: os.FileMode(420), modTime: time.Unix(1511256080, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 12463, mode: os.FileMode(420), modTime: time.Unix(1511275923, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
