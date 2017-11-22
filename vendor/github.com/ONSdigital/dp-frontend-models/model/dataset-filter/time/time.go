@@ -22,6 +22,7 @@ type Data struct {
 	SelectedStartYear  string   `json:"selected_start_year"`
 	SelectedEndMonth   string   `json:"selected_end_month"`
 	SelectedEndYear    string   `json:"selected_end_year"`
+	Type               string   `json:"type"`
 }
 
 // Link represents a link
