@@ -4,20 +4,18 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"sync"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/go-ns/render"
 )
 
-var mutex = &sync.Mutex{}
-
-//Handler ... page and page2 need to be a pointer to the same value
+//Handler resolves the rendering of a specific pagem with a given model and template name
 func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *model.Page, templateName string, f func()) {
 	b, err := ioutil.ReadAll(req.Body)
 	if err != nil {
-		JSON(w, 400, model.ErrorResponse{
+		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
 		log.ErrorR(req, err, nil)
@@ -28,7 +26,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 
 	err = json.Unmarshal(b, &page)
 	if err != nil {
-		JSON(w, 400, model.ErrorResponse{
+		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
 		log.ErrorR(req, err, nil)
@@ -52,12 +50,9 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 
 	log.DebugR(req, "rendered template", log.Data{"template": templateName})
 
-	mutex.Lock()
-	defer mutex.Unlock()
-
-	err = HTML(w, 200, templateName, page)
+	err = render.HTML(w, 200, templateName, page)
 	if err != nil {
-		JSON(w, 500, model.ErrorResponse{
+		render.JSON(w, 500, model.ErrorResponse{
 			Error: err.Error(),
 		})
 		log.ErrorR(req, err, nil)

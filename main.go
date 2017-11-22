@@ -21,11 +21,11 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
-	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/healthcheck"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/go-ns/render"
 	"github.com/c2h5oh/datasize"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
@@ -50,6 +50,7 @@ func main() {
 
 	log.Namespace = "dp-frontend-renderer"
 
+	log.Debug("overriding default renderer with service assets", nil)
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,

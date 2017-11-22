@@ -135,6 +135,12 @@
 			"revisionTime": "2017-07-17T12:56:40Z"
 		},
 		{
+			"checksumSHA1": "YtiRks0ZOuqkOz5OJHooyGnL6J0=",
+			"path": "github.com/ONSdigital/go-ns/render",
+			"revision": "bc738aa12b6d88fb7a8a55f0bb4ea47b08e210af",
+			"revisionTime": "2017-11-22T09:55:22Z"
+		},
+		{
 			"checksumSHA1": "jQ7JB1XsEO3528jVoX9wKM/9wWU=",
 			"path": "github.com/c2h5oh/datasize",
 			"revision": "54516c931ae99c3c74637b9ea2390cf9a6327f26",
