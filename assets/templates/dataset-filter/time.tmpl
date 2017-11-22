@@ -118,8 +118,9 @@
                                             <div class="margin-left--1">
                                                 <fieldset>
                                                     <div class="checkbox-group">
-                                                        <div class="checkbox margin-bottom--2">
-                                                            <input class="btn btn--link underline-link add-all" type="submit" value="Add all" name="add-all" />
+                                                        <div id="checkbox-header" class="checkbox margin-bottom--2">
+                                                            <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
+                                                            <input class="btn btn--link underline-link remove-all" type="submit" value="Remove all" id="remove-all" name="remove-all" />
                                                         </div>
                                                         {{ range $i, $v := .Data.Values }}
                                                         <div class="checkbox">
