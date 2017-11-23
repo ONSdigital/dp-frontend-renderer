@@ -46,6 +46,7 @@
                 </div>
                 <div class="js-show-hide__content show-hide__content">
                   <div class="margin-bottom--8">
+                      <h4 class="font-size--19 margin-bottom--half">Complete dataset</h4>
                       {{range $i, $download := $v.Downloads}}
                       <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
                       {{end}}
