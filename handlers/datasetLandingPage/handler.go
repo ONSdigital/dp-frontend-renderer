@@ -3,6 +3,7 @@ package datasetLandingPage
 import (
 	"net/http"
 
+	"github.com/ONSdigital/dp-frontend-models/model/datasetEditionsList"
 	"github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable"
 	"github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageStatic"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
@@ -22,4 +23,11 @@ func StaticHandler(w http.ResponseWriter, req *http.Request) {
 	var page datasetLandingPageStatic.Page
 
 	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/static", nil)
+}
+
+//EditionListHandler ...
+func EditionListHandler(w http.ResponseWriter, req *http.Request) {
+	var page datasetEditionsList.Page
+
+	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/edition-list", nil)
 }
