@@ -35,7 +35,7 @@
             <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
          </section>
          <section>
-            {{$datasetID := .DatasetLandingPage.DatasetID}}{{$versions := .DatasetLandingPage.Versions}}{{range $i, $v := $versions}}
+            {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
                <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
                   <input type="submit" value="Filter and Download" class="btn btn--primary btn--thick margin-bottom--4">
                </form>
@@ -54,7 +54,6 @@
                 </div>
                 </div>
                {{ end }}
-            {{ end }}
          </section>
          <section>
            <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
