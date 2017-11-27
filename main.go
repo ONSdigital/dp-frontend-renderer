@@ -108,6 +108,7 @@ func main() {
 	router.Post("/feedback", feedback.Handler)
 	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler)
 	router.Post("/dataset-edition-list", datasetLandingPage.EditionListHandler)
+	router.Post("/dataset-version-list", datasetLandingPage.VersionListHandler)
 	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
