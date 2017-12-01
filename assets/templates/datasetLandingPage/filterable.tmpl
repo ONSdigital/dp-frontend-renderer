@@ -4,8 +4,8 @@
          <div class="col">
             {{ template "partials/breadcrumb" . }}
             <h1 class="page-intro__title margin-bottom--3">
-               <span class="page-intro__type">Dataset:</span>
-               <strong>{{ .Metadata.Title }}</strong>
+               <span class="page-intro__type padding-top--0 padding-bottom--0">Dataset: {{ .Metadata.Title }}</span>
+               <strong>{{.DatasetLandingPage.Edition}} {{ if .DatasetLandingPage.IsLatest}}(latest){{end}}</strong>
             </h1>
          </div>
       </div>
@@ -14,12 +14,13 @@
 <div class="meta-wrap meta-wrap--thin">
    <div class="wrapper">
       <dl class="col-wrap">
-         <div class="col col--md-16 col--lg-20 meta__item meta__item font-size--21">
-           {{.DatasetLandingPage.Edition}}
-         </div>
          <div class="col col--md-16 col--lg-20 meta__item meta__item">
             <dt class="meta__term inline">Release date:</dt>
             <dd class="inline">{{ .DatasetLandingPage.ReleaseDate }}</dd>
+         </div>
+         <div class="col col--md-16 col--lg-20 meta__item meta__item">
+           <dt class="meta__term inline">Release frequency:</dt>
+           <dd class="inline">{{.DatasetLandingPage.ReleaseFrequency}}</dd>
          </div>
          <div class="col col--md-16 col--lg-20 meta__item meta__item">
             <dt class="meta__term inline">Next release:</dt>
@@ -37,16 +38,16 @@
          <section>
             {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
                <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
-                  <input type="submit" value="Filter and Download" class="btn btn--primary btn--thick margin-bottom--4">
+                  <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 font-weight-700">
                </form>
                {{ if gt (len $v.Downloads) 0}}
-               <div class="js-show-hide show-hide show-hide--light border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
-                 <div class="js-show-hide__title show-hide__title">
-                  <h3 class="margin-top--0">Other download options</h3>
+               <div class="js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
+                 <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
+                  <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
                 </div>
-                <div class="js-show-hide__content show-hide__content">
-                  <div class="margin-bottom--8">
-                      <h4 class="font-size--19 margin-bottom--half">Complete dataset</h4>
+                <div class="js-show-hide__content show-hide__content padding-left--1">
+                  <div class="margin-bottom--2">
+                      <h4 class="font-size--19 margin-bottom--half margin-top--0">Complete dataset</h4>
                       {{range $i, $download := $v.Downloads}}
                       <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
                       {{end}}
@@ -57,7 +58,7 @@
          </section>
          <section>
            <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
-             <h2 class="table-of-contents__title">Supporting information: table of contents</h2>
+             <h2 class="table-of-contents__title font-weight-700">Supporting information: table of contents</h2>
              <ol id="toc" class="table-of-contents__list">
                <li class="table-of-contents__item">
                  <a href="#id-1" class="js-scroll">In this dataset</a>
@@ -75,22 +76,26 @@
         </section>
 
          <section class="js-sticky-toc__trigger">
-            <div id="id-1" class="section__content--markdown js-sticky-toc__section">
-              <h2><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
+            <div id="id-1" class="section__content--markdown js-sticky-toc__section margin-right--0">
+              <h2 class="font-weight-700"><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
               {{range .DatasetLandingPage.Dimensions}}
               <div class="margin-bottom--3">
                  <h3 class="font-size--17 font-weight-700">{{.Title}}:</h3>
-                  {{$val_length := len .Values}}
-                  {{$vals := .Values}}{{range $i, $v := $vals}}
-                  <span>{{.}} {{if not (last $i $vals) }}| {{end}}</span>
-                  {{end}}
-                  {{if gt $val_length 4}}
-                 <span>| <a href="{{.OptionsURL}}">See all</a></span>
+                 <ul class="dimension-values list list--pipe-seperated js-show-more-list">
+                    {{$val_length := len .Values}}
+                    {{$total_length := .TotalItems}}
+                    {{$vals := .Values}}{{range $i, $v := $vals}}
+                    <li>{{.}}{{if not (last $i $vals) }}<span>|</span>{{end}}</li>
+                    {{end}}
+                 </ul>
+                 {{if gt $val_length 9}}
+                 <span class="list-size">... (plus {{subtract $total_length 10}} more) </span>
                  {{end}}
-                 <details role="group" class="margin-bottom--4">
+
+                 <details role="group" class="margin-bottom--4 margin-top--1">
                     <summary><span class="summary">Learn more</span></summary>
                     <div class="panel">
-                       <h3 class="margin-bottom--0 w-700">{{.Title}}</h3>
+                       <h3 class="margin-bottom--0 font-weight-700">{{.Title}}</h3>
                        <p class="margin-top--0">{{.Description}}</p>
                     </div>
                  </details>
@@ -99,7 +104,7 @@
              <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
           </div>
           <div id="id-2" class="section__content--markdown js-sticky-toc__section">
-            <h2><span class="section__content-number font-size--24">2.</span>Usage Information</h2>
+            <h2 class="font-weight-700"><span class="section__content-number font-size--24">2.</span>Usage Information</h2>
             <p class="margin-bottom--0">Free for public use.</p>
             <p>Citation: www.ons.gov.uk 2017, Source 2011</p>
             <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
@@ -163,6 +168,17 @@
                   {{ range .DatasetLandingPage.Related.Links }}
                   <li><a href="{{ .URI }}">{{ .Title }}</a></li>
                   {{ end }}
+               </ul>
+            </div>
+         </div>
+         {{ end }}
+         {{ if .DatasetLandingPage.IsNationalStatistic }}
+         <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
+            <h3 class="tiles__title-h3 tiles__title-h3--nav"><img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo"><div class="padding-top--1 padding-bottom--1">National Statistic</div></h3>
+            <div class="tiles__content tiles__content--nav">
+               <ul class="list--neutral">
+                  Certified by the UK Statistics Authority as compliant with it Code of Practice for Official Statistics.
+                  <a class="block underline-link font-size--14" href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">Learn more</a>
                </ul>
             </div>
          </div>
