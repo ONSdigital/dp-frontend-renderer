@@ -30,31 +30,31 @@
    </div>
 </div>
 <div class="wrapper adjust-font-size--16">
-   <div class="col-wrap margin-bottom--4">
-      <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4">
-         <section>
-            <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
-         </section>
-         <section>
-            {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
-               <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
-                  <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 font-weight-700">
-               </form>
-               {{ if gt (len $v.Downloads) 0}}
-               <div class="js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
-                 <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
-                  <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
-                </div>
-                <div class="js-show-hide__content show-hide__content padding-left--1">
-                  <div class="margin-bottom--2">
-                      <h4 class="font-size--19 margin-bottom--half margin-top--0">Complete dataset</h4>
-                      {{range $i, $download := $v.Downloads}}
-                      <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
-                      {{end}}
-                  </div>
-                </div>
-                </div>
-               {{ end }}
+  <div class="col-wrap margin-bottom--4">
+    <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4">
+      <section>
+        <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
+      </section>
+      <section>
+        {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
+          <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
+            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 font-weight-700">
+          </form>
+          {{ if gt (len $v.Downloads) 0}}
+          <div class="js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
+            <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
+              <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
+            </div>
+            <div class="js-show-hide__content show-hide__content padding-left--1">
+              <div class="margin-bottom--2">
+                <h4 class="font-size--19 margin-bottom--half margin-top--0">Complete dataset</h4>
+                {{range $i, $download := $v.Downloads}}
+                <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                {{end}}
+              </div>
+            </div>
+          </div>
+          {{ end }}
          </section>
          <section>
            <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
