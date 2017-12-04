@@ -11,7 +11,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
-	"github.com/ONSdigital/dp-frontend-renderer/render"
+	"github.com/ONSdigital/go-ns/render"
 	. "github.com/smartystreets/goconvey/convey"
 	unrolled "github.com/unrolled/render"
 )

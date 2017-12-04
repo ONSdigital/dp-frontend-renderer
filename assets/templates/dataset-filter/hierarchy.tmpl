@@ -5,7 +5,7 @@
 				<div class="col">
 					{{ template "partials/breadcrumb" . }}
 					<div class="col col--md-47 col--lg-39">
-						<h1 class="page-intro__title font-weight-700">{{ .Data.Title }}</h1>
+						<h1 class="page-intro__title font-weight-700">{{ .Data.DimensionName }}</h1>
 					</div>
 				</div>
 			</div>
@@ -14,45 +14,43 @@
   <div class="page-content underline-all-links">
       <div class="wrapper">
           <div class="col-wrap">
-              <div class="col col--md-29 col--lg-29 margin-left-md--1">
-								<details role="group" class="margin-bottom--4">
-								  <summary><span class="summary">Learn more about {{.Data.Metadata.Name}}</span></summary>
-								  <div class="panel">
-								  	<h3 class="margin-bottom--0 w-700">{{.Data.Metadata.Name}}</h3>
-								    <p class="margin-top--0">{{.Data.Metadata.Description}}</p>
-								  </div>
-								</details>
-            		<form class="margin-bottom--5" action="/search">
+              <div class="col col--md-50 col--lg-35 margin-left-md--1">
+			  		{{if not .SearchDisabled}}
+            		<form class="margin-bottom--2" action="">
 									<div class="clearfix">
 										<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search</label>
-              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-25 col--lg-25" name="q" placeholder="Search {{ .Data.Title }}">
+              			<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-31 col--lg-31" name="q" placeholder="Search {{.Data.DimensionName}}">
               			<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
               				<span class="visuallyhidden">Search</span>
               				<span class="icon icon-search--light"></span>
               			</button>
 									</div>
             		</form>
+					{{end}}
 								<form id="filter-form" class="margin-bottom--5" action="{{.Data.SaveAndReturn.URL}}" method="post">
 									<fieldset>
 										<legend>
-											<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>
+											{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>{{end}}
 											{{ if .Data.Parent }}
-											<span class="block font-size--17 padding-bottom--2"><a href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
+											<span class="block font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
 											{{ end }}
 										</legend>
 										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
                     <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" name="remove-all" />
 										<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
 											{{ range $i, $v := .Data.FilterList }}
-											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1">
-												<div class="width-md--24 inline-block">
+											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1 clearfix">
+												<div class="{{ if ne .SubNum "0" }}width-md--25{{else}}width-md--35{{end}} float-el--left-md">
 													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
-													<label class="checkbox__label" for="id-{{$i}}">
+													<label id="{{.ID}}" class="checkbox__label" for="id-{{$i}}">
 														{{ .Label }}
 													</label>
 												</div>
 												{{ if ne .SubNum "0" }}
-												<input name="{{ .SubURL }}" type="submit" class="btn btn--link underline-link float-el--right-md padding-top--1" value="View ({{.SubNum}})" />
+												<div class="view-link width-md--10 float-el--right-md text-right--md padding-top--1 height-sm--5 height-md--5">
+													<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}" />
+													<div class="inline-block"><span class="icon icon-arrow-right--dark-small"></span></div>
+												</div>
 												{{ end }}
 											</div>
 											{{ end }}
@@ -61,14 +59,14 @@
 									<div class="margin-top js-hidden">
 										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 									</div>
-									<div class="margin-bottom--8 margin-top--2">
-                  	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and Return to filter options" />
+									<div class="margin-bottom--8 margin-top--5">
+                  	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
                   </div>
 								</div>
 							<aside>
-								<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
-									<div class="margin-bottom--6 hide--sm">
-										<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and Return to filter options" />
+								<div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
+									<div class="margin-bottom--6 hide--md-only hide--sm">
+										<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return" />
 									</div>
                   {{ template "partials/filter-selection" . }}
 								</div>

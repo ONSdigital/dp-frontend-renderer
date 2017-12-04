@@ -15,18 +15,17 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/hierarchy"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/listSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/rangeSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/timeSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
-	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/handlers/timeout"
 	"github.com/ONSdigital/go-ns/healthcheck"
 	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/go-ns/render"
 	"github.com/c2h5oh/datasize"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
@@ -51,6 +50,7 @@ func main() {
 
 	log.Namespace = "dp-frontend-renderer"
 
+	log.Debug("overriding default renderer with service assets", nil)
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,
@@ -107,6 +107,8 @@ func main() {
 	router.Post("/homepage", homepage.Handler)
 	router.Post("/feedback", feedback.Handler)
 	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler)
+	router.Post("/dataset-edition-list", datasetLandingPage.EditionListHandler)
+	router.Post("/dataset-version-list", datasetLandingPage.VersionListHandler)
 	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
 	router.Post("/productPage", productPage.Handler)
 	router.Post("/error", errorPage.Handler)
@@ -114,7 +116,6 @@ func main() {
 	router.Post("/dataset-filter/geography", geography.Handler)
 	router.Post("/dataset-filter/hierarchy", hierarchy.Handler)
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
-	router.Post("/dataset-filter/range-selector", rangeSelector.Handler)
 	router.Post("/dataset-filter/list-selector", listSelector.Handler)
 	router.Post("/dataset-filter/time", timeSelector.Handler)
 
