@@ -37,6 +37,7 @@
       </section>
       <section>
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
+          <h2 class="font-weight-700 margin-bottom--2">Get the data</h2>
           <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
             <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 font-weight-700">
           </form>
@@ -57,7 +58,7 @@
           {{ end }}
          </section>
          <section>
-           <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
+           <div class="table-of-contents print--avoid-break border-bottom--iron-md underline-all-links">
              <h2 class="table-of-contents__title font-weight-700">Supporting information: table of contents</h2>
              <ol id="toc" class="table-of-contents__list">
                <li class="table-of-contents__item margin-bottom--1">
@@ -83,8 +84,8 @@
            </div>
         </section>
 
-         <section class="js-sticky-toc__trigger">
-            <div id="id-dimensions" class="section__content--markdown js-sticky-toc__section margin-right--0">
+         <section>
+            <div id="id-dimensions" class="section__content--markdown margin-right--0">
               <h2 class="font-weight-700"><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
               {{range .DatasetLandingPage.Dimensions}}
               <div class="margin-bottom--3">
@@ -114,7 +115,7 @@
           </div>
 
           {{ if .DatasetLandingPage.LatestChanges}}
-          <div id="id-changes" class="section__content--markdown js-sticky-toc__section margin-right--0">
+          <div id="id-changes" class="section__content--markdown margin-right--0">
             <h2 class="font-weight-700"><span class="section__content-number font-size--24">2.</span>What has changed in this edition</h2>
             {{range .DatasetLandingPage.LatestChanges}}
             <div class="margin-bottom--3">
@@ -126,7 +127,7 @@
          </div>
          {{end}}
 
-         <div id="id-qmi" class="section__content--markdown js-sticky-toc__section">
+         <div id="id-qmi" class="section__content--markdown">
            <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}3{{else}}2{{end}}.</span>Quality and methodology information</h2>
            <p class="margin-bottom--0">Includes:</p>
            <ul>
@@ -139,7 +140,7 @@
            <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
          </div>
 
-         <div id="id-license" class="section__content--markdown js-sticky-toc__section">
+         <div id="id-license" class="section__content--markdown">
            <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}4{{else}}3{{end}}.</span>Usage Information</h2>
            <p class="margin-bottom--0 padding-bottom--0">{{.DatasetLandingPage.Citation}}</p>
            <a class="block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a>
@@ -147,7 +148,7 @@
          </div>
 
           {{if .DatasetLandingPage.HasOlderVersions}}
-          <div id="id-previous" class="section__content--markdown js-sticky-toc__section">
+          <div id="id-previous" class="section__content--markdown">
              <h2 class="font-weight-700"><span class="section__content-number font-size--24">5.</span>Previous Versions</h2>
              <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
           </div>
