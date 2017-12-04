@@ -60,15 +60,23 @@
            <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
              <h2 class="table-of-contents__title font-weight-700">Supporting information: table of contents</h2>
              <ol id="toc" class="table-of-contents__list">
-               <li class="table-of-contents__item">
-                 <a href="#id-1" class="js-scroll">In this dataset</a>
+               <li class="table-of-contents__item margin-bottom--1">
+                 <a href="#id-dimensions" class="js-scroll">In this dataset</a>
                </li>
-               <li class="table-of-contents__item">
-                 <a href="#id-2" class="js-scroll">Usage</a>
+               {{if .DatasetLandingPage.LatestChanges}}
+               <li class="table-of-contents__item margin-bottom--1">
+                 <a href="#id-changes" class="js-scroll">What has changed in this edition</a>
+               </li>
+               {{end}}
+               <li class="table-of-contents__item margin-bottom--1">
+                 <a href="#id-qmi" class="js-scroll">Quality and methodology information</a>
+               </li>
+               <li class="table-of-contents__item margin-bottom--1">
+                 <a href="#id-license" class="js-scroll">Usage information</a>
                </li>
                {{if .DatasetLandingPage.HasOlderVersions}}
-               <li class="table-of-contents__item">
-                 <a href="#id-3" class="js-scroll">Previous Versions</a>
+               <li class="table-of-contents__item margin-bottom--1">
+                 <a href="#id-previous" class="js-scroll">Previous versions</a>
                </li>
                {{end}}
              </ol>
@@ -76,7 +84,7 @@
         </section>
 
          <section class="js-sticky-toc__trigger">
-            <div id="id-1" class="section__content--markdown js-sticky-toc__section margin-right--0">
+            <div id="id-dimensions" class="section__content--markdown js-sticky-toc__section margin-right--0">
               <h2 class="font-weight-700"><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
               {{range .DatasetLandingPage.Dimensions}}
               <div class="margin-bottom--3">
@@ -91,7 +99,7 @@
                  {{if gt $val_length 9}}
                  <span class="list-size">... (plus {{subtract $total_length 10}} more) </span>
                  {{end}}
-
+                 {{if .Description}}
                  <details role="group" class="margin-bottom--4 margin-top--1">
                     <summary><span class="summary">Learn more</span></summary>
                     <div class="panel">
@@ -99,19 +107,48 @@
                        <p class="margin-top--0">{{.Description}}</p>
                     </div>
                  </details>
+                 {{end}}
              </div>
              {{ end }}
              <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
           </div>
-          <div id="id-2" class="section__content--markdown js-sticky-toc__section">
-            <h2 class="font-weight-700"><span class="section__content-number font-size--24">2.</span>Usage Information</h2>
-            <p class="margin-bottom--0">Free for public use.</p>
-            <p>Citation: www.ons.gov.uk 2017, Source 2011</p>
+
+          {{ if .DatasetLandingPage.LatestChanges}}
+          <div id="id-changes" class="section__content--markdown js-sticky-toc__section margin-right--0">
+            <h2 class="font-weight-700"><span class="section__content-number font-size--24">2.</span>What has changed in this edition</h2>
+            {{range .DatasetLandingPage.LatestChanges}}
+            <div class="margin-bottom--3">
+               <h3 class="font-size--17 font-weight-700">{{.Name}}</h3>
+               <p class="padding-top--0">{{.Description}}</p>
+            </div>
+            {{ end }}
             <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
-          </div>
+         </div>
+         {{end}}
+
+         <div id="id-qmi" class="section__content--markdown js-sticky-toc__section">
+           <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}3{{else}}2{{end}}.</span>Quality and methodology information</h2>
+           <p class="margin-bottom--0">Includes:</p>
+           <ul>
+             <li>Where the data comes from (source)</li>
+             <li>The accuracy and reliability of the data</li>
+             <li>The relevance of the data to certain applications or uses</li>
+             <li>Things to consider when using the data</li>
+           </ul>
+           <p>Read the full <a href="{{.DatasetLandingPage.QMIURL}}">Quality and methodology information (QMI)</a> for this dataset.</p>
+           <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+         </div>
+
+         <div id="id-license" class="section__content--markdown js-sticky-toc__section">
+           <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}4{{else}}3{{end}}.</span>Usage Information</h2>
+           <p class="margin-bottom--0 padding-bottom--0">{{.DatasetLandingPage.Citation}}</p>
+           <a class="block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a>
+           <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+         </div>
+
           {{if .DatasetLandingPage.HasOlderVersions}}
-          <div id="id-3" class="section__content--markdown js-sticky-toc__section">
-             <h2><span class="section__content-number font-size--24">3.</span>Previous Versions</h2>
+          <div id="id-previous" class="section__content--markdown js-sticky-toc__section">
+             <h2 class="font-weight-700"><span class="section__content-number font-size--24">5.</span>Previous Versions</h2>
              <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
           </div>
           {{end}}
@@ -136,37 +173,25 @@
                </address>
             </div>
          </div>
-         {{ if .DatasetLandingPage.Related.Publications }}
+         {{ if .DatasetLandingPage.Publications }}
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
             <h3 class="tiles__title-h3 tiles__title-h3--nav">Publications that use this data</h3>
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
-                  {{ range .DatasetLandingPage.Related.Publications }}
-                  <li><a href="{{ .URI }}">{{ .Title }}</a></li>
+                  {{ range .DatasetLandingPage.Publications }}
+                  <li><a href="{{ .URL }}">{{ .Title }}</a></li>
                   {{ end }}
                </ul>
             </div>
          </div>
          {{ end }}
-         {{ if .DatasetLandingPage.Related.Methodology }}
-         <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-            <h3 class="tiles__title-h3 tiles__title-h3--nav">Methodology</h3>
-            <div class="tiles__content tiles__content--nav">
-               <ul class="list--neutral">
-                  {{ range .DatasetLandingPage.Related.Methodology }}
-                  <li><a href="{{ .URI }}">{{ .Title }}</a></li>
-                  {{ end }}
-               </ul>
-            </div>
-         </div>
-         {{ end }}
-         {{ if .DatasetLandingPage.Related.Links }}
+         {{ if .DatasetLandingPage.RelatedLinks }}
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
             <h3 class="tiles__title-h3 tiles__title-h3--nav">Related links</h3>
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
-                  {{ range .DatasetLandingPage.Related.Links }}
-                  <li><a href="{{ .URI }}">{{ .Title }}</a></li>
+                  {{ range .DatasetLandingPage.RelatedLinks }}
+                  <li><a href="{{ .URL }}">{{ .Title }}</a></li>
                   {{ end }}
                </ul>
             </div>
