@@ -31,7 +31,7 @@
 </div>
 <div class="wrapper adjust-font-size--16">
   <div class="col-wrap margin-bottom--4">
-    <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4">
+    <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4 underline-all-links">
       <section>
         <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
       </section>
@@ -39,7 +39,7 @@
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
           <h2 class="font-weight-700 margin-bottom--2">Get the data</h2>
           <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
-            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 font-weight-700">
+            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-weight-700">
           </form>
           {{ if gt (len $v.Downloads) 0}}
           <div class="js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
@@ -50,7 +50,7 @@
               <div class="margin-bottom--2">
                 <h4 class="font-size--19 margin-bottom--half margin-top--0">Complete dataset</h4>
                 {{range $i, $download := $v.Downloads}}
-                <a class="btn btn--primary uppercase" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                <a class="btn btn--primary uppercase btn--focus" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
                 {{end}}
               </div>
             </div>
@@ -58,25 +58,25 @@
           {{ end }}
          </section>
          <section>
-           <div class="table-of-contents print--avoid-break border-bottom--iron-md underline-all-links">
+           <div class="table-of-contents print--avoid-break border-bottom--iron-md">
              <h2 class="table-of-contents__title font-weight-700">Supporting information: table of contents</h2>
              <ol id="toc" class="table-of-contents__list">
-               <li class="table-of-contents__item margin-bottom--1">
+               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-dimensions" class="js-scroll">In this dataset</a>
                </li>
                {{if .DatasetLandingPage.LatestChanges}}
-               <li class="table-of-contents__item margin-bottom--1">
+               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-changes" class="js-scroll">What has changed in this edition</a>
                </li>
                {{end}}
-               <li class="table-of-contents__item margin-bottom--1">
+               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-qmi" class="js-scroll">Quality and methodology information</a>
                </li>
-               <li class="table-of-contents__item margin-bottom--1">
+               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-license" class="js-scroll">Usage information</a>
                </li>
                {{if .DatasetLandingPage.HasOlderVersions}}
-               <li class="table-of-contents__item margin-bottom--1">
+               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-previous" class="js-scroll">Previous versions</a>
                </li>
                {{end}}
@@ -143,7 +143,7 @@
          <div id="id-license" class="section__content--markdown">
            <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}4{{else}}3{{end}}.</span>Usage Information</h2>
            <p class="margin-bottom--0 padding-bottom--0">{{.DatasetLandingPage.Citation}}</p>
-           <a class="block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a>
+           <a class="inline-block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a><br>
            <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
          </div>
 
