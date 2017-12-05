@@ -62,6 +62,14 @@
                   </table>
                   <p> Displaying rows 1-{{len (index .Data.Dimensions 0).Values}} of filtered dataset </p>
                </div>
+               {{if not .IsDownloadLoaded}}
+              <meta http-equiv="refresh" content="2"/>
+		 					<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
+		 						{{ template "partials/spinner" }}
+		 						<p class="margin-top--0 padding-top--0 height--8">Please wait whle we generate your files...</p>
+		 					 </div>
+
+		 					{{ else }}
                <div class="margin-bottom--2">
                   <h2 class="margin-bottom">Download filtered dataset</h2>
                   {{ range .Data.Downloads}}
