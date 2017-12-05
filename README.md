@@ -1,6 +1,13 @@
 dp-frontend-renderer
 ====================
 
+### Configuration
+
+| Environment variable | Default | Description
+| -------------------- | ------- | -----------
+| BIND_ADDR            | :20000  | The host and port to bind to
+| DEBUG                |         | Enable debug mode
+
 ### Adding new page types
 
 1. Create the page model in [https://github.com/ONSdigital/dp-frontend-models](dp-frontend-models)
