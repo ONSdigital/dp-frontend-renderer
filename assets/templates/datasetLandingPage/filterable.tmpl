@@ -35,7 +35,7 @@
             <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
          </section>
          <section>
-            {{$datasetID := .DatasetLandingPage.DatasetID}}{{$versions := .DatasetLandingPage.Versions}}{{range $i, $v := $versions}}
+            {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
                <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
                   <input type="submit" value="Filter and Download" class="btn btn--primary btn--thick margin-bottom--4">
                </form>
@@ -54,7 +54,6 @@
                 </div>
                 </div>
                {{ end }}
-            {{ end }}
          </section>
          <section>
            <div class="table-of-contents js-sticky-toc print--avoid-break border-bottom--iron-md underline-all-links">
@@ -66,6 +65,11 @@
                <li class="table-of-contents__item">
                  <a href="#id-2" class="js-scroll">Usage</a>
                </li>
+               {{if .DatasetLandingPage.HasOlderVersions}}
+               <li class="table-of-contents__item">
+                 <a href="#id-3" class="js-scroll">Previous Versions</a>
+               </li>
+               {{end}}
              </ol>
            </div>
         </section>
@@ -100,6 +104,12 @@
             <p>Citation: www.ons.gov.uk 2017, Source 2011</p>
             <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
           </div>
+          {{if .DatasetLandingPage.HasOlderVersions}}
+          <div id="id-3" class="section__content--markdown js-sticky-toc__section">
+             <h2><span class="section__content-number font-size--24">3.</span>Previous Versions</h2>
+             <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
+          </div>
+          {{end}}
          </section>
       </div>
       <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">

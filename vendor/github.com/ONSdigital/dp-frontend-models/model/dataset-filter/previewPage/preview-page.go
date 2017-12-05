@@ -5,21 +5,23 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 // Page ...
 type Page struct {
 	model.Page
-	Data            PreviewPage `json:"data"`
-	IsContentLoaded bool        `json:"is_content_loaded"`
-	NoDimensionData bool        `json:"no_dimension_data"`
+	Data             PreviewPage `json:"data"`
+	IsPreviewLoaded  bool        `json:"is_preview_loaded"`
+	IsDownloadLoaded bool        `json:"is_download_loaded"`
+	NoDimensionData  bool        `json:"no_dimension_data"`
 }
 
 // PreviewPage ...
 type PreviewPage struct {
-	FilterID        string        `json:"filter_id"`
-	Downloads       []Download    `json:"downloads"`
-	Dimensions      []Dimension   `json:"dimensions"`
-	IsLatestVersion bool          `json:"is_latest_version"`
-	LatestVersion   LatestVersion `json:"latest_version"`
-	DatasetTitle    string        `json:"dataset_title"`
-	DatasetID       string        `json:"dataset_id"`
-	ReleaseDate     string        `json:"release_date"`
+	FilterID              string        `json:"filter_id"`
+	Downloads             []Download    `json:"downloads"`
+	Dimensions            []Dimension   `json:"dimensions"`
+	IsLatestVersion       bool          `json:"is_latest_version"`
+	LatestVersion         LatestVersion `json:"latest_version"`
+	DatasetTitle          string        `json:"dataset_title"`
+	DatasetID             string        `json:"dataset_id"`
+	ReleaseDate           string        `json:"release_date"`
+	SingleValueDimensions []Dimension   `json:"single_value_dimensions"`
 }
 
 // Download has the details for an individual downloadable files

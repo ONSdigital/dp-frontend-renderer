@@ -15,6 +15,7 @@
       <div class="wrapper">
           <div class="col-wrap">
               <div class="col col--md-50 col--lg-35 margin-left-md--1">
+			  		{{if not .SearchDisabled}}
             		<form class="margin-bottom--2" action="">
 									<div class="clearfix">
 										<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search</label>
@@ -25,6 +26,7 @@
               			</button>
 									</div>
             		</form>
+					{{end}}
 								<form id="filter-form" class="margin-bottom--5" action="{{.Data.SaveAndReturn.URL}}" method="post">
 									<fieldset>
 										<legend>
