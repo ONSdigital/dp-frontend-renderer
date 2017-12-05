@@ -14,32 +14,39 @@
     <div class="col-wrap margin-bottom--4">
         <div class="col col--lg-two-thirds col--md-two-thirds">
             {{if eq .Metadata.Title "Feedback"}}
-            <div>
+            <div id="feedback-description">
                 <p class="font-size--16">You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK</p>
             </div>
             <div class="margin--top-4">
-                <form action="/feedback" method="post">
+                <form id="feedback-form-container" action="/feedback" method="post">
                     <div>
                         <strong><span class="font-size--16">What's it to do with?</span></strong>
                     </div>
-                    <div class="checkbox-group margin-top--2">
-                        <div class="checkbox">
-                            <input type="checkbox" class="checkbox__input" id="whole-site" name="whole-site" value="The whole site">
-                            <label class="checkbox__label font-size--16" for="whole-site">
-                                The whole site
-                            </label>
-                        </div>
-                        <div class="checkbox margin-top--1">
-                            <input type="checkbox" class="checkbox__input" id="specific-page" name="specific-page" value="A specific page">
-                            <label class="checkbox__label font-size--16" for="specific-page">
+                    <div class="margin-top--2">
+                        <div class="multiple-choice margin-top--1">
+                            <input type="radio" class="multiple-choice__input" id="specific-page" name="specific-page" value="A specific page">
+                            <label class="multiple-choice__label font-size--16" for="specific-page">
                                 A specific page
                             </label>
-                            <input placeholder="Enter URL or name of page" id="url-field" class="form-control form-control__inline" type="text" name="url">
                         </div> 
+                        <div class="multiple-choice margin-top--1">
+                            <input type="radio" class="multiple-choice__input" id="specific-page" name="specific-page" value="A specific page">
+                            <label class="multiple-choice__label font-size--16" for="specific-page">
+                                A specific page
+                            </label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input type="radio" class="multiple-choice__label" id="whole-site" name="whole-site" value="The whole site">
+                            <label class="multiple-choice__label font-size--16" for="whole-site">
+                                The whole ONS website or general feedback
+                            </label>
+                        </div>
                     </div>
                     <div>
-                        <strong><span class="font-size--16">Can you provide me with more detail?</span></strong>
-                        <span class="form-hint">For example if you were searching for something, what did you type in the search box?</span>
+                        <label id="description-field-label">
+                            <strong><span class="font-size--16">Can you provide me with more detail?</span></strong>
+                            <span class="form-hint">For example if you were searching for something, what did you type in the search box?</span>
+                        </label>
                         {{if .ServiceMessage}}<span class="form-error">{{.ServiceMessage}}</span>{{end}}
                         <textarea id="description-field" class="form-control {{if .ServiceMessage}}form-control__error{{end}}" name="description" rows="5"></textarea>
                     </div>
@@ -49,11 +56,13 @@
                         <input class="form-control" type="text" name="name">
                     </div>
                     <div>
-                        <strong><span class="font-size--16">Email (optional)</span></strong>
-                        <input class="form-control" type="text" name="email">
+                        <label id="email-field-label">
+                            <strong><span class="font-size--16">Email (optional)</span></strong>
+                        </label>
+                        <input id="email-field" class="form-control" type="text" name="email">
                     </div>
                     <div>
-                        <input class="btn btn--primary" type="submit" value="Send message">
+                        <input class="btn btn--primary" type="submit" value="Send feedback">
                     </div>
                 </form>
             </div>
