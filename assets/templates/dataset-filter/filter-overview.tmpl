@@ -19,7 +19,7 @@
 								{{if not .Data.IsLatestVersion}}
 	              <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
 	                <div class="alert__title">This is not the latest release</div>
-	                <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}"><strong>Apply these filters to the latest release</a>
+	                <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}">Apply these filters to the latest release</a>
 	                <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
 	              </div>
 	              {{ end }}
@@ -43,6 +43,7 @@
               </div>
           </div>
           <div class="margin-bottom--8 {{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}}">
+            <div class="filter-overview__error-container" id="error-container"></div>
             <form method="post" action="/filters/{{.FilterID}}/submit">
                 <input id="preview-download" type="submit" value="Preview and Download" class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" name="preview-and-download" />
             </form>
