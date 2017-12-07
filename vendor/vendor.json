@@ -15,6 +15,12 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
+			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/age",
+			"revision": "61ae74395c11b344de9590abfa54dcb7a2557c3c",
+			"revisionTime": "2017-12-07T09:23:34Z"
+		},
+		{
 			"checksumSHA1": "o0XvWcvnMQKkkfwOjZ/kTb2QWqw=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorList",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
