@@ -167,7 +167,7 @@ func templatesDatasetFilterFilterOverviewTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/filter-overview.tmpl", size: 3441, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/filter-overview.tmpl", size: 3441, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -187,7 +187,7 @@ func templatesDatasetFilterGeographyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/geography.tmpl", size: 4068, mode: os.FileMode(420), modTime: time.Unix(1512325573, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/geography.tmpl", size: 4068, mode: os.FileMode(420), modTime: time.Unix(1512561106, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -207,7 +207,7 @@ func templatesDatasetFilterHierarchyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 4427, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 4427, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -227,7 +227,7 @@ func templatesDatasetFilterListSelectorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3010, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3010, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -247,7 +247,7 @@ func templatesDatasetFilterPreviewPageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 5271, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 5271, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -267,7 +267,7 @@ func templatesDatasetFilterTimeTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 12426, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 12426, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -307,7 +307,7 @@ func templatesDatasetlandingpageFilterableTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/filterable.tmpl", size: 8435, mode: os.FileMode(420), modTime: time.Unix(1512389182, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/filterable.tmpl", size: 8435, mode: os.FileMode(420), modTime: time.Unix(1512561106, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -347,7 +347,7 @@ func templatesDatasetlandingpageVersionListTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/version-list.tmpl", size: 3216, mode: os.FileMode(420), modTime: time.Unix(1512389182, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/version-list.tmpl", size: 3216, mode: os.FileMode(420), modTime: time.Unix(1512561106, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -387,7 +387,7 @@ func templatesFeedbackTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/feedback.tmpl", size: 5575, mode: os.FileMode(420), modTime: time.Unix(1512484788, 0)}
+	info := bindataFileInfo{name: "templates/feedback.tmpl", size: 5575, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -467,7 +467,7 @@ func templatesPartialsFeedbackTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/feedback.tmpl", size: 2334, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/partials/feedback.tmpl", size: 2334, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -527,7 +527,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 10574, mode: os.FileMode(420), modTime: time.Unix(1512471020, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 10574, mode: os.FileMode(420), modTime: time.Unix(1512646813, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
