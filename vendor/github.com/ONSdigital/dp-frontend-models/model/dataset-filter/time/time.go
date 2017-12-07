@@ -23,6 +23,7 @@ type Data struct {
 	SelectedEndMonth   string   `json:"selected_end_month"`
 	SelectedEndYear    string   `json:"selected_end_year"`
 	Type               string   `json:"type"`
+	DatasetTitle       string   `json:"dataset_title"`
 }
 
 // Link represents a link

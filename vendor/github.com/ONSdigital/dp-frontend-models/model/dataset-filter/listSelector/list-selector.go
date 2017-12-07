@@ -21,6 +21,7 @@ type ListSelector struct {
 	AddAllInRange Link     `json:"add_all"`
 	RemoveAll     Link     `json:"remove_all"`
 	RangeData     Range    `json:"range_values"`
+	DatasetTitle  string   `json:"dataset_title"`
 }
 
 // Link ...

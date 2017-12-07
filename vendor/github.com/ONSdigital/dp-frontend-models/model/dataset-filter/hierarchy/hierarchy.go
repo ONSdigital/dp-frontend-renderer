@@ -22,7 +22,9 @@ type Hierarchy struct {
 	GoBack        Link     `json:"go_back"`
 	DimensionName string   `json:"dimension_name"`
 	Parent        string   `json:"parent"`
+	Type          string   `json:"type"`
 	Metadata      Metadata `json:"metadata"`
+	DatasetTitle  string   `json:"dataset_title"`
 }
 
 // AddAll ...

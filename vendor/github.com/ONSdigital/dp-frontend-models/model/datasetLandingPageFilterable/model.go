@@ -25,6 +25,7 @@ type DatasetLandingPage struct {
 	RelatedLinks        []Publication `json:"related_links"`
 	LatestChanges       []Change      `json:"latest_changes"`
 	Citation            string        `json:"citation"`
+	DatasetTitle        string        `json:"dataset_title"`
 }
 
 type Publication struct {

@@ -18,6 +18,7 @@ type FilterOverview struct {
 	Cancel                     Link          `json:"cancel"`
 	IsLatestVersion            bool          `json:"is_latest_version"`
 	LatestVersion              LatestVersion `json:"latest_version"`
+	DatasetTitle               string        `json:"dataset_title"`
 }
 
 // Dimension ...
