@@ -5,7 +5,6 @@ type Metadata struct {
 	Title       string   `json:"title"`
 	Description string   `json:"description"`
 	Keywords    []string `json:"keywords"`
-	Footer      Footer   `json:"footer"`
 }
 
 // Footer ...
