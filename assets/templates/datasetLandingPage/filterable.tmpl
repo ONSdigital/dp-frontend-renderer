@@ -4,8 +4,8 @@
          <div class="col">
             {{ template "partials/breadcrumb" . }}
             <h1 class="page-intro__title margin-bottom--3">
-               <span class="page-intro__type padding-top--0 padding-bottom--0">Dataset: {{ .Metadata.Title }}</span>
-               <strong>{{.DatasetLandingPage.Edition}} {{ if .DatasetLandingPage.IsLatest}}(latest){{end}}</strong>
+               <span class="page-intro__type padding-top--0 padding-bottom--0">Dataset:</span>
+               <strong>{{ .Metadata.Title }}</strong>
             </h1>
          </div>
       </div>
