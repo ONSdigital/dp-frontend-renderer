@@ -6,12 +6,3 @@ type Metadata struct {
 	Description string   `json:"description"`
 	Keywords    []string `json:"keywords"`
 }
-
-// Footer ...
-type Footer struct {
-	Enabled     bool   `json:"enabled"`
-	Contact     string `json:"contact"`
-	ReleaseDate string `json:"release_date"`
-	NextRelease string `json:"next_release"`
-	DatasetID   string `json:"dataset_id"`
-}
