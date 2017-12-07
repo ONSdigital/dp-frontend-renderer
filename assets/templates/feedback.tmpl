@@ -14,51 +14,72 @@
     <div class="col-wrap margin-bottom--4">
         <div class="col col--lg-two-thirds col--md-two-thirds">
             {{if eq .Metadata.Title "Feedback"}}
-            <div>
+            <div id="feedback-description">
                 <p class="font-size--16">You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK</p>
             </div>
             <div class="margin--top-4">
-                <form action="/feedback" method="post">
+                <form id="feedback-form-container" action="/feedback" method="post">
                     <div>
                         <strong><span class="font-size--16">What's it to do with?</span></strong>
                     </div>
-                    <div class="checkbox-group margin-top--2">
-                        <div class="checkbox">
-                            <input type="checkbox" class="checkbox__input" id="whole-site" name="whole-site" value="The whole site">
-                            <label class="checkbox__label font-size--16" for="whole-site">
-                                The whole site
+                    <div class="margin-top--2 margin-bottom--4">
+                        <div class="multiple-choice margin-top--1">
+                            <input type="radio" class="multiple-choice__input" id="specific-page" name="specific-page" value="A specific page" checked>
+                            <label class="multiple-choice__label font-size--16" for="specific-page">
+                                This specific page 
+                                &nbsp; &nbsp;<span class="form-helper">(...{{.Metadata.Description}})</span>
+                                <input type="hidden" value="{{.PreviousURL}}" name="url">
+                            </label>
+                        </div> 
+                        <div class="multiple-choice margin-top--1">
+                            <input type="radio" class="multiple-choice__input" id="new-service" name="specific-page" value="A specific page">
+                            <label class="multiple-choice__label font-size--16" for="new-service">
+                                This new service 
+                                &nbsp; &nbsp;<span class="form-helper">(Customising data by applying filters)</span>
                             </label>
                         </div>
-                        <div class="checkbox margin-top--1">
-                            <input type="checkbox" class="checkbox__input" id="specific-page" name="specific-page" value="A specific page">
-                            <label class="checkbox__label font-size--16" for="specific-page">
-                                A specific page
+                        <div class="multiple-choice margin-top--1">
+                            <input type="radio" class="multiple-choice__input" id="whole-site" name="specific-page" value="A specific page">
+                            <label class="multiple-choice__label font-size--16" for="whole-site">
+                                The whole ONS website or general feedback
                             </label>
-                            <input placeholder="Enter URL or name of page" id="url-field" class="form-control form-control__inline" type="text" name="url">
-                        </div> 
+                        </div>
                     </div>
                     <div>
-                        <strong><span class="font-size--16">Can you provide me with more detail?</span></strong>
-                        <span class="form-hint">For example if you were searching for something, what did you type in the search box?</span>
-                        {{if .ServiceMessage}}<span class="form-error">{{.ServiceMessage}}</span>{{end}}
-                        <textarea id="description-field" class="form-control {{if .ServiceMessage}}form-control__error{{end}}" name="description" rows="5"></textarea>
+                        <label id="purpose-field-label">
+                            <strong><span class="font-size--16">What was the purpose of your visit?</span></strong>
+                        </label>
+                       {{if eq .ErrorType "purpose"}}<span class="form-error">Enter a purpose</span>{{end}}
+                        <textarea id="purpose-field" class="form-control {{if eq .ErrorType "purpose"}}form-control__error{{end}}" name="purpose" rows="2" >{{.Purpose}}</textarea>
+                    </div>
+                    <div>
+                        <label id="description-field-label">
+                            <strong><span class="font-size--16">Your feedback</span></strong>
+                            <span class="form-hint">Report a problem, make a suggestion, ask a question or let us know what you think.</span>
+                        </label>
+                        {{if eq .ErrorType "description"}}<span class="form-error">Write some feedback</span>{{end}}
+                        <textarea id="description-field" class="form-control  {{if eq .ErrorType "description"}}form-control__error{{end}}" name="description" rows="5">{{.Feedback}}</textarea>
                     </div>
                     <div>
                         <strong><span class="font-size--16">Name (optional)</span></strong>
                         <span class="form-hint">Include your name and email address if you would like us to get back to you.</span>
-                        <input class="form-control" type="text" name="name">
+                        <input class="form-control" type="text" name="name"  value={{.Name}}>
                     </div>
                     <div>
-                        <strong><span class="font-size--16">Email (optional)</span></strong>
-                        <input class="form-control" type="text" name="email">
+                        <label id="email-field-label">
+                            <strong><span class="font-size--16">Email (optional)</span></strong>
+                        </label>
+                        {{if eq .ErrorType "email"}}<span class="form-error">This is not a valid email address, correct it or delete it</span>{{end}}
+                        <input id="email-field" class="form-control {{if eq .ErrorType "email"}}form-control__error{{end}}" type="text" name="email"  value={{.Email}}>
                     </div>
                     <div>
-                        <input class="btn btn--primary" type="submit" value="Send message">
+                        <input class="btn btn--primary" type="submit" value="Send feedback">
                     </div>
                 </form>
             </div>
             {{else}}
-                <div class="font-size--16 margin-top--4">
+                <div class="margin-top--4">
+                    Your feedback will help us to improve the website.<br>We are unable to respond to all enquiries. If your matter is urgent, please <a href="/aboutus/contactus">contact us</a>.<br><br>
                     Return to <a href="{{.Metadata.Description}}">{{.Metadata.Description}}</a>
                 </div>
             {{end}}

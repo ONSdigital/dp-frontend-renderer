@@ -8,6 +8,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/gosimple/slug"
+
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelector"
@@ -93,6 +95,9 @@ func main() {
 			},
 			"subtract": func(x, y int) int {
 				return x - y
+			},
+			"slug": func(s string) string {
+				return slug.Make(s)
 			},
 		}},
 	})
