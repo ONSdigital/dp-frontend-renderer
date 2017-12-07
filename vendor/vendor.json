@@ -15,12 +15,6 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "o0XvWcvnMQKkkfwOjZ/kTb2QWqw=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/ageSelectorList",
-			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
-			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
 			"checksumSHA1": "WFzDhLFdAQv2xOSf1cfT5ao2Aqs=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/filterOverview",
 			"revision": "bb3aa88cefc1b32f0c431d6773407983fc69e6bb",
@@ -57,12 +51,6 @@
 			"revisionTime": "2017-07-24T10:41:27Z"
 		},
 		{
-			"checksumSHA1": "SoY8FqCX3h81+IizLi5lWsFydmU=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/rangeSelector",
-			"revision": "ecf33e093027c7e613be9c9416c810b7845a86e7",
-			"revisionTime": "2017-09-08T09:24:14Z"
-		},
-		{
 			"checksumSHA1": "UcgCMRZLH31hF9KcFhrKQXx/tFA=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/time",
 			"revision": "c4e2fa5f4b28c2546abe87712a698cbc2033548f",
@@ -87,18 +75,6 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "fAyPS71FyNTWhcs+JmSkZupUaeE=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/finishPage",
-			"revision": "145436a66b9a9e760de0132daa25563d2088501e",
-			"revisionTime": "2017-06-16T08:10:57Z"
-		},
-		{
-			"checksumSHA1": "F7QBp7GvgJJBjqmHOyVGys+1yAM=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetpages/startPage",
-			"revision": "145436a66b9a9e760de0132daa25563d2088501e",
-			"revisionTime": "2017-06-16T08:10:57Z"
-		},
-		{
 			"checksumSHA1": "mKaysIX75QVhvz5C6+pBGJGxjTU=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/errorPage",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
@@ -109,12 +85,6 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model/homepage",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
-			"checksumSHA1": "ei+/RCSa0XO9v9rQxAh0uqyJ/28=",
-			"path": "github.com/ONSdigital/go-ns/handlers/healthcheck",
-			"revision": "0728a5717abea304f9fab56417680ce800d0e35e",
-			"revisionTime": "2017-07-17T12:56:40Z"
 		},
 		{
 			"checksumSHA1": "J9OiPnhPHFPhQ+R+dq6LFj+dTxE=",
@@ -181,6 +151,12 @@
 			"path": "github.com/gorilla/pat",
 			"revision": "cf955c3d1f2c27ee96f93e9738085c762ff5f49d",
 			"revisionTime": "2016-04-13T04:16:32Z"
+		},
+		{
+			"checksumSHA1": "MVoL41wTwCHNLMk61ObjsW8EXi0=",
+			"path": "github.com/gosimple/slug",
+			"revision": "e9f42fa127660e552d0ad2b589868d403a9be7c6",
+			"revisionTime": "2017-08-21T11:09:01Z"
 		},
 		{
 			"checksumSHA1": "Js/yx9fZ3+wH1wZpHNIxSTMIaCg=",
