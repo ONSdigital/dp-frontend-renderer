@@ -1,4 +1,7 @@
-<footer class="print--hide">
+<footer class="print--hide padding-top--10">
+    {{ if .ShowFeedbackForm }}
+        {{ template "partials/feedback" }}
+    {{ end }}
    <h2 class="visuallyhidden">Footer links</h2>
    <div class="footer">
       <div class="wrapper">
