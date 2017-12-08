@@ -1,38 +1,4 @@
 <footer class="print--hide">
-  {{if .Metadata.Footer.Enabled}}
-   <div class="meta-wrap">
-      <div class="wrapper">
-          <div class="col-wrap">
-              <p class="col col--md-12 col--lg-15 meta__item">
-                  <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics">
-                      <img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo">
-                  </a>
-                  <span>Contact: </span>
-                  <br>
-                  <a href="mailto:idbrdas@ons.gsi.gov.uk" data-ga-event data-ga-event-category="mailto" data-ga-event-label="idbrdas@ons.gsi.gov.uk">{{.Metadata.Footer.Contact}}</a>
-              </p>
-              <p class="col col--md-12 col--lg-15 meta__item">
-                  <span>Release date: </span>
-                  <br>
-                  {{.Metadata.Footer.ReleaseDate}}
-                  <br>
-              </p>
-              <p class="col col--md-12 col--lg-15 meta__item">
-                  <span>Next release:</span>
-                  <br>
-                  {{.Metadata.Footer.NextRelease}}
-                  <br>
-              </p>
-              <p class="col col--md-12 col--lg-15 meta__item">
-                  <span>Dataset ID: </span>
-                  <br>
-                  {{.Metadata.Footer.DatasetID}} &nbsp;
-                  <a href="#" class="tooltip" title="This series ID is a unique random identifier for this individual time series. The digits themselves do not have any specific meaning"> what is this? </a>
-              </p>
-          </div>
-      </div>
-   </div>
-   {{end}}
    <h2 class="visuallyhidden">Footer links</h2>
    <div class="footer">
       <div class="wrapper">

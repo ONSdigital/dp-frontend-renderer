@@ -11,7 +11,7 @@
          </div>
       </div>
    </div>
-   <div class="page-content underline-all-links">
+   <div class="page-content link-adjust">
       <div class="wrapper">
          <div class="col-wrap">
             <div class="col">
@@ -70,7 +70,7 @@
 		 					 </div>
 
 		 					{{ else }}
-               <div class="margin-bottom--8">
+               <div class="margin-bottom--2">
                   <h2 class="margin-bottom">Download filtered dataset</h2>
                   {{ range .Data.Downloads}}
                   {{if not (eq .Size "") }}
@@ -83,6 +83,9 @@
                     {{if not (eq .Extension "xls")}}<a class="btn btn--primary uppercase" href="{{.URI}}"><strong>{{.Extension}}</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                   {{end}}
                   {{ end }}
+               </div>
+               <div class="margin-bottom--8">
+                 <p>Refer to the <a href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data.</p>
                </div>
                {{end}}
                {{end}}
