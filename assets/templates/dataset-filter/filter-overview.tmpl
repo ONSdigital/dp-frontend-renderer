@@ -42,7 +42,7 @@
                   </div>
               </div>
           </div>
-          <div class="margin-bottom--8 {{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}}">
+          <div class="{{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}}">
             <div class="filter-overview__error-container" id="error-container"></div>
             <form method="post" action="/filters/{{.FilterID}}/submit">
                 <input id="preview-download" type="submit" value="Preview and Download" class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" name="preview-and-download" />
