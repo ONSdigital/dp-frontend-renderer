@@ -87,9 +87,15 @@
          <section>
             <div id="id-dimensions" class="section__content--markdown margin-right--0">
               <h2 class="font-weight-700"><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
+              {{if .DatasetLandingPage.UnitOfMeasurement}}
+              <div class="margin-bottom--3">
+                 <h3 class="font-size--17 font-weight-700">Unit of measurement</h3>
+                 <p class="padding-top--0">{{.DatasetLandingPage.UnitOfMeasurement}}</p>
+              </div>
+              {{end}}
               {{range .DatasetLandingPage.Dimensions}}
               <div class="margin-bottom--3">
-                 <h3 class="font-size--17 font-weight-700">{{.Title}}:</h3>
+                 <h3 class="font-size--17 font-weight-700">{{.Title}}</h3>
                  <ul class="dimension-values list list--pipe-seperated js-show-more-list">
                     {{$val_length := len .Values}}
                     {{$total_length := .TotalItems}}
