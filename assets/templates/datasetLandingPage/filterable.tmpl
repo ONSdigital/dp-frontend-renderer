@@ -48,9 +48,10 @@
             </div>
             <div class="js-show-hide__content show-hide__content padding-left--1">
               <div class="margin-bottom--2">
-                <h4 class="font-size--19 margin-bottom--half margin-top--0">Complete dataset</h4>
+                <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
                 {{range $i, $download := $v.Downloads}}
-                <a class="btn btn--primary uppercase btn--focus" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                {{if eq $download.Extension "Text"}}<h4>Additional Metadata</h4>{{end}}
+                <a class="btn btn--primary btn--focus" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
                 {{end}}
               </div>
             </div>
