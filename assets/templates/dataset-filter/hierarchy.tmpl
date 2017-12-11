@@ -27,7 +27,7 @@
 									</div>
             		</form>
 					{{end}}
-								<form id="filter-form" class="margin-bottom--5" action="{{.Data.SaveAndReturn.URL}}" method="post">
+								<form id="filter-form" action="{{.Data.SaveAndReturn.URL}}" method="post">
 									<fieldset>
 										<legend>
 											{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>{{end}}
@@ -59,7 +59,7 @@
 									<div class="margin-top js-hidden">
 										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 									</div>
-									<div class="margin-bottom--8 margin-top--5">
+									<div class="margin-top--5">
                   	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
                   </div>
 								</div>

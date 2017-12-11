@@ -12,6 +12,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/hierarchy"
@@ -123,6 +124,7 @@ func main() {
 	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
 	router.Post("/dataset-filter/list-selector", listSelector.Handler)
 	router.Post("/dataset-filter/time", timeSelector.Handler)
+	router.Post("/dataset-filter/age", ageSelector.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 

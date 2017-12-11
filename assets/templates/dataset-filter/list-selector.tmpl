@@ -16,42 +16,31 @@
 	      <div class="col-wrap">
 					<div class="col">
 						<div class="col col--md-47 col--lg-59">
-							<div class="col col--md-29 col--lg-29">
-								<details role="group" class="margin-bottom--4">
-								  <summary><span class="summary">Learn more</span></summary>
-								  <div class="panel">
-								  	<h3 class="margin-bottom--0 w-700">Some title</h3>
-								    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
-								  </div>
-								</details>
-							</div>
 							<form id="filter-form" class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
 								<div class="col col--md-29 col--lg-29">
-										<div class="margin-bottom--8">
-											<fieldset>
-												<div class="checkbox-group">
-													<div class="checkbox margin-bottom--2">
-														<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
-				                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" id="remove-all" name="remove-all" />
-													</div>
-													{{ $val := .Data.FiltersAmount }}
-													{{ range .Data.RangeData.Values }}
-													<div class="checkbox">
-														<input type="checkbox" class="checkbox__input js-filter{{if .IsSelected}} checked{{end}}" id="id-{{.Label}}" name="{{.ID}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
-														<label class="checkbox__label" for="id-{{.Label}}">
-															{{.Label}}
-														</label>
-													</div>
-													{{end}}
-												</div>
-											</fieldset>
-											<div class="margin-top js-hidden">
-												<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
-											</div>
-											<div class="margin-bottom--8 margin-top--4">
-												<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
-											</div>
-										</div>
+                                    <fieldset>
+                                        <div class="checkbox-group">
+                                            <div class="checkbox margin-bottom--2">
+                                                <input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
+                            <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                            </div>
+                                            {{ $val := .Data.FiltersAmount }}
+                                            {{ range .Data.RangeData.Values }}
+                                            <div class="checkbox">
+                                                <input type="checkbox" class="checkbox__input js-filter{{if .IsSelected}} checked{{end}}" id="id-{{.Label}}" name="{{.ID}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
+                                                <label class="checkbox__label" for="id-{{.Label}}">
+                                                    {{.Label}}
+                                                </label>
+                                            </div>
+                                            {{end}}
+                                        </div>
+                                    </fieldset>
+                                    <div class="margin-top js-hidden">
+                                        <input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
+                                    </div>
+                                    <div class="margin-top--4">
+                                        <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
+                                    </div>
 									</div>
 									<aside>
 										<div class="col col--md-14 col--lg-20 margin-left-md--4 margin-bottom--6 margin-left-lg--10">
