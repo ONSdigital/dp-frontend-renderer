@@ -27,7 +27,7 @@
               <ul class="list--neutral margin-bottom--3 margin-top--3">
                 <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.Data.DatasetTitle}}</li>
                 <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
-                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{.Data.ReleaseDate}}</li>
+                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{dateFormat .Data.ReleaseDate}}</li>
                 {{range .Data.SingleValueDimensions}}
                   <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">{{.Name}}</span>{{ index .Values 0 }}</li>
                 {{end}}
@@ -84,9 +84,7 @@
                   {{end}}
                   {{ end }}
                </div>
-               <div class="margin-bottom--8">
-                 <p>Refer to the <a href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data.</p>
-               </div>
+                <p>Refer to the <a href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data.</p>
                {{end}}
                {{end}}
                {{else}}
@@ -100,4 +98,3 @@
       </div>
    </div>
 </div>
-{{ template "partials/feedback" . }}

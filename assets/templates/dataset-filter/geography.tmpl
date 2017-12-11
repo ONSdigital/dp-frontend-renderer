@@ -15,13 +15,6 @@
       <div class="wrapper">
           <div class="col-wrap">
               <div class="col col--md-29 col--lg-29 margin-left-md--1">
-								<details role="group" class="margin-bottom--4">
-								  <summary><span class="summary">Learn more about range</span></summary>
-								  <div class="panel">
-								  	<h3 class="margin-bottom--0 w-700">Some title</h3>
-								    <p class="margin-top--0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae rhoncus diam. Vivamus non massa libero. Nulla non maximus sem. Fusce id vestibulum libero.</p>
-								  </div>
-								</details>
             		<form class="margin-bottom--5" action="/search">
 									<label for="search" class="block font-size--17 padding-bottom--2">Search</label>
 									<div class="clearfix">
@@ -32,7 +25,7 @@
               			</button>
 									</div>
             		</form>
-								<form class="margin-bottom--5" action="/add-to-selection">
+								<form action="/add-to-selection">
 									<fieldset>
 										<legend>
 											{{ if .Data.Parent }}
@@ -59,7 +52,7 @@
 									<div class="margin-top js-hidden">
 										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 									</div>
-									<div class="margin-bottom--8 margin-top--2">
+									<div class="margin-top--2">
 										<a href="{{.Data.SaveAndReturn.URL}}" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap">Return to filter options</a>
 										<a class="inline-block margin-top--4 font-size--17" href="{{.Data.Cancel.URL}}">Cancel</a>
 									</div>

@@ -1,4 +1,4 @@
-<div>
+<div class="adjust-font-size--16">
     <div class="page-intro">
         <div class="wrapper">
             <div class="col-wrap">
@@ -15,7 +15,7 @@
         <div class="wrapper">
             <div class="col col--md-47 col--lg-59">
                 <div class="col col--md-29 col--lg-29">
-                    <p class="font-size--17">Data available from {{.Data.FirstTime.Month}} {{.Data.FirstTime.Year}} until {{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}}</p>
+                    <p class="font-size--17" id="data-available">Data available from {{.Data.FirstTime.Month}} {{.Data.FirstTime.Year}} until {{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}}</p>
                 </div>
                 <form id="time-form" method="post" action="{{.Data.FormAction.URL}}">
                     <input name="save-and-return" id="time-save-and-return" class="visuallyhidden" type="submit" value="Save and return" />
@@ -26,6 +26,8 @@
                                     <input id="time-selection-latest" type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
                                     <label for="time-selection-latest" class="multiple-choice__label">I just want the latest data ({{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}})</label>
                                     <input type="hidden" name="latest-option" value="{{.Data.LatestTime.Option}}">
+                                    <input type="hidden" name="latest-month" id="lastest-month" value="{{.Data.LatestTime.Month}}">
+                                    <input type="hidden" name="latest-year" id="latest-year" value="{{.Data.LatestTime.Year}}">
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="time-selection-single" type="radio" class="multiple-choice__input" name="time-selection" value="single" {{if eq .Data.CheckedRadio "single"}}checked{{end}}>
@@ -138,7 +140,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col--md-20 col--lg-20 width-sm--20 margin-bottom--8">
+                            <div class="col--md-20 col--lg-20 width-sm--20">
                                 <input name="save-and-return" id="time-save-and-return" class="btn btn--primary btn--thick btn--big btn--focus btn--wide font-weight-700 font-size--17 margin-right--2" type="submit" value="Save and return" />
                             </div>
                         </div>
@@ -148,4 +150,3 @@
         </div>
     </div>
 </div>
-{{ template "partials/feedback" . }}
