@@ -24,7 +24,6 @@ type Hierarchy struct {
 	Parent        string   `json:"parent"`
 	Type          string   `json:"type"`
 	Metadata      Metadata `json:"metadata"`
-	DatasetTitle  string   `json:"dataset_title"`
 }
 
 // AddAll ...

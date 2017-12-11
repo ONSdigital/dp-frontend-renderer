@@ -29,8 +29,8 @@
 		{
 			"checksumSHA1": "WFzDhLFdAQv2xOSf1cfT5ao2Aqs=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/filterOverview",
-			"revision": "bb3aa88cefc1b32f0c431d6773407983fc69e6bb",
-			"revisionTime": "2017-09-18T14:39:20Z"
+			"revision": "754451bf05e79fb16edb24024381a28bc75ab182",
+			"revisionTime": "2017-12-08T12:08:51Z"
 		},
 		{
 			"checksumSHA1": "SYAN6yoO2rm77uoFL385zKDM4Qk=",
@@ -39,22 +39,22 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "ohl+vTwFS7rzrSwF76vtG+Jk9NM=",
+			"checksumSHA1": "zNdo/FSyzMdMGbm9z7AKDRrhUL8=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/hierarchy",
-			"revision": "d5005a8cb73c03ca98004c4021a99f2b05906a20",
-			"revisionTime": "2017-10-30T09:01:34Z"
+			"revision": "754451bf05e79fb16edb24024381a28bc75ab182",
+			"revisionTime": "2017-12-08T12:08:51Z"
 		},
 		{
 			"checksumSHA1": "ZEVw5TIha5cGVEQplEIrIhNpc40=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/listSelector",
-			"revision": "ecf33e093027c7e613be9c9416c810b7845a86e7",
-			"revisionTime": "2017-09-08T09:24:14Z"
+			"revision": "754451bf05e79fb16edb24024381a28bc75ab182",
+			"revisionTime": "2017-12-08T12:08:51Z"
 		},
 		{
-			"checksumSHA1": "CD1y5Z16SnUZlRR7nMXvoQdrx4s=",
+			"checksumSHA1": "d+zeEZPud1qkqHHjTl7gg2v0JNM=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/previewPage",
-			"revision": "a007763f4350fd0352d0c25b9ac7d9b3d62e46be",
-			"revisionTime": "2017-11-20T13:41:23Z"
+			"revision": "754451bf05e79fb16edb24024381a28bc75ab182",
+			"revisionTime": "2017-12-08T12:08:51Z"
 		},
 		{
 			"checksumSHA1": "XiB1eoyvRBkRzkGyrjjJwsXA+Go=",
@@ -63,7 +63,7 @@
 			"revisionTime": "2017-07-24T10:41:27Z"
 		},
 		{
-			"checksumSHA1": "9JIwk2345TbvJLWR7NoL0FJwDQw=",
+			"checksumSHA1": "UcgCMRZLH31hF9KcFhrKQXx/tFA=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/time",
 			"revision": "754451bf05e79fb16edb24024381a28bc75ab182",
 			"revisionTime": "2017-12-08T12:08:51Z"
