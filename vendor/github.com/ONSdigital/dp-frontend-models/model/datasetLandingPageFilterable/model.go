@@ -26,6 +26,7 @@ type DatasetLandingPage struct {
 	LatestChanges       []Change      `json:"latest_changes"`
 	Citation            string        `json:"citation"`
 	DatasetTitle        string        `json:"dataset_title"`
+	UnitOfMeasurement   string        `json:"unit_of_measurement"`
 }
 
 type Publication struct {

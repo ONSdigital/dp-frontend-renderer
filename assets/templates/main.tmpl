@@ -29,10 +29,14 @@
                   .replace(/&#x3D;/g, "=");
       }
       dataLayer = [{
+        {{if .DatasetTitle }}
+        "contentTitle": htmlUnescape({{.DatasetTitle}}),
+        "filterTitle": htmlUnescape({{.Metadata.Title}})
+        {{else}}
         "contentTitle": htmlUnescape({{.Metadata.Title}})
+        {{end}}
       }];
-
-    </script>1  qw2
+    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
