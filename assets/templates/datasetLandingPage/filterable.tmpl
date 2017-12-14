@@ -110,9 +110,8 @@
                  {{end}}
                  {{if .Description}}
                  <details role="group" class="margin-bottom--4 margin-top--1">
-                    <summary><span class="summary">Learn more</span></summary>
+                    <summary><span class="summary">Learn more <span class="visuallyhidden">about {{.Title}}</span></span></summary>
                     <div class="panel">
-                       <h3 class="margin-bottom--0 font-weight-700">{{.Title}}</h3>
                        <p class="margin-top--0">{{.Description}}</p>
                     </div>
                  </details>
