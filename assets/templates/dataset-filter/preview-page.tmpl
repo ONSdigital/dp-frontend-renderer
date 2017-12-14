@@ -23,7 +23,7 @@
                 <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
               </div>
               {{ end }}
-              <a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
+              <a id="adjust-filter-options" href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
               <ul class="list--neutral margin-bottom--3 margin-top--3">
                 <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.Data.DatasetTitle}}</li>
                 <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
@@ -74,17 +74,17 @@
                   <h2 class="margin-bottom">Download filtered dataset</h2>
                   {{ range .Data.Downloads}}
                   {{if not (eq .Size "") }}
-                    {{if eq .Extension "xls"}}<a class="btn btn--primary" href="{{.URI}}"><strong>Download Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
+                    {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary" href="{{.URI}}"><strong>Download Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                   {{end}}
                   {{ end }}
                   <h3 class="margin-bottom">Other download options</h2>
                   {{ range .Data.Downloads}}
                   {{if not (eq .Size "") }}
-                    {{if not (eq .Extension "xls")}}<a class="btn btn--primary uppercase" href="{{.URI}}"><strong>{{.Extension}}</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
+                    {{if not (eq .Extension "xls")}}<a id="{{.Extension}}-download" class="btn btn--primary uppercase" href="{{.URI}}"><strong>{{.Extension}}</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                   {{end}}
                   {{ end }}
                </div>
-                <p>Refer to the <a href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data.</p>
+                <p>Refer to the <a id="dataset-page-link" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data.</p>
                {{end}}
                {{end}}
                {{else}}
