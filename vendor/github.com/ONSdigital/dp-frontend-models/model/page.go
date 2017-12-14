@@ -14,5 +14,6 @@ type Page struct {
 	PatternLibraryAssetsPath         string         `json:"-"`
 	Language                         string         `json:"-"`
 	IncludeAssetsIntegrityAttributes bool           `json:"-"`
+	DatasetTitle                     string         `json:"dataset_title"`
 	ShowFeedbackForm                 bool           `json:"show_feedback_form"`
 }
