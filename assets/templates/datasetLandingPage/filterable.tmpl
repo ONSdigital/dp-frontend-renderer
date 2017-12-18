@@ -116,7 +116,7 @@
                         <li>{{.}}{{if not (last $i $vals) }}<span>|</span>{{end}}</li>
                         {{end}}
                      </ul>
-                     {{if gt $val_length 9}}
+                     {{if gt $val_length 10}}
                      <span class="list-size">... (plus {{subtract $total_length 10}} more) </span>
                      {{end}}
                      {{if .Description}}
