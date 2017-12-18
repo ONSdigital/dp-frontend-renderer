@@ -350,7 +350,7 @@ func templatesDatasetlandingpageFilterableTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/filterable.tmpl", size: 13304, mode: os.FileMode(420), modTime: time.Unix(1513351536, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/filterable.tmpl", size: 13304, mode: os.FileMode(420), modTime: time.Unix(1513590165, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
