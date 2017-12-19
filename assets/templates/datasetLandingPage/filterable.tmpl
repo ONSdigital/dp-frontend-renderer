@@ -25,7 +25,7 @@
          </div>
          <div class="col col--md-16 col--lg-20 meta__item meta__item">
             <dt class="meta__term inline">Next release:</dt>
-            <dd class="inline">{{ .DatasetLandingPage.NextRelease }}</dd>
+            <dd class="inline">{{dateFormat .DatasetLandingPage.NextRelease }}</dd>
          </div>
       </dl>
    </div>
@@ -34,7 +34,7 @@
   <div class="col-wrap">
     <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4 link-adjust">
       <section>
-        <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
+        <div class="margin-bottom--4"><span class="dataset-description">{{ .Metadata.Description }}</span></div>
       </section>
       <section>
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
@@ -116,7 +116,7 @@
                         <li>{{.}}{{if not (last $i $vals) }}<span>|</span>{{end}}</li>
                         {{end}}
                      </ul>
-                     {{if gt $val_length 10}}
+                     {{if gt $val_length 9}}
                      <span class="list-size">... (plus {{subtract $total_length 10}} more) </span>
                      {{end}}
                      {{if .Description}}
@@ -186,7 +186,7 @@
             {{end}}
             {{if .DatasetLandingPage.HasOlderVersions}}
             <li>
-              <div id="id-previous" class="section__content--markdown">
+              <div id="id-previous" class="section__content--markdown margin-right--0 margin-left-sm--2">
                  <h2 class="font-weight-700 padding-top--0">Previous Versions</h2>
                  <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
               </div>
@@ -201,15 +201,13 @@
             <div class="tiles__content tiles__content--nav">
                <address>
                   {{ if .ContactDetails.Name}}
-                  {{ .ContactDetails.Name }}
+                  <span class="contact-name block">{{ .ContactDetails.Name }}</span>
                   {{ end }}
                   {{ if .ContactDetails.Email}}
-                  <br>
-                  <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a>
+                  <span class="contact-email block"><a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a></span>
                   {{ end }}
                   {{ if .ContactDetails.Telephone }}
-                  <br>
-                  {{ .ContactDetails.Telephone }}
+                  <span class="contact-phone block">{{ .ContactDetails.Telephone }}</span>
                   {{ end }}
                </address>
             </div>
