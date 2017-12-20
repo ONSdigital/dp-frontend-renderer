@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "hNrhdA2Zkqo8MHGZDAHK9yc5M5w=",
+			"checksumSHA1": "xSwBSbK1fgyi9yAltxaWMKCLySA=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "8ce6644a13d5833dd03b242759c77bf8a17faaed",
-			"revisionTime": "2017-12-19T14:53:09Z"
+			"revision": "e6b4829ac930e55ad6f89c5bc9c170d1e07d553e",
+			"revisionTime": "2017-12-20T08:31:43Z"
 		},
 		{
 			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
