@@ -2,6 +2,7 @@ package main
 
 import (
 	"html/template"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"reflect"
@@ -9,6 +10,7 @@ import (
 	"time"
 
 	"github.com/gosimple/slug"
+	yaml "gopkg.in/yaml.v2"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
@@ -34,6 +36,27 @@ import (
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
 )
+
+var taxonomyRedirects map[string]string
+
+func init() {
+	// TODO: We should be building a breadcrumb from the API but for now
+	// we will maintain a yaml file which redirects users to the taxonomy
+	// base on the dataset ID
+	if taxonomyRedirects == nil {
+		taxonomyRedirects = make(map[string]string)
+		b, err := ioutil.ReadFile("taxonomy-redirects.yml")
+		if err != nil {
+			log.ErrorC("could not open taxonomy redirect file", err, nil)
+			os.Exit(1)
+		}
+
+		if err := yaml.Unmarshal(b, &taxonomyRedirects); err != nil {
+			log.ErrorC("could not unmarshal taxonomy redirects file", err, nil)
+			os.Exit(1)
+		}
+	}
+}
 
 func main() {
 	bindAddr := os.Getenv("BIND_ADDR")
@@ -98,6 +121,9 @@ func main() {
 			},
 			"slug": func(s string) string {
 				return slug.Make(s)
+			},
+			"taxonomyLandingPage": func(s string) string {
+				return taxonomyRedirects[s]
 			},
 		}},
 	})
