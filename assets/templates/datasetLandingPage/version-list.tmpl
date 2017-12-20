@@ -43,9 +43,9 @@
                     <tbody>
                         {{range .Data.Versions}}
                             <tr>
-                                <td>{{.Date}}</td>
+                                <td>{{dateFormat .Date}}</td>
                                 <td>{{.Reason}}</td>
-                                <td> 
+                                <td>
                                     {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}} {{humanSize .Size}}</a>{{end}}
                                     <form action="{{.FilterURL}}" method="post">
                                         <input class="btn btn--primary" type="submit" name="filter-and-download" value="Filter and download" />
