@@ -16,7 +16,7 @@
 	  <div class="wrapper">
 	      <div class="col-wrap">
 					<div class="col">
-						<div class="col col--md-47 col--lg-59">
+						<div class="col col--md-25 col--lg-15">
 							<form id="filter-form" class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
 								<div class="col col--md-29 col--lg-29">
                                     <fieldset>
@@ -45,7 +45,12 @@
                                     </div>
 									</div>
 							</form>
-          	</div>
+          				</div>
+						<div id="add-all-save-and-return" class="col col--md-25 col--lg-15 margin-left-md--1 margin-bottom--6 margin-left-lg--4 js-hidden">
+							<div class="margin-bottom--6 hide--md-only hide--sm">
+								<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
+							</div>
+						</div>
 					</div>
 				</div>
   		</div>
