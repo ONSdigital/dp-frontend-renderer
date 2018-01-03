@@ -55,25 +55,32 @@
                                 <div class="multiple-choice">
                                     <input id="age-selection-list" type="radio" name="age-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
                                     <label for="age-selection-list" class="multiple-choice__label">Add ages from list</label>
-                                        <div id="multiple-choice-content-list" class="multiple-choice__content padding-top--2">
-                                            <div class="margin-left--1">
-                                                <fieldset>
-                                                    <div class="checkbox-group">
-                                                        <div id="checkbox-header" class="checkbox margin-bottom--2">
-                                                            <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
-                                                            &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                        <div id="multiple-choice-content-list" class="multiple-choice__content padding-top--2 col-wrap">
+                                            <div class="col col--md-20 col--lg-15 margin-left-md--1">
+                                                <div class="margin-left--1">
+                                                    <fieldset>
+                                                        <div class="checkbox-group">
+                                                            <div id="checkbox-header" class="checkbox margin-bottom--2">
+                                                                <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
+                                                                &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                                            </div>
+                                                            {{ range $i, $v := .Data.Ages }}
+                                                            <div class="checkbox">
+                                                                <input type="checkbox" class="checkbox__input {{if $v.IsSelected}} checked{{end}}" id="id-{{$v.Label}}" name="{{$v.Option}}" value="{{$v.Label}}" {{if $v.IsSelected}}checked{{end}}>
+                                                                <label class="checkbox__label" for="id-{{$v.Label}}">
+                                                                    {{$v.Label}}
+                                                                </label>
+                                                            </div>
+                                                            {{end}}
                                                         </div>
-                                                        {{ range $i, $v := .Data.Ages }}
-                                                        <div class="checkbox">
-                                                            <input type="checkbox" class="checkbox__input {{if $v.IsSelected}} checked{{end}}" id="id-{{$v.Label}}" name="{{$v.Option}}" value="{{$v.Label}}" {{if $v.IsSelected}}checked{{end}}>
-                                                            <label class="checkbox__label" for="id-{{$v.Label}}">
-                                                                {{$v.Label}}
-                                                            </label>
-                                                        </div>
-                                                        {{end}}
-                                                    </div>
-                                                </fieldset>
-										    </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div id="add-all-save-and-return" class="col col--md-25 col--lg-15 margin-left-md--1 margin-bottom--6 margin-left-lg--4 js-hidden">
+                                                <div class="margin-bottom--6 hide--md-only hide--sm">
+										            <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
+									            </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
