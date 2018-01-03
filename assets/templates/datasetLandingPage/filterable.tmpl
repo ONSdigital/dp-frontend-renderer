@@ -43,17 +43,19 @@
             <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-weight-700">
           </form>
           {{ if gt (len $v.Downloads) 0}}
-          <div class="js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
+           <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
             <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
               <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
             </div>
-            <div class="js-show-hide__content show-hide__content padding-left--1">
+            <div class="js-show-hide__content show-hide__content padding-left--1 padding-right--1">
               <div class="margin-bottom--2">
                 <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
+                <ul class="list--neutral">
                 {{range $i, $download := $v.Downloads}}
-                {{if eq $download.Extension "Text"}}<h4>Additional Metadata</h4>{{end}}
-                <a class="btn btn--primary btn--focus" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                  {{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "Text"}}Supporting information{{else}}Filtered Dataset{{end}} ({{$download.Extension}} format)</span>
+                  <div class="width--8 inline-block"><a id="{{$download.Extension}}-download" class="btn btn--primary btn--focus btn--full-width margin-top--1 margin-bottom--1" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> {{humanSize $download.Size}}</a></div></li>{{end}}
                 {{end}}
+                </ul>
               </div>
             </div>
           </div>

@@ -18,7 +18,9 @@ type PreviewPage struct {
 	Dimensions            []Dimension   `json:"dimensions"`
 	IsLatestVersion       bool          `json:"is_latest_version"`
 	LatestVersion         LatestVersion `json:"latest_version"`
+	DatasetTitle          string        `json:"dataset_title"`
 	DatasetID             string        `json:"dataset_id"`
+	Edition               string        `json:"edition"`
 	ReleaseDate           string        `json:"release_date"`
 	SingleValueDimensions []Dimension   `json:"single_value_dimensions"`
 }
