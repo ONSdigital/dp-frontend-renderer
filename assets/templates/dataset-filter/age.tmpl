@@ -16,7 +16,7 @@
         <div class="wrapper">
             <div class="col col--md-47 col--lg-59">
                 <div class="col col--md-29 col--lg-29">
-                    <p class="font-size--17">Ages {{.Data.Youngest}} to {{.Data.Oldest}} available in this dataset.</p>
+                    <p class="font-size--17">Ages {{.Data.Youngest}} to {{.Data.Oldest}} available in this dataset</p>
                 </div>
                 <form id="age-form" method="post" action="{{.Data.FormAction.URL}}">
                     <div class="form adjust-font-size--16 clear-left">
@@ -31,7 +31,7 @@
                                 {{end}}
                                 <div class="multiple-choice">
                                     <input id="age-selection-range" type="radio" class="multiple-choice__input" name="age-selection" value="range" {{if eq .Data.CheckedRadio "range"}}checked{{end}}>
-                                    <label for="age-selection-single" class="multiple-choice__label">Add a ranges of ages (eg. 18 to 24)</label>
+                                    <label for="age-selection-single" class="multiple-choice__label">Add a range of ages (eg. 18 to 24)</label>
                                     <input id="youngest-age" name="youngest-age" type="hidden" value="{{.Data.Youngest}}">
                                     <input id="oldest-age" name="oldest-age" type="hidden" value="{{.Data.Oldest}}">
                                     <div id="multiple-choice-content-range" class="multiple-choice__content padding-top--4">
