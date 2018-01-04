@@ -1,20 +1,20 @@
 {{ template "partials/loop11" . }}
-<div class="adjust-font-size--16">
-   <div class="page-intro">
-      <div class="wrapper">
-         <div class="col-wrap">
-            <div class="col">
-               {{ template "partials/breadcrumb" . }}
-               <div class="col col--md-47 col--lg-39">
-                  <h1 class="page-intro__title margin-bottom--1">
-                    {{if not .NoDimensionData}}<span class="font-size--17 page-intro__type padding-top--0 padding-bottom--0">{{.DatasetTitle}}: {{.Data.Edition}}</span>{{end}}
-                    <strong id="page-title">{{if not .NoDimensionData}}Filtered dataset{{else}}We can't create a preview{{end}}</strong>
-                  </h1>
-               </div>
+<div class="page-intro">
+  <div class="wrapper">
+      <div class="col-wrap">
+        <div class="col">
+            {{ template "partials/breadcrumb" . }}
+            <div class="col col--md-47 col--lg-58">
+              <h1 class="page-intro__title margin-bottom--1">
+                {{if not .NoDimensionData}}<span class="font-size--21 line-height--30 page-intro__type padding-top--0 padding-bottom--0">{{.DatasetTitle}}: {{.Data.Edition}}</span>{{end}}
+                <strong id="page-title">{{if not .NoDimensionData}}Filtered dataset{{else}}We can't create a preview{{end}}</strong>
+              </h1>
             </div>
-         </div>
+        </div>
       </div>
-   </div>
+  </div>
+</div>
+<div class="adjust-font-size--16">
    <div class="page-content link-adjust">
       <div class="wrapper">
          <div class="col-wrap">
