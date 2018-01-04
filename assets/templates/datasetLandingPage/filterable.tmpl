@@ -52,7 +52,7 @@
                 <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
                 <ul class="list--neutral">
                 {{range $i, $download := $v.Downloads}}
-                  {{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "Text"}}Supporting information{{else}}Filtered Dataset{{end}} ({{$download.Extension}} format)</span>
+                  {{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "Text"}}Supporting information{{else}}Complete Dataset{{end}} ({{$download.Extension}} format)</span>
                   <div class="width--8 inline-block"><a id="{{$download.Extension}}-download" class="btn btn--primary btn--focus btn--full-width margin-top--1 margin-bottom--1" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> {{humanSize $download.Size}}</a></div></li>{{end}}
                 {{end}}
                 </ul>
