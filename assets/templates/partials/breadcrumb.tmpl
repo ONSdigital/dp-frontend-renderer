@@ -4,11 +4,11 @@
        <ol class="breadcrumb__list">
           {{ range $i, $b := $bc }}
               {{if last $i $bc}}
-              <li class="breadcrumb__item">
+              <li class="breadcrumb__item line-height--12">
                  {{ $b.Title }}
               </li>
               {{else}}
-              <li class="breadcrumb__item">
+              <li class="breadcrumb__item line-height--12">
                  <a class="breadcrumb__link" href="{{ $b.URI }}">
                   {{ $b.Title }}
                  </a>

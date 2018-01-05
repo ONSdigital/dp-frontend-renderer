@@ -1,4 +1,4 @@
-<div class="adjust-font-size--16">
+{{ template "partials/loop11" . }}
 	<div class="page-intro">
 		<div class="wrapper">
 			<div class="col-wrap">
@@ -11,6 +11,7 @@
 			</div>
 		</div>
 	</div>
+<div class="adjust-font-size--16">
   <div class="page-content link-adjust">
       <div class="wrapper">
           <div class="col-wrap">
@@ -32,9 +33,11 @@
 										<legend>
 											{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>{{end}}
 											{{ if .Data.Parent }}
-											<span class="block font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}">< Back</a> | {{ .Data.Parent }}</span>
+											<div class="font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}"><span class="icon icon-arrow-back--dark-small"></span>Back</a></div>
+											<h2 class="font-size--17 padding-bottom--1 font-weight-700 margin-top--0">{{ .Metadata.Title }}</h2>
 											{{ end }}
 										</legend>
+										<input name="save-and-return" class="visuallyhidden" type="submit" value="Save and return" />
 										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
                     <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" name="remove-all" />
 										<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
@@ -59,7 +62,7 @@
 									<div class="margin-top js-hidden">
 										<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 									</div>
-									<div class="margin-top--5">
+									<div id="save-and-return-container" class="margin-top--5">
                   	<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
                   </div>
 								</div>

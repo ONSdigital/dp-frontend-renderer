@@ -20,6 +20,7 @@ type PreviewPage struct {
 	LatestVersion         LatestVersion `json:"latest_version"`
 	DatasetTitle          string        `json:"dataset_title"`
 	DatasetID             string        `json:"dataset_id"`
+	Edition               string        `json:"edition"`
 	ReleaseDate           string        `json:"release_date"`
 	SingleValueDimensions []Dimension   `json:"single_value_dimensions"`
 }

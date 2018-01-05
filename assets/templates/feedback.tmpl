@@ -73,13 +73,13 @@
                         <input id="email-field" class="form-control {{if eq .ErrorType "email"}}form-control__error{{end}}" type="text" name="email"  value={{.Email}}>
                     </div>
                     <div>
-                        <input class="btn btn--primary" type="submit" value="Send feedback">
+                        <input class="btn btn--primary font-weight-700" type="submit" value="Send feedback">
                     </div>
                 </form>
             </div>
             {{else}}
                 <div class="margin-top--4">
-                    Your feedback will help us to improve the website.<br>We are unable to respond to all enquiries. If your matter is urgent, please <a href="/aboutus/contactus">contact us</a>.<br><br>
+                    Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href="/aboutus/contactus">contact us</a>.<br><br>
                     Return to <a href="{{.Metadata.Description}}">{{.Metadata.Description}}</a>
                 </div>
             {{end}}

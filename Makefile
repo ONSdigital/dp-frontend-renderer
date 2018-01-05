@@ -1,5 +1,8 @@
+BINPATH ?= build
+
 build: generate
-	go build -tags 'production' -o build/dp-frontend-renderer
+	go build -tags 'production' -o $(BINPATH)/dp-frontend-renderer
+	cp taxonomy-redirects.yml $(BINPATH)
 
 debug: generate
 	go build -tags 'debug' -o build/dp-frontend-renderer

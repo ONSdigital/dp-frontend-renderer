@@ -161,14 +161,19 @@
     {{end}}
     <div class="banner">
         <div class="wrapper">
-            <div class="col-wrap">
-                <div class="col">
-                    <span class="banner__text-icon">Beta</span>
-                    <div class="banner__body">
-                        <p>This is a new way of getting data &ndash; your <a href="/feedback">feedback</a> will help us to improve it.</p>
-                    </div>
+            <div class="col col--md-40 col--lg-44">
+                <span class="banner__text-icon">Beta</span>
+                <div class="banner__body">
+                    <p>This is a new way of getting data &ndash; your <a href="/feedback">feedback</a> will help us to improve it.</p>
                 </div>
             </div>
+            {{if .DatasetId}}
+            <div class="col col--md-15 col--lg-15">
+                <div class="banner__body margin-left--10">
+                    <p><a id="main-service-link" href="{{taxonomyLandingPage .DatasetId}}">Exit beta</a></p>
+                </div>
+            </div>
+            {{end}}
         </div>
     </div>
 </header>

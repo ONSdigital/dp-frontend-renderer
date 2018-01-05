@@ -1,3 +1,4 @@
+{{ template "partials/loop11" . }}
 <div class="page-intro background--gallery">
    <div class="wrapper">
       <div class="col-wrap">
@@ -24,7 +25,7 @@
          </div>
          <div class="col col--md-16 col--lg-20 meta__item meta__item">
             <dt class="meta__term inline">Next release:</dt>
-            <dd class="inline">{{ .DatasetLandingPage.NextRelease }}</dd>
+            <dd class="inline">{{dateFormat .DatasetLandingPage.NextRelease }}</dd>
          </div>
       </dl>
    </div>
@@ -33,7 +34,7 @@
   <div class="col-wrap">
     <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4 link-adjust">
       <section>
-        <div class="margin-bottom--4"><span>{{ .Metadata.Description }}</span></div>
+        <div class="margin-bottom--4"><span class="dataset-description">{{ .Metadata.Description }}</span></div>
       </section>
       <section>
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
@@ -42,17 +43,19 @@
             <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-weight-700">
           </form>
           {{ if gt (len $v.Downloads) 0}}
-          <div class="js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
+           <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
             <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
               <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
             </div>
-            <div class="js-show-hide__content show-hide__content padding-left--1">
+            <div class="js-show-hide__content show-hide__content padding-left--1 padding-right--1">
               <div class="margin-bottom--2">
                 <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
+                <ul class="list--neutral">
                 {{range $i, $download := $v.Downloads}}
-                {{if eq $download.Extension "Text"}}<h4>Additional Metadata</h4>{{end}}
-                <a class="btn btn--primary btn--focus" href="{{$download.URI}}">{{$download.Extension}} {{humanSize $download.Size}}</a>
+                  {{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "Text"}}Supporting information{{else}}Complete Dataset{{end}} ({{$download.Extension}} format)</span>
+                  <div class="width--8 inline-block"><a id="{{$download.Extension}}-download" class="btn btn--primary btn--focus btn--full-width margin-top--1 margin-bottom--1" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> {{humanSize $download.Size}}</a></div></li>{{end}}
                 {{end}}
+                </ul>
               </div>
             </div>
           </div>
@@ -70,12 +73,21 @@
                  <a href="#id-changes" class="js-scroll">What has changed in this edition</a>
                </li>
                {{end}}
+               {{if .DatasetLandingPage.QMIURL}}
                <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-qmi" class="js-scroll">Quality and methodology information</a>
                </li>
+               {{end}}
+               {{if .DatasetLandingPage.Methodologies}}
+               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+                 <a href="#id-methodology" class="js-scroll">Methodologies</a>
+               </li>
+               {{end}}
+               {{if .DatasetLandingPage.Citation}}
                <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-license" class="js-scroll">Usage information</a>
                </li>
+               {{end}}
                {{if .DatasetLandingPage.HasOlderVersions}}
                <li class="table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-previous" class="js-scroll">Previous versions</a>
@@ -86,81 +98,104 @@
         </section>
 
          <section>
-            <div id="id-dimensions" class="section__content--markdown margin-right--0">
-              <h2 class="font-weight-700"><span class="section__content-number font-size--24">1.</span>In this dataset</h2>
-              {{if .DatasetLandingPage.UnitOfMeasurement}}
-              <div class="margin-bottom--3">
-                 <h3 class="font-size--17 font-weight-700">Unit of measurement</h3>
-                 <p class="padding-top--0">{{.DatasetLandingPage.UnitOfMeasurement}}</p>
+           <ol class="list list--custom-numbered">
+              <li>
+                <div id="id-dimensions" class="section__content--markdown margin-right--0 margin-left-sm--2">
+                  <h2 class="font-weight-700 padding-top--0">In this dataset</h2>
+                  {{if .DatasetLandingPage.UnitOfMeasurement}}
+                  <div class="margin-bottom--3">
+                     <h3 class="font-size--17 font-weight-700">Unit of measurement</h3>
+                     <p class="padding-top--0">{{.DatasetLandingPage.UnitOfMeasurement}}</p>
+                  </div>
+                  {{end}}
+                  {{range .DatasetLandingPage.Dimensions}}
+                  <div class="margin-bottom--3">
+                     <h3 class="font-size--17 font-weight-700">{{.Title}}</h3>
+                     <ul class="dimension-values list list--pipe-seperated js-show-more-list">
+                        {{$val_length := len .Values}}
+                        {{$total_length := .TotalItems}}
+                        {{$vals := .Values}}{{range $i, $v := $vals}}
+                        <li>{{.}}{{if not (last $i $vals) }}<span>|</span>{{end}}</li>
+                        {{end}}
+                     </ul>
+                     {{if gt $val_length 9}}
+                     <span class="list-size">... (plus {{subtract $total_length 10}} more) </span>
+                     {{end}}
+                     {{if .Description}}
+                     <details role="group" class="margin-bottom--4 margin-top--1">
+                        <summary><span class="summary">Learn more <span class="visuallyhidden">about {{.Title}}</span></span></summary>
+                        <div class="panel">
+                           <p class="margin-top--0">{{.Description}}</p>
+                        </div>
+                     </details>
+                     {{end}}
+                 </div>
+                 {{ end }}
+                 <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+               </div>
+             </li>
+             {{ if .DatasetLandingPage.LatestChanges}}
+             <li>
+              <div id="id-changes" class="section__content--markdown margin-right--0 margin-left-sm--2">
+                <h2 class="font-weight-700 padding-top--0">What has changed in this edition</h2>
+                {{range .DatasetLandingPage.LatestChanges}}
+                <div class="margin-bottom--3">
+                   <h3 class="font-size--17 font-weight-700">{{.Name}}</h3>
+                   <p class="padding-top--0">{{.Description}}</p>
+                </div>
+                {{ end }}
+                <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
               </div>
-              {{end}}
-              {{range .DatasetLandingPage.Dimensions}}
-              <div class="margin-bottom--3">
-                 <h3 class="font-size--17 font-weight-700">{{.Title}}</h3>
-                 <ul class="dimension-values list list--pipe-seperated js-show-more-list">
-                    {{$val_length := len .Values}}
-                    {{$total_length := .TotalItems}}
-                    {{$vals := .Values}}{{range $i, $v := $vals}}
-                    <li>{{.}}{{if not (last $i $vals) }}<span>|</span>{{end}}</li>
-                    {{end}}
-                 </ul>
-                 {{if gt $val_length 9}}
-                 <span class="list-size">... (plus {{subtract $total_length 10}} more) </span>
-                 {{end}}
-                 {{if .Description}}
-                 <details role="group" class="margin-bottom--4 margin-top--1">
-                    <summary><span class="summary">Learn more</span></summary>
-                    <div class="panel">
-                       <h3 class="margin-bottom--0 font-weight-700">{{.Title}}</h3>
-                       <p class="margin-top--0">{{.Description}}</p>
-                    </div>
-                 </details>
-                 {{end}}
+            </li>
+            {{end}}
+            {{if .DatasetLandingPage.QMIURL}}
+            <li>
+             <div id="id-qmi" class="section__content--markdown margin-right--0 margin-left-sm--2">
+               <h2 class="font-weight-700 padding-top--0">Quality and methodology information</h2>
+               <p class="margin-bottom--0">Includes:</p>
+               <ul>
+                 <li>Where the data comes from (source)</li>
+                 <li>The accuracy and reliability of the data</li>
+                 <li>The relevance of the data to certain applications or uses</li>
+                 <li>Things to consider when using the data</li>
+               </ul>
+               <p>Read the full <a href="{{.DatasetLandingPage.QMIURL}}">Quality and methodology information (QMI)</a> for this dataset.</p>
+               <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
              </div>
-             {{ end }}
-             <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
-          </div>
-
-          {{ if .DatasetLandingPage.LatestChanges}}
-          <div id="id-changes" class="section__content--markdown margin-right--0">
-            <h2 class="font-weight-700"><span class="section__content-number font-size--24">2.</span>What has changed in this edition</h2>
-            {{range .DatasetLandingPage.LatestChanges}}
-            <div class="margin-bottom--3">
-               <h3 class="font-size--17 font-weight-700">{{.Name}}</h3>
-               <p class="padding-top--0">{{.Description}}</p>
-            </div>
-            {{ end }}
-            <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
-         </div>
-         {{end}}
-
-         <div id="id-qmi" class="section__content--markdown">
-           <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}3{{else}}2{{end}}.</span>Quality and methodology information</h2>
-           <p class="margin-bottom--0">Includes:</p>
-           <ul>
-             <li>Where the data comes from (source)</li>
-             <li>The accuracy and reliability of the data</li>
-             <li>The relevance of the data to certain applications or uses</li>
-             <li>Things to consider when using the data</li>
-           </ul>
-           <p>Read the full <a href="{{.DatasetLandingPage.QMIURL}}">Quality and methodology information (QMI)</a> for this dataset.</p>
-           <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
-         </div>
-
-         <div id="id-license" class="section__content--markdown">
-           <h2 class="font-weight-700"><span class="section__content-number font-size--24">{{ if .DatasetLandingPage.LatestChanges}}4{{else}}3{{end}}.</span>Usage Information</h2>
-           <p class="margin-bottom--0 padding-bottom--0">{{.DatasetLandingPage.Citation}}</p>
-           <a class="inline-block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a><br>
-           <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
-         </div>
-
-          {{if .DatasetLandingPage.HasOlderVersions}}
-          <div id="id-previous" class="section__content--markdown">
-             <h2 class="font-weight-700"><span class="section__content-number font-size--24">5.</span>Previous Versions</h2>
-             <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
-          </div>
-          {{end}}
-         </section>
+            </li>
+            {{end}}
+            {{if .DatasetLandingPage.Methodologies}}
+            <li>
+             <div id="id-methodology" class="section__content--markdown margin-right--0 margin-left-sm--2">
+               <h2 class="font-weight-700 padding-top--0">Methodologies</h2>
+               {{range .DatasetLandingPage.Methodologies}}
+                <h3><a href="{{.URL}}">{{.Title}}</a></h3>
+                <p>{{.Description}}</p>
+               {{end}}
+               <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+             </div>
+            </li>
+            {{end}}
+            {{if .DatasetLandingPage.Citation}}
+            <li>
+             <div id="id-license" class="section__content--markdown margin-right--0 margin-left-sm--2">
+               <h2 class="font-weight-700 padding-top--0">Usage Information</h2>
+               <p class="margin-bottom--0 padding-bottom--0">{{.DatasetLandingPage.Citation}}</p>
+               <a class="inline-block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a><br>
+               <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+             </div>
+            </li>
+            {{end}}
+            {{if .DatasetLandingPage.HasOlderVersions}}
+            <li>
+              <div id="id-previous" class="section__content--markdown margin-right--0 margin-left-sm--2">
+                 <h2 class="font-weight-700 padding-top--0">Previous Versions</h2>
+                 <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
+              </div>
+            </li>
+            {{end}}
+          </ol>
+        </section>
       </div>
       <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
@@ -168,15 +203,13 @@
             <div class="tiles__content tiles__content--nav">
                <address>
                   {{ if .ContactDetails.Name}}
-                  {{ .ContactDetails.Name }}
+                  <span class="contact-name block">{{ .ContactDetails.Name }}</span>
                   {{ end }}
                   {{ if .ContactDetails.Email}}
-                  <br>
-                  <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a>
+                  <span class="contact-email block"><a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a></span>
                   {{ end }}
                   {{ if .ContactDetails.Telephone }}
-                  <br>
-                  {{ .ContactDetails.Telephone }}
+                  <span class="contact-phone block">{{ .ContactDetails.Telephone }}</span>
                   {{ end }}
                </address>
             </div>
@@ -195,7 +228,7 @@
          {{ end }}
          {{ if .DatasetLandingPage.RelatedLinks }}
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-            <h3 class="tiles__title-h3 tiles__title-h3--nav">Related links</h3>
+            <h3 class="tiles__title-h3 tiles__title-h3--nav">Related datasets</h3>
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
                   {{ range .DatasetLandingPage.RelatedLinks }}

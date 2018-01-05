@@ -1,16 +1,20 @@
-<div class="adjust-font-size--16">
-   <div class="page-intro">
-      <div class="wrapper">
-         <div class="col-wrap">
-            <div class="col">
-               {{ template "partials/breadcrumb" . }}
-               <div class="col col--md-47 col--lg-39">
-                  <h1 class="page-intro__title font-weight-700">{{if not .NoDimensionData}}Preview of filtered dataset{{else}}We can't create a preview{{end}}</h1>
-               </div>
+{{ template "partials/loop11" . }}
+<div class="page-intro">
+  <div class="wrapper">
+      <div class="col-wrap">
+        <div class="col">
+            {{ template "partials/breadcrumb" . }}
+            <div class="col col--md-47 col--lg-58">
+              <h1 class="page-intro__title margin-bottom--1">
+                {{if not .NoDimensionData}}<span class="font-size--21 line-height--30 page-intro__type padding-top--0 padding-bottom--0">{{.DatasetTitle}}: {{.Data.Edition}}</span>{{end}}
+                <strong id="page-title">{{if not .NoDimensionData}}Filtered dataset{{else}}We can't create a preview{{end}}</strong>
+              </h1>
             </div>
-         </div>
+        </div>
       </div>
-   </div>
+  </div>
+</div>
+<div class="adjust-font-size--16">
    <div class="page-content link-adjust">
       <div class="wrapper">
          <div class="col-wrap">
@@ -23,44 +27,47 @@
                 <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
               </div>
               {{ end }}
-              <a href="/filters/{{.Data.FilterID}}/dimensions">< Adjust filter options</a>
-              <ul class="list--neutral margin-bottom--3 margin-top--3">
-                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.Data.DatasetTitle}}</li>
-                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
-                <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{dateFormat .Data.ReleaseDate}}</li>
-                {{range .Data.SingleValueDimensions}}
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">{{.Name}}</span>{{ index .Values 0 }}</li>
-                {{end}}
-              </ul>
-							{{if not .IsPreviewLoaded}}
-              <meta http-equiv="refresh" content="2"/>
-		 					<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
-		 						  {{ template "partials/spinner" }}
-		 						<p class="margin-top--0 padding-top--0 height--8">Please wait whle we generate your preview and files...</p>
-		 					 </div>
+              <a id="adjust-filter-options" href="/filters/{{.Data.FilterID}}/dimensions"><span class="icon icon-arrow-back--dark-small"></span>Adjust filter options</a>
+              <h2><strong>Preview</strong></h2>
+              <div class="table-border margin-top--3">
+                <ul class="list--neutral margin-bottom--3">
+                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.DatasetTitle}}</li>
+                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
+                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{dateFormat .Data.ReleaseDate}}</li>
+                  {{range .Data.SingleValueDimensions}}
+                    <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">{{.Name}}</span>{{ index .Values 0 }}</li>
+                  {{end}}
+                </ul>
+                {{if not .IsPreviewLoaded}}
+                <meta http-equiv="refresh" content="2"/>
+                <div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
+                    {{ template "partials/spinner" }}
+                  <p class="margin-top--0 padding-top--0 height--8">Please wait whle we generate your preview and files...</p>
+                </div>
 
-		 					{{ else }}
-               <div class="table-preview">
-                  <table>
-                     <thead>
-                        <tr>
-                           {{ range .Data.Dimensions }}
-                           <th scope="col">{{.Name}}</th>
-                           {{ end }}
-                        </tr>
-                     </thead>
-                     <tbody>
-                        {{ $dimensions := .Data.Dimensions }}
-                        {{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
-                        <tr>
-                           {{ range $j, $dimension := $dimensions }}
-                           <td>{{ index $dimension.Values $i }}</td>
-                           {{ end }}
-                        </tr>
-                        {{ end }}
-                     </tbody>
-                  </table>
-                  <p> Displaying rows 1-{{len (index .Data.Dimensions 0).Values}} of filtered dataset </p>
+                {{ else }}
+                <div class="table-preview">
+                    <table>
+                      <thead>
+                          <tr>
+                            {{ range .Data.Dimensions }}
+                            <th scope="col">{{.Name}}</th>
+                            {{ end }}
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {{ $dimensions := .Data.Dimensions }}
+                          {{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
+                          <tr>
+                            {{ range $j, $dimension := $dimensions }}
+                            <td>{{ index $dimension.Values $i }}</td>
+                            {{ end }}
+                          </tr>
+                          {{ end }}
+                      </tbody>
+                    </table>
+                    {{if eq (len (index .Data.Dimensions 0).Values) 10}}<p>Displaying the first 10 rows only</p>{{end}}
+                </div>
                </div>
                {{if not .IsDownloadLoaded}}
               <meta http-equiv="refresh" content="2"/>
@@ -70,21 +77,31 @@
 		 					 </div>
 
 		 					{{ else }}
-               <div class="margin-bottom--2">
-                  <h2 class="margin-bottom">Download filtered dataset</h2>
+               <h2><strong>Download</strong></h2>
+               <div class="margin-bottom--2 margin-top--2">
                   {{ range .Data.Downloads}}
                   {{if not (eq .Size "") }}
-                    {{if eq .Extension "xls"}}<a class="btn btn--primary" href="{{.URI}}"><strong>Download Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
+                    {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                   {{end}}
                   {{ end }}
-                  <h3 class="margin-bottom">Other download options</h2>
-                  {{ range .Data.Downloads}}
-                  {{if not (eq .Size "") }}
-                    {{if not (eq .Extension "xls")}}<a class="btn btn--primary uppercase" href="{{.URI}}"><strong>{{.Extension}}</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
-                  {{end}}
-                  {{ end }}
+                  <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
+            <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
+              <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
+            </div>
+            <div class="js-show-hide__content show-hide__content padding-left--1 padding-right--1">
+              <div class="margin-bottom--2">
+                <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
+                <ul class="list--neutral">
+                {{range $i, $download := $.Data.Downloads}}
+                  {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered Dataset{{end}} ({{$download.Extension}} format)</span>
+                  <div class="width--8 inline-block"><a id="{{$download.Extension}}-download" class="btn btn--primary btn--focus btn--full-width margin-top--1 margin-bottom--1" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> {{humanSize $download.Size}}</a></div></li>{{end}}{{end}}
+                {{end}}
+                </ul>
+              </div>
+            </div>
+          </div>
                </div>
-                <p>Refer to the <a href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data.</p>
+                <p>Refer to the <a id="dataset-page-link" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data or to download the complete dataset.</p>
                {{end}}
                {{end}}
                {{else}}
