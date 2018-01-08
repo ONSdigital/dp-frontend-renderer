@@ -38,7 +38,7 @@
                                     <div class="col col--sm-12 col--md-17 col--lg-14 padding-top--1"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
                                     <div id="number-added-{{slug .Filter}}" class="col col--sm-12 col--md-24 col--lg-32">
                                         <div class="{{if gt $length 9}}block-with-text{{else}}padding-top--1{{end}}">
-                                            <span class="font-size--14">{{if eq $length 0}}Nothing added{{else if eq $length 1}}{{$length}} item added:{{else}}{{$length}} items added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }},{{end}}{{end}}</span>
+                                            <span class="font-size--16">{{if eq $length 0}}Nothing added{{else if eq $length 1}}{{$length}} item added:{{else}}{{$length}} items added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }} |{{end}}{{end}}</span>
                                         </div>
                                     </div>
                                 </div>
