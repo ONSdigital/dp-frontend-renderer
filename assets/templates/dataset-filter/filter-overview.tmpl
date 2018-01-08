@@ -6,49 +6,54 @@
                 {{ template "partials/breadcrumb" . }}
                 <div class="col col--md-47 col--lg-39">
                     <h1 class="page-intro__title font-weight-700 margin-bottom--0">Filter options</h1>
-                    <p class="font-size--16 margin-top--0">Choose a filter from the list, then add the items you want to your download.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="adjust-font-size--16">
-  <div class="page-content link-adjust">
-      <div class="wrapper">
-          <div id="options-info" class="col-wrap">
-              <div class="col">
-								{{if not .Data.IsLatestVersion}}
-	              <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
-	                <div class="alert__title">This is not the latest release</div>
-	                <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}">Apply these filters to the latest release</a>
-	                <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
-	              </div>
-	              {{ end }}
-                  <div class="col col--md-47 col--lg-39 margin-bottom--4">
-                      <ul class="list--neutral filter-overview">
-                        <li class="margin-left--0 padding-bottom--2 padding-top--0 padding-right--1 border-bottom--gallery-sm border-bottom--gallery-md col-wrap width-lg--39">
-                        	<a class="float-el--right-md float-el--right-lg" href="{{.Data.ClearAll.URL}}">Clear filters</a>
-                        </li>
-                        {{ range .Data.Dimensions}}
-                        <li id="filter-option" class="margin-left--0 padding-bottom--2 padding-top--2 border-bottom--gallery-sm border-top--gallery-md border-bottom--gallery-md col-wrap width-lg--39 border-top--gallery-sm">
-                                <div class="col col--md-17 col--lg-14"><strong><span id="filter-option-label">{{.Filter}}</span></strong></div>
-                                <div id="number-added-{{slug .Filter}}" class="col col--md-24 col--lg-16 filter-overview__filter">
-                                                                {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}{{if eq $length 0}}Nothing added{{else if eq $length 1}}{{$length}} item added:{{else}}{{$length}} items added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }},{{end}}{{end}}</div>
-                                <div class="col col--md-6 col--lg-6">
-                                    <a class="float-el--right-md float-el--right-lg" href="{{.Link.URL}}">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></a>
+    <div class="page-content link-adjust">
+        <div class="wrapper">
+            <div id="options-info" class="col-wrap">
+                <div class="col">
+				{{if not .Data.IsLatestVersion}}
+	                <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
+	                    <div class="alert__title">This is not the latest release</div>
+	                    <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}">Apply these filters to the latest release</a>
+	                    <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
+	                </div>
+	            {{ end }}
+                    <div class="col col--sm--25 col--md-47 col--lg-59 margin-top--2 margin-bottom--4 background--gallery">
+                        <ul class="list--neutral filter-overview">
+                            <li class="margin-left--0 padding-left--2 padding-bottom--2 padding-top--0 padding-right--3 col-wrap width-lg--54">
+                        	    <a class="float-el--right-md float-el--right-lg" href="{{.Data.ClearAll.URL}}">Clear filters</a>
+                            </li>
+                            {{ range .Data.Dimensions}}
+                            <li id="filter-option" class="white-background margin-left--2 margin-right--2 padding-bottom--2 padding-top--2 {{if eq .Link.Label "Add"}}filter-overview__add{{end}}">
+                                <div class="col-wrap col--lg-56 min-height--6 padding-left--1">
+                                    {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}
+                                    <div class="col col--sm-6 col--md-6 col--lg-6 {{if eq .Link.Label "Edit"}}padding-top--1 padding-left--2{{end}}">
+                                        <a class="{{if eq .Link.Label "Add"}}btn btn--tertiary{{end}} font-weight-700" href="{{.Link.URL}}">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></a>
+                                    </div>
+                                    <div class="col col--sm-12 col--md-17 col--lg-14 padding-top--1"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
+                                    <div id="number-added-{{slug .Filter}}" class="col col--sm-12 col--md-24 col--lg-32">
+                                        <div class="{{if gt $length 9}}block-with-text{{else}}padding-top--1{{end}}">
+                                            <span class="font-size--14">{{if eq $length 0}}Nothing added{{else if eq $length 1}}{{$length}} item added:{{else}}{{$length}} items added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }},{{end}}{{end}}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                        </li>
-                        {{ end }}
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          <div class="{{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}}">
-            <div class="filter-overview__error-container" id="error-container"></div>
-            <form method="post" action="/filters/{{.FilterID}}/submit">
-                <input id="preview-download" type="submit" value="Preview and Download" class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" name="preview-and-download" />
-            </form>
-          </div>
-      </div>
-  </div>
+                            </li>
+                            {{ end }}
+                        </ul>
+                        <div class="{{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}} padding-bottom--4 padding-left--2 padding-top--2">
+                            <div class="filter-overview__error-container" id="error-container"></div>
+                            <form method="post" action="/filters/{{.FilterID}}/submit">
+                                <input id="preview-download" type="submit" value="Apply filters" class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" name="preview-and-download" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
