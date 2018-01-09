@@ -189,7 +189,7 @@ func templatesDatasetFilterFilterOverviewTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/filter-overview.tmpl", size: 3743, mode: os.FileMode(420), modTime: time.Unix(1515406580, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/filter-overview.tmpl", size: 3743, mode: os.FileMode(420), modTime: time.Unix(1515506329, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -249,7 +249,7 @@ func templatesDatasetFilterListSelectorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3398, mode: os.FileMode(420), modTime: time.Unix(1515407693, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3398, mode: os.FileMode(420), modTime: time.Unix(1515507354, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -409,7 +409,7 @@ func templatesFeedbackTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/feedback.tmpl", size: 5647, mode: os.FileMode(420), modTime: time.Unix(1515411123, 0)}
+	info := bindataFileInfo{name: "templates/feedback.tmpl", size: 5647, mode: os.FileMode(420), modTime: time.Unix(1515507354, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -489,7 +489,7 @@ func templatesPartialsFeedbackTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/feedback.tmpl", size: 2421, mode: os.FileMode(420), modTime: time.Unix(1515411186, 0)}
+	info := bindataFileInfo{name: "templates/partials/feedback.tmpl", size: 2421, mode: os.FileMode(420), modTime: time.Unix(1515507354, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -549,7 +549,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 10830, mode: os.FileMode(420), modTime: time.Unix(1515164016, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 10830, mode: os.FileMode(420), modTime: time.Unix(1515507352, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
