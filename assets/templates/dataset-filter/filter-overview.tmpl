@@ -32,12 +32,12 @@
                             <li id="filter-option" class="white-background margin-left--2 margin-right--2 {{if eq .Link.Label "Add"}}filter-overview__add{{end}}">
                                 <div class="col-wrap col--lg-56 min-height--10 padding-left--1">
                                     {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}
-                                    <div class="col col--sm-6 col--md-6 col--lg-6 padding-bottom--2 {{if eq .Link.Label "Edit"}}padding-left--2 padding-top--3{{else}}padding-top--2{{end}}">
-                                        <a class="{{if eq .Link.Label "Add"}}btn btn--tertiary{{end}} font-weight-700" href="{{.Link.URL}}">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></a>
+                                    <div class="col col--sm-6 col--md-6 col--lg-6 min-height--4 {{if eq .Link.Label "Edit"}}margin-top--2 padding-left--2{{end}}">
+                                        <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}"><span class="{{if eq .Link.Label "Add"}}btn btn--tertiary margin-left--2{{else}}margin-left--3{{end}} font-weight-700 ">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
                                     </div>
-                                    <div class="col col--sm-12 col--md-17 col--lg-14 padding-bottom--2 padding-top--3"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
+                                    <div class="col col--sm-12 col--md-17 col--lg-14 padding-bottom--2 {{if eq .Link.Label "Edit"}}padding-top--2 margin-top--1 filter-overview__row-adjust-right--5{{else}}padding-top--3{{end}}"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
                                     <div id="number-added-{{slug .Filter}}" class="col col--sm-12 col--md-24 col--lg-32">
-                                        <div class="{{if gt $length 9}}block-with-text padding-bottom--2{{else}}padding-top--3{{end}}">
+                                        <div class="{{if gt $length 9}}block-with-text padding-bottom--2{{else}}{{if eq .Link.Label "Edit"}}padding-top--2{{else}}padding-top--3{{end}}{{end}}">
                                             <span class="font-size--16">{{if eq $length 0}}Nothing added{{else if eq $length 1}}{{$length}} item added:{{else}}{{$length}} items added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }} |{{end}}{{end}}</span>
                                         </div>
                                     </div>
