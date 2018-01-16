@@ -104,6 +104,14 @@ func main() {
 				}
 				return template.HTML(t.Format("02 January 2006"))
 			},
+			"dateFormatYYYYMMDD": func(s string) template.HTML {
+				t, err := time.Parse(time.RFC3339, s)
+				if err != nil {
+					log.Error(err, nil)
+					return template.HTML(s)
+				}
+				return template.HTML(t.Format("2006/01/02"))
+			},
 			"last": func(x int, a interface{}) bool {
 				return x == reflect.ValueOf(a).Len()-1
 			},
