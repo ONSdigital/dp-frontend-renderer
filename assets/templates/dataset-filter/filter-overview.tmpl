@@ -35,7 +35,7 @@
                                     <div class="col col--sm-6 col--md-8 col--lg-8 min-height--4">
                                         <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}"><span class="dimension-button {{if eq .Link.Label "Add"}}btn btn--tertiary margin-left--2{{else}}margin-left--3{{end}} font-weight-700 ">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
                                     </div>
-                                    <div class="dimension-name col col--sm-12 col--md-11 col--lg-14 padding-bottom--2 {{if eq .Link.Label "Edit"}}padding-top--2 margin-top--1 filter-overview__row-adjust-right--5{{else}}padding-top--3{{end}}"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
+                                    <div class="dimension-name col col--sm-12 col--md-11 col--lg-14 padding-bottom--2 {{if eq .Link.Label "Edit"}}padding-top--2 margin-top--1{{else}}padding-top--3{{end}}"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
                                     <div id="number-added-{{slug .Filter}}" class="col col--sm-12 col--md-24 col--lg-32">
                                         <div class="block-with-text">
                                             <span class="font-size--16">{{if eq $length 0}}Nothing added{{else if eq $length 1}}{{$length}} item added:{{else}}{{$length}} items added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }} |{{end}}{{end}}</span>
