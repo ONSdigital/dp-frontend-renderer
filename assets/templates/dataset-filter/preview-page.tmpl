@@ -81,25 +81,26 @@
                <div class="margin-bottom--2 margin-top--2">
                   {{ range .Data.Downloads}}
                   {{if not (eq .Size "") }}
-                    {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
+                    {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                   {{end}}
                   {{ end }}
                   <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
-            <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
-              <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
-            </div>
-            <div class="js-show-hide__content show-hide__content padding-left--1 padding-right--1">
-              <div class="margin-bottom--2">
-                <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
-                <ul class="list--neutral">
-                {{range $i, $download := $.Data.Downloads}}
-                  {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered Dataset{{end}} ({{$download.Extension}} format)</span>
-                  <div class="width--8 inline-block"><a id="{{$download.Extension}}-download" class="btn btn--primary btn--focus btn--full-width margin-top--1 margin-bottom--1" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> {{humanSize $download.Size}}</a></div></li>{{end}}{{end}}
-                {{end}}
-                </ul>
-              </div>
-            </div>
-          </div>
+                    <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
+                      <button class="js-show-hide__button js-show-hide__button--slim" type="button" aria-expanded="false" aria-controls="collapsible-0">
+                        <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
+                      </button>
+                    </div>
+                    <div class="js-show-hide__content show-hide__content padding-top--1 padding-right--1 padding-left--1">
+                      <div class="margin-bottom--2">
+                        <ul class="list--neutral">
+                        {{range $i, $download := $.Data.Downloads}}
+                          {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block width--24 padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered dataset{{end}} (<span class="uppercase">{{$download.Extension}}</span> format)</span>
+                          <div class="width--12 inline-block float-right text-right"><a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
+                        {{end}}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                </div>
                 <p>Refer to the <a id="dataset-page-link" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data or to download the complete dataset.</p>
                {{end}}
