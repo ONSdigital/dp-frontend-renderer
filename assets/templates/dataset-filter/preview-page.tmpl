@@ -33,7 +33,7 @@
                 <ul class="list--neutral margin-bottom--3">
                   <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.DatasetTitle}}</li>
                   <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{dateFormat .Data.ReleaseDate}}</li>
+                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{dateFormat .ReleaseDate}}</li>
                   {{range .Data.SingleValueDimensions}}
                     <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">{{.Name}}</span>{{ index .Values 0 }}</li>
                   {{end}}

@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "xSwBSbK1fgyi9yAltxaWMKCLySA=",
+			"checksumSHA1": "QDHWtVBYrIsLSMqgwJy57QpcbsY=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "e6b4829ac930e55ad6f89c5bc9c170d1e07d553e",
-			"revisionTime": "2017-12-20T08:31:43Z"
+			"revision": "cb4e58dfd37eb1aa358e2b0e096aa74e1d0f07dd",
+			"revisionTime": "2017-12-28T08:15:36Z"
 		},
 		{
 			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
@@ -77,8 +77,8 @@
 		{
 			"checksumSHA1": "Y1clnS/Ty7ierUy21ZbQtPVVpxI=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable",
-			"revision": "754451bf05e79fb16edb24024381a28bc75ab182",
-			"revisionTime": "2017-12-08T12:08:51Z"
+			"revision": "cb4e58dfd37eb1aa358e2b0e096aa74e1d0f07dd",
+			"revisionTime": "2017-12-28T08:15:36Z"
 		},
 		{
 			"checksumSHA1": "2Ww7ArlxDH4Cs/1S01vx1heMAow=",

@@ -31,9 +31,12 @@
       dataLayer = [{
         {{if .DatasetTitle }}
         "contentTitle": htmlUnescape({{.DatasetTitle}}),
-        "filterTitle": htmlUnescape({{.Metadata.Title}})
+        "filterTitle": htmlUnescape({{.Metadata.Title}}),
         {{else}}
-        "contentTitle": htmlUnescape({{.Metadata.Title}})
+        "contentTitle": htmlUnescape({{.Metadata.Title}}),
+        {{end}}
+        {{if .ReleaseDate }}
+        "releaseDate": {{dateFormatYYYYMMDD .ReleaseDate}}
         {{end}}
       }];
     </script>
