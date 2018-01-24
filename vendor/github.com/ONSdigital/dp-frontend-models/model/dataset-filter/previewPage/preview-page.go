@@ -23,6 +23,7 @@ type PreviewPage struct {
 	Edition               string        `json:"edition"`
 	ReleaseDate           string        `json:"release_date"`
 	SingleValueDimensions []Dimension   `json:"single_value_dimensions"`
+	FilterOutputID        string        `json:"filter_output_id"`
 }
 
 // Download has the details for an individual downloadable files
