@@ -38,24 +38,26 @@
 											{{ end }}
 										</legend>
 										<input name="save-and-return" class="visuallyhidden" type="submit" value="Save and return" />
-										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
-                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" name="remove-all" />
+										<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" id="add-all" name="add-all" />&nbsp; &nbsp;
+                    <input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" name="remove-all" id="remove-all" />
 										<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
 											{{ range $i, $v := .Data.FilterList }}
-											<div class="checkbox border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1 clearfix">
-												<div class="{{ if ne .SubNum "0" }}width-md--25{{else}}width-md--35{{end}} float-el--left-md">
+											{{if .Label}}
+											<div class="checkbox hierarchy-box border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1 clearfix">
+												<div class="{{ if ne .SubNum "0" }}width-md--25{{else}}width-md--35{{end}} hierarchy-box--input float-el--left-md">
 													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
 													<label id="{{.ID}}" class="checkbox__label" for="id-{{$i}}">
 														{{ .Label }}
 													</label>
 												</div>
 												{{ if ne .SubNum "0" }}
-												<div class="view-link width-md--10 float-el--right-md text-right--md padding-top--1 height-sm--5 height-md--5">
-													<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}" />
-													<div class="inline-block"><span class="icon icon-arrow-right--dark-small"></span></div>
+												<div class="view-link width-md--10 float-el--right-md text-right padding-top--1 height-sm--5 height-md--5">
+														<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}" />
+														<div class="inline-block view-link--icon"><span class="icon icon-arrow-right--dark-small"></span></div>
 												</div>
 												{{ end }}
 											</div>
+											{{end}}
 											{{ end }}
 										</div>
 									</fieldset>
