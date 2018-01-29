@@ -35,7 +35,7 @@
 							<legend>
 							{{if .Data.IsSearchResults}}
 								<div class="font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}"><span class="icon icon-arrow-back--dark-small"></span>Back</a></div>
-								<span class="padding-bottom--1 margin-top--0">{{ len .Data.FilterList }} result{{if ne (len .Data.FilterList) 1}}s{{end}} containing <strong>{{.Data.Query}}</strong>.</span>
+								<span id="search-results-info" class="padding-bottom--1 margin-top--0">{{ len .Data.FilterList }} result{{if ne (len .Data.FilterList) 1}}s{{end}} containing <strong>{{.Data.Query}}</strong>.</span>
 							{{else}}
 								{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse</h2>{{end}}
 								{{ if .Data.Parent }}
@@ -48,7 +48,7 @@
 								<div class="no-results-advice">
 									<h3>Please try:</h3>
 									<ul>
-										<li>Making sure that all words a spelled correctly</li>
+										<li>Making sure that all words are spelled correctly</li>
 										<li>Searching again using different words</li>
 										<li>Check the dataset includes this <a href="{{.Data.LandingPageURL}}">{{.Data.DimensionName}}</a> option</li>
 									</ul>
