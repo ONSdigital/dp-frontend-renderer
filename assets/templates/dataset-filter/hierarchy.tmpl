@@ -6,6 +6,16 @@
 					{{ template "partials/breadcrumb" . }}
 					<div class="col col--md-47 col--lg-39">
 						<h1 class="page-intro__title font-weight-700">{{ .Data.DimensionName }}</h1>
+						<div class="font-size--16">
+							<details role="group" class="margin-bottom--2 margin-bottom--2">
+								<summary role="button">Learn more <span class="visuallyhidden"> about {{.Data.DimensionName}}</span></summary>
+								<div class="panel" id="details-content-1">
+									<p class="margin-top--0">
+										{{.Metadata.Description}}
+									</p>
+								</div>
+							</details>
+						</div>
 					</div>
 				</div>
 			</div>
