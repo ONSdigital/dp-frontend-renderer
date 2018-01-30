@@ -30,7 +30,7 @@
               <a id="adjust-filter-options" href="/filters/{{.Data.FilterID}}/dimensions"><span class="icon icon-arrow-back--dark-small"></span>Adjust filter options</a>
               <h2><strong>Preview</strong></h2>
               <div class="table-border margin-top--3">
-                <ul class="list--neutral margin-bottom--3">
+                <ul class="list--neutral margin-bottom--3 margin-left">
                   <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Title</span>{{.DatasetTitle}}</li>
                   <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Dataset ID</span>{{.Data.DatasetID}}</li>
                   <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">Release date</span>{{dateFormat .ReleaseDate}}</li>
@@ -43,7 +43,7 @@
                       <thead>
                           <tr>
                             {{ range .Data.Dimensions }}
-                            <th scope="col">{{.Name}}</th>
+                            <th tabindex="0" scope="col">{{.Name}}</th>
                             {{ end }}
                           </tr>
                       </thead>
@@ -52,7 +52,7 @@
                           {{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
                           <tr>
                             {{ range $j, $dimension := $dimensions }}
-                            <td>{{ index $dimension.Values $i }}</td>
+                            <td tabindex="0">{{ index $dimension.Values $i }}</td>
                             {{ end }}
                           </tr>
                           {{ end }}
