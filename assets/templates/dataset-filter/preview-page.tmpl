@@ -14,7 +14,7 @@
       </div>
   </div>
 </div>
-<div class="adjust-font-size--16">
+<div id="preview-and-download" class="adjust-font-size--16">
    <div class="page-content link-adjust">
       <div class="wrapper">
          <div class="col-wrap">
@@ -38,14 +38,6 @@
                     <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--10">{{.Name}}</span>{{ index .Values 0 }}</li>
                   {{end}}
                 </ul>
-                {{if not .IsPreviewLoaded}}
-                <meta http-equiv="refresh" content="2"/>
-                <div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
-                    {{ template "partials/spinner" }}
-                  <p class="margin-top--0 padding-top--0 height--8">Please wait whle we generate your preview and files...</p>
-                </div>
-
-                {{ else }}
                 <div class="table-preview">
                     <table>
                       <thead>
@@ -69,41 +61,41 @@
                     {{if eq (len (index .Data.Dimensions 0).Values) 10}}<p>Displaying the first 10 rows only</p>{{end}}
                 </div>
                </div>
-               {{if not .IsDownloadLoaded}}
-              <meta http-equiv="refresh" content="2"/>
-		 					<div class="border-top--gallery-sm border-top--gallery-md border-top--gallery-lg padding-top--2">
-		 						{{ template "partials/spinner" }}
-		 						<p class="margin-top--0 padding-top--0 height--8">Please wait whle we generate your files...</p>
-		 					 </div>
-
-		 					{{ else }}
                <h2><strong>Download</strong></h2>
-               <div class="margin-bottom--2 margin-top--2">
-                  {{ range .Data.Downloads}}
-                  {{if not (eq .Size "") }}
-                    {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
-                  {{end}}
-                  {{ end }}
-                  <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
-            <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
-              <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
-            </div>
-            <div class="js-show-hide__content show-hide__content padding-left--1 padding-right--1">
-              <div class="margin-bottom--2">
-                <h4 class="font-size--19 margin-bottom--half margin-top--0">Download options</h4>
-                <ul class="list--neutral">
-                {{range $i, $download := $.Data.Downloads}}
-                  {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background"><span class="inline-block width--25">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered Dataset{{end}} ({{$download.Extension}} format)</span>
-                  <div class="width--8 inline-block"><a id="{{$download.Extension}}-download" class="btn btn--primary btn--focus btn--full-width margin-top--1 margin-bottom--1" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> {{humanSize $download.Size}}</a></div></li>{{end}}{{end}}
-                {{end}}
-                </ul>
-              </div>
-            </div>
-          </div>
+               <div class="margin-bottom--2 margin-top--2 downloads-block">
+                  {{if not .IsDownloadLoaded}}
+                 <div id="no-js-refresh">
+                  <h3 class="margin-bottom">Your files are being created. Please refresh the page.</h3>
+                  <a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="/filter-outputs/{{.Data.FilterOutputID}}">Refresh page</a>
+                 </div>
+                 {{end}}
+                  <div class="loader-svg js-hidden">{{ template "partials/spinner" }}</div>
+                  <div id="excel-file">
+                    {{ range .Data.Downloads}}
+                    {{if not (eq .Size "") }}
+                      {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
+                    {{end}}
+                    {{ end }}
+                  </div>
+                  <div id="other-downloads" class="{{if not .IsDownloadLoaded}}js-hidden{{end}} margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
+                    <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-left--1 padding-right--0">
+                      <button class="js-show-hide__button js-show-hide__button--slim" type="button" aria-expanded="false" aria-controls="collapsible-0">
+                        <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
+                      </button>
+                    </div>
+                    <div class="js-show-hide__content show-hide__content padding-top--1 padding-right--1 padding-left--1">
+                      <div class="margin-bottom--2">
+                        <ul id="other-downloads__list" class="list--neutral">
+                        {{range $i, $download := $.Data.Downloads}}
+                          {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block width--24 padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered dataset{{end}} (<span class="uppercase">{{$download.Extension}}</span> format)</span>
+                          <div class="width--12 inline-block float-right text-right"><a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
+                        {{end}}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                </div>
                 <p>Refer to the <a id="dataset-page-link" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">dataset page</a> for more information on this data or to download the complete dataset.</p>
-               {{end}}
-               {{end}}
                {{else}}
                <div class="alert alert--light">
                  <p class="margin-bottom--half padding-bottom--0">Your selection were too specific, so there is no data to display</p>
