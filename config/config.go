@@ -7,4 +7,4 @@ var DebugMode bool
 var SiteDomain = "ons.gov.uk"
 
 // PatternLibraryAssetsPath is the URL to the CSS and JS assets from the pattern library
-var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/81b67bf"
+var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/b76a902"
