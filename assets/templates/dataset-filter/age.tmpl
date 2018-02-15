@@ -6,6 +6,7 @@
                 {{ template "partials/breadcrumb" . }}
                 <div class="col col--md-47 col--lg-39">
                     <h1 class="page-intro__title font-weight-700">Age</h1>
+                    {{if .Metadata.Description}}
                     <div class="font-size--16">
                         <details role="group" class="margin-bottom--2 margin-bottom--2">
                             <summary role="button">Learn more <span class="visuallyhidden"> about age</span></summary>
@@ -16,6 +17,7 @@
                             </div>
                         </details>
                     </div>
+                    {{end}}
                 </div>
             </div>
         </div>
