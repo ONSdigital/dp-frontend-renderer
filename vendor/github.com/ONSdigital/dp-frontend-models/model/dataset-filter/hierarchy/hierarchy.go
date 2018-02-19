@@ -59,6 +59,7 @@ type List struct {
 	ID       string `json:"id"`
 	SubType  string `json:"sub_type"`
 	SubURL   string `json:"sub_url"`
+	HasData  bool   `json:"has_data"`
 }
 
 // Link ...
