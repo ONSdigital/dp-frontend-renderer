@@ -21,11 +21,7 @@
             <div class="col">
               {{if not .NoDimensionData}}
               {{if not .Data.IsLatestVersion}}
-              <div class="alert margin-bottom--2 padding-right--1 padding-left--1">
-                <div class="alert__title">This is not the latest release</div>
-                <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}"><strong>Apply these filters to the latest release</a>
-                <a class="alert__link padding-left-md--1" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
-              </div>
+                  {{ template "partials/latest-release-alert" . }}
               {{ end }}
               <a id="adjust-filter-options" href="/filters/{{.Data.FilterID}}/dimensions"><span class="icon icon-arrow-back--dark-small"></span>Adjust filter options</a>
               <h2><strong>Preview</strong></h2>
