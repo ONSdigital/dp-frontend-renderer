@@ -6,6 +6,7 @@
 					{{ template "partials/breadcrumb" . }}
 					<div class="col col--md-47 col--lg-39">
 						<h1 class="page-intro__title font-weight-700">{{.Data.Title}}</h1>
+						{{if .Metadata.Description}}
 						<div class="font-size--16">
 							<details role="group" class="margin-bottom--2 margin-bottom--2">
 								<summary role="button">Learn more <span class="visuallyhidden"> about {{.Data.Title}}</span></summary>
@@ -16,6 +17,7 @@
 								</div>
 							</details>
 						</div>
+						{{end}}
 					</div>
 				</div>
 			</div>
@@ -34,7 +36,7 @@
                                         <div class="checkbox margin-bottom--2">
 											<input name="save-and-return" class="visuallyhidden" type="submit" value="Save and return" />
                                             <input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
-                            				<input class="btn btn--link underline-link js-filter remove-list" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                            				<input class="btn btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" />
                                         </div>
                                         {{ $val := .Data.FiltersAmount }}
                                         {{ range .Data.RangeData.Values }}
