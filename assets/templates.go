@@ -128,7 +128,7 @@ func templatesDatasetFilterAgeTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/age.tmpl", size: 8245, mode: os.FileMode(420), modTime: time.Unix(1520506095, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/age.tmpl", size: 8245, mode: os.FileMode(420), modTime: time.Unix(1520506185, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
