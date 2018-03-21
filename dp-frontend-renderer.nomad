@@ -64,7 +64,7 @@ job "dp-frontend-renderer" {
     }
   }
 
-  group "publising" {
+  group "publishing" {
     count = "{{PUBLISHING_TASK_COUNT}}"
 
     constraint {
