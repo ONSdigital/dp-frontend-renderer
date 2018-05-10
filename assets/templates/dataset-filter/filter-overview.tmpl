@@ -33,9 +33,16 @@
                                     </div>
                                     <div class="dimension-name col col--md-11 col--lg-14 padding-bottom--2 {{if eq .Link.Label "Edit"}}padding-top--2 margin-top--1{{else}}padding-top--3{{end}}"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
                                     <div id="number-added-{{slug .Filter}}" class="col col--md-20 col--lg-30">
-                                        <div class="block-with-text">
-                                            <span class="font-size--16">{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }} |{{end}}{{end}}</span>
+                                        <div class="font-size--16 height-md--10 overflow--hidden vertical-align-middle">
+                                        <div class="max-height-md--9 vertical-align-middle__contents">
+                                            <span>{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}</span>
+                                            <ul class="list list--pipe-seperated">
+                                                {{range $i, $c := $categories}}
+                                                    <li>{{$c}}</li>
+                                                {{end}}
+                                            </ul>
                                         </div>
+                                        </div> 
                                     </div>
                                 </div>
                             </li>
