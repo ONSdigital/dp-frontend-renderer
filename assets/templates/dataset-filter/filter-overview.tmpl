@@ -36,7 +36,7 @@
                                         <div class="font-size--16 height-sm--3 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses--sm overflow--hidden">
                                         <div class="height-sm--3 max-height-md--9 vertical-align-middle__contents--md list--ellipses--md">
                                             <ul class="list list--pipe-seperated">
-                                                <span>{{if eq $length 0}}Nothing added -{{else}}{{$length}} added:{{end}}</span>
+                                                <span>{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}</span>
                                                 {{range $i, $c := $categories}}
                                                     <li>{{$c}}</li>
                                                 {{end}}
