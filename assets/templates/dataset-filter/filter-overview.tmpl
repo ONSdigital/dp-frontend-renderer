@@ -31,11 +31,18 @@
                                     <div class="col col--md-8 col--lg-8 min-height--4">
                                         <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}"><span class="dimension-button {{if eq .Link.Label "Add"}}btn btn--tertiary margin-left-md--2 margin-left-sm--1 {{else}}margin-left-md--3 margin-left-sm--2 {{end}} font-weight-700 ">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
                                     </div>
-                                    <div class="dimension-name col col--md-11 col--lg-14 padding-bottom--2 {{if eq .Link.Label "Edit"}}padding-top--2 margin-top--1{{else}}padding-top--3{{end}}"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
+                                    <div class="dimension-name col col--md-11 col--lg-14 margin-left-sm--6 height-sm--3 height-md--6 overflow--hidden margin-top-md--3 margin-bottom-sm--2"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
                                     <div id="number-added-{{slug .Filter}}" class="col col--md-20 col--lg-30">
-                                        <div class="block-with-text">
-                                            <span class="font-size--16">{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}{{range $i, $c := $categories}} {{$c}}{{if not (last $i $categories) }} |{{end}}{{end}}</span>
+                                        <div class="font-size--16 height-sm--3 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses--sm overflow--hidden">
+                                        <div class="height-sm--3 max-height-md--9 vertical-align-middle__contents--md list--ellipses--md">
+                                            <ul class="list list--pipe-seperated">
+                                                <span>{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}</span>
+                                                {{range $i, $c := $categories}}
+                                                    <li>{{$c}}</li>
+                                                {{end}}
+                                            </ul>
                                         </div>
+                                        </div> 
                                     </div>
                                 </div>
                             </li>
