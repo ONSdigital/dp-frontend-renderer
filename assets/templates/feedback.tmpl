@@ -35,8 +35,10 @@
                         <div class="multiple-choice margin-top--1">
                             <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
                             <label class="multiple-choice__label font-size--16" for="new-service">
-                                This new service 
-                                &nbsp; &nbsp;<span class="form-helper">(Customising data by applying filters)</span>
+                                This new service
+                                {{if .ServiceDescription}}
+                                    &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
+                                {{end}}
                             </label>
                         </div>
                         <div class="multiple-choice margin-top--1">

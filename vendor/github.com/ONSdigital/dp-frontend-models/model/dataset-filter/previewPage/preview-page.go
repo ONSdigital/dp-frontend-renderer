@@ -22,6 +22,7 @@ type PreviewPage struct {
 	DatasetID             string        `json:"dataset_id"`
 	Edition               string        `json:"edition"`
 	ReleaseDate           string        `json:"release_date"`
+	UnitOfMeasurement     string        `json:"unit_of_measurement"`
 	SingleValueDimensions []Dimension   `json:"single_value_dimensions"`
 	FilterOutputID        string        `json:"filter_output_id"`
 }
