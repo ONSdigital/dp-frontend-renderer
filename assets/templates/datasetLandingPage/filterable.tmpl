@@ -121,7 +121,7 @@
                         {{$val_length := len .Values}}
                         {{$total_length := .TotalItems}}
                         {{$vals := .Values}}{{range $i, $v := $vals}}
-                        <li>{{.}}{{if not (last $i $vals) }}<span>|</span>{{end}}</li>
+                        <li>{{.}}</li>
                         {{end}}
                      </ul>
                      {{if gt $val_length 9}}
