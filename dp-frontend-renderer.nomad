@@ -20,6 +20,13 @@ job "dp-frontend-renderer" {
       value     = "web.*"
     }
 
+    restart {
+      attempts = 3
+      delay    = "15s"
+      interval = "1m"
+      mode     = "delay"
+    }
+
     task "dp-frontend-renderer-web" {
       driver = "docker"
 
@@ -72,6 +79,13 @@ job "dp-frontend-renderer" {
       attribute = "${node.class}"
       operator  = "regexp"
       value     = "publishing.*"
+    }
+
+    restart {
+      attempts = 3
+      delay    = "15s"
+      interval = "1m"
+      mode     = "delay"
     }
 
     task "dp-frontend-renderer-publishing" {
