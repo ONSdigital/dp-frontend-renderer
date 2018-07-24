@@ -1,0 +1,41 @@
+<div class="page-header slate background--gallery">
+<div class="wrapper">
+<nav class="breadcrumb">
+    <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+           <a  class="breadcrumb__link" href="https://www.ons.gov.uk/">Home</a>
+        </li>
+        <li class="breadcrumb__item">
+            Geography
+        </li>
+    </ol>
+</nav>
+<h1 class="page-header__title flush--half--bottom"><b>Geography</b></h1>
+</div>
+
+</div>
+<div class="wrapper panel--mar">
+<div class="grid-wrap">
+<div class="grid-col desktop-grid-full-width">
+<article>
+<div class="box box--padded box--red-dark box--red-dark--separated-left sectioned">
+
+<div class="grid-wrap">
+<div class="grid-col desktop-grid-two-thirds">
+<h2 class="margin-bottom--2"><b>Area types</b></h2>
+{{ range $i, $v := .Data.Items }}
+<div class="background--gallery padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-bottom--2">
+    <h3 class="margin-top--0"><a href="#">{{$v.Name}}</a></h3>
+</div>
+{{end}}
+<h2><b>Popular cities</b></h2>
+
+</div>
+</div>
+</div>
+</article>
+</div>
+
+</div>
+
+</div>
