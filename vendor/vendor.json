@@ -99,6 +99,12 @@
 			"revisionTime": "2018-02-19T11:44:16Z"
 		},
 		{
+			"checksumSHA1": "RKneAyYHHDBFkmDTEVzCpO8TB80=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/geographyHomepage",
+			"revision": "9c144b84e020782a54b29d74767bc9f712d4a1dd",
+			"revisionTime": "2018-05-22T08:49:30Z"
+		},
+		{
 			"checksumSHA1": "V62VtSq5O2oAaYpmpJSoT+SsFwg=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/homepage",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
