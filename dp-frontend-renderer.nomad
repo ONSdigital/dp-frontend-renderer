@@ -4,8 +4,11 @@ job "dp-frontend-renderer" {
   type        = "service"
 
   update {
-    stagger      = "20s"
-    max_parallel = 1
+    stagger          = "60s"
+    min_healthy_time = "30s"
+    healthy_deadline = "2m"
+    max_parallel     = 1
+    auto_revert      = true
   }
 
   group "web" {
@@ -13,7 +16,15 @@ job "dp-frontend-renderer" {
 
     constraint {
       attribute = "${node.class}"
-      value     = "web"
+      operator  = "regexp"
+      value     = "web.*"
+    }
+
+    restart {
+      attempts = 3
+      delay    = "15s"
+      interval = "1m"
+      mode     = "delay"
     }
 
     task "dp-frontend-renderer-web" {
@@ -61,12 +72,20 @@ job "dp-frontend-renderer" {
     }
   }
 
-  group "publising" {
+  group "publishing" {
     count = "{{PUBLISHING_TASK_COUNT}}"
 
     constraint {
       attribute = "${node.class}"
-      value     = "publishing"
+      operator  = "regexp"
+      value     = "publishing.*"
+    }
+
+    restart {
+      attempts = 3
+      delay    = "15s"
+      interval = "1m"
+      mode     = "delay"
     }
 
     task "dp-frontend-renderer-publishing" {
