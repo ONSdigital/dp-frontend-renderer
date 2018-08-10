@@ -15,6 +15,6 @@ type GeographyList struct {
 
 // GeographyDataType represents the Type of data of the Geography list page
 type GeographyDataType struct {
-	Label string `json:"Label"`
+	Label string `json:"label"`
 	ID    string `json:"id"`
 }
