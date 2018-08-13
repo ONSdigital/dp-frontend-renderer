@@ -9,7 +9,7 @@
                     <a class="breadcrumb__link" href="/geography">Geography</a>
                 </li>
                 <li class="breadcrumb__item">
-                    Countries
+                    {{$.Metadata.Title}}
                 </li>
             </ol>
         </nav>
@@ -19,10 +19,9 @@
 </div>
 <div class="wrapper area-type-list">
     <div class="margin-bottom--2"></div>
-    {{.Data.Items}}
     {{ range $i, $v := .Data.Items }}{{if $v.Label}}
         <div class="background--gallery padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-bottom--2">
-            <h3 class="margin-top--0"><a class="area-type" id="area-type-{{$i}}" href="/geography/{{$.Metadata.Title}}/{{$v.Label}}">{{$v.Label}}</a></h3>
+            <h3 class="margin-top--0"><a class="area-type" id="area-type-{{$i}}" href="/geography/{{$.Metadata.Title}}/{{$v.ID}}">{{$v.Label}}</a></h3>{{$v.ID}}
         </div>
     {{end}}{{end}}
 </div>
