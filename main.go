@@ -162,6 +162,7 @@ func main() {
 	router.Post("/dataset-filter/age", ageSelector.Handler)
 	router.Post("/geography-homepage", geographyPages.HomepageHandler)
 	router.Post("/geography-list-page", geographyPages.ListHandler)
+	router.Post("/geography-area-page", geographyPages.AreaHandler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
