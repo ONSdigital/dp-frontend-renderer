@@ -160,7 +160,7 @@ func main() {
 	router.Post("/dataset-filter/list-selector", listSelector.Handler)
 	router.Post("/dataset-filter/time", timeSelector.Handler)
 	router.Post("/dataset-filter/age", ageSelector.Handler)
-	router.Post("/geography-homepage", geographyHomepage.Handler)
+	router.Post("/geography-homepage", geographyHomepage.HomepageHandler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
