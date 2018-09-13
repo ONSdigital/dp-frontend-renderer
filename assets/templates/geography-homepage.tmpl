@@ -18,11 +18,7 @@
     <h2 class="margin-bottom--2 font-weight-700">Area types</h2>
     {{ range $i, $v := .Data.Items }}{{if $v.Label}}
         <div class="background--gallery padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-bottom--2">
-<<<<<<< HEAD
-            <h3 class="margin-top--0"><a class="area-type" id="area-type-{{$i}}" href="/geography/{{$v.Label}}">{{$v.Label}}</a></h3>
-=======
             <h3 class="margin-top--0"><a class="area-type" id="area-type-{{$i}}" href="/geography/{{$v.ID}}">{{$v.Label}}</a></h3>
->>>>>>> cmd-develop
         </div>
     {{end}}{{end}}
 </div>
