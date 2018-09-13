@@ -101,8 +101,13 @@
 		{
 			"checksumSHA1": "/7+k+vTs0Tjp056dABv7TVfgLvI=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/geographyHomepage",
+<<<<<<< HEAD
 			"revision": "6a533e28dba61e137058149a0773707b6a958b89",
 			"revisionTime": "2018-09-13T10:37:06Z"
+=======
+			"revision": "dc5793f85b6bd93c694f71e70fc951e1c7f0c697",
+			"revisionTime": "2018-08-31T13:28:26Z"
+>>>>>>> cmd-develop
 		},
 		{
 			"checksumSHA1": "y8PAQecRa/CZEelsLWmjtZFI9fo=",
