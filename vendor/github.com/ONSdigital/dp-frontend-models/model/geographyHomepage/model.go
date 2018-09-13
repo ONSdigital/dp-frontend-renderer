@@ -5,16 +5,16 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 // Page contains the data re-used on each page as well as the data for the current page
 type Page struct {
 	model.Page
-	Data GeographyList `json:"data"`
+	Data GeographyLandingPage `json:"data"`
 }
 
-// GeographyList represents the data on the Geography list page
-type GeographyList struct {
-	Items []GeographyDataType `json:"items"`
+// GeographyLandingPage represents the data on the Geography Landing page
+type GeographyLandingPage struct {
+	Items []Items `json:"items"`
 }
 
-// GeographyDataType represents the Type of data of the Geography list page
-type GeographyDataType struct {
-	Name string `json:"name"`
-	ID   string `json:"id"`
+// Items represents the Type of data of the Geography page
+type Items struct {
+	Label string `json:"label"`
+	ID    string `json:"id"`
 }
