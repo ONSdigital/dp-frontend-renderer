@@ -99,6 +99,18 @@
 			"revisionTime": "2018-02-19T11:44:16Z"
 		},
 		{
+			"checksumSHA1": "U1RjgCnrfP7sbki1QYAM6F2WEOo=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/geography/homepage",
+			"revision": "6a533e28dba61e137058149a0773707b6a958b89",
+			"revisionTime": "2018-09-13T10:37:06Z"
+		},
+		{
+			"checksumSHA1": "yVc3fahNcrkVcXgxP/nW5T5y/64=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/geography/list",
+			"revision": "6a533e28dba61e137058149a0773707b6a958b89",
+			"revisionTime": "2018-09-13T10:37:06Z"
+		},
+		{
 			"checksumSHA1": "/7+k+vTs0Tjp056dABv7TVfgLvI=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/geographyHomepage",
 			"revision": "6a533e28dba61e137058149a0773707b6a958b89",
