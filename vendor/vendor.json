@@ -105,22 +105,10 @@
 			"revisionTime": "2018-09-13T10:37:06Z"
 		},
 		{
-			"checksumSHA1": "yVc3fahNcrkVcXgxP/nW5T5y/64=",
+			"checksumSHA1": "wF1MD6R05gUrIrzMxq/b3IbEkoc=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/geography/list",
-			"revision": "6a533e28dba61e137058149a0773707b6a958b89",
-			"revisionTime": "2018-09-13T10:37:06Z"
-		},
-		{
-			"checksumSHA1": "/7+k+vTs0Tjp056dABv7TVfgLvI=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/geographyHomepage",
-			"revision": "6a533e28dba61e137058149a0773707b6a958b89",
-			"revisionTime": "2018-09-13T10:37:06Z"
-		},
-		{
-			"checksumSHA1": "y8PAQecRa/CZEelsLWmjtZFI9fo=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/geographyListPage",
-			"revision": "50aef400f7ee01251fc5197befed8d93a61f0cc6",
-			"revisionTime": "2018-08-03T08:54:08Z"
+			"revision": "42f98ae0fe1eee77bb932e2c54c1ee10598ad65b",
+			"revisionTime": "2018-09-14T15:58:40Z"
 		},
 		{
 			"checksumSHA1": "V62VtSq5O2oAaYpmpJSoT+SsFwg=",

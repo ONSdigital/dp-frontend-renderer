@@ -10,11 +10,12 @@ type Page struct {
 
 // GeographyListPage represents the data on the Geography Landing page
 type GeographyListPage struct {
-	Items []Items `json:"items"`
+	Items []Item `json:"items"`
 }
 
-// Items represents the child item of a geography code list
-type Items struct {
+// Item represents the child item of a geography code list
+type Item struct {
 	Label string `json:"label"`
 	ID    string `json:"id"`
+	URI   string `json:"uri"`
 }
