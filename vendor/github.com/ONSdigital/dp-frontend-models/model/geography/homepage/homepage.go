@@ -10,11 +10,12 @@ type Page struct {
 
 // GeographyHomepagePage represents the data on the geography journey's homepage
 type GeographyHomepagePage struct {
-	Items []Items `json:"items"`
+	Items []Item `json:"items"`
 }
 
-// Items represents the Type of data of the Geography page
-type Items struct {
+// Item represents the Type of data of the Geography page
+type Item struct {
 	Label string `json:"label"`
 	ID    string `json:"id"`
+	URI   string `json:"uri"`
 }
