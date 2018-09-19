@@ -24,6 +24,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/geography/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
@@ -163,6 +164,7 @@ func main() {
 	router.Post("/dataset-filter/age", ageSelector.Handler)
 	router.Post("/geography-homepage", geographyHomepage.Handler)
 	router.Post("/geography-list", geographyList.Handler)
+	router.Post("/geography-area", geographyArea.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
