@@ -39,7 +39,8 @@
                 </ul>
                 <div class="table-preview">
                     <table>
-                      <thead>
+                    <caption>Preview of {{ .DatasetTitle }} </caption>
+                    <thead>
                           <tr>
                             {{ range .Data.Dimensions }}
                             <th tabindex="0" scope="col">{{.Name}}</th>
