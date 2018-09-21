@@ -1,6 +1,6 @@
 <div class="status status--amber margin-right-sm--1 margin-left-sm--1">
     <div class="status__content">This is not the latest release.
-        <a class="status__link" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release</a>
+        <a class="status__link" href="{{.Data.LatestVersion.DatasetLandingPageURL}}">View latest release <span class="visuallyhidden"> of {{ .DatasetTitle }} dataset</span></a>
     </div>
     <a class="btn btn--primary" href="{{.Data.LatestVersion.FilterJourneyWithLatestJourney}}"><strong>Apply these filters to the latest release</strong></a>
     
