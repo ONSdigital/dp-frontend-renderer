@@ -27,14 +27,39 @@
               <h2><strong>Preview</strong></h2>
               <div class="table-border margin-top--3">
                 <ul class="list--neutral margin-bottom--3 margin-left">
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Title</span>{{.DatasetTitle}}</li>
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Dataset ID</span>{{.Data.DatasetID}}</li>
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Release date</span>{{dateFormat .ReleaseDate}}</li>
+                  <li class="margin-top--0 margin-bottom--1 col-wrap">
+                    <span class="col col--md-offset-1 col--md-3 col--lg-offset-1 col--lg-12">
+                      <strong>Title:</strong>
+                    </span>
+                    {{.DatasetTitle}}
+                  </li>
+                  <li class="margin-top--0 margin-bottom--1 col-wrap">
+                    <span class="col col--md-offset-1 col--md-6 col--lg-offset-1 col--lg-12">
+                      <strong>Dataset ID:</strong>
+                    </span>
+                    {{.Data.DatasetID}}
+                  </li>
+                  <li class="margin-top--0 margin-bottom--1 col-wrap">
+                    <span class="col col--md-offset-1 col--md-7 col--lg-offset-1 col--lg-12">
+                      <strong>Release date:</strong>
+                    </span>
+                    {{dateFormat .ReleaseDate}}
+                  </li>
                   {{if .Data.UnitOfMeasurement}}
-                    <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Unit of measurement</span>{{.Data.UnitOfMeasurement}}</li>
+                  <li class="margin-top--0 margin-bottom--1 col-wrap">
+                    <span class="col col--md-offset-1 col--md-12 col--lg-offset-1 col--lg-12">
+                      <strong>Unit of measurement:</strong>
+                    </span>
+                    {{.Data.UnitOfMeasurement}}
+                  </li>
                   {{end}}
                   {{range .Data.SingleValueDimensions}}
-                    <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">{{.Name}}</span>{{ index .Values 0 }}</li>
+                    <li class="margin-top--0 margin-bottom--1 col-wrap">
+                      <span class="col col--md-offset-1 col--md-12 col--lg-offset-1 col--lg-12">
+                        <strong>{{.Name}}</strong>
+                      </span>
+                    {{ index .Values 0 }}
+                    </li>
                   {{end}}
                 </ul>
                 <div class="table-preview">

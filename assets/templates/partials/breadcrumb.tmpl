@@ -3,7 +3,7 @@
     <div class="breadcrumb print--hide">
         <ol class="breadcrumb__list">
         {{if .IsInFilterBreadcrumb}}
-            <li class="breadcrumb__item--ellipsis line-height--12">
+            <li class="breadcrumb__item--ellipsis line-height--12 hidden-mobile">
                 <a class="breadcrumb__link" href="{{ .TaxonomyDomain }}/">
                     Home
                 </a>
@@ -15,7 +15,7 @@
                 {{ $b.Title }}
             </li>
             {{else}}
-            <li class="breadcrumb__item line-height--12">
+            <li class="breadcrumb__item line-height--12 hidden-mobile">
                 <a class="breadcrumb__link" href="{{ $b.URI }}">
                     {{ $b.Title }}
                 </a>
