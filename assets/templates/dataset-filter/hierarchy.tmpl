@@ -50,10 +50,10 @@
 								<div class="font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}"><span class="icon icon-arrow-back--dark-small"></span>Back</a></div>
 								<span id="search-results-info" class="padding-bottom--1 margin-top--0">{{ len .Data.FilterList }} result{{if ne (len .Data.FilterList) 1}}s{{end}} containing <strong>{{.Data.Query}}</strong>.</span>
 							{{else}}
-								{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse {{ .Data.DimensionName }}</h2>{{end}}
+								{{if not .Data.Parent}}<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse <span class="visuallyhidden">{{ .Data.DimensionName }}</span></h2>{{end}}
 								{{ if .Data.Parent }}
 									<div class="font-size--17 padding-bottom--2 margin-top--2"><a id="back" href="{{ .Data.GoBack.URL }}"><span class="icon icon-arrow-back--dark-small"></span>Back</a></div>
-									<h2 class="font-size--17 padding-bottom--1 font-weight-700 margin-top--0">Browse {{ .Metadata.Title }}</h2>
+									<h2 class="font-size--17 padding-bottom--1 font-weight-700 margin-top--0">Browse <span class="visuallyhidden">{{ .Metadata.Title }}</span></h2>
 								{{ end }}
 							{{end}}
 							</legend>
