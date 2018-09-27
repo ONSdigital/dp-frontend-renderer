@@ -170,7 +170,7 @@ func templatesDatasetFilterHierarchyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 6489, mode: os.FileMode(420), modTime: time.Unix(1538062515, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 6489, mode: os.FileMode(420), modTime: time.Unix(1538062592, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
