@@ -170,7 +170,7 @@ func templatesDatasetFilterHierarchyTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 6489, mode: os.FileMode(420), modTime: time.Unix(1538062592, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/hierarchy.tmpl", size: 6489, mode: os.FileMode(420), modTime: time.Unix(1538127079, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -190,7 +190,7 @@ func templatesDatasetFilterListSelectorTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3848, mode: os.FileMode(420), modTime: time.Unix(1538059307, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/list-selector.tmpl", size: 3848, mode: os.FileMode(420), modTime: time.Unix(1538127079, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -210,7 +210,7 @@ func templatesDatasetFilterPreviewPageTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 7226, mode: os.FileMode(420), modTime: time.Unix(1538062685, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/preview-page.tmpl", size: 7226, mode: os.FileMode(420), modTime: time.Unix(1538127079, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -230,7 +230,7 @@ func templatesDatasetFilterTimeTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 14486, mode: os.FileMode(420), modTime: time.Unix(1538059307, 0)}
+	info := bindataFileInfo{name: "templates/dataset-filter/time.tmpl", size: 14486, mode: os.FileMode(420), modTime: time.Unix(1538127079, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -370,7 +370,7 @@ func templatesGeographyAreaTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/geography/area.tmpl", size: 1787, mode: os.FileMode(420), modTime: time.Unix(1538059307, 0)}
+	info := bindataFileInfo{name: "templates/geography/area.tmpl", size: 1787, mode: os.FileMode(420), modTime: time.Unix(1538127079, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
