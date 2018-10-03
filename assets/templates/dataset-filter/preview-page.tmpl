@@ -39,10 +39,11 @@
                 </ul>
                 <div class="table-preview">
                     <table>
-                      <thead>
+                    <caption class="visuallyhidden">Preview of {{ .DatasetTitle }} </caption>
+                    <thead>
                           <tr>
                             {{ range .Data.Dimensions }}
-                            <th tabindex="0" scope="col">{{.Name}}</th>
+                            <th scope="col">{{.Name}}</th>
                             {{ end }}
                           </tr>
                       </thead>
@@ -51,7 +52,7 @@
                           {{ range $i, $v := loop 0 (len (index $dimensions 0).Values ) }}
                           <tr>
                             {{ range $j, $dimension := $dimensions }}
-                            <td tabindex="0">{{ index $dimension.Values $i }}</td>
+                            <td>{{ index $dimension.Values $i }}</td>
                             {{ end }}
                           </tr>
                           {{ end }}
