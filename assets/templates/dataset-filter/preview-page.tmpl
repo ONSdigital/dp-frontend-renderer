@@ -74,7 +74,7 @@
                       {{if eq .Extension "xls"}}
                           {{if not (eq .Size "") }}<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                           {{if .Skipped }}<div class="alert alert--light" id="excel-skipped">
-                            <p class="margin-bottom--half padding-bottom--0">TEMPLATEYour filter returned too many results, no Excel file will be generated</p>
+                            <p class="margin-bottom--half padding-bottom--0">Your filter returned too many results, no Excel file will be generated</p>
                           </div>{{end}}
                       {{ end }}
                     {{ end }}
