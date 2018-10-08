@@ -72,13 +72,14 @@
                   <div id="excel-file">
                     {{ range .Data.Downloads }}
                       {{ if eq .Extension "xls" }}
-                        {{ if not (eq .Size "") }}<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
                         {{ if .Skipped }}
                           <div class="status status--amber" id="excel-skipped">
                             <p class="flush status__content">There are too many cells to create an Excel file.
                               <a href="/filters/{{$.Data.FilterID}}/dimensions">Adjust the filter options</a> or download the CSV.
                             </p>
                           </div>
+                        {{ else if not (eq .Size "") }}
+                          <a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>
                         {{ end }}
                       {{ end }}
                     {{ end }}
