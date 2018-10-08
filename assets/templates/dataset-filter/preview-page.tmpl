@@ -71,10 +71,18 @@
                  {{end}}
                   <div class="loader-svg js-hidden">{{ template "partials/spinner" }}</div>
                   <div id="excel-file">
-                    {{ range .Data.Downloads}}
-                    {{if not (eq .Size "") }}
-                      {{if eq .Extension "xls"}}<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>{{end}}
-                    {{end}}
+                    {{ range .Data.Downloads }}
+                      {{ if eq .Extension "xls" }}
+                        {{ if .Skipped }}
+                          <div class="status status--amber" id="excel-skipped">
+                            <p class="flush status__content">There are too many cells to create an Excel file.
+                              <a href="/filters/{{$.Data.FilterID}}/dimensions">Adjust the filter options</a> or download the CSV.
+                            </p>
+                          </div>
+                        {{ else if not (eq .Size "") }}
+                          <a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>
+                        {{ end }}
+                      {{ end }}
                     {{ end }}
                   </div>
                   <div id="other-downloads" class="{{if not .IsDownloadLoaded}}js-hidden{{end}} margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
@@ -87,8 +95,23 @@
                       <div class="margin-bottom--2">
                         <ul id="other-downloads__list" class="list--neutral">
                         {{range $i, $download := $.Data.Downloads}}
-                          {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block width--24 padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered dataset{{end}} (<span class="uppercase">{{$download.Extension}}</span> format)</span>
-                          <div class="width--12 inline-block float-right text-right"><a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
+                          {{if ne $download.Extension "xls"}}
+                            {{if gt (len $download.Size) 0}}
+                              <li id="{{$download.Extension}}-item" class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">
+                                <span class="inline-block width--24 padding-top--2">
+                                  {{if eq $download.Extension "txt"}}
+                                    Supporting information
+                                  {{else}}
+                                    Filtered dataset
+                                  {{end}}
+                                   (<span class="uppercase">{{$download.Extension}}</span> format)
+                                </span>
+                                <div class="width--12 inline-block float-right text-right">
+                                  <a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a>
+                                </div>
+                              </li>
+                            {{end}}
+                          {{end}}
                         {{end}}
                         </ul>
                       </div>
