@@ -94,8 +94,23 @@
                       <div class="margin-bottom--2">
                         <ul id="other-downloads__list" class="list--neutral">
                         {{range $i, $download := $.Data.Downloads}}
-                          {{if ne $download.Extension "xls"}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block width--24 padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Filtered dataset{{end}} (<span class="uppercase">{{$download.Extension}}</span> format)</span>
-                          <div class="width--12 inline-block float-right text-right"><a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
+                          {{if ne $download.Extension "xls"}}
+                            {{if gt (len $download.Size) 0}}
+                              <li id="{{$download.Extension}}-item" class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">
+                                <span class="inline-block width--24 padding-top--2">
+                                  {{if eq $download.Extension "txt"}}
+                                    Supporting information
+                                  {{else}}
+                                    Filtered dataset
+                                  {{end}}
+                                   (<span class="uppercase">{{$download.Extension}}</span> format)
+                                </span>
+                                <div class="width--12 inline-block float-right text-right">
+                                  <a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a>
+                                </div>
+                              </li>
+                            {{end}}
+                          {{end}}
                         {{end}}
                         </ul>
                       </div>
