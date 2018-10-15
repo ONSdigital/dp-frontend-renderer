@@ -74,7 +74,7 @@
                     {{ range .Data.Downloads }}
                       {{ if eq .Extension "xls" }}
                         {{ if .Skipped }}
-                          <div class="status status--amber" id="excel-skipped">
+                          <div class="status status--amber col--lg-two-thirds col--md-two-thirds" id="excel-skipped">
                             <p class="flush status__content">There are too many cells to create an Excel file.
                               <a href="/filters/{{$.Data.FilterID}}/dimensions">Adjust the filter options</a> or download the CSV.
                             </p>
