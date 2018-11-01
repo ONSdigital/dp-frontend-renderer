@@ -31,7 +31,7 @@
               	<div class="col col--md-50 col--lg-35 margin-left-md--1">
 					<form class="margin-bottom--2" action="{{.Data.SearchURL}}">
 						<div class="clearfix">
-							<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search<span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
+							<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
 							<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-31 col--lg-31" name="q" {{if .Data.IsSearchResults}} value="{{.Data.Query}}" {{end}} placeholder="Search {{.Data.DimensionName}}">
 							<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
 								<span class="visuallyhidden">Search</span>
