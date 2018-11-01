@@ -50,15 +50,15 @@
                                         <div class="margin-left--1">
                                             <div class="clearfix">
                                                 <div class="col col--md-8 col--lg-8">
-                                                    <label class="block margin-bottom--1">Youngest</label>
-                                                    <input name="youngest" class="filters__age--text" value="{{.Data.FirstSelected}}" />
+                                                    <label class="block margin-bottom--1" for="age-youngest">Youngest</label>
+                                                    <input name="youngest" class="filters__age--text" value="{{.Data.FirstSelected}}" id="age-youngest" />
                                                 </div>
                                                 <div class="col col--md-2 col--lg-2 margin-right--1 padding-top--2">
                                                     <p class="font-size--16 block">to</p>
                                                 </div>
                                                 <div class="col col--md-8 col--lg-8">
-                                                    <label class="block margin-bottom--1">Oldest</label>
-                                                    <input name="oldest" class="filters__age--text" value="{{.Data.LastSelected}}" />
+                                                    <label class="block margin-bottom--1" for="age-oldest">Oldest</label>
+                                                    <input name="oldest" class="filters__age--text" value="{{.Data.LastSelected}}" id="age-oldest"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,13 +68,18 @@
                                     <input id="age-selection-list" type="radio" name="age-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
                                     <label for="age-selection-list" class="multiple-choice__label">Add ages from list</label>
                                         <div id="multiple-choice-content-list" class="multiple-choice__content padding-top--2 col-wrap">
-                                            <div class="col col--md-20 col--lg-15 margin-left-md--1">
+                                            <div class="col col--md-40 col--lg-35 margin-left-md--1">
                                                 <div class="margin-left--1">
                                                     <fieldset>
                                                         <div class="checkbox-group">
-                                                            <div id="checkbox-header" class="checkbox margin-bottom--2">
+                                                            <div id="checkbox-header" class="checkbox margin-bottom--2 inline-block width--10">
                                                                 <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
                                                                 &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                                            </div>
+                                                            <div id="add-all-save-and-return" class="margin-left-md--5  margin-left-lg--8  inline-block">
+                                                                <div class="hide--md-only hide--sm">
+                                                                    <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
+                                                                </div>
                                                             </div>
                                                             {{ range $i, $v := .Data.Ages }}
                                                             <div class="checkbox">
@@ -87,11 +92,6 @@
                                                         </div>
                                                     </fieldset>
                                                 </div>
-                                            </div>
-                                            <div id="add-all-save-and-return" class="col col--md-25 col--lg-15 margin-left-md--1 margin-bottom--6 margin-left-lg--4 js-hidden">
-                                                <div class="margin-bottom--6 hide--md-only hide--sm">
-										            <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
-									            </div>
                                             </div>
                                         </div>
                                     </div>

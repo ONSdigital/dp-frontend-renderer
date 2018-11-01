@@ -32,6 +32,7 @@ type Download struct {
 	Extension string `json:"extension"`
 	Size      string `json:"size"`
 	URI       string `json:"uri"`
+	Skipped   bool   `json:"skipped"`
 }
 
 // Dimension ...
