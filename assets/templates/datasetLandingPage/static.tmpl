@@ -119,7 +119,7 @@
                             <div class="inline-block--md margin-bottom-sm--1">
                                 <a href="{{ legacyDatasetDownloadURI $timeseriesDataset.URI .URI }}" class="btn btn--primary btn--thick">
                                     <span class="visuallyhidden">Download {{ $.Metadata.Title }} in {{ .Extension }} format</span>
-                                    <span class="uppercase">{{ .Extension }} {{ humanSize .Size }}</span>
+                                    {{ .Extension }} ({{ humanSize .Size }})
                                 </a>
                             </div>
                         {{ end }}
