@@ -16,8 +16,14 @@ job "dp-frontend-renderer" {
 
     constraint {
       attribute = "${node.class}"
-      operator  = "regexp"
-      value     = "web.*"
+      value     = "web"
+    }
+
+    restart {
+      attempts = 3
+      delay    = "15s"
+      interval = "1m"
+      mode     = "delay"
     }
 
     task "dp-frontend-renderer-web" {
@@ -43,6 +49,13 @@ job "dp-frontend-renderer" {
         name = "dp-frontend-renderer"
         port = "http"
         tags = ["web"]
+
+        check {
+          type     = "http"
+          path     = "/healthcheck"
+          interval = "10s"
+          timeout  = "2s"
+        }
       }
 
       resources {
@@ -70,8 +83,14 @@ job "dp-frontend-renderer" {
 
     constraint {
       attribute = "${node.class}"
-      operator  = "regexp"
-      value     = "publishing.*"
+      value     = "publishing"
+    }
+
+    restart {
+      attempts = 3
+      delay    = "15s"
+      interval = "1m"
+      mode     = "delay"
     }
 
     task "dp-frontend-renderer-publishing" {
@@ -97,6 +116,13 @@ job "dp-frontend-renderer" {
         name = "dp-frontend-renderer"
         port = "http"
         tags = ["publishing"]
+
+        check {
+          type     = "http"
+          path     = "/healthcheck"
+          interval = "10s"
+          timeout  = "2s"
+        }
       }
 
       resources {
