@@ -1,0 +1,172 @@
+{{ template "partials/loop11" . }}
+<div class="page-intro">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col">
+                {{ template "partials/breadcrumb" . }}
+                <div class="col col--md-47 col--lg-39">
+                    <h1 class="page-intro__title font-weight-700">Time</h1>
+                    {{if .Metadata.Description}}
+                    <div class="font-size--16">
+                        <details role="group" class="margin-bottom--2 margin-bottom--2">
+                            <summary role="button">Learn more <span class="visuallyhidden"> about time</span></summary>
+                            <div class="panel" id="details-content-1">
+                                <p class="margin-top--0">
+                                    {{.Metadata.Description}}
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="adjust-font-size--16">
+    <div class="page-content link-adjust">
+        <div class="wrapper">
+            <div class="col col--md-47 col--lg-59">
+                <div class="col col--md-29 col--lg-29">
+                    <p class="font-size--17" id="data-available">Data available from {{.Data.FirstTime.Month}} {{.Data.FirstTime.Year}} until {{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}}</p>
+                </div>
+                <form id="time-form" method="post" action="{{.Data.FormAction.URL}}">
+                    <input name="save-and-return" class="hidden" type="submit" value="Save and return" />
+                    <div class="form adjust-font-size--16 clear-left">
+                        <div class="col col--md-29 col--lg-29 margin-top--2">
+                            <div class="margin-bottom--6">
+                                <div class="multiple-choice">
+                                    <input id="time-selection-latest" type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
+                                    <label for="time-selection-latest" class="multiple-choice__label">I just want the latest data ({{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}})</label>
+                                    <input type="hidden" name="latest-option" value="{{.Data.LatestTime.Option}}">
+                                    <input type="hidden" name="latest-month" id="lastest-month" value="{{.Data.LatestTime.Month}}">
+                                    <input type="hidden" name="latest-year" id="latest-year" value="{{.Data.LatestTime.Year}}">
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="time-selection-single" type="radio" class="multiple-choice__input" name="time-selection" value="single" {{if eq .Data.CheckedRadio "single"}}checked{{end}}>
+                                    <label for="time-selection-single" class="multiple-choice__label">Add a single {{.Data.Type}}</label>
+                                    <div id="multiple-choice-content-single" class="multiple-choice__content padding-top--2">
+                                        <div class="margin-left--1">
+                                            <div class="clearfix">
+                                                <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="month-single">Month</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="month-single" id="month-single">
+                                                        {{ range $.Data.Months }}
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "single"}}{{if eq . $.Data.SelectedStartMonth}}selected{{end}}{{end}}>{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="year-single">Year</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="year-single" id="year-single">
+                                                        {{ range $.Data.Years }}
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "single"}}{{if eq . $.Data.SelectedStartYear}}selected{{end}}{{end}}>{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="time-selection-range" type="radio" name="time-selection" class="multiple-choice__input" value="range" {{if eq .Data.CheckedRadio "range"}}checked{{end}}>
+                                    <label for="time-selection-range" class="multiple-choice__label">Add a range of {{.Data.Type}}s</label>
+                                    <div id="multiple-choice-content-range" class="multiple-choice__content padding-top--2">
+                                        <div class="margin-left--1">
+                                            <div class="clearfix">
+                                                <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="start-month">Month</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="start-month" id="start-month">
+                                                        {{ range $.Data.Months }}
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedStartMonth}}selected{{end}}{{end}}>{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="start-year">Year</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="start-year" id="start-year">
+                                                        {{ range $.Data.Years }}
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedStartYear}}selected{{end}}{{end}}>{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="margin-bottom--1">
+                                                    <span class="font-size-17"><strong>To</strong></span>
+                                                </div>
+                                                <div class="col col--md-12 col--lg-12 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="end-month">Month</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="end-month" id="end-month">
+                                                        {{ range $.Data.Months }}
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedEndMonth}}selected{{end}}{{end}}>{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col col--lg-11 col--md-11 margin-bottom--2">
+                                                    <label class="block margin-bottom--1" for="end-year">Year</label>
+                                                    <div class="select-alt">
+                                                        <select class="select width-sm--10 width-md--10 width-lg--10" name="end-year" id="end-year">
+                                                        {{ range $.Data.Years }}
+                                                            <option value="{{.}}" {{if eq $.Data.CheckedRadio "range"}}{{if eq . $.Data.SelectedEndYear}}selected{{end}}{{end}}>{{.}}</option>
+                                                        {{ end }}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="time-selection-list" type="radio" name="time-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
+                                    <label for="time-selection-list" class="multiple-choice__label">Add {{.Data.Type}}s from list</label>
+                                        <div id="multiple-choice-content-list" class="multiple-choice__content padding-top--2 col-wrap">
+                                            <div class="col col--md-20 col--lg-15 margin-left-md--1">
+                                                <div class="margin-left--1">
+                                                    <fieldset>
+                                                        <div class="checkbox-group">
+                                                            <div id="checkbox-header" class="checkbox margin-bottom--2">
+                                                                <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
+                                                                &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                                            </div>
+                                                            {{ range $i, $v := .Data.Values }}
+                                                            <div class="checkbox">
+                                                                <input type="checkbox" class="checkbox__input {{if $v.IsSelected}} checked{{end}}" id="id-{{$v.Month}}-{{$v.Year}}" name="{{$v.Option}}" value="{{$v.Month}} {{$v.Year}}" {{if $v.IsSelected}}checked{{end}}>
+                                                                <label class="checkbox__label" for="id-{{$v.Month}}-{{$v.Year}}">
+                                                                    {{$v.Month}} {{$v.Year}} {{if eq $i 0}} (latest) {{end}}
+                                                                </label>
+                                                            </div>
+                                                            {{end}}
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="add-all-save-and-return" class="col col--md-25 col--lg-15 margin-top--1 margin-left--10 js-hidden">
+                                <div class="margin-bottom--6 hide--md-only hide--sm">
+                                    <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
+                                </div>
+                            </div>
+                            <div id="save-and-return-container" class="col--md-20 col--lg-20 width-sm--20">
+                                <input name="save-and-return" id="time-save-and-return" class="btn btn--primary btn--thick btn--big btn--focus btn--wide font-weight-700 font-size--17 margin-right--2" type="submit" value="Save and return" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

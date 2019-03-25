@@ -1,7 +1,8 @@
 build
 assets/debug.go
 
-.DS_Store
+*.DS_Store
 .idea/
 .tags*
 *.iml
+.vscode/*

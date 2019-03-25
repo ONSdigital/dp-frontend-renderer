@@ -1,5 +1,8 @@
+BINPATH ?= build
+
 build: generate
-	go build -tags 'production' -o build/dp-frontend-renderer
+	go build -tags 'production' -o $(BINPATH)/dp-frontend-renderer
+	cp taxonomy-redirects.yml $(BINPATH)
 
 debug: generate
 	go build -tags 'debug' -o build/dp-frontend-renderer
@@ -14,5 +17,8 @@ generate:
 	cd assets; go-bindata -debug -o debug.go -pkg assets templates/...
 	{ echo "// +build debug"; cat assets/debug.go; } > assets/debug.go.new
 	mv assets/debug.go.new assets/debug.go
+
+test:
+	go test -cover $(shell go list ./... | grep -v /vendor/) -tags 'production' ./...
 
 .PHONY: build debug generate
