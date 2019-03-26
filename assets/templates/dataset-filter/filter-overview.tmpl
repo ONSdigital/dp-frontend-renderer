@@ -1,0 +1,62 @@
+{{ template "partials/loop11" . }}
+<div class="page-intro">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col">
+                {{ template "partials/breadcrumb" . }}
+                <div class="col col--md-47 col--lg-39">
+                    <h1 class="page-intro__title font-weight-700 margin-bottom--0">Filter options</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="adjust-font-size--16">
+    <div class="page-content link-adjust">
+        <div class="wrapper padding-right-sm--0 padding-left-sm--0">
+            <div id="options-info" class="col-wrap">
+                <div class="col">
+				{{if not .Data.IsLatestVersion}}
+                  {{ template "partials/latest-release-alert" . }}
+	            {{ end }}
+                    <div class="col col--md-47 col--lg-59 margin-top--2 margin-bottom--4 background--gallery">
+                        <ul class="list--neutral filter-overview">
+                            <li class="margin-left--0 padding-bottom--2 padding-top--0 padding-right--2 width-lg--56">
+                        	    <a class="float-el--right-md float-el--right-sm float-el--right-lg" href="{{.Data.ClearAll.URL}}">Clear filters</a>
+                            </li>
+                            {{ range .Data.Dimensions}}
+                            <li id="filter-option" class="white-background margin-left-md--2 margin-right-md--2 margin-right-sm--1 margin-left-sm--1 {{if eq .Link.Label "Add"}}filter-overview__add{{else}}filter-overview__edit{{end}}">
+                                <div class="col--lg-56 min-height--10 padding-left-sm--0 padding-left-md--1">
+                                    {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}
+                                    <div class="col col--md-8 col--lg-8 min-height--4">
+                                        <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}"><span class="dimension-button {{if eq .Link.Label "Add"}}btn btn--tertiary margin-left-md--2 margin-left-sm--1 {{else}}margin-left-md--3 margin-left-sm--2 {{end}} font-weight-700 ">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
+                                    </div>
+                                    <div class="dimension-name col col--md-11 col--lg-14 margin-left-sm--6 height-sm--3 height-md--6 overflow--hidden margin-top-md--3 margin-bottom-sm--2"><strong><span id="filter-option-label" class="font-size--16">{{.Filter}}</span></strong></div>
+                                    <div id="number-added-{{slug .Filter}}" class="col col--md-20 col--lg-30">
+                                        <div class="font-size--16 height-sm--3 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses-sm overflow--hidden">
+                                        <div class="height-sm--3 max-height-md--9 vertical-align-middle__contents--md list--ellipses-md">
+                                            <ul class="list list--pipe-seperated list--pipe-seperated-ellipses">
+                                                <span>{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}</span>
+                                                {{range $i, $c := $categories}}
+                                                    <li>{{$c}}</li>
+                                                {{end}}
+                                            </ul>
+                                        </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </li>
+                            {{ end }}
+                        </ul>
+                        <div class="{{if .Data.PreviewAndDownloadDisabled}}btn--no-click{{end}} padding-bottom--4 padding-left--2 padding-top--2">
+                            <div class="filter-overview__error-container" id="error-container"></div>
+                            <form method="post" action="/filters/{{.FilterID}}/submit">
+                                <input id="preview-download" type="submit" value="Apply filters" class="btn btn--primary {{if .Data.PreviewAndDownloadDisabled}}btn--primary-disabled{{end}} btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17" name="preview-and-download" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="slate background--gallery">
+    <div class="wrapper">
+        {{ template "partials/breadcrumb" . }}
+        <h1 class="font-weight-700">{{.Metadata.Title}}</h1>
+    </div>
+</div>
+<div class="wrapper geography-area-page">
+    <div class="col-wrap">
+        <div class="col col--md-one-third col--lg-one-quarter sticky">
+        <h2 class="font-weight-700">Page contents</h2>
+            <ul class="list--neutral">
+                {{if .Data.Datasets}}<li><a href="#datasets">Datasets</a></li>{{end}}
+                <li><a href="#attributes">Attributes</a></li>
+            </ul>
+        </div>
+        <div class="col col--md-two-thirds col--lg-three-quarters">
+        {{ $datasetsLength := len .Data.Datasets }}
+        {{ if gt $datasetsLength 0 }}
+            <h2 id="datasets" class="font-weight-700">{{len .Data.Datasets}} dataset{{ if gt $datasetsLength 1 }}s{{end}}</h2>
+            {{range $i, $v := .Data.Datasets}}
+                {{if $v.Label}}
+                    <div class="background--gallery padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-top--1 margin-bottom--1">
+                        <h3 class="margin-top--0">
+                            <a class="area-type" id="area-type-{{$i}}" href="{{$v.URI}}">{{$v.Label}}</a>
+                        </h3>
+                        {{$v.Description}}
+                    </div>
+                {{end}}
+            {{end}}
+        {{end}}
+
+        <h2 id="attributes" class="font-weight-700">Attributes</h2>
+        <ul class="list--neutral">
+            {{if .Data.Attributes.Code}}<li>Code: {{.Data.Attributes.Code}}</li>{{end}}
+            {{if .Data.Attributes.ReleaseDate}}<li>Release date: {{.Data.Attributes.ReleaseDate}}</li>{{end}}
+        </ul>
+        </div>
+    </div>
+</div>

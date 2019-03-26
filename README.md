@@ -1,6 +1,13 @@
 dp-frontend-renderer
 ====================
 
+### Configuration
+
+| Environment variable | Default | Description
+| -------------------- | ------- | -----------
+| BIND_ADDR            | :20000  | The host and port to bind to
+| DEBUG                |         | Enable debug mode
+
 ### Adding new page types
 
 1. Create the page model in [https://github.com/ONSdigital/dp-frontend-models](dp-frontend-models)
@@ -9,6 +16,7 @@ dp-frontend-renderer
   - `render.Handler` will take care of setting global variables, e.g. language
   - the `func()` passed in should be used for any page-specific customisations
 3. Create a route in [main.go](main.go)
+
 
 ### Licence
 
