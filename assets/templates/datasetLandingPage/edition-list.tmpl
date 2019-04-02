@@ -1,0 +1,30 @@
+{{ template "partials/loop11" . }}
+<div class="page-intro background--gallery">
+   <div class="wrapper">
+      <div class="col-wrap">
+         <div class="col">
+            {{ template "partials/breadcrumb" . }}
+            <h1 class="page-intro__title margin-bottom--4">
+               <span class="page-intro__type">Editions:</span>
+               {{ .Metadata.Title }}
+            </h1>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="wrapper adjust-font-size--16">
+   <div class="col-wrap padding-top--2 margin-bottom--4">
+      <div class="col col--lg-two-thirds col--md-two-thirds">
+        <p>{{ .Metadata.Description }}</p>
+
+        <h2>Select an edition</h2>
+        <p class="margin-top--0">Historic data is split into annual editions to account for changes over time.</p>
+
+        <ul>
+            {{ range .Editions}}
+                <li class="margin-top--0 margin-bottom--0"><a id="edition-{{ .Title }}" href="{{.LatestVersionURL}}">{{.Title}}</a></li>
+            {{ end }}
+        </ul>
+      </div>
+   </div>
+</div>

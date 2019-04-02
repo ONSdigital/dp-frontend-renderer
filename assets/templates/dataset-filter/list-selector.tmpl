@@ -1,0 +1,70 @@
+{{ template "partials/loop11" . }}
+	<div class="page-intro">
+		<div class="wrapper">
+			<div class="col-wrap">
+				<div class="col">
+					{{ template "partials/breadcrumb" . }}
+					<div class="col col--md-47 col--lg-39">
+						<h1 class="page-intro__title font-weight-700">{{.Data.Title}}</h1>
+						{{if .Metadata.Description}}
+						<div class="font-size--16">
+							<details role="group" class="margin-bottom--2 margin-bottom--2">
+								<summary role="button">Learn more <span class="visuallyhidden"> about {{.Data.Title}}</span></summary>
+								<div class="panel" id="details-content-1">
+									<p class="margin-top--0">
+										{{.Metadata.Description}}
+									</p>
+								</div>
+							</details>
+						</div>
+						{{end}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="adjust-font-size--16">
+  	<div class="page-content link-adjust">
+	  	<div class="wrapper">
+	      	<div class="col-wrap">
+				<div class="col">
+					<form id="filter-form" class="form adjust-font-size--16 clear-left" method="post" action="{{.Data.RangeData.URL}}">
+						<div class="col col--md-25 col--lg-15">
+							<div class="col col--md-29 col--lg-29">
+                                <fieldset>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox margin-bottom--2">
+											<input name="save-and-return" class="hidden" type="submit" value="Save and return" />
+                                            <input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" />&nbsp; &nbsp;
+                            				<input class="btn btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                        </div>
+                                        {{ $val := .Data.FiltersAmount }}
+                                        {{ range .Data.RangeData.Values }}
+                                            <div class="checkbox">
+                                                <input type="checkbox" class="checkbox__input js-filter{{if .IsSelected}} checked{{end}}" id="id-{{.Label}}" name="{{.ID}}" value="{{.Label}}" {{if .IsSelected}}checked{{end}}>
+                                                <label class="checkbox__label" for="id-{{.Label}}">
+                                                    {{.Label}}
+                                                </label>
+                                            </div>
+                                        {{end}}
+                                    </div>
+                                </fieldset>
+                                <div class="margin-top js-hidden">
+                                    <input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
+                                </div>
+                                <div id="save-and-return-container" class="margin-top--4">
+                                    <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit" value="Save and return" />
+                                </div>
+							</div>
+          				</div>
+						<div id="add-all-save-and-return" class="col col--md-25 col--lg-15 margin-left-md--1 margin-bottom--6 margin-left-lg--4 js-hidden">
+							<div class="margin-bottom--6 hide--md-only hide--sm">
+								<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+  		</div>
+	</div>
+</div>

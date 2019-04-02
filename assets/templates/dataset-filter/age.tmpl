@@ -1,0 +1,109 @@
+{{ template "partials/loop11" . }}
+<div class="page-intro">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col">
+                {{ template "partials/breadcrumb" . }}
+                <div class="col col--md-47 col--lg-39">
+                    <h1 class="page-intro__title font-weight-700">Age</h1>
+                    {{if .Metadata.Description}}
+                    <div class="font-size--16">
+                        <details role="group" class="margin-bottom--2 margin-bottom--2">
+                            <summary role="button">Learn more <span class="visuallyhidden"> about age</span></summary>
+                            <div class="panel" id="details-content-1">
+                                <p class="margin-top--0">
+                                    {{.Metadata.Description}}
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="adjust-font-size--16">
+    <div class="page-content underline-all-links">
+        <div class="wrapper">
+            <div class="col col--md-47 col--lg-59">
+                <div class="col col--md-29 col--lg-29">
+                    <p class="font-size--17">Ages {{.Data.Youngest}} to {{.Data.Oldest}} available in this dataset</p>
+                </div>
+                <form id="age-form" method="post" action="{{.Data.FormAction.URL}}">
+                    <div class="form adjust-font-size--16 clear-left">
+                        <div class="col col--md-29 col--lg-29 margin-top--2">
+                            <div class="margin-bottom--6">
+                                {{if .Data.HasAllAges}}
+                                <div class="multiple-choice">
+                                    <input id="age-selection-latest" type="radio" class="multiple-choice__input" name="age-selection" value="all" {{if eq .Data.CheckedRadio "all"}}checked{{end}}>
+                                    <label for="age-selection-latest" class="multiple-choice__label">All ages (total)</label>
+                                    <input id="all-ages-option" name="all-ages-option" type="hidden" value="{{.Data.AllAgesOption}}">
+                                </div>
+                                {{end}}
+                                <div class="multiple-choice">
+                                    <input id="age-selection-range" type="radio" class="multiple-choice__input" name="age-selection" value="range" {{if eq .Data.CheckedRadio "range"}}checked{{end}}>
+                                    <label for="age-selection-single" class="multiple-choice__label">Add a range of ages (eg. 18 to 24)</label>
+                                    <input id="youngest-age" name="youngest-age" type="hidden" value="{{.Data.Youngest}}">
+                                    <input id="oldest-age" name="oldest-age" type="hidden" value="{{.Data.Oldest}}">
+                                    <div id="multiple-choice-content-range" class="multiple-choice__content padding-top--4">
+                                        <div class="margin-left--1">
+                                            <div class="clearfix">
+                                                <div class="col col--md-8 col--lg-8">
+                                                    <label class="block margin-bottom--1" for="age-youngest">Youngest</label>
+                                                    <input name="youngest" class="filters__age--text" value="{{.Data.FirstSelected}}" id="age-youngest" />
+                                                </div>
+                                                <div class="col col--md-2 col--lg-2 margin-right--1 padding-top--2">
+                                                    <p class="font-size--16 block">to</p>
+                                                </div>
+                                                <div class="col col--md-8 col--lg-8">
+                                                    <label class="block margin-bottom--1" for="age-oldest">Oldest</label>
+                                                    <input name="oldest" class="filters__age--text" value="{{.Data.LastSelected}}" id="age-oldest"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="age-selection-list" type="radio" name="age-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
+                                    <label for="age-selection-list" class="multiple-choice__label">Add ages from list</label>
+                                        <div id="multiple-choice-content-list" class="multiple-choice__content padding-top--2 col-wrap">
+                                            <div class="col col--md-40 col--lg-35 margin-left-md--1">
+                                                <div class="margin-left--1">
+                                                    <fieldset>
+                                                        <div class="checkbox-group">
+                                                            <div id="checkbox-header" class="checkbox margin-bottom--2 inline-block width--10">
+                                                                <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
+                                                                &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                                            </div>
+                                                            <div id="add-all-save-and-return" class="margin-left-md--5  margin-left-lg--8  inline-block">
+                                                                <div class="hide--md-only hide--sm">
+                                                                    <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
+                                                                </div>
+                                                            </div>
+                                                            {{ range $i, $v := .Data.Ages }}
+                                                            <div class="checkbox">
+                                                                <input type="checkbox" class="checkbox__input {{if $v.IsSelected}} checked{{end}}" id="id-{{$v.Label}}" name="{{$v.Option}}" value="{{$v.Label}}" {{if $v.IsSelected}}checked{{end}}>
+                                                                <label class="checkbox__label" for="id-{{$v.Label}}">
+                                                                    {{$v.Label}}
+                                                                </label>
+                                                            </div>
+                                                            {{end}}
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="save-and-return-container" class="col--md-20 col--lg-20 width-sm--20 margin-bottom--8">
+                                <input name="save-and-return" id="age-save-and-return" class="btn btn--primary btn--thick btn--full-width btn--big btn--focus font-weight-700 font-size--17" type="submit" value="Save and return" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
