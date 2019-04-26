@@ -107,7 +107,7 @@
            <ol class="list list--custom-numbered">
               <li>
                 <div id="id-dimensions" class="section__content--markdown margin-right--0">
-                  <h2 class="font-weight-700 padding-top--0 cmd-heading">In this dataset</h2>
+                  <h2 class="font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">In this dataset</h2>
                   {{if .DatasetLandingPage.UnitOfMeasurement}}
                   <div class="margin-bottom--3">
                      <h3 class="font-size--17 font-weight-700 padding-top--0">Unit of measurement</h3>
@@ -118,7 +118,7 @@
                   <div class="margin-bottom--3">
                   <div class="margin-bottom--3">
                      <h3 class="font-size--17 font-weight-700 padding-top--0">{{.Title}}</h3>
-                     <ul class="dimension-values list list--pipe-seperated js-show-more-list cmd-list">
+                     <ul class="dimension-values list list--pipe-seperated js-show-more-list padding-left--0">
                         {{$val_length := len .Values}}
                         {{$total_length := .TotalItems}}
                         {{$vals := .Values}}{{range $i, $v := $vals}}
@@ -144,7 +144,7 @@
              {{ if .DatasetLandingPage.LatestChanges}}
              <li>
               <div id="id-changes" class="section__content--markdown margin-right--0">
-                <h2 class="font-weight-700 padding-top--0 cmd-heading">What has changed in this edition</h2>
+                <h2 class="font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">What has changed in this edition</h2>
                 {{range .DatasetLandingPage.LatestChanges}}
                 <div class="margin-bottom--3">
                    <h3 class="font-size--17 font-weight-700 padding-top--0">{{.Name}}</h3>
@@ -174,7 +174,7 @@
             {{if .DatasetLandingPage.Methodologies}}
             <li>
              <div id="id-methodology" class="section__content--markdown margin-right--0">
-               <h2 class="font-weight-700 padding-top--0 cmd-heading">Methodologies</h2>
+               <h2 class="font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">Methodologies</h2>
                {{range .DatasetLandingPage.Methodologies}}
                 <h3><a href="{{.URL}}">{{.Title}}</a></h3>
                 <p>{{.Description}}</p>
@@ -186,7 +186,7 @@
             {{if .DatasetLandingPage.Citation}}
             <li>
              <div id="id-license" class="section__content--markdown margin-right--0">
-               <h2 class="font-weight-700 padding-top--0 cmd-heading">Usage information</h2>
+               <h2 class="font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">Usage information</h2>
                <p class="margin-bottom--0 padding-bottom--0">{{.DatasetLandingPage.Citation}}</p>
                <a class="inline-block margin-bottom--2" href="/help/termsandconditions">Terms and conditions</a><br>
                <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
@@ -196,7 +196,7 @@
             {{if .DatasetLandingPage.HasOlderVersions}}
             <li>
               <div id="id-previous" class="section__content--markdown margin-right--0">
-                 <h2 class="font-weight-700 padding-top--0 cmd-heading">Previous versions</h2>
+                 <h2 class="font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">Previous versions</h2>
                  <p><a href="/datasets/{{.DatasetLandingPage.DatasetID}}/editions/{{.DatasetLandingPage.Edition}}/versions">Previous versions</a> of this dataset are available.</p>
               </div>
             </li>
