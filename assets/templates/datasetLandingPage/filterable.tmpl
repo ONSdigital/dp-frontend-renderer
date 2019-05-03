@@ -213,7 +213,7 @@
                   {{ if .ContactDetails.Name}}
                   <span class="contact-name block">{{ .ContactDetails.Name }}</span>
                   {{ end }}
-                  {{ if .ContactDetails.}}
+                  {{ if .ContactDetails.Email}}
                   <span class="contact-email block"><a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a></span>
                   {{ end }}
                   {{ if .ContactDetails.Telephone }}
