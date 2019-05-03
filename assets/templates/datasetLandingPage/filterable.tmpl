@@ -8,6 +8,7 @@
                <span class="page-intro__type padding-top--0 padding-bottom--0">Dataset:</span>
                <strong>{{ .Metadata.Title }}</strong>
             </h1>
+            {{ template "partials/release-alert" . }}
          </div>
       </div>
    </div>
@@ -212,7 +213,7 @@
                   {{ if .ContactDetails.Name}}
                   <span class="contact-name block">{{ .ContactDetails.Name }}</span>
                   {{ end }}
-                  {{ if .ContactDetails.Email}}
+                  {{ if .ContactDetails.}}
                   <span class="contact-email block"><a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Email }}</a></span>
                   {{ end }}
                   {{ if .ContactDetails.Telephone }}
