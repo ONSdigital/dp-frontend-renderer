@@ -44,7 +44,11 @@
                         {{range .Data.Versions}}
                             <tr>
                                 <td>{{dateFormat .Date}}</td>
-                                <td>{{.Reason}}</td>
+                                <td>
+                                    {{range $i, $reason := .Reasons}}
+                                        <p class="wrap">{{$reason}}</p>
+                                    {{end}}
+                                </td>
                                 <td>
                                     {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}} {{humanSize .Size}}</a>{{end}}
                                     <form action="{{.FilterURL}}" method="post">
