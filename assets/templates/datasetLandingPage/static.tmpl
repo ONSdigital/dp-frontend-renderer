@@ -112,6 +112,16 @@
                     </section>
                 {{ end }}
                 <section>
+                    {{ if .DatasetLandingPage.Related.FilterableDatasets }}
+                    <div class="status status--blue margin-top--6">
+                        <p class="margin-top--0">Try the new way to filter and download this data:</p>
+                        <ul class="list--neutral margin-bottom--0">
+                            {{ range .DatasetLandingPage.Related.FilterableDatasets }}
+                            <li> <a href="{{ .URI }}">{{ .Title}}</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
                     <h2 class="margin-bottom--2">Your download options</h2>
                     {{ if .DatasetLandingPage.IsTimeseries }}
                         {{ $timeseriesDataset := index .DatasetLandingPage.Datasets 0 }}
