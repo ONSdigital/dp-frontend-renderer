@@ -14,30 +14,29 @@
 <div class="wrapper adjust-font-size--16 link-adjust">
    <div class="col-wrap padding-top--2 margin-bottom--4">
       <div class="col">
-                <p>Test
-               {{.Data.Versions}}
-            </p>
          {{range $i, $version := .Data.Versions}}
             <div>
-               <p class="heading-medium margin-bottom--1">
+               <h2 class="heading-medium margin-bottom--1">
                   <a href="{{.FilterURL}}">{{.Title}}</a>
-               </p>
-               <p class="font-normal margin-top--0 margin-bottom--0">Version: {{.VersionNumber}}  {{if .IsLatest}}(latest){{end}}</p>
-               <p class="font-normal margin-top--0 margin-bottom--0">Revision date: {{dateFormat .Date}}</p>
+               </h2>
+               <p class="font-normal margin-top--0 margin-bottom--0 padding-top--0 padding-bottom--0">Version: {{.VersionNumber}}  {{if .IsLatest}}(latest){{end}}</p>
+               <p class="font-normal margin-top--0 margin-bottom--0 padding-top--0 padding-bottom--0">Revision date: {{dateFormat .Date}}</p>
                <p class="heading-normal margin-top--1 margin-bottom--0"><strong>Downloads:</strong><p>
                {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}}{{humanSize .Size}}</a>{{end}}
                {{if .Superseded}}
-                  <details role="group" class="margin-bottom--1">
+                  <details role="group" class="margin-bottom--4">
                      <summary role="button" aria-controls="details-content-0">
                         <span class="summary link--underline">Corrections</span>
                      </summary>
+                     <div class="panel" id="details-content-0">
                      {{if .Corrections}}
                         {{ range $i, $correction := .Corrections }}
-                           <h2 class="heading-normal margin-top--0 padding-top--1">Correction: {{dateFormat .Date}} </h2>
+                           <h2 class="heading-normal margin-top--0 padding-top--1"><strong>Correction: {{dateFormat .Date}} </strong></h2>
                            <p class="margin-top--0 margin-bottom--2">{{.Reason}}</p>
                         {{ end }}
                      {{ end }}
                      <a href="{{$version.Superseded}}">View superseded version</a>
+                     </div>
                   </details>
                {{ end }}
                {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}}{{humanSize .Size}}</a>{{end}}

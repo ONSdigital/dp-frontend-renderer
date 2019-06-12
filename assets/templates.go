@@ -311,7 +311,7 @@ func templatesDatasetlandingpageVersionListTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/version-list.tmpl", size: 2345, mode: os.FileMode(420), modTime: time.Unix(1560352307, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/version-list.tmpl", size: 2345, mode: os.FileMode(420), modTime: time.Unix(1560353622, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
