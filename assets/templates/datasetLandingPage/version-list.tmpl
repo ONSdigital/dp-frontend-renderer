@@ -12,54 +12,38 @@
    </div>
 </div>
 <div class="wrapper adjust-font-size--16 link-adjust">
-    <div class="col-wrap padding-top--2 margin-bottom--4">
-        <div class="col">
-            <p>This data has been revised and is no longer in use. Return to <a href="{{.Data.LatestVersionURL}}">latest version</a> of this dataset.</p>
-            <details role="group" class="margin-bottom--4">
-                <summary><span class="summary">Learn more about why statistics are revised</span></summary>
-                <div class="panel">
-                    <p class="margin-top--0">Statistics are most often revised for 1 of 2 reasons:</p>
-                    <ol>
-                        <li>For certain statistics initial estimates are released with expectation that these may be revised and updated as further data becomes available.</li>
-                        <li> Revisions may also be made when methods or systems are changed. </li>
-                    </ol>
-                    <p>
-                        These types of planned revisions should not be confused with errors in released statistics, which are genuine mistakes. Such mistakes occur rarely and, when they do happen, corrections are made in a timely manner, announced and clearly explained to users in line with the Code of Practice for Official Statistics (Principle 2, Pratice 7).
-                    </p>
-                    <p>
-                        Return to the <a href="{{.Data.LatestVersionURL}}">latest version</a>
-                    </p>
-                </div>
-            </details>
-            <div class="table-preview">
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col"><strong>Date of revision</strong></th>
-                            <th scope="col"><strong>Reason for revision</strong></th>
-                            <th scope="col"><strong>Previous version files</strong></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{range .Data.Versions}}
-                            <tr>
-                                <td>{{dateFormat .Date}}</td>
-                                <td>
-                                    {{range $i, $reason := .Reasons}}
-                                        <p class="wrap">{{$reason}}</p>
-                                    {{end}}
-                                </td>
-                                <td>
-                                    {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}} {{humanSize .Size}}</a>{{end}}
-                                    <form action="{{.FilterURL}}" method="post">
-                                        <input class="btn btn--primary" type="submit" name="filter-and-download" value="Filter and download" />
-                                    </form>
-                                </td>
-                            </tr>
-                        {{end}}
-                    </tbody>
-                </table>
+   <div class="col-wrap padding-top--2 margin-bottom--4">
+      <div class="col">
+                <p>Test
+               {{.Data.Versions}}
+            </p>
+         {{range $i, $version := .Data.Versions}}
+            <div>
+               <p class="heading-medium margin-bottom--1">
+                  <a href="{{.FilterURL}}">{{.Title}}</a>
+               </p>
+               <p class="font-normal margin-top--0 margin-bottom--0">Version: {{.VersionNumber}}  {{if .IsLatest}}(latest){{end}}</p>
+               <p class="font-normal margin-top--0 margin-bottom--0">Revision date: {{dateFormat .Date}}</p>
+               <p class="heading-normal margin-top--1 margin-bottom--0"><strong>Downloads:</strong><p>
+               {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}}{{humanSize .Size}}</a>{{end}}
+               {{if .Superseded}}
+                  <details role="group" class="margin-bottom--1">
+                     <summary role="button" aria-controls="details-content-0">
+                        <span class="summary link--underline">Corrections</span>
+                     </summary>
+                     {{if .Corrections}}
+                        {{ range $i, $correction := .Corrections }}
+                           <h2 class="heading-normal margin-top--0 padding-top--1">Correction: {{dateFormat .Date}} </h2>
+                           <p class="margin-top--0 margin-bottom--2">{{.Reason}}</p>
+                        {{ end }}
+                     {{ end }}
+                     <a href="{{$version.Superseded}}">View superseded version</a>
+                  </details>
+               {{ end }}
+               {{range .Downloads}}<a class="btn btn--primary uppercase" href="{{.URI}}">{{.Extension}}{{humanSize .Size}}</a>{{end}}
             </div>
+            {{ if $i }}{{else}}<hr>{{ end }}
+         {{end}}
         </div>
     </div>
 </div>
