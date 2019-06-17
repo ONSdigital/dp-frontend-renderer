@@ -2,13 +2,15 @@ package render
 
 import (
 	"fmt"
-	"github.com/ONSdigital/go-ns/log"
-	"github.com/c2h5oh/datasize"
-	"github.com/gosimple/slug"
 	"html/template"
 	"reflect"
 	"strconv"
 	"time"
+
+	"github.com/ONSdigital/go-ns/log"
+	"github.com/c2h5oh/datasize"
+	"github.com/gosimple/slug"
+	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
 const legacyDatasetURIFormat = "/file?uri=%s/%s"
@@ -74,4 +76,10 @@ func LegacyDataSetDownloadURI(pageURI, filename string) string {
 	// The preference is for our links not to be escaped to maintain readability. To remedy this we build
 	// the link inside this func which is then inserted into template.
 	return fmt.Sprintf(legacyDatasetURIFormat, pageURI, filename)
+}
+
+// Markdown converts markdown to HTML
+func Markdown(args ...interface{}) template.HTML {
+	s := blackfriday.Run([]byte(fmt.Sprintf("%s", args...)))
+	return template.HTML(s)
 }

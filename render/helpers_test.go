@@ -1,8 +1,9 @@
 package render
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestLegacyDatasetDownloadURI(t *testing.T) {
@@ -34,5 +35,14 @@ func TestHumanSize(t *testing.T) {
 		res, err := HumanSize("green eggs and ham")
 		So(err, ShouldNotBeNil)
 		So(res, ShouldBeEmpty)
+	})
+}
+
+var testMarkdown = "- First bullet point\n\n- Second bullet point\n\n\tSecond line of second bullet point"
+var testHTML = "<ul>\n<li><p>First bullet point</p></li>\n\n<li><p>Second bullet point</p>\n\n<p>Second line of second bullet point</p></li>\n</ul>\n"
+
+func TestMarkdown(t *testing.T) {
+	Convey("markdown should return expected HTML", t, func() {
+		So(Markdown(testMarkdown), ShouldEqual, testHTML)
 	})
 }
