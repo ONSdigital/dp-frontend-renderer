@@ -75,17 +75,10 @@
 			"revisionTime": "2017-12-08T12:25:48Z"
 		},
 		{
-<<<<<<< HEAD
-			"checksumSHA1": "OzbZZHdF+rBV9z4JsWXMyzuG0eQ=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable",
-			"revision": "1383b875650125aa733abfda71fa670521dcb9e7",
-			"revisionTime": "2019-05-14T11:12:07Z"
-=======
 			"checksumSHA1": "ofMAyp6edD8DkjIDi+DJP+FWSH4=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable",
-			"revision": "fac76886a5fa5661eef3073f50d4cd896db3a3dd",
-			"revisionTime": "2019-05-28T15:16:23Z"
->>>>>>> feature/show-edition-name-flag
+			"revision": "0da2d5e7b2f5f96ce54e4ec876b005df50407613",
+			"revisionTime": "2019-06-12T15:41:18Z"
 		},
 		{
 			"checksumSHA1": "2Ww7ArlxDH4Cs/1S01vx1heMAow=",
