@@ -291,7 +291,7 @@ func templatesDatasetlandingpageStaticTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/datasetLandingPage/static.tmpl", size: 14419, mode: os.FileMode(420), modTime: time.Unix(1560953718, 0)}
+	info := bindataFileInfo{name: "templates/datasetLandingPage/static.tmpl", size: 14419, mode: os.FileMode(420), modTime: time.Unix(1561022925, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
