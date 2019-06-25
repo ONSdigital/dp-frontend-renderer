@@ -45,8 +45,12 @@
                             <tr>
                                 <td>{{dateFormat .Date}}</td>
                                 <td>
-                                    {{range $i, $reason := .Reasons}}
-                                        <p class="wrap">{{$reason}}</p>
+                                    {{if .Reasons}}
+                                        {{range $i, $reason := .Reasons}}
+                                            <p class="wrap">{{$reason}}</p>
+                                        {{end}}
+                                    {{else}}
+                                        <p class="wrap"> - </p>
                                     {{end}}
                                 </td>
                                 <td>
