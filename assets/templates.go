@@ -551,7 +551,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 15132, mode: os.FileMode(420), modTime: time.Unix(1561469191, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 15132, mode: os.FileMode(420), modTime: time.Unix(1561469635, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
