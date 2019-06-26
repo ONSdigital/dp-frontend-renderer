@@ -124,11 +124,11 @@
                             <div class="inline-block--md margin-bottom-sm--1">
                                 <a href="{{ legacyDatasetDownloadURI $timeseriesDataset.URI .URI }}" class="btn btn--primary btn--thick">
                                     <span class="visuallyhidden">Download {{ $.Metadata.Title }} in {{ .Extension }} format</span>
-                                    {{if eq .Extension "csdb"}}
+                                    {{ if eq .Extension "csdb" }}
                                         structured text ({{ humanSize .Size }})
-                                    {{else}}
+                                    {{ else }}
                                         {{ .Extension }} ({{ humanSize .Size }})
-                                    {{end}}
+                                    {{ end }}
                                 </a>
                             </div>
                         {{ end }}
@@ -162,11 +162,11 @@
                                             <div class="inline-block--md margin-bottom-sm--1">
                                                 <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}" class="btn btn--primary btn--thick">
                                                     <span class="visuallyhidden">Download {{$.Metadata.Title}}: {{$dataset.Title}} in {{ .Extension }} format</span>
-                                                    {{if eq .Extension "csdb"}}
+                                                    {{ if eq .Extension "csdb" }}
                                                         structured text ({{ humanSize .Size }})
-                                                    {{else}}
+                                                    {{ else }}
                                                         <span>{{ .Extension }} ({{ humanSize .Size }})</span>
-                                                    {{end}}
+                                                    {{ end }}
                                                 </a>
                                             </div>
                                         {{ end }}
