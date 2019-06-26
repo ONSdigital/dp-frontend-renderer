@@ -128,6 +128,12 @@
                                 </a>
                             </div>
                         {{ end }}
+                        {{ if $timeseriesDataset.HasVersions }}
+                            <p class="margin-top--0">
+                                <span class="icon icon-info--inline"></span>
+                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3">Previous versions</a> of this data are available.
+                            </p>
+                        {{ end }}
                         {{ if $timeseriesDataset.SupplementaryFiles }}
                             <h4 class="margin-bottom--0">Supporting files you may find useful</h4>
                             <ul class="list--neutral margin-top--0">
