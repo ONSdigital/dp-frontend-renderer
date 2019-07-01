@@ -210,14 +210,16 @@
         </div>
     </div>
     {{end}}
-    <div class="banner">
-        <div class="wrapper">
-            <div class="col col--md-40 col--lg-44">
-                <span class="banner__text-icon">Beta</span>
-                <div class="banner__body">
-                    <p>This is a new way of getting data &ndash; your <a href="/feedback?service=cmd">feedback</a> will help us to improve it.</p>
+    {{if .BetaBannerEnabled}}
+        <div class="banner">
+            <div class="wrapper">
+                <div class="col col--md-40 col--lg-44">
+                    <span class="banner__text-icon">Beta</span>
+                    <div class="banner__body">
+                        <p>This is a new way of getting data &ndash; your <a href="/feedback?service=cmd">feedback</a> will help us to improve it.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {{end}}
 </header>
