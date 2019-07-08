@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"html/template"
 	"reflect"
+	"regexp"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/ONSdigital/go-ns/log"
@@ -83,44 +85,13 @@ func Markdown(md string) template.HTML {
 	// lot's of the markdown we currently have stored doesn't match markdown title specs
 	// currently it has no space between the hashes and the title text e.g. ##Title
 	// to use our new markdown parser we have add a space e.g. ## Title
+	re := regexp.MustCompile(`(##+)([^\s#])`)
 
-	byteToCheck := byte('#')
-	var previousByte byte
-	isTitleTag := false
-
-	for i := 0; i < len(md); i++ {
-		// current byte iteration is a part of a title
-		if isTitleTag {
-			// if current iteration is a hash continue (until we find the the end of the hashes)
-			if md[i] == byteToCheck {
-				continue
-			}
-
-			isTitleTag = false
-			previousByte = md[i]
-
-			// if a space already exists after hashes continue and don't add a space
-			if md[i] == ' ' {
-				continue
-			}
-
-			// add a space between hashes and title
-			md = md[0:i] + " " + md[i:]
-			continue
-		}
-
-		// check current iteration is title tag
-		if md[i] == byteToCheck {
-			// if previous btye and current match
-			if previousByte == md[i] {
-				isTitleTag = true
-				continue
-			}
-			previousByte = md[i]
-		}
-
+	modifiedMarkdown := strings.Builder{}
+	for _, line := range strings.Split(md, "\n") {
+		modifiedMarkdown.WriteString(fmt.Sprintf("%s\n", re.ReplaceAllString(line, "$1 $2")))
 	}
 
-	s := blackfriday.Run([]byte(fmt.Sprintf("%s", md)))
+	s := blackfriday.Run([]byte(fmt.Sprintf("%s", modifiedMarkdown.String())))
 	return template.HTML(s)
 }
