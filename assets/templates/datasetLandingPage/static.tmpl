@@ -74,7 +74,7 @@
                         <img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo">
                     </a>
                 {{ end }}
-                <dt class="meta__term">Contact</dt>
+                <dt class="meta__term">Contact:</dt>
                 <dd>
                     {{ if .ContactDetails.Email}}
                         <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Name }}</a>
@@ -84,15 +84,20 @@
                 </dd>
             </div>
             <div class="col col--md-12 col--lg-15 meta__item">
-                <dt class="meta__term">Release date</dt>
+                <dt class="meta__term">Release date:</dt>
                 <dd>{{ dateFormat .DatasetLandingPage.ReleaseDate }}</dd>
             </div>
-            {{ if .DatasetLandingPage.NextRelease}}
                 <div class="col col--md-12 col--lg-15 meta__item">
-                    <dt class="meta__term">Next release</dt>
-                    <dd>{{ .DatasetLandingPage.NextRelease }}</dd>
+                    <dt class="meta__term">Next release:</dt>
+                    <dd>
+                        {{ if .DatasetLandingPage.NextRelease}}
+                            {{ .DatasetLandingPage.NextRelease }}
+                        {{ else }}
+                            To be announced
+                        {{ end }}
+                    </dd>
                 </div>
-            {{ end }}
+            
         </dl>
     </div>
 </div>
