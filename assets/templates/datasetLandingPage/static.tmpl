@@ -93,6 +93,12 @@
                     <dd>{{ .DatasetLandingPage.NextRelease }}</dd>
                 </div>
             {{ end }}
+            {{ if .DatasetLandingPage.DatasetID}}
+                <div class="col col--md-12 col--lg-15 meta__item">
+                    <dt class="meta__term">Dataset ID</dt>
+                    <dd>{{ .DatasetLandingPage.DatasetID }}</dd>
+                </div>
+            {{ end }}
         </dl>
     </div>
 </div>
