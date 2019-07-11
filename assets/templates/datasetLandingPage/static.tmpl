@@ -87,16 +87,22 @@
                 <dt class="meta__term">Release date:</dt>
                 <dd>{{ dateFormat .DatasetLandingPage.ReleaseDate }}</dd>
             </div>
+            <div class="col col--md-12 col--lg-15 meta__item">
+                <dt class="meta__term">Next release:</dt>
+                <dd>
+                    {{ if .DatasetLandingPage.NextRelease }}
+                        {{ .DatasetLandingPage.NextRelease }}
+                    {{ else }}
+                        To be announced
+                    {{ end }}
+                </dd>
+            </div>
+            {{ if .DatasetLandingPage.DatasetID}}
                 <div class="col col--md-12 col--lg-15 meta__item">
-                    <dt class="meta__term">Next release:</dt>
-                    <dd>
-                        {{ if .DatasetLandingPage.NextRelease }}
-                            {{ .DatasetLandingPage.NextRelease }}
-                        {{ else }}
-                            To be announced
-                        {{ end }}
-                    </dd>
+                    <dt class="meta__term">Dataset ID:</dt>
+                    <dd>{{ .DatasetLandingPage.DatasetID }}</dd>
                 </div>
+            {{ end }}
         </dl>
     </div>
 </div>
