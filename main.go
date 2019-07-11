@@ -84,14 +84,15 @@ func main() {
 		IsDevelopment: config.DebugMode,
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
-			"humanSize":          renderHelpers.HumanSize,
-			"safeHTML":           renderHelpers.SafeHTML,
-			"dateFormat":         renderHelpers.DateFormat,
-			"dateFormatYYYYMMDD": renderHelpers.DateFormatYYYYMMDD,
-			"last":               renderHelpers.Last,
-			"loop":               renderHelpers.Loop,
-			"subtract":           renderHelpers.Subtract,
-			"slug":               renderHelpers.Slug,
+			"humanSize":                renderHelpers.HumanSize,
+			"safeHTML":                 renderHelpers.SafeHTML,
+			"dateFormat":               renderHelpers.DateFormat,
+			"dateFormatYYYYMMDD":       renderHelpers.DateFormatYYYYMMDD,
+			"last":                     renderHelpers.Last,
+			"loop":                     renderHelpers.Loop,
+			"subtract":                 renderHelpers.Subtract,
+			"slug":                     renderHelpers.Slug,
+			"markdown":                 renderHelpers.Markdown,
 			"legacyDatasetDownloadURI": renderHelpers.LegacyDataSetDownloadURI,
 			"taxonomyLandingPage": func(s string) string {
 				return taxonomyRedirects[s]
