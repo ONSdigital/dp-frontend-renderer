@@ -16,9 +16,13 @@
             </li>
             {{else}}
             <li class="breadcrumb__item line-height--12">
-                <a class="breadcrumb__link" href="{{ $b.URI }}">
+                {{ if $b.URI }}
+                    <a class="breadcrumb__link" href="{{ $b.URI }}">
+                        {{ $b.Title }}
+                    </a>
+                {{ else }}
                     {{ $b.Title }}
-                </a>
+                {{ end }}
             </li>
             {{end}}
         {{end}}
