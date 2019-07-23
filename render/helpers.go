@@ -9,13 +9,29 @@ import (
 	"strings"
 	"time"
 
+	"github.com/BurntSushi/toml"
+	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/go-ns/log"
 	"github.com/c2h5oh/datasize"
 	"github.com/gosimple/slug"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
+	"golang.org/x/text/language"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
 const legacyDatasetURIFormat = "/file?uri=%s/%s"
+
+var bundle = InitLocaleBundle()
+
+// InitLocaleBundle is used to initialise the locale bundle
+func InitLocaleBundle() *i18n.Bundle {
+	bundle := i18n.NewBundle(language.English)
+	bundle.RegisterUnmarshalFunc("toml", toml.Unmarshal)
+	for _, locale := range config.SupportedLanguages {
+		bundle.MustLoadMessageFile("assets/locales/active." + locale + ".toml")
+	}
+	return bundle
+}
 
 func HumanSize(size string) (string, error) {
 	if size == "" {
@@ -94,4 +110,19 @@ func Markdown(md string) template.HTML {
 
 	s := blackfriday.Run([]byte(fmt.Sprintf("%s", modifiedMarkdown.String())))
 	return template.HTML(s)
+}
+
+// Localise localises text based on a key
+func Localise(key string, language string, plural int) string {
+	if key == "" {
+		return ""
+	}
+
+	// Call i18n to get the translations
+	loc := i18n.NewLocalizer(bundle, language)
+	translation := loc.MustLocalize(&i18n.LocalizeConfig{
+		MessageID:   key,
+		PluralCount: plural,
+	})
+	return translation
 }
