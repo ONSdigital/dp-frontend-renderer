@@ -2,13 +2,17 @@ package render
 
 import (
 	"fmt"
+	"html/template"
+	"reflect"
+	"regexp"
+	"strconv"
+	"strings"
+	"time"
+
 	"github.com/ONSdigital/go-ns/log"
 	"github.com/c2h5oh/datasize"
 	"github.com/gosimple/slug"
-	"html/template"
-	"reflect"
-	"strconv"
-	"time"
+	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
 const legacyDatasetURIFormat = "/file?uri=%s/%s"
@@ -74,4 +78,20 @@ func LegacyDataSetDownloadURI(pageURI, filename string) string {
 	// The preference is for our links not to be escaped to maintain readability. To remedy this we build
 	// the link inside this func which is then inserted into template.
 	return fmt.Sprintf(legacyDatasetURIFormat, pageURI, filename)
+}
+
+// Markdown converts markdown to HTML
+func Markdown(md string) template.HTML {
+	// lot's of the markdown we currently have stored doesn't match markdown title specs
+	// currently it has no space between the hashes and the title text e.g. ##Title
+	// to use our new markdown parser we have add a space e.g. ## Title
+	re := regexp.MustCompile(`(##+)([^\s#])`)
+
+	modifiedMarkdown := strings.Builder{}
+	for _, line := range strings.Split(md, "\n") {
+		modifiedMarkdown.WriteString(fmt.Sprintf("%s\n", re.ReplaceAllString(line, "$1 $2")))
+	}
+
+	s := blackfriday.Run([]byte(fmt.Sprintf("%s", modifiedMarkdown.String())))
+	return template.HTML(s)
 }
