@@ -2,3 +2,8 @@
 [Home]
 description = "Homepage"
 one = "Hafen"
+
+[Foo]
+description = "Used for localisation tests"
+one = "One Foo (Welsh)"
+other = "More than two Foo (Welsh)"

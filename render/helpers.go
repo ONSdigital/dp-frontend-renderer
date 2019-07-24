@@ -3,6 +3,7 @@ package render
 import (
 	"fmt"
 	"html/template"
+	"os"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -27,8 +28,15 @@ var bundle = InitLocaleBundle()
 func InitLocaleBundle() *i18n.Bundle {
 	bundle := i18n.NewBundle(language.English)
 	bundle.RegisterUnmarshalFunc("toml", toml.Unmarshal)
+	workingDir, err := os.Getwd()
+	if err != nil {
+		log.Error(err, nil)
+	}
+	parts := strings.SplitAfter(workingDir, "dp-frontend-renderer/")
+	projectRootDir := parts[0]
 	for _, locale := range config.SupportedLanguages {
-		bundle.MustLoadMessageFile("assets/locales/active." + locale + ".toml")
+		filePath := projectRootDir + "/assets/locales/active." + locale + ".toml"
+		bundle.MustLoadMessageFile(filePath)
 	}
 	return bundle
 }
