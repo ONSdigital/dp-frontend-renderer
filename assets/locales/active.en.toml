@@ -1,9 +1,176 @@
 # active.en.toml
-[Home]
-description = "Homepage"
-one = "Home"
-
+# Notes
+# - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
+# - Argumets can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
+# Used for tests
 [Foo]
 description = "Used for localisation tests"
 one = "One Foo (English)"
 other = "More than two Foo (English)"
+
+# Primarly used in header template
+[Home]
+description = "Homepage"
+one = "Home"
+
+[SkipToContent]
+description = "Skip to main content"
+one = "Skip to main content"
+
+[ChangeLanguage]
+description = "Change language"
+one = "Change language"
+
+[WelshToggle]
+description = "Cymraeg (CY)"
+one = "Cymraeg (CY)"
+
+[EnglishToggle]
+description = "English (EN)"
+one = "English (EN)"
+
+[ReleaseCalendar]
+description = "Release calendar"
+one = "Release calendar"
+
+[Media]
+description = "Media"
+one = "Media"
+
+[About]
+description = "About"
+one = "About"
+
+[Blog]
+description = "Blog"
+one = "Blog"
+
+[Menu]
+description = "Menu"
+one = "Menu"
+
+[Search]
+description = "Search"
+one = "Search"
+
+[BusinessIndustryTrade]
+description = "Business, industry and trade"
+one = "Business, industry and trade"
+
+[Business]
+description = "Business"
+one = "Business"
+
+[ChangesToBusiness]
+description = "Changes to business"
+one = "Changes to business"
+
+[ConstructionIndustry]
+description = "Construction industry"
+one = "Construction industry"
+
+
+
+# Primarily used in static dataset landing page
+[Dataset]
+description = "Dataset"
+one = "Dataset"
+
+[CorrectionsAndNotices]
+description = "Corrections and notices"
+one = "Corrections and notices"
+
+[Notice]
+description = "Notice"
+one = "Notice"
+other = "Notices"
+
+[Correction]
+description = "Correction"
+one = "Correction"
+other = "Corrections"
+
+[Contact]
+description = "Contact:"
+one = "Contact:"
+
+[ReleaseDate]
+description = "Release date:"
+one = "Release date:"
+
+[NextRelease]
+description = "Next release:"
+one = "Next release:"
+
+[TBA]
+description = "To be announced"
+one = "To be announced"
+
+[DatasetID]
+description = "Dataset ID:"
+one = "Dataset ID:"
+
+[AboutThisDataset]
+description = "About this Dataset"
+one = "About this Dataset"
+
+[TryFilterAndDownload]
+description = "Try the new way to filter and download this data:"
+one = "Try the new way to filter and download this data:"
+
+[DownloadOption]
+description = "Your download option"
+one = "Your download option"
+other = "Your download options"
+
+[DownloadInFormatWithSingleTitle]
+description = "Download {{title}} in {{download extention}} format"
+one = "Download {{.arg0}} in {{.arg1}} format"
+
+[DownloadInFormatWithFullTitle]
+description = "Download {{title}}: {{dataset.Title}} in {{download extention}} format"
+one = "Download {{.arg0}}: {{.arg1}} in {{.arg2}} format"
+
+[StructuredText]
+description = "structured text"
+one = "structured text"
+
+[PreviousVersion]
+description = "Previous versions"
+one = "Previous version"
+other = "Previous versions"
+
+[DataAvailable]
+description = "of this data are available."
+one = "of this data is available."
+other = "of this data are available."
+
+[UsfulSupportingFiles]
+description = "Supporting files you may find useful"
+one = "Supporting files you may find useful"
+
+[NotesAndUsage]
+description = "Important notes and usage information"
+one = "Important notes and usage information"
+
+[ViewAllData]
+description = "View all data related to"
+one = "View all data related to"
+
+[DatasetContactDetails]
+description = "Contact details for this dataset"
+one = "Contact details for this dataset"
+
+[UsedInPublication]
+description = "Publications that use this data"
+one = "Publications that use this data"
+
+[Methodology]
+description = "Methodology"
+one = "Methodology"
+
+[RelatedLinks]
+description = "Related links"
+one = "Related links"
+other = "Related links"
+

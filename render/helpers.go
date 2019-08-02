@@ -121,16 +121,24 @@ func Markdown(md string) template.HTML {
 }
 
 // Localise localises text based on a key
-func Localise(key string, language string, plural int) string {
+func Localise(key string, language string, plural int, templateArguments ...string) string {
 	if key == "" {
 		return ""
 	}
-
-	// Call i18n to get the translations
+	// Configure template data for arguments in strings
+	templateData := make(map[string]string)
+	for i, argument := range templateArguments {
+		stringIndex := strconv.Itoa(i)
+		key := "arg" + stringIndex
+		templateData[key] = argument
+	}
+	// Get translation
 	loc := i18n.NewLocalizer(bundle, language)
 	translation := loc.MustLocalize(&i18n.LocalizeConfig{
-		MessageID:   key,
-		PluralCount: plural,
+		MessageID:    key,
+		PluralCount:  plural,
+		TemplateData: templateData,
 	})
+	fmt.Println("map:", templateData)
 	return translation
 }
