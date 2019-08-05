@@ -145,7 +145,7 @@
 
                                     
                                     {{ if eq .Extension "csdb" }}
-                                        {{ Localise "StructuredText" "en" 1 }}({{ humanSize .Size }})
+                                        {{ Localise "StructuredText" "en" 1 }} ({{ humanSize .Size }})
                                     {{ else }}
                                         {{ .Extension }} ({{ humanSize .Size }})
                                     {{ end }}
@@ -155,7 +155,7 @@
                         {{ if $timeseriesDataset.HasVersions }}
                             <p class="margin-top--0">
                                 <span class="icon icon-info--inline"></span>
-                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3">{{ Localise "PreviousVersion" "en" 2 }}</a> {{ Localise "DataAvailable" "en" 2 }}
+                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3"> {{ Localise "PreviousVersionAvailable" "en" 2 }}
                             </p>
                         {{ end }}
                         {{ if $timeseriesDataset.SupplementaryFiles }}

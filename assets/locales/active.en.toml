@@ -1,7 +1,12 @@
 # active.en.toml
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Notes
 # - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
 # - Argumets can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
+# - To inject HTML (Avoid where possible as it is messy) use "| safeHTML" e.g. {{ localise Foo .Language 1 | safeHTML }} where Foo might be "<strong>test</strong>"
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Used for tests
 [Foo]
 description = "Used for localisation tests"
@@ -9,6 +14,10 @@ one = "One Foo (English)"
 other = "More than two Foo (English)"
 
 # Primarly used in header template
+[OfficeForNationalStatistics]
+description = "Office for National Statistics"
+one = "Office for National Statistics"
+
 [Home]
 description = "Homepage"
 one = "Home"
@@ -69,7 +78,222 @@ one = "Changes to business"
 description = "Construction industry"
 one = "Construction industry"
 
+[ITInternetIndustry]
+description = "IT and internet industry"
+one = "IT and internet industry"
 
+[InternationalTrade]
+description = "International trade"
+one = "International trade"
+
+[ManufacturingProductionIndustry]
+description = "Manufacturing and production industry"
+one = "Manufacturing and production industry"
+
+[RetailIndustry]
+description = "Retail industry"
+one = "Retail industry"
+
+[TourismIndustry]
+description = "Tourism industry"
+one = "Tourism industry"
+
+[Economy]
+description = "Economy"
+one = "Economy"
+
+[EconomicOutputProductivity]
+description = "Economic output and productivity"
+one = "Economic output and productivity"
+
+[EnvironmentalAccounts]
+description = "Environmental accounts"
+one = "Environmental accounts"
+
+[GovernmentPublicSectorTaxes]
+description = "Government, public sector and taxes"
+one = "Government, public sector and taxes"
+
+[GrossDomesticProduct]
+description = "Gross Domestic Product (GDP)"
+one = "Gross Domestic Product (GDP)"
+
+[GrossDomesticValue]
+description = "Gross Value Added (GVA)"
+one = "Gross Value Added (GVA)"
+
+[InflationPriceIndices]
+description = "Inflation and price indices"
+one = "Inflation and price indices"
+
+[InvestmentsPensionsTrusts]
+description = "Investments, pensions and trusts"
+one = "Investments, pensions and trusts"
+
+[NationalAccounts]
+description = "National accountss"
+one = "National accounts"
+
+[RegionalAccounts]
+description = "Regional accountss"
+one = "Regional accounts"
+
+[EmploymentLabourMarket]
+description = "Employment and labour market"
+one = "Employment and labour market"
+
+[PeopleInWork]
+description = "People in work"
+one = "People in work"
+
+[PeopleNotInWork]
+description = "People not in work"
+one = "People not in work"
+
+[PeoplePopulationCommunity]
+description = "People, population and community"
+one = "People, population and community"
+
+[BirthsDeathsMarriages]
+description = "Births, deaths and marriages"
+one = "Births, deaths and marriages"
+
+[CrimeJustice]
+description = "Crime and justice"
+one = "Crime and justice"
+
+[CulturalIdentity]
+description = "Cultural identity"
+one = "Cultural identity"
+
+[EducationChildcare]
+description = "Education and childcare"
+one = "Education and childcare"
+
+[Elections]
+description = "Elections"
+one = "Elections"
+
+[HealthSocialCare]
+description = "Health and social care"
+one = "Health and social care"
+
+[HouseholdCharacteristics]
+description = "Household characteristics"
+one = "Household characteristics"
+
+[Housing]
+description = "Housing"
+one = "Housing"
+
+[LeisureTourism]
+description = "Leisure and tourism"
+one = "Leisure and tourism"
+
+[PersonalHouseholdFinances]
+description = "Personal and household finances"
+one = "Personal and household finances"
+
+[PopulationMigration]
+description = "Population and migration"
+one = "Population and migration"
+
+[Wellbeing]
+description = "Well-being"
+one = "Well-being"
+
+[SurveyTakingPart]
+description = "Taking part in a survey?"
+one = "Taking part in a survey?"
+
+[SearchKeywordTimeSeriesID]
+description = "Search for a keyword(s) or time series ID"
+one = "Search for a keyword(s) or time series ID"
+
+[Beta]
+description = "Beta"
+one = "Beta"
+
+[BetaFeedbackPart1]
+description = "This is a new way of getting data - your"
+one = "This is a new way of getting data - your"
+
+[BetaFeedbackPart2]
+description = "feedback"
+one = " feedback "
+
+[BetaFeedbackPart3]
+description = "will help us to improve it."
+one = "will help us to improve it."
+
+# Primarily used in footer tempalte]
+[FooterLinks]
+description = "Footer links"
+one = "Footer links"
+
+[Help]
+description = "Help"
+one = "Help"
+
+[Accessibility]
+description = "Accessibility"
+one = "Accessibility"
+
+[CookiesPrivacy]
+description = "Cookies and privacy"
+one = "Cookies and privacy"
+
+[TermsConditions]
+description = "Terms and conditions"
+one = "Terms and conditions"
+
+[AboutONS]
+description = "About ONS"
+one = "About ONS"
+
+[WhatWeDo]
+description = "What we do"
+one = "What we do"
+
+[Careers]
+description = "Careers"
+one = "Careers"
+
+[ContactUs]
+description = "Contact us"
+one = "Contact us"
+
+[News]
+description = "News"
+one = "News"
+
+[FreedomInformation]
+description = "Freedom of Information"
+one = "Freedom of Information"
+
+[ConnectWithUs]
+description = "Connect with us"
+one = "Connect with us"
+
+[Twitter]
+description = "Twitter"
+one = "Twitter"
+
+[Facebook]
+description = "Facebook"
+one = "Facebook"
+
+[LinkedIn]
+description = "LinkedIn"
+one = "LinkedIn"
+
+[EmailAlerts]
+description = "Email alerts"
+one = "Email alerts"
+
+[OGLFull]
+description = "Open Government Licence v3.0"
+one = "All content is available under the <a class=\"icon--hide\" href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" target=\"_blank\">Open Government Licence v3.0</a> <span class=\"icon icon-external--light-small\"></span>, except where otherwise stated"
 
 # Primarily used in static dataset landing page
 [Dataset]
@@ -135,15 +359,10 @@ one = "Download {{.arg0}}: {{.arg1}} in {{.arg2}} format"
 description = "structured text"
 one = "structured text"
 
-[PreviousVersion]
-description = "Previous versions"
-one = "Previous version"
-other = "Previous versions"
-
-[DataAvailable]
-description = "of this data are available."
-one = "of this data is available."
-other = "of this data are available."
+[PreviousVersionAvailable]
+description = "Previous versions </a> of this data are available."
+one = "Previous version </a> of this data is available."
+other = "Previous versions </a> of this data are available."
 
 [UsfulSupportingFiles]
 description = "Supporting files you may find useful"

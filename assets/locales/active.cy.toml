@@ -1,17 +1,300 @@
 # active.cy.toml
 
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Notes
+# - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
+# - Argumets can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
+# - To inject HTML (Avoid where possible as it is messy) use "| safeHTML" e.g. {{ localise Foo .Language 1 | safeHTML }} where Foo might be "<strong>test</strong>"
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Used for tests
 [Foo]
 description = "Used for localisation tests"
 one = "One Foo (Welsh)"
 other = "More than two Foo (Welsh)"
 
+# Primarly used in header template
 [Home]
 description = "Homepage"
 one = "Hafen"
 
+[SkipToContent]
+description = "Skip to main content"
+one = "Skip to main content"
+
+[ChangeLanguage]
+description = "Change language"
+one = "Change language"
+
+[WelshToggle]
+description = "Cymraeg (CY)"
+one = "Cymraeg (CY)"
+
+[EnglishToggle]
+description = "English (EN)"
+one = "English (EN)"
+
+[ReleaseCalendar]
+description = "Release calendar"
+one = "Calendar datganiadau"
+
+[Media]
+description = "Media"
+one = "Media"
+
+[About]
+description = "About"
+one = "Amdanom ni"
+
+[Blog]
+description = "Blog"
+one = "Blog"
+
+[Menu]
+description = "Menu"
+one = "Dewislen"
+
+[Search]
+description = "Search"
+one = "Chwilio"
+
+[BusinessIndustryTrade]
+description = "Business, industry and trade"
+one = "Business, industry and trade"
+
+[Business]
+description = "Business"
+one = "Business"
+
+[ChangesToBusiness]
+description = "Changes to business"
+one = "Changes to business"
+
+[ConstructionIndustry]
+description = "Construction industry"
+one = "Construction industry"
+
+[ITInternetIndustry]
+description = "IT and internet industry"
+one = "IT and internet industry"
+
+[InternationalTrade]
+description = "International trade"
+one = "International trade"
+
+[ManufacturingProductionIndustry]
+description = "Manufacturing and production industry"
+one = "Manufacturing and production industry"
+
+[RetailIndustry]
+description = "Retail industry"
+one = "Retail industry"
+
+[TourismIndustry]
+description = "Tourism industry"
+one = "Tourism industry"
+
+[Economy]
+description = "Economy"
+one = "Economy"
+
+[EconomicOutputProductivity]
+description = "Economic output and productivity"
+one = "Economic output and productivity"
+
+[EnvironmentalAccounts]
+description = "Environmental accounts"
+one = "Environmental accounts"
+
+[GovernmentPublicSectorTaxes]
+description = "Government, public sector and taxes"
+one = "Government, public sector and taxes"
+
+[GrossDomesticProduct]
+description = "Gross Domestic Product (GDP)"
+one = "Gross Domestic Product (GDP)"
+
+[GrossDomesticValue]
+description = "Gross Value Added (GVA)"
+one = "Gross Value Added (GVA)"
+
+[InflationPriceIndices]
+description = "Inflation and price indices"
+one = "Inflation and price indices"
+
+[InvestmentsPensionsTrusts]
+description = "Investments, pensions and trusts"
+one = "Investments, pensions and trusts"
+
+[NationalAccounts]
+description = "National accounts"
+one = "National accounts"
+
+[RegionalAccounts]
+description = "Regional accounts"
+one = "Regional accounts"
+
+[EmploymentLabourMarket]
+description = "Employment and labour market"
+one = "Employment and labour market"
+
+[PeopleInWork]
+description = "People in work"
+one = "People in work"
+
+[PeopleNotInWork]
+description = "People not in work"
+one = "People not in work"
+
+[PeoplePopulationCommunity]
+description = "People, population and community"
+one = "People, population and community"
+
+[BirthsDeathsMarriages]
+description = "Births, deaths and marriages"
+one = "Births, deaths and marriages"
+
+[CrimeJustice]
+description = "Crime and justice"
+one = "Crime and justice"
+
+[CulturalIdentity]
+description = "Cultural identity"
+one = "Cultural identity"
+
+[EducationChildcare]
+description = "Education and childcare"
+one = "Education and childcare"
+
+[Elections]
+description = "Elections"
+one = "Elections"
+
+[HealthSocialCare]
+description = "Health and social care"
+one = "Health and social care"
+
+[HouseholdCharacteristics]
+description = "Household characteristics"
+one = "Household characteristics"
+
+[Housing]
+description = "Housing"
+one = "Housing"
+
+[LeisureTourism]
+description = "Leisure and tourism"
+one = "Leisure and tourism"
+
+[PersonalHouseholdFinances]
+description = "Personal and household finances"
+one = "Personal and household finances"
+
+[PopulationMigration]
+description = "Population and migration"
+one = "Population and migration"
+
+[Wellbeing]
+description = "Well-being"
+one = "Well-being"
+
+[SurveyTakingPart]
+description = "Taking part in a survey?"
+one = "Cymryd rhan mewn arolwg?"
+
+[SearchKeywordTimeSeriesID]
+description = "Search for a keyword(s) or time series ID"
+one = "Chwilio am allweddair neu ID cyfres amser"
+
+[Beta]
+description = "Beta"
+one = "Beta"
+
+[BetaFeedbackPart1]
+description = "This is a new way of getting data - your"
+one = "This is a new way of getting data - your"
+
+[BetaFeedbackPart2]
+description = " feedback "
+one = " feedback "
+
+[BetaFeedbackPart3]
+description = "will help us to improve it."
+one = "will help us to improve it."
+
+# Primarily used in footer tempalte
+[FooterLinks]
+description = "Footer links"
+one = "Footer links"
+
+[Help]
+description = "Help"
+one = "Cymorth"
+
+[Accessibility]
+description = "Accessibility"
+one = "Hygyrchedd"
+
+[CookiesPrivacy]
+description = "Cookies and privacy"
+one = "Briwsion a phreifatrwydd"
+
+[TermsConditions]
+description = "Terms and conditions"
+one = "Telerau ac amodau"
+
+[AboutONS]
+description = "About ONS"
+one = "Ynglŷn ag SYG"
+
+[WhatWeDo]
+description = "What we do"
+one = "Beth rydym yn ei wneud"
+
+[Careers]
+description = "Careers"
+one = "Gyrfaoedd"
+
+[ContactUs]
+description = "Contact us"
+one = "Cysylltu â ni"
+
+[News]
+description = "News"
+one = "News"
+
+[FreedomInformation]
+description = "Freedom of Information"
+one = "Rhyddid Gwybodaeth"
+
+[ConnectWithUs]
+description = "Connect with us"
+one = "Cysylltu â ni"
+
+[Twitter]
+description = "Twitter"
+one = "Twitter"
+
+[Facebook]
+description = "Facebook"
+one = "Facebook"
+
+[LinkedIn]
+description = "LinkedIn"
+one = "LinkedIn"
+
+[EmailAlerts]
+description = "Email alerts"
+one = "Rhybuddion ebost"
+
+[OGLFull]
+description = "Open Government Licence v3.0"
+one = "Mae'r holl gynnwys ar gael o dan delerau'r <a class=\"icon--hide\" href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" target=\"_blank\">Open Government Licence v3.0</a> <span class=\"icon icon-external--light-small\"></span>, ac eithrio lle y nodir fel arall"
+
+# Primarily used in static dataset landing page
 [Dataset]
 description = "Dataset"
-one = "Dataset"
+one = "Set ddata"
 
 [CorrectionsAndNotices]
 description = "Corrections and notices"
@@ -29,15 +312,15 @@ other = "Corrections"
 
 [Contact]
 description = "Contact:"
-one = "Contact:"
+one = "Cyswllt:"
 
 [ReleaseDate]
 description = "Release date:"
-one = "Release date:"
+one = "Dyddiad y datganiad:"
 
 [NextRelease]
 description = "Next release:"
-one = "Next release:"
+one = "Cyhoeddiad nesaf:"
 
 [TBA]
 description = "To be announced"
@@ -45,7 +328,7 @@ one = "To be announced"
 
 [DatasetID]
 description = "Dataset ID:"
-one = "Dataset ID:"
+one = "ID y set ddata:"
 
 [AboutThisDataset]
 description = "About this Dataset"
@@ -72,10 +355,10 @@ one = "Download {{.arg0}}: {{.arg1}} in {{.arg2}} format"
 description = "structured text"
 one = "structured text"
 
-[PreviousVersion]
-description = "Previous versions"
-one = "Previous version"
-other = "Previous versions"
+[PreviousVersionAvailable]
+description = "Previous versions </a> of this data are available."
+one = "Previous version </a> of this data is available."
+other = "Previous versions </a> of this data are available."
 
 [DataAvailable]
 description = "of this data are available."
@@ -88,7 +371,7 @@ one = "Supporting files you may find useful"
 
 [NotesAndUsage]
 description = "Important notes and usage information"
-one = "Important notes and usage information"
+one = "Nodiadau pwysig a gwybodaeth ynghylch defnyddio"
 
 [ViewAllData]
 description = "View all data related to"
@@ -96,18 +379,17 @@ one = "View all data related to"
 
 [DatasetContactDetails]
 description = "Contact details for this dataset"
-one = "Contact details for this dataset"
+one = "Manylion cyswllt ar gyfer y set ddata hon"
 
 [UsedInPublication]
 description = "Publications that use this data"
-one = "Publications that use this data"
+one = "Cyhoeddiadau sy'n defnyddio'r data hwn"
 
 [Methodology]
 description = "Methodology"
-one = "Methodology"
+one = "Methodoleg"
 
 [RelatedLinks]
 description = "Related links"
 one = "Related links"
 other = "Related links"
-
