@@ -139,6 +139,5 @@ func Localise(key string, language string, plural int, templateArguments ...stri
 		PluralCount:  plural,
 		TemplateData: templateData,
 	})
-	fmt.Println("map:", templateData)
 	return translation
 }
