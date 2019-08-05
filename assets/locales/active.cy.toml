@@ -60,143 +60,143 @@ one = "Chwilio"
 
 [BusinessIndustryTrade]
 description = "Business, industry and trade"
-one = "Business, industry and trade"
+one = "Busnes, diwydiant a masnach"
 
 [Business]
 description = "Business"
-one = "Business"
+one = "Busnes"
 
 [ChangesToBusiness]
 description = "Changes to business"
-one = "Changes to business"
+one = "Newidiadau i fusnesau"
 
 [ConstructionIndustry]
 description = "Construction industry"
-one = "Construction industry"
+one = "Diwydiant adeiladu"
 
 [ITInternetIndustry]
 description = "IT and internet industry"
-one = "IT and internet industry"
+one = "Y diwydiant TG a'r rhyngrwyd"
 
 [InternationalTrade]
 description = "International trade"
-one = "International trade"
+one = "Masnach ryngwladol"
 
 [ManufacturingProductionIndustry]
 description = "Manufacturing and production industry"
-one = "Manufacturing and production industry"
+one = "Y diwydiant gweithgynhyrchu a chynhyrchu"
 
 [RetailIndustry]
 description = "Retail industry"
-one = "Retail industry"
+one = "Y diwydiant manwethu"
 
 [TourismIndustry]
 description = "Tourism industry"
-one = "Tourism industry"
+one = "Y diwydiant twristiaeth"
 
 [Economy]
 description = "Economy"
-one = "Economy"
+one = "Yr economi"
 
 [EconomicOutputProductivity]
 description = "Economic output and productivity"
-one = "Economic output and productivity"
+one = "Allgynnyrch economaidd a chynhyrchiant"
 
 [EnvironmentalAccounts]
 description = "Environmental accounts"
-one = "Environmental accounts"
+one = "Cyfrifon amgylcheddol"
 
 [GovernmentPublicSectorTaxes]
 description = "Government, public sector and taxes"
-one = "Government, public sector and taxes"
+one = "Llwodraeth, y sector cyhoeddus a threthi"
 
 [GrossDomesticProduct]
 description = "Gross Domestic Product (GDP)"
-one = "Gross Domestic Product (GDP)"
+one = "Cynnyrch Domestig Gros (CDG)"
 
 [GrossDomesticValue]
 description = "Gross Value Added (GVA)"
-one = "Gross Value Added (GVA)"
+one = "Gwerth Ychwanegol Gros"
 
 [InflationPriceIndices]
 description = "Inflation and price indices"
-one = "Inflation and price indices"
+one = "Mynegeion chwyddiant a phrisiau"
 
 [InvestmentsPensionsTrusts]
 description = "Investments, pensions and trusts"
-one = "Investments, pensions and trusts"
+one = "Buddsoddiadau, pensiynau ac ymddiriedolaethau"
 
 [NationalAccounts]
 description = "National accounts"
-one = "National accounts"
+one = "Cyfrifon gwladol"
 
 [RegionalAccounts]
 description = "Regional accounts"
-one = "Regional accounts"
+one = "Cyfrifon rhanbarthol"
 
 [EmploymentLabourMarket]
 description = "Employment and labour market"
-one = "Employment and labour market"
+one = "Cyflogaeth a'r farchnad lafur"
 
 [PeopleInWork]
 description = "People in work"
-one = "People in work"
+one = "Pobl mewn gwaith"
 
 [PeopleNotInWork]
 description = "People not in work"
-one = "People not in work"
+one = "Pobl nad ydynt mewn gwaith"
 
 [PeoplePopulationCommunity]
 description = "People, population and community"
-one = "People, population and community"
+one = "Pobl, y boblogaeth a chymunedau"
 
 [BirthsDeathsMarriages]
 description = "Births, deaths and marriages"
-one = "Births, deaths and marriages"
+one = "Genedigaethau, marwolaethau a phriodasau"
 
 [CrimeJustice]
 description = "Crime and justice"
-one = "Crime and justice"
+one = "Troseddu a chyfiawnder"
 
 [CulturalIdentity]
 description = "Cultural identity"
-one = "Cultural identity"
+one = "Hunaniaeth ddiwylliannol"
 
 [EducationChildcare]
 description = "Education and childcare"
-one = "Education and childcare"
+one = "Addysg a gofal plant"
 
 [Elections]
 description = "Elections"
-one = "Elections"
+one = "Etholiadau"
 
 [HealthSocialCare]
 description = "Health and social care"
-one = "Health and social care"
+one = "Iechyd a gofal cymdeithasol"
 
 [HouseholdCharacteristics]
 description = "Household characteristics"
-one = "Household characteristics"
+one = "Nodweddion aelwydydd"
 
 [Housing]
 description = "Housing"
-one = "Housing"
+one = "Tai"
 
 [LeisureTourism]
 description = "Leisure and tourism"
-one = "Leisure and tourism"
+one = "Hamdden a thwristiaeth"
 
 [PersonalHouseholdFinances]
 description = "Personal and household finances"
-one = "Personal and household finances"
+one = "Cyllid personol a chyllid aelwydydd"
 
 [PopulationMigration]
 description = "Population and migration"
-one = "Population and migration"
+one = "Poblogaeth ac ymfudo"
 
 [Wellbeing]
 description = "Well-being"
-one = "Well-being"
+one = "Lles"
 
 [SurveyTakingPart]
 description = "Taking part in a survey?"
@@ -210,17 +210,9 @@ one = "Chwilio am allweddair neu ID cyfres amser"
 description = "Beta"
 one = "Beta"
 
-[BetaFeedbackPart1]
-description = "This is a new way of getting data - your"
-one = "This is a new way of getting data - your"
-
-[BetaFeedbackPart2]
-description = " feedback "
-one = " feedback "
-
-[BetaFeedbackPart3]
-description = "will help us to improve it."
-one = "will help us to improve it."
+[BetaFeedback]
+description = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
+one = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
 
 # Primarily used in footer tempalte
 [FooterLinks]

@@ -214,17 +214,9 @@ one = "Search for a keyword(s) or time series ID"
 description = "Beta"
 one = "Beta"
 
-[BetaFeedbackPart1]
-description = "This is a new way of getting data - your"
-one = "This is a new way of getting data - your"
-
-[BetaFeedbackPart2]
-description = "feedback"
-one = " feedback "
-
-[BetaFeedbackPart3]
-description = "will help us to improve it."
-one = "will help us to improve it."
+[BetaFeedback]
+description = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
+one = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
 
 # Primarily used in footer tempalte]
 [FooterLinks]
