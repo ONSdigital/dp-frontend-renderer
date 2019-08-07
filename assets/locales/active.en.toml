@@ -2,8 +2,9 @@
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Notes
+# - Documentation: https://github.com/nicksnyder/go-i18n/blob/master/README.md
 # - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
-# - Argumets can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
+# - Arguments can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
 # - To inject HTML (Avoid where possible as it is messy) use "| safeHTML" e.g. {{ localise Foo .Language 1 | safeHTML }} where Foo might be "<strong>test</strong>"
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -13,7 +14,7 @@ description = "Used for localisation tests"
 one = "One Foo (English)"
 other = "More than two Foo (English)"
 
-# Primarly used in header template
+# Primarily used in header template
 [OfficeForNationalStatistics]
 description = "Office for National Statistics"
 one = "Office for National Statistics"
@@ -131,11 +132,11 @@ description = "Investments, pensions and trusts"
 one = "Investments, pensions and trusts"
 
 [NationalAccounts]
-description = "National accountss"
+description = "National accounts"
 one = "National accounts"
 
 [RegionalAccounts]
-description = "Regional accountss"
+description = "Regional accounts"
 one = "Regional accounts"
 
 [EmploymentLabourMarket]
@@ -218,7 +219,7 @@ one = "Beta"
 description = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
 one = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
 
-# Primarily used in footer tempalte]
+# Primarily used in footer template]
 [FooterLinks]
 description = "Footer links"
 one = "Footer links"
@@ -340,11 +341,11 @@ one = "Your download option"
 other = "Your download options"
 
 [DownloadInFormatWithSingleTitle]
-description = "Download {{title}} in {{download extention}} format"
+description = "Download {{title}} in {{download extension}} format"
 one = "Download {{.arg0}} in {{.arg1}} format"
 
 [DownloadInFormatWithFullTitle]
-description = "Download {{title}}: {{dataset.Title}} in {{download extention}} format"
+description = "Download {{title}}: {{dataset.Title}} in {{download extension}} format"
 one = "Download {{.arg0}}: {{.arg1}} in {{.arg2}} format"
 
 [StructuredText]
@@ -356,7 +357,7 @@ description = "Previous versions </a> of this data are available."
 one = "Previous version </a> of this data is available."
 other = "Previous versions </a> of this data are available."
 
-[UsfulSupportingFiles]
+[UsefulSupportingFiles]
 description = "Supporting files you may find useful"
 one = "Supporting files you may find useful"
 
@@ -384,4 +385,3 @@ one = "Methodology"
 description = "Related links"
 one = "Related links"
 other = "Related links"
-
