@@ -125,6 +125,9 @@ func Localise(key string, language string, plural int) string {
 	if key == "" {
 		return ""
 	}
+	if language == "" {
+		language = "en"
+	}
 
 	// Call i18n to get the translations
 	loc := i18n.NewLocalizer(bundle, language)
