@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang={{.Language}} xml:lang={{.Language}}>
 <head>
+
     <title>{{ .Metadata.Title }} - Office for National Statistics</title>
     <meta name="description" content="{{ .Metadata.Description}}">
     <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">

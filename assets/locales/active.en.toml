@@ -1,0 +1,9 @@
+# active.en.toml
+[Home]
+description = "Homepage"
+one = "Home"
+
+[Foo]
+description = "Used for localisation tests"
+one = "One Foo (English)"
+other = "More than two Foo (English)"
