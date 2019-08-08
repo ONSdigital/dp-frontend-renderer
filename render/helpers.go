@@ -141,6 +141,9 @@ func Localise(key string, language string, plural int, templateArguments ...stri
 		log.Error(errors.New(errorMessage), nil)
 		return ""
 	}
+	if language == "" {
+		language = "en"
+	}
 
 	// Configure template data for arguments in strings
 	templateData := make(map[string]string)
