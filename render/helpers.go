@@ -1,7 +1,6 @@
 package render
 
 import (
-	"errors"
 	"fmt"
 	"html/template"
 	"os"
@@ -137,8 +136,8 @@ func Markdown(md string) template.HTML {
 // Localise localises text based on a key
 func Localise(key string, language string, plural int, templateArguments ...string) string {
 	if key == "" {
-		errorMessage := "key " + key + " not found in locale file"
-		log.Error(errors.New(errorMessage), nil)
+		err := fmt.Errorf("key " + key + " not found in locale file")
+		log.Error(err, nil)
 		return ""
 	}
 	if language == "" {
