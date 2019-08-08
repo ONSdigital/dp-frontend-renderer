@@ -1,9 +1,404 @@
 # active.en.toml
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Notes
+# - Documentation: https://github.com/nicksnyder/go-i18n/blob/master/README.md
+# - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
+# - Arguments can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
+# - To inject HTML (Avoid where possible as it is messy) use "| safeHTML" e.g. {{ localise Foo .Language 1 | safeHTML }} where Foo might be "<strong>test</strong>"
+# count - 1 = one
+# count - 2 = two; useful for languages with mutations like welsh (radical) 'brother'=brawd, two (soft) 'brothers'=frawd, three or more (nasal) 'brothers'=brodyr
+# count - 3 = few
+# count - 4 = other; typically use this for general plurals
+# Why use numbers for one, two, few, other? - This enables us to pass in variables e.g. an array length and it to automatically get the correct plural form
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Used for tests
+[Foo]
+description = "Used for localisation tests"
+one = "One Foo (English)"
+two = "Two Foos (English)"
+few = "Three Foos (English)"
+other = "More than a few Foos (English)"
+
+# Primarily used in header template
+[OfficeForNationalStatistics]
+description = "Office for National Statistics"
+one = "Office for National Statistics"
+
 [Home]
 description = "Homepage"
 one = "Home"
 
-[Foo]
-description = "Used for localisation tests"
-one = "One Foo (English)"
-other = "More than two Foo (English)"
+[SkipToContent]
+description = "Skip to main content"
+one = "Skip to main content"
+
+[ChangeLanguage]
+description = "Change language"
+one = "Change language"
+
+[WelshToggle]
+description = "Cymraeg (CY)"
+one = "Cymraeg (CY)"
+
+[EnglishToggle]
+description = "English (EN)"
+one = "English (EN)"
+
+[ReleaseCalendar]
+description = "Release calendar"
+one = "Release calendar"
+
+[Media]
+description = "Media"
+one = "Media"
+
+[About]
+description = "About"
+one = "About"
+
+[Blog]
+description = "Blog"
+one = "Blog"
+
+[Menu]
+description = "Menu"
+one = "Menu"
+
+[Search]
+description = "Search"
+one = "Search"
+
+[BusinessIndustryTrade]
+description = "Business, industry and trade"
+one = "Business, industry and trade"
+
+[Business]
+description = "Business"
+one = "Business"
+
+[ChangesToBusiness]
+description = "Changes to business"
+one = "Changes to business"
+
+[ConstructionIndustry]
+description = "Construction industry"
+one = "Construction industry"
+
+[ITInternetIndustry]
+description = "IT and internet industry"
+one = "IT and internet industry"
+
+[InternationalTrade]
+description = "International trade"
+one = "International trade"
+
+[ManufacturingProductionIndustry]
+description = "Manufacturing and production industry"
+one = "Manufacturing and production industry"
+
+[RetailIndustry]
+description = "Retail industry"
+one = "Retail industry"
+
+[TourismIndustry]
+description = "Tourism industry"
+one = "Tourism industry"
+
+[Economy]
+description = "Economy"
+one = "Economy"
+
+[EconomicOutputProductivity]
+description = "Economic output and productivity"
+one = "Economic output and productivity"
+
+[EnvironmentalAccounts]
+description = "Environmental accounts"
+one = "Environmental accounts"
+
+[GovernmentPublicSectorTaxes]
+description = "Government, public sector and taxes"
+one = "Government, public sector and taxes"
+
+[GrossDomesticProduct]
+description = "Gross Domestic Product (GDP)"
+one = "Gross Domestic Product (GDP)"
+
+[GrossDomesticValue]
+description = "Gross Value Added (GVA)"
+one = "Gross Value Added (GVA)"
+
+[InflationPriceIndices]
+description = "Inflation and price indices"
+one = "Inflation and price indices"
+
+[InvestmentsPensionsTrusts]
+description = "Investments, pensions and trusts"
+one = "Investments, pensions and trusts"
+
+[NationalAccounts]
+description = "National accounts"
+one = "National accounts"
+
+[RegionalAccounts]
+description = "Regional accounts"
+one = "Regional accounts"
+
+[EmploymentLabourMarket]
+description = "Employment and labour market"
+one = "Employment and labour market"
+
+[PeopleInWork]
+description = "People in work"
+one = "People in work"
+
+[PeopleNotInWork]
+description = "People not in work"
+one = "People not in work"
+
+[PeoplePopulationCommunity]
+description = "People, population and community"
+one = "People, population and community"
+
+[BirthsDeathsMarriages]
+description = "Births, deaths and marriages"
+one = "Births, deaths and marriages"
+
+[CrimeJustice]
+description = "Crime and justice"
+one = "Crime and justice"
+
+[CulturalIdentity]
+description = "Cultural identity"
+one = "Cultural identity"
+
+[EducationChildcare]
+description = "Education and childcare"
+one = "Education and childcare"
+
+[Elections]
+description = "Elections"
+one = "Elections"
+
+[HealthSocialCare]
+description = "Health and social care"
+one = "Health and social care"
+
+[HouseholdCharacteristics]
+description = "Household characteristics"
+one = "Household characteristics"
+
+[Housing]
+description = "Housing"
+one = "Housing"
+
+[LeisureTourism]
+description = "Leisure and tourism"
+one = "Leisure and tourism"
+
+[PersonalHouseholdFinances]
+description = "Personal and household finances"
+one = "Personal and household finances"
+
+[PopulationMigration]
+description = "Population and migration"
+one = "Population and migration"
+
+[Wellbeing]
+description = "Well-being"
+one = "Well-being"
+
+[SurveyTakingPart]
+description = "Taking part in a survey?"
+one = "Taking part in a survey?"
+
+[SearchKeywordTimeSeriesID]
+description = "Search for a keyword(s) or time series ID"
+one = "Search for a keyword(s) or time series ID"
+
+[Beta]
+description = "Beta"
+one = "Beta"
+
+[BetaFeedback]
+description = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
+one = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
+
+# Primarily used in footer template]
+[FooterLinks]
+description = "Footer links"
+one = "Footer links"
+
+[Help]
+description = "Help"
+one = "Help"
+
+[Accessibility]
+description = "Accessibility"
+one = "Accessibility"
+
+[CookiesPrivacy]
+description = "Cookies and privacy"
+one = "Cookies and privacy"
+
+[TermsConditions]
+description = "Terms and conditions"
+one = "Terms and conditions"
+
+[AboutONS]
+description = "About ONS"
+one = "About ONS"
+
+[WhatWeDo]
+description = "What we do"
+one = "What we do"
+
+[Careers]
+description = "Careers"
+one = "Careers"
+
+[ContactUs]
+description = "Contact us"
+one = "Contact us"
+
+[News]
+description = "News"
+one = "News"
+
+[FreedomInformation]
+description = "Freedom of Information"
+one = "Freedom of Information"
+
+[ConnectWithUs]
+description = "Connect with us"
+one = "Connect with us"
+
+[Twitter]
+description = "Twitter"
+one = "Twitter"
+
+[Facebook]
+description = "Facebook"
+one = "Facebook"
+
+[LinkedIn]
+description = "LinkedIn"
+one = "LinkedIn"
+
+[EmailAlerts]
+description = "Email alerts"
+one = "Email alerts"
+
+[OGLFull]
+description = "Open Government Licence v3.0"
+one = "All content is available under the <a class=\"icon--hide\" href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" target=\"_blank\">Open Government Licence v3.0</a> <span class=\"icon icon-external--light-small\"></span>, except where otherwise stated"
+
+# Primarily used in static dataset landing page
+[Dataset]
+description = "Dataset"
+one = "Dataset"
+
+[CorrectionsAndNotices]
+description = "Corrections and notices"
+one = "Corrections and notices"
+
+[Notice]
+description = "Notice"
+one = "Notice"
+two = "Notices"
+few = "Notices"
+other = "Notices"
+
+[Correction]
+description = "Correction"
+one = "Correction"
+two = "Corrections"
+few = "Corrections"
+other = "Corrections"
+
+[Contact]
+description = "Contact:"
+one = "Contact:"
+
+[ReleaseDate]
+description = "Release date:"
+one = "Release date:"
+
+[NextRelease]
+description = "Next release:"
+one = "Next release:"
+
+[TBA]
+description = "To be announced"
+one = "To be announced"
+
+[DatasetID]
+description = "Dataset ID:"
+one = "Dataset ID:"
+
+[AboutThisDataset]
+description = "About this Dataset"
+one = "About this Dataset"
+
+[TryFilterAndDownload]
+description = "Try the new way to filter and download this data:"
+one = "Try the new way to filter and download this data:"
+
+[DownloadOption]
+description = "Your download option"
+one = "Your download option"
+two = "Your download options"
+few = "Your download options"
+other = "Your download options"
+
+[DownloadInFormatWithSingleTitle]
+description = "Download {{title}} in {{download extension}} format"
+one = "Download {{.arg0}} in {{.arg1}} format"
+
+[DownloadInFormatWithFullTitle]
+description = "Download {{title}}: {{dataset.Title}} in {{download extension}} format"
+one = "Download {{.arg0}}: {{.arg1}} in {{.arg2}} format"
+
+[StructuredText]
+description = "structured text"
+one = "structured text"
+
+[PreviousVersionAvailable]
+description = "Previous versions </a> of this data are available."
+one = "Previous version </a> of this data is available."
+two = "Previous versions </a> of this data are available."
+few = "Previous versions </a> of this data are available."
+other = "Previous versions </a> of this data are available."
+
+[UsefulSupportingFiles]
+description = "Supporting files you may find useful"
+one = "Supporting files you may find useful"
+
+[NotesAndUsage]
+description = "Important notes and usage information"
+one = "Important notes and usage information"
+
+[ViewAllData]
+description = "View all data related to"
+one = "View all data related to"
+
+[DatasetContactDetails]
+description = "Contact details for this dataset"
+one = "Contact details for this dataset"
+
+[UsedInPublication]
+description = "Publications that use this data"
+one = "Publications that use this data"
+
+[Methodology]
+description = "Methodology"
+one = "Methodology"
+
+[RelatedLinks]
+description = "Related links"
+one = "Related link"
+two = "Related links"
+few = "Related links"
+other = "Related links"

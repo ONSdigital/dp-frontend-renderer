@@ -1,9 +1,404 @@
 # active.cy.toml
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Notes
+# - Documentation: https://github.com/nicksnyder/go-i18n/blob/master/README.md
+# - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
+# - Arguments can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
+# - To inject HTML (Avoid where possible as it is messy) use "| safeHTML" e.g. {{ localise Foo .Language 1 | safeHTML }} where Foo might be "<strong>test</strong>"
+# count - 1 = one
+# count - 2 = two; useful for languages with mutations like welsh (radical) 'brother'=brawd, two (soft) 'brothers'=frawd, three or more (nasal) 'brothers'=brodyr
+# count - 3 = few
+# count - 4 = other; typically use this for general plurals
+# Why use numbers for one, two, few, other? - This enables us to pass in variables e.g. an array length and it to automatically get the correct plural form
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Used for tests
+[Foo]
+description = "Used for localisation tests"
+one = "One Foo (Welsh)"
+two = "Two Foos (Welsh)"
+few = "Three Foos (Welsh)"
+other = "More than a few Foos (Welsh)"
+
+# Primarily used in header template
+[OfficeForNationalStatistics]
+description = "Office for National Statistics"
+one = "Swyddfa Ystadegau Gwladol"
+
 [Home]
 description = "Homepage"
 one = "Hafen"
 
-[Foo]
-description = "Used for localisation tests"
-one = "One Foo (Welsh)"
-other = "More than two Foo (Welsh)"
+[SkipToContent]
+description = "Skip to main content"
+one = "Skip to main content"
+
+[ChangeLanguage]
+description = "Change language"
+one = "Change language"
+
+[WelshToggle]
+description = "Cymraeg (CY)"
+one = "Cymraeg (CY)"
+
+[EnglishToggle]
+description = "English (EN)"
+one = "English (EN)"
+
+[ReleaseCalendar]
+description = "Release calendar"
+one = "Calendar datganiadau"
+
+[Media]
+description = "Media"
+one = "Media"
+
+[About]
+description = "About"
+one = "Amdanom ni"
+
+[Blog]
+description = "Blog"
+one = "Blog"
+
+[Menu]
+description = "Menu"
+one = "Dewislen"
+
+[Search]
+description = "Search"
+one = "Chwilio"
+
+[BusinessIndustryTrade]
+description = "Business, industry and trade"
+one = "Busnes, diwydiant a masnach"
+
+[Business]
+description = "Business"
+one = "Busnes"
+
+[ChangesToBusiness]
+description = "Changes to business"
+one = "Newidiadau i fusnesau"
+
+[ConstructionIndustry]
+description = "Construction industry"
+one = "Diwydiant adeiladu"
+
+[ITInternetIndustry]
+description = "IT and internet industry"
+one = "Y diwydiant TG a'r rhyngrwyd"
+
+[InternationalTrade]
+description = "International trade"
+one = "Masnach ryngwladol"
+
+[ManufacturingProductionIndustry]
+description = "Manufacturing and production industry"
+one = "Y diwydiant gweithgynhyrchu a chynhyrchu"
+
+[RetailIndustry]
+description = "Retail industry"
+one = "Y diwydiant manwethu"
+
+[TourismIndustry]
+description = "Tourism industry"
+one = "Y diwydiant twristiaeth"
+
+[Economy]
+description = "Economy"
+one = "Yr economi"
+
+[EconomicOutputProductivity]
+description = "Economic output and productivity"
+one = "Allgynnyrch economaidd a chynhyrchiant"
+
+[EnvironmentalAccounts]
+description = "Environmental accounts"
+one = "Cyfrifon amgylcheddol"
+
+[GovernmentPublicSectorTaxes]
+description = "Government, public sector and taxes"
+one = "Llwodraeth, y sector cyhoeddus a threthi"
+
+[GrossDomesticProduct]
+description = "Gross Domestic Product (GDP)"
+one = "Cynnyrch Domestig Gros (CDG)"
+
+[GrossDomesticValue]
+description = "Gross Value Added (GVA)"
+one = "Gwerth Ychwanegol Gros"
+
+[InflationPriceIndices]
+description = "Inflation and price indices"
+one = "Mynegeion chwyddiant a phrisiau"
+
+[InvestmentsPensionsTrusts]
+description = "Investments, pensions and trusts"
+one = "Buddsoddiadau, pensiynau ac ymddiriedolaethau"
+
+[NationalAccounts]
+description = "National accounts"
+one = "Cyfrifon gwladol"
+
+[RegionalAccounts]
+description = "Regional accounts"
+one = "Cyfrifon rhanbarthol"
+
+[EmploymentLabourMarket]
+description = "Employment and labour market"
+one = "Cyflogaeth a'r farchnad lafur"
+
+[PeopleInWork]
+description = "People in work"
+one = "Pobl mewn gwaith"
+
+[PeopleNotInWork]
+description = "People not in work"
+one = "Pobl nad ydynt mewn gwaith"
+
+[PeoplePopulationCommunity]
+description = "People, population and community"
+one = "Pobl, y boblogaeth a chymunedau"
+
+[BirthsDeathsMarriages]
+description = "Births, deaths and marriages"
+one = "Genedigaethau, marwolaethau a phriodasau"
+
+[CrimeJustice]
+description = "Crime and justice"
+one = "Troseddu a chyfiawnder"
+
+[CulturalIdentity]
+description = "Cultural identity"
+one = "Hunaniaeth ddiwylliannol"
+
+[EducationChildcare]
+description = "Education and childcare"
+one = "Addysg a gofal plant"
+
+[Elections]
+description = "Elections"
+one = "Etholiadau"
+
+[HealthSocialCare]
+description = "Health and social care"
+one = "Iechyd a gofal cymdeithasol"
+
+[HouseholdCharacteristics]
+description = "Household characteristics"
+one = "Nodweddion aelwydydd"
+
+[Housing]
+description = "Housing"
+one = "Tai"
+
+[LeisureTourism]
+description = "Leisure and tourism"
+one = "Hamdden a thwristiaeth"
+
+[PersonalHouseholdFinances]
+description = "Personal and household finances"
+one = "Cyllid personol a chyllid aelwydydd"
+
+[PopulationMigration]
+description = "Population and migration"
+one = "Poblogaeth ac ymfudo"
+
+[Wellbeing]
+description = "Well-being"
+one = "Lles"
+
+[SurveyTakingPart]
+description = "Taking part in a survey?"
+one = "Cymryd rhan mewn arolwg?"
+
+[SearchKeywordTimeSeriesID]
+description = "Search for a keyword(s) or time series ID"
+one = "Chwilio am allweddair neu ID cyfres amser"
+
+[Beta]
+description = "Beta"
+one = "Beta"
+
+[BetaFeedback]
+description = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
+one = "This is a new way of getting data - your <a href=\"/feedback?service=cmd\">feedback</a> will help us to improve it."
+
+# Primarily used in footer template
+[FooterLinks]
+description = "Footer links"
+one = "Footer links"
+
+[Help]
+description = "Help"
+one = "Cymorth"
+
+[Accessibility]
+description = "Accessibility"
+one = "Hygyrchedd"
+
+[CookiesPrivacy]
+description = "Cookies and privacy"
+one = "Briwsion a phreifatrwydd"
+
+[TermsConditions]
+description = "Terms and conditions"
+one = "Telerau ac amodau"
+
+[AboutONS]
+description = "About ONS"
+one = "Ynglŷn ag SYG"
+
+[WhatWeDo]
+description = "What we do"
+one = "Beth rydym yn ei wneud"
+
+[Careers]
+description = "Careers"
+one = "Gyrfaoedd"
+
+[ContactUs]
+description = "Contact us"
+one = "Cysylltu â ni"
+
+[News]
+description = "News"
+one = "News"
+
+[FreedomInformation]
+description = "Freedom of Information"
+one = "Rhyddid Gwybodaeth"
+
+[ConnectWithUs]
+description = "Connect with us"
+one = "Cysylltu â ni"
+
+[Twitter]
+description = "Twitter"
+one = "Twitter"
+
+[Facebook]
+description = "Facebook"
+one = "Facebook"
+
+[LinkedIn]
+description = "LinkedIn"
+one = "LinkedIn"
+
+[EmailAlerts]
+description = "Email alerts"
+one = "Rhybuddion ebost"
+
+[OGLFull]
+description = "Open Government Licence v3.0"
+one = "Mae'r holl gynnwys ar gael o dan delerau'r <a class=\"icon--hide\" href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" target=\"_blank\">Open Government Licence v3.0</a> <span class=\"icon icon-external--light-small\"></span>, ac eithrio lle y nodir fel arall"
+
+# Primarily used in static dataset landing page
+[Dataset]
+description = "Dataset"
+one = "Set ddata"
+
+[CorrectionsAndNotices]
+description = "Corrections and notices"
+one = "Corrections and notices"
+
+[Notice]
+description = "Notice"
+one = "Notice"
+two = "Notices"
+few = "Notices"
+other = "Notices"
+
+[Correction]
+description = "Correction"
+one = "Correction"
+two = "Corrections"
+few = "Corrections"
+other = "Corrections"
+
+[Contact]
+description = "Contact:"
+one = "Cyswllt:"
+
+[ReleaseDate]
+description = "Release date:"
+one = "Dyddiad y datganiad:"
+
+[NextRelease]
+description = "Next release:"
+one = "Cyhoeddiad nesaf:"
+
+[TBA]
+description = "To be announced"
+one = "To be announced"
+
+[DatasetID]
+description = "Dataset ID:"
+one = "ID y set ddata:"
+
+[AboutThisDataset]
+description = "About this Dataset"
+one = "About this Dataset"
+
+[TryFilterAndDownload]
+description = "Try the new way to filter and download this data:"
+one = "Try the new way to filter and download this data:"
+
+[DownloadOption]
+description = "Your download option"
+one = "Your download option"
+two = "Your download options"
+few = "Your download options"
+other = "Your download options"
+
+[DownloadInFormatWithSingleTitle]
+description = "Download {{title}} in {{download extension}} format"
+one = "Download {{.arg0}} in {{.arg1}} format"
+
+[DownloadInFormatWithFullTitle]
+description = "Download {{title}}: {{dataset.Title}} in {{download extension}} format"
+one = "Download {{.arg0}}: {{.arg1}} in {{.arg2}} format"
+
+[StructuredText]
+description = "structured text"
+one = "structured text"
+
+[PreviousVersionAvailable]
+description = "Previous versions </a> of this data are available."
+one = "Previous version </a> of this data is available."
+two = "Previous versions </a> of this data are available."
+few = "Previous versions </a> of this data are available."
+other = "Previous versions </a> of this data are available."
+
+[UsefulSupportingFiles]
+description = "Supporting files you may find useful"
+one = "Supporting files you may find useful"
+
+[NotesAndUsage]
+description = "Important notes and usage information"
+one = "Nodiadau pwysig a gwybodaeth ynghylch defnyddio"
+
+[ViewAllData]
+description = "View all data related to"
+one = "View all data related to"
+
+[DatasetContactDetails]
+description = "Contact details for this dataset"
+one = "Manylion cyswllt ar gyfer y set ddata hon"
+
+[UsedInPublication]
+description = "Publications that use this data"
+one = "Cyhoeddiadau sy'n defnyddio'r data hwn"
+
+[Methodology]
+description = "Methodology"
+one = "Methodoleg"
+
+[RelatedLinks]
+description = "Related links"
+one = "Related links"
+two = "Related links"
+few = "Related links"
+other = "Related links"

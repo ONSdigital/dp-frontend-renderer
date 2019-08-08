@@ -2,7 +2,7 @@
 <html lang={{.Language}} xml:lang={{.Language}}>
 <head>
 
-    <title>{{ .Metadata.Title }} - Office for National Statistics</title>
+    <title>{{ .Metadata.Title }} - {{ Localise "OfficeForNationalStatistics" .Language 1 }}</title>
     <meta name="description" content="{{ .Metadata.Description}}">
     <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -54,7 +54,6 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
                     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
     {{ template "partials/header" . }}
 
     <main id="main" role="main" tabindex="-1">
