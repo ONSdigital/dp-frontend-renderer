@@ -1,6 +1,7 @@
 package render
 
 import (
+	"errors"
 	"fmt"
 	"html/template"
 	"os"
@@ -11,7 +12,7 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/go-ns/common"
 	"github.com/ONSdigital/go-ns/log"
 	"github.com/c2h5oh/datasize"
 	"github.com/gosimple/slug"
@@ -22,23 +23,36 @@ import (
 
 const legacyDatasetURIFormat = "/file?uri=%s/%s"
 
-var bundle = InitLocaleBundle()
+var bundle, _ = InitLocaleBundle()
+var localizers = InitLocalizer()
+
+// InitLocalizer is used to initialise the localizer
+func InitLocalizer() map[string]*i18n.Localizer {
+	m := make(map[string]*i18n.Localizer)
+	for _, locale := range common.SupportedLanguages {
+		m[locale] = i18n.NewLocalizer(bundle, locale)
+
+	}
+	return m
+}
 
 // InitLocaleBundle is used to initialise the locale bundle
-func InitLocaleBundle() *i18n.Bundle {
+func InitLocaleBundle() (*i18n.Bundle, error) {
 	bundle := i18n.NewBundle(language.English)
 	bundle.RegisterUnmarshalFunc("toml", toml.Unmarshal)
 	workingDir, err := os.Getwd()
 	if err != nil {
 		log.Error(err, nil)
+		return nil, err
 	}
 	parts := strings.SplitAfter(workingDir, "dp-frontend-renderer/")
 	projectRootDir := parts[0]
-	for _, locale := range config.SupportedLanguages {
+	for _, locale := range common.SupportedLanguages {
 		filePath := projectRootDir + "/assets/locales/active." + locale + ".toml"
 		bundle.MustLoadMessageFile(filePath)
 	}
-	return bundle
+
+	return bundle, nil
 }
 
 func HumanSize(size string) (string, error) {
@@ -123,8 +137,11 @@ func Markdown(md string) template.HTML {
 // Localise localises text based on a key
 func Localise(key string, language string, plural int, templateArguments ...string) string {
 	if key == "" {
+		errorMessage := "key " + key + " not found in locale file"
+		log.Error(errors.New(errorMessage), nil)
 		return ""
 	}
+
 	// Configure template data for arguments in strings
 	templateData := make(map[string]string)
 	for i, argument := range templateArguments {
@@ -132,8 +149,8 @@ func Localise(key string, language string, plural int, templateArguments ...stri
 		key := "arg" + stringIndex
 		templateData[key] = argument
 	}
-	// Get translation
-	loc := i18n.NewLocalizer(bundle, language)
+
+	loc := localizers[language]
 	translation := loc.MustLocalize(&i18n.LocalizeConfig{
 		MessageID:    key,
 		PluralCount:  plural,

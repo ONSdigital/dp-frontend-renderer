@@ -73,12 +73,12 @@ func TestLocalise(t *testing.T) {
 		So(Localise("Foo", "en", 1), ShouldEqual, "One Foo (English)")
 	})
 	Convey("English plural is returned for more than two", t, func() {
-		So(Localise("Foo", "en", 4), ShouldEqual, "More than two Foo (English)")
+		So(Localise("Foo", "en", 4), ShouldEqual, "More than a few Foos (English)")
 	})
 	Convey("Welsh singular is returned", t, func() {
 		So(Localise("Foo", "cy", 1), ShouldEqual, "One Foo (Welsh)")
 	})
 	Convey("Welsh plural for more than two is returned", t, func() {
-		So(Localise("Foo", "cy", 4), ShouldEqual, "More than two Foo (Welsh)")
+		So(Localise("Foo", "cy", 4), ShouldEqual, "More than a few Foos (Welsh)")
 	})
 }

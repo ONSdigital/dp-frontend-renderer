@@ -31,7 +31,7 @@
                                  {{ end }}
                             {{ else if .DatasetLandingPage.Notices}}
                                 {{ if (gt (len .DatasetLandingPage.Notices) 1) }}
-                                    {{ Localise "Notice" .Language 2  }}
+                                    {{ Localise "Notice" .Language 4  }}
                                 {{ else }}
                                     {{ Localise "Notice" .Language 1  }}
                                 {{ end }}
@@ -42,7 +42,7 @@
                         {{ if .DatasetLandingPage.Corrections}}
                             <div class="show-hide__content alert--warning__content section__content--markdown padding-bottom--1">
                                 {{ if .DatasetLandingPage.Notices }}
-                                    <h3>{{ Localise "Correction" .Language 2  }}</h3>
+                                    <h3>{{ Localise "Correction" .Language 4  }}</h3>
                                 {{ end }}
                                 <section>
                                     {{ range .DatasetLandingPage.Corrections }}
@@ -56,7 +56,7 @@
                         {{ if .DatasetLandingPage.Notices}}
                             <div class="show-hide__content alert--warning__content section__content--markdown padding-bottom--1">
                                 {{ if .DatasetLandingPage.Corrections }}
-                                    <h3>{{ Localise "Notice" .Language 2  }}</h3>
+                                    <h3>{{ Localise "Notice" .Language 4  }}</h3>
                                 {{ end }}
                                 <section>
                                     {{ range .DatasetLandingPage.Notices }}
@@ -156,7 +156,7 @@
                         {{ if $timeseriesDataset.HasVersions }}
                             <p class="margin-top--0">
                                 <span class="icon icon-info--inline"></span>
-                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3"> {{ Localise "PreviousVersionAvailable" $Language 2 }}
+                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3"> {{ Localise "PreviousVersionAvailable" $Language 4 | safeHTML}}
                             </p>
                         {{ end }}
                         {{ if $timeseriesDataset.SupplementaryFiles }}
@@ -195,7 +195,7 @@
                                     {{ if .HasVersions }}
                                         <p class="margin-top--0">
                                             <span class="icon icon-info--inline"></span>
-                                            <a href="{{ .URI }}" class="underline-link margin-left--3">{{ Localise "PreviousVersion" $Language 2 }}</a> {{ Localise "DataAvailable" $Language 2 }}
+                                            <a href="{{ .URI }}" class="underline-link margin-left--3">{{ Localise "PreviousVersionAvailable" $Language 4 | safeHTML}}
                                         </p>
                                     {{ end }}
                                     {{ if .SupplementaryFiles }}
@@ -278,7 +278,7 @@
 
                 {{ if .DatasetLandingPage.Related.Links }}
                     <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-                        <h3 class="tiles__title-h3 tiles__title-h3--nav">{{ Localise "RelatedLinks" $Language 2 }}</h3>
+                        <h3 class="tiles__title-h3 tiles__title-h3--nav">{{ Localise "RelatedLinks" $Language 4 }}</h3>
                         <div class="tiles__content tiles__content--nav">
                             <ul class="list--neutral">
                                 {{ range .DatasetLandingPage.Related.Links }}
