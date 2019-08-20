@@ -3,19 +3,56 @@ package render
 import (
 	"fmt"
 	"html/template"
+	"os"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
 
+	"github.com/BurntSushi/toml"
+	"github.com/ONSdigital/go-ns/common"
 	"github.com/ONSdigital/go-ns/log"
 	"github.com/c2h5oh/datasize"
 	"github.com/gosimple/slug"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
+	"golang.org/x/text/language"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
 const legacyDatasetURIFormat = "/file?uri=%s/%s"
+
+var bundle, _ = InitLocaleBundle()
+var localizers = InitLocalizer()
+
+// InitLocalizer is used to initialise the localizer
+func InitLocalizer() map[string]*i18n.Localizer {
+	m := make(map[string]*i18n.Localizer)
+	for _, locale := range common.SupportedLanguages {
+		m[locale] = i18n.NewLocalizer(bundle, locale)
+
+	}
+	return m
+}
+
+// InitLocaleBundle is used to initialise the locale bundle
+func InitLocaleBundle() (*i18n.Bundle, error) {
+	bundle := i18n.NewBundle(language.English)
+	bundle.RegisterUnmarshalFunc("toml", toml.Unmarshal)
+	workingDir, err := os.Getwd()
+	if err != nil {
+		log.Error(err, nil)
+		return nil, err
+	}
+	parts := strings.SplitAfter(workingDir, "dp-frontend-renderer/")
+	projectRootDir := parts[0]
+	for _, locale := range common.SupportedLanguages {
+		filePath := projectRootDir + "/assets/locales/active." + locale + ".toml"
+		bundle.MustLoadMessageFile(filePath)
+	}
+
+	return bundle, nil
+}
 
 func HumanSize(size string) (string, error) {
 	if size == "" {
@@ -94,4 +131,32 @@ func Markdown(md string) template.HTML {
 
 	s := blackfriday.Run([]byte(fmt.Sprintf("%s", modifiedMarkdown.String())))
 	return template.HTML(s)
+}
+
+// Localise localises text based on a key
+func Localise(key string, language string, plural int, templateArguments ...string) string {
+	if key == "" {
+		err := fmt.Errorf("key " + key + " not found in locale file")
+		log.Error(err, nil)
+		return ""
+	}
+	if language == "" {
+		language = "en"
+	}
+
+	// Configure template data for arguments in strings
+	templateData := make(map[string]string)
+	for i, argument := range templateArguments {
+		stringIndex := strconv.Itoa(i)
+		key := "arg" + stringIndex
+		templateData[key] = argument
+	}
+
+	loc := localizers[language]
+	translation := loc.MustLocalize(&i18n.LocalizeConfig{
+		MessageID:    key,
+		PluralCount:  plural,
+		TemplateData: templateData,
+	})
+	return translation
 }

@@ -53,7 +53,6 @@ func TestHandler(t *testing.T) {
 		rdr := bytes.NewReader([]byte(``))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 400)
 	})
@@ -63,7 +62,6 @@ func TestHandler(t *testing.T) {
 		rdr := bytes.NewReader([]byte(`{"service_message": "Foo bar"}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
 		So(f.binding, ShouldHaveSameTypeAs, &homepage.Page{})
@@ -77,7 +75,6 @@ func TestHandler(t *testing.T) {
 		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": [{"name": "foo"}, {"name": "bar"}, {"name": "baz"}]}]}}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
 		So(f.binding, ShouldHaveSameTypeAs, &homepage.Page{})
@@ -91,7 +88,6 @@ func TestHandler(t *testing.T) {
 		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": []}]}}`))
 		request, err := http.NewRequest("POST", "/", rdr)
 		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "en")
 		Handler(recorder, request)
 		So(recorder.Code, ShouldEqual, 200)
 	})
@@ -109,19 +105,6 @@ func TestHandler(t *testing.T) {
 		p := f.binding.(model.ErrorResponse)
 		So(p.Error, ShouldEqual, "Error from HTML")
 		f.errorOnHTML = false
-	})
-
-	Convey("Handler returns language of English when neither 'en' or 'cy' is set from request header", t, func() {
-		recorder := httptest.NewRecorder()
-		rdr := bytes.NewReader([]byte(`{}`))
-		request, err := http.NewRequest("POST", "/", rdr)
-		So(err, ShouldBeNil)
-		request.Header.Set("Accept-Language", "foo")
-		Handler(recorder, request)
-		So(recorder.Code, ShouldEqual, 200)
-		So(f.binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.binding.(*homepage.Page)
-		So(p.Language, ShouldEqual, "en")
 	})
 
 	Convey("Handler returns 400 status code when io reader has error", t, func() {

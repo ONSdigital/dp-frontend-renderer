@@ -1,10 +1,11 @@
+{{$Language := .Language}}
 <div class="page-intro background--gallery">
     <div class="wrapper">
         <div class="col-wrap">
             <div class="col">
                 {{ template "partials/breadcrumb" . }}
                 <h1 class="page-intro__title margin-bottom--4">
-                    <span class="page-intro__type">Dataset</span>
+                    <span class="page-intro__type">{{ Localise "Dataset" .Language 1  }}</span>
                     {{ .Metadata.Title }}
                 </h1>
             </div>
@@ -21,11 +22,19 @@
                         <h2 class="show-hide__title padding-left-sm--1 padding-left-md--4">
                             <span class="icon icon-info icon-info--info-box hide--sm"></span>
                             {{ if and .DatasetLandingPage.Corrections .DatasetLandingPage.Notices }}
-                                Corrections and notices
-                            {{else if .DatasetLandingPage.Corrections}}
-                                Correction{{ if (gt (len .DatasetLandingPage.Corrections) 1) }}s{{ end }}
-                            {{else if .DatasetLandingPage.Notices}}
-                                Notice{{ if (gt (len .DatasetLandingPage.Notices) 1) }}s{{ end }}
+                                {{ Localise "CorrectionsAndNotices" .Language 1  }}
+                            {{ else if .DatasetLandingPage.Corrections}}
+                                {{ if (gt (len .DatasetLandingPage.Corrections) 1) }}
+                                    {{ Localise "Corrections" .Language 2  }}
+                                {{ else }}
+                                    {{ Localise "Corrections" .Language 1  }}
+                                 {{ end }}
+                            {{ else if .DatasetLandingPage.Notices}}
+                                {{ if (gt (len .DatasetLandingPage.Notices) 1) }}
+                                    {{ Localise "Notice" .Language 4  }}
+                                {{ else }}
+                                    {{ Localise "Notice" .Language 1  }}
+                                {{ end }}
                             {{ end }}
                         </h2>
                     </div>
@@ -33,7 +42,7 @@
                         {{ if .DatasetLandingPage.Corrections}}
                             <div class="show-hide__content alert--warning__content section__content--markdown padding-bottom--1">
                                 {{ if .DatasetLandingPage.Notices }}
-                                    <h3>Corrections</h3>
+                                    <h3>{{ Localise "Correction" .Language 4  }}</h3>
                                 {{ end }}
                                 <section>
                                     {{ range .DatasetLandingPage.Corrections }}
@@ -47,7 +56,7 @@
                         {{ if .DatasetLandingPage.Notices}}
                             <div class="show-hide__content alert--warning__content section__content--markdown padding-bottom--1">
                                 {{ if .DatasetLandingPage.Corrections }}
-                                    <h3>Notices</h3>
+                                    <h3>{{ Localise "Notice" .Language 4  }}</h3>
                                 {{ end }}
                                 <section>
                                     {{ range .DatasetLandingPage.Notices }}
@@ -74,7 +83,7 @@
                         <img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo">
                     </a>
                 {{ end }}
-                <dt class="meta__term">Contact:</dt>
+                <dt class="meta__term">{{ Localise "Contact" .Language 1  }}</dt>
                 <dd>
                     {{ if .ContactDetails.Email}}
                         <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Name }}</a>
@@ -84,22 +93,22 @@
                 </dd>
             </div>
             <div class="col col--md-12 col--lg-15 meta__item">
-                <dt class="meta__term">Release date:</dt>
+                <dt class="meta__term">{{ Localise "ReleaseDate" .Language 1  }}</dt>
                 <dd>{{ dateFormat .DatasetLandingPage.ReleaseDate }}</dd>
             </div>
             <div class="col col--md-12 col--lg-15 meta__item">
-                <dt class="meta__term">Next release:</dt>
+                <dt class="meta__term">{{ Localise "NextRelease" .Language 1  }}</dt>
                 <dd>
                     {{ if .DatasetLandingPage.NextRelease }}
                         {{ .DatasetLandingPage.NextRelease }}
                     {{ else }}
-                        To be announced
+                        {{ Localise "TBA" .Language 1  }}
                     {{ end }}
                 </dd>
             </div>
             {{ if .DatasetLandingPage.DatasetID}}
                 <div class="col col--md-12 col--lg-15 meta__item">
-                    <dt class="meta__term">Dataset ID:</dt>
+                    <dt class="meta__term">{{ Localise "DatasetID" .Language 1  }}</dt>
                     <dd>{{ .DatasetLandingPage.DatasetID }}</dd>
                 </div>
             {{ end }}
@@ -112,14 +121,14 @@
             <div class="col col--lg-two-thirds col--md-two-thirds">
                 {{ if .Metadata.Description}}
                     <section>
-                        <h2>About this dataset</h2>
+                        <h2>{{ Localise "AboutThisDataset" .Language 1  }}</h2>
                         {{ .Metadata.Description }}
                     </section>
                 {{ end }}
                 <section>
                     {{ if .DatasetLandingPage.Related.FilterableDatasets }}
                         <div class="status status--blue margin-top--6">
-                            <p class="margin-top--0">Try the new way to filter and download this data:</p>
+                            <p class="margin-top--0">{{ Localise "TryFilterAndDownload" .Language 1 }}</p>
                             <ul class="list--neutral margin-bottom--0">
                                 {{ range .DatasetLandingPage.Related.FilterableDatasets }}
                                     <li> <a href="{{ .URI }}">{{ .Title }}</a></li>
@@ -127,15 +136,17 @@
                             </ul>
                         </div>
                     {{ end }}
-                    <h2 class="margin-bottom--2">Your download options</h2>
+                    <h2 class="margin-bottom--2">{{ Localise "TryFilterAndDownload" .Language 1 }}</h2>
                     {{ if .DatasetLandingPage.IsTimeseries }}
-                        {{ $timeseriesDataset := index .DatasetLandingPage.Datasets 0 }}
+                    {{ $timeseriesDataset := index .DatasetLandingPage.Datasets 0 }}
                         {{ range $timeseriesDataset.Downloads }}
                             <div class="inline-block--md margin-bottom-sm--1">
                                 <a href="{{ legacyDatasetDownloadURI $timeseriesDataset.URI .URI }}" class="btn btn--primary btn--thick">
-                                    <span class="visuallyhidden">Download {{ $.Metadata.Title }} in {{ .Extension }} format</span>
+                                    <span class="visuallyhidden">{{ Localise "DownloadInFormatWithSingleTitle" $Language 1  $.Metadata.Title .Extension  }}</span>
+
+                                    
                                     {{ if eq .Extension "csdb" }}
-                                        structured text ({{ humanSize .Size }})
+                                        {{ Localise "StructuredText" $Language 1 }} ({{ humanSize .Size }})
                                     {{ else }}
                                         {{ .Extension }} ({{ humanSize .Size }})
                                     {{ end }}
@@ -145,11 +156,11 @@
                         {{ if $timeseriesDataset.HasVersions }}
                             <p class="margin-top--0">
                                 <span class="icon icon-info--inline"></span>
-                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3">Previous versions</a> of this data are available.
+                                <a href="{{ $timeseriesDataset.URI }}" class="underline-link margin-left--3"> {{ Localise "PreviousVersionAvailable" $Language 4 | safeHTML}}
                             </p>
                         {{ end }}
                         {{ if $timeseriesDataset.SupplementaryFiles }}
-                            <h4 class="margin-bottom--0">Supporting files you may find useful</h4>
+                            <h4 class="margin-bottom--0">{{ Localise "UsefulSupportingFiles" $Language 1 }}</h4>
                             <ul class="list--neutral margin-top--0">
                                 {{ range $timeseriesDataset.SupplementaryFiles }}
                                     <li class="margin-top--0 margin-bottom--0">
@@ -171,9 +182,9 @@
                                         {{ range .Downloads }}
                                             <div class="inline-block--md margin-bottom-sm--1">
                                                 <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}" class="btn btn--primary btn--thick">
-                                                    <span class="visuallyhidden">Download {{$.Metadata.Title}}: {{$dataset.Title}} in {{ .Extension }} format</span>
+                                                    <span class="visuallyhidden">{{ Localise "DownloadInFormatWithFullTitle" $Language 1  $.Metadata.Title $dataset.Title .Extension }}</span>                                    
                                                     {{ if eq .Extension "csdb" }}
-                                                        structured text ({{ humanSize .Size }})
+                                                        {{ Localise "StructuredText" $Language 1 }} ({{ humanSize .Size }})
                                                     {{ else }}
                                                         <span>{{ .Extension }} ({{ humanSize .Size }})</span>
                                                     {{ end }}
@@ -184,11 +195,11 @@
                                     {{ if .HasVersions }}
                                         <p class="margin-top--0">
                                             <span class="icon icon-info--inline"></span>
-                                            <a href="{{ .URI }}" class="underline-link margin-left--3">Previous versions</a> of this data are available.
+                                            <a href="{{ .URI }}" class="underline-link margin-left--3">{{ Localise "PreviousVersionAvailable" $Language 4 | safeHTML}}
                                         </p>
                                     {{ end }}
                                     {{ if .SupplementaryFiles }}
-                                        <h4 class="margin-bottom--0">Supporting files you may find useful</h4>
+                                        <h4 class="margin-bottom--0">{{ Localise "UsefulSupportingFiles" $Language 1 }}</h4>
                                         <ul class="list--neutral margin-top--0">
                                             {{ range .SupplementaryFiles }}
                                                 <li class="margin-top--0 margin-bottom--0">
@@ -206,7 +217,7 @@
 
                 {{ if .DatasetLandingPage.Notes}}
                     <section>
-                        <h2>Important notes and usage information</h2>
+                        <h2>{{ Localise "NotesAndUsage" $Language 1 }}</h2>
                         <div class="section__content--static-markdown margin-top-sm--2 margin-top-md--3">
                             {{ .DatasetLandingPage.Notes | markdown }}
                         </div>
@@ -217,11 +228,11 @@
             <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
 
                 <div class="print--hide margin-bottom--2">
-                    <a href="../datalist?filter=datasets" class="btn btn--primary btn--full-width">View all data related to <span class="lowercase">{{ .DatasetLandingPage.ParentPath }}</span></a>
+                    <a href="../datalist?filter=datasets" class="btn btn--primary btn--full-width">{{ Localise "ViewAllData" $Language 1 }} <span class="lowercase">{{ .DatasetLandingPage.ParentPath }}</span></a>
                 </div>
 
                 <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-                    <h3 class="tiles__title-h3 tiles__title-h3--nav">Contact details for this dataset</h3>
+                    <h3 class="tiles__title-h3 tiles__title-h3--nav">{{ Localise "DatasetContactDetails" $Language 1 }}</h3>
                     <div class="tiles__content tiles__content--nav">
                         <address>
                             {{ if .ContactDetails.Name}}
@@ -241,7 +252,7 @@
 
                 {{ if .DatasetLandingPage.Related.Publications }}
                     <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-                        <h3 class="tiles__title-h3 tiles__title-h3--nav">Publications that use this data</h3>
+                        <h3 class="tiles__title-h3 tiles__title-h3--nav">{{ Localise "UsedInPublication" $Language 1 }}</h3>
                         <div class="tiles__content tiles__content--nav">
                             <ul class="list--neutral">
                                 {{ range .DatasetLandingPage.Related.Publications }}
@@ -254,7 +265,7 @@
 
                 {{ if .DatasetLandingPage.Related.Methodology }}
                     <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-                        <h3 class="tiles__title-h3 tiles__title-h3--nav">Methodology</h3>
+                        <h3 class="tiles__title-h3 tiles__title-h3--nav">{{ Localise "Methodology" $Language 1 }}</h3>
                         <div class="tiles__content tiles__content--nav">
                             <ul class="list--neutral">
                                 {{ range .DatasetLandingPage.Related.Methodology }}
@@ -267,7 +278,7 @@
 
                 {{ if .DatasetLandingPage.Related.Links }}
                     <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-                        <h3 class="tiles__title-h3 tiles__title-h3--nav">Related links</h3>
+                        <h3 class="tiles__title-h3 tiles__title-h3--nav">{{ Localise "RelatedLinks" $Language 4 }}</h3>
                         <div class="tiles__content tiles__content--nav">
                             <ul class="list--neutral">
                                 {{ range .DatasetLandingPage.Related.Links }}

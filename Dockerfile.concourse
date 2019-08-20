@@ -2,7 +2,6 @@ FROM onsdigital/dp-concourse-tools-ubuntu
 
 WORKDIR /app/
 
-ADD dp-frontend-renderer .
-ADD taxonomy-redirects.yml .
+COPY * ./
 
 CMD ./dp-frontend-renderer

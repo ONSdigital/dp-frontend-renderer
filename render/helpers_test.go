@@ -49,7 +49,7 @@ var testMarkdown = []string{
 }
 
 // the new line at the end of each test case is needed
-var testHTML = []string{
+var testHTMLForMarkdown = []string{
 	"<ul>\n<li><p>First bullet point</p></li>\n\n<li><p>Second bullet point</p>\n\n<p>Second line of second bullet point</p></li>\n</ul>\n",
 	"<ol>\n<li><p>First bullet point</p></li>\n\n<li><p>Second bullet point</p></li>\n</ol>\n",
 	"<h2>Heading2</h2>\n",
@@ -62,7 +62,23 @@ var testHTML = []string{
 func TestMarkdown(t *testing.T) {
 	Convey("markdown should return expected HTML", t, func() {
 		for i := 0; i < len(testMarkdown); i++ {
-			So(Markdown(testMarkdown[i]), ShouldEqual, testHTML[i])
+			So(Markdown(testMarkdown[i]), ShouldEqual, testHTMLForMarkdown[i])
 		}
+	})
+}
+
+// TestLocalise ensures that the correct strings are returned given a range of different arguments
+func TestLocalise(t *testing.T) {
+	Convey("English singular is returned", t, func() {
+		So(Localise("Foo", "en", 1), ShouldEqual, "One Foo (English)")
+	})
+	Convey("English plural is returned for more than two", t, func() {
+		So(Localise("Foo", "en", 4), ShouldEqual, "More than a few Foos (English)")
+	})
+	Convey("Welsh singular is returned", t, func() {
+		So(Localise("Foo", "cy", 1), ShouldEqual, "One Foo (Welsh)")
+	})
+	Convey("Welsh plural for more than two is returned", t, func() {
+		So(Localise("Foo", "cy", 4), ShouldEqual, "More than a few Foos (Welsh)")
 	})
 }
