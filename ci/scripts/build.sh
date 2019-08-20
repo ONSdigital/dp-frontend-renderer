@@ -9,4 +9,6 @@ pushd $GOPATH/src/github.com/ONSdigital/dp-frontend-renderer
   cp taxonomy-redirects.yml $BINPATH/
   cp Dockerfile.concourse $BINPATH/
   cp -r assets/locales $BINPATH/assets/locales
+  ls -alh $BINPATH/
+  ls -alh $BINPATH/assets/
 popd
