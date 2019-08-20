@@ -15,12 +15,9 @@
    <div class="col-wrap padding-top--2 margin-bottom--4">
       <div class="col">
          {{ range $i, $version := $.Data.Versions }}
-            <a href="{{ .VersionURL }}"><h2 class="margin-bottom--1 font-weight-700">{{ .Title }}</h2></a>
+            <a href="{{ .VersionURL }}"><h2 class="margin-bottom--1 font-weight-700">{{ dateFormat .Date }}{{ if .IsLatest }} (latest){{ end }}</h2></a>
                <p class="margin-top--0 margin-bottom--0 padding-top--0 padding-bottom--0">
-                  Version: {{ .VersionNumber }} {{ if .IsLatest }}(latest){{ end }}
-               </p>
-               <p class="margin-top--0 margin-bottom--0 padding-top--0 padding-bottom--0">
-                  Revision date: {{ dateFormat .Date }}
+                  Version: {{ .VersionNumber }}
                </p>
                <p class="margin-top--3 margin-bottom--0 padding-top--0 padding-bottom--0">
                   <strong>Downloads:</strong>
