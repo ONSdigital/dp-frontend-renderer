@@ -11,8 +11,8 @@ debug: generate
 generate:
 	# build the production version
 	go generate ./...
-	{ echo "// +build production"; cat assets/templates.go; } > assets/templates.go.new
-	mv assets/templates.go.new assets/templates.go
+	{ echo "// +build production"; cat assets/data.go; } > assets/data.go.new
+	mv assets/data.go.new assets/data.go
 	# build the dev version
 	cd assets; go-bindata -debug -o debug.go -pkg assets templates/... locales/...
 	{ echo "// +build debug"; cat assets/debug.go; } > assets/debug.go.new
