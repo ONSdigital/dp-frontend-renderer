@@ -161,9 +161,6 @@ func Localise(key string, language string, plural int, templateArguments ...stri
 
 
 func DomainSetLang(domain string, uri string, language string) string {
-	log.Info("domain: " + domain, nil)
-	log.Info("uri: " + uri, nil)
-	log.Info("language: " + language, nil)
 	languageSupported := false
 	for _, locale := range common.SupportedLanguages {
 		if locale == language {
@@ -175,7 +172,7 @@ func DomainSetLang(domain string, uri string, language string) string {
 	strippedURL = strings.Replace(strippedURL, "www.", "", 1)
 
 	for _, locale := range common.SupportedLanguages {
-		possibleLocaleURLPrefix := string([]rune(strippedURL[0:len(locale)]))
+		possibleLocaleURLPrefix := strippedURL[0:len(locale)]
 
 		if possibleLocaleURLPrefix == locale {
 			trimLength := len(locale) + 1
@@ -184,7 +181,7 @@ func DomainSetLang(domain string, uri string, language string) string {
 		}
 	}
 
-	domainWithTranslation:= ""
+	domainWithTranslation := ""
 	if !languageSupported {
 		err := fmt.Errorf("Language: " + language + " is not supported resolving to " + common.DefaultLang)
 		log.Error(err, nil)
