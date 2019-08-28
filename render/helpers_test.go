@@ -82,3 +82,51 @@ func TestLocalise(t *testing.T) {
 		So(Localise("Foo", "cy", 4), ShouldEqual, "More than a few Foos (Welsh)")
 	})
 }
+
+//TestDomainSetLang ensures the returned URL is set accurately
+func TestDomainSetLang(t *testing.T){
+	Convey("English domain requested", t, func() {
+		So(DomainSetLang("www.ons.gov.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("ons.gov.uk", "","en"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("https://www.ons.gov.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("https://ons.gov.uk", "","en"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("www.cy.ons.gov.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("cy.ons.gov.uk", "","en"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("https://www.cy.ons.gov.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("https://cy.ons.gov.uk", "","en"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("www.foo-bar.baz.co.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
+		So(DomainSetLang("cy.foo-bar.baz.co.uk", "","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
+		So(DomainSetLang("https://www.cy.foo-bar.baz.co.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
+		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
+	})
+
+	Convey("Welsh domain requested", t, func() {
+		So(DomainSetLang("www.ons.gov.uk", "","cy"), ShouldEqual, "https://www.cy.ons.gov.uk")
+		So(DomainSetLang("ons.gov.uk", "/foo/bar/baz","cy"), ShouldEqual, "https://www.cy.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("https://www.ons.gov.uk", "","cy"), ShouldEqual, "https://www.cy.ons.gov.uk")
+		So(DomainSetLang("https://ons.gov.uk", "/foo/bar/baz","cy"), ShouldEqual, "https://www.cy.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("www.cy.ons.gov.uk", "","cy"), ShouldEqual, "https://www.cy.ons.gov.uk")
+		So(DomainSetLang("cy.ons.gov.uk", "/foo/bar/baz","cy"), ShouldEqual, "https://www.cy.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("https://www.cy.ons.gov.uk", "","cy"), ShouldEqual, "https://www.cy.ons.gov.uk")
+		So(DomainSetLang("https://cy.ons.gov.uk", "/foo/bar/baz","cy"), ShouldEqual, "https://www.cy.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("www.foo-bar.baz.co.uk", "","cy"), ShouldEqual, "https://www.cy.foo-bar.baz.co.uk")
+		So(DomainSetLang("cy.foo-bar.baz.co.uk", "/foo/bar/baz","cy"), ShouldEqual, "https://www.cy.foo-bar.baz.co.uk/foo/bar/baz")
+		So(DomainSetLang("https://www.cy.foo-bar.baz.co.uk", "","cy"), ShouldEqual, "https://www.cy.foo-bar.baz.co.uk")
+		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "/foo/bar/baz","cy"), ShouldEqual, "https://www.cy.foo-bar.baz.co.uk/foo/bar/baz")
+	})
+
+	Convey("Unsupported domain requested", t, func() {
+		So(DomainSetLang("www.ons.gov.uk", "","foo"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("ons.gov.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("https://www.ons.gov.uk", "","foo"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("https://ons.gov.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("www.cy.ons.gov.uk", "","foo"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("cy.ons.gov.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("https://www.cy.ons.gov.uk", "","foo"), ShouldEqual, "https://www.ons.gov.uk")
+		So(DomainSetLang("https://cy.ons.gov.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.ons.gov.uk/foo/bar/baz")
+		So(DomainSetLang("www.foo-bar.baz.co.uk", "","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
+		So(DomainSetLang("cy.foo-bar.baz.co.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
+		So(DomainSetLang("https://www.cy.foo-bar.baz.co.uk", "","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
+		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
+	})
+}

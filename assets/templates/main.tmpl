@@ -2,7 +2,7 @@
 <html lang={{.Language}} xml:lang={{.Language}}>
 <head>
 
-    <title>{{ .Metadata.Title }} - {{ Localise "OfficeForNationalStatistics" .Language 1 }}</title>
+    <title>{{ .Metadata.Title }} - {{ localise "OfficeForNationalStatistics" .Language 1 }}</title>
     <meta name="description" content="{{ .Metadata.Description}}">
     <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
