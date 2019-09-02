@@ -34,8 +34,9 @@ type Hierarchy struct {
 
 // AddAll ...
 type AddAll struct {
-	Amount string `json:"amount"`
-	URL    string `json:"url"`
+	Amount   string `json:"amount"`
+	URL      string `json:"url"`
+	ShowLink bool   `json:"show_link"`
 }
 
 // Metadata ...
