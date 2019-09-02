@@ -22,17 +22,14 @@
                     {{`<![endif]-->` | safeHTML}}
                 </a>
             </div>
-            <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide">
-                <dl id="language" class="language">
-                    <dt class="language__title">{{ localise "ChangeLanguage" .Language 1 }}:</dt>
-                    <dd class="language__item">
-                        {{if eq .Language "cy"}}
-                            <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a>
-                        {{ else }}
-                            <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
-                        {{end}}
-                    </dd>
-                </dl>
+            <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container">
+                <div class="language">
+                    {{if eq .Language "cy"}}
+                        <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
+                    {{ else }}
+                        {{ localise "EnglishToggle" .Language 1 }} | <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
+                    {{end}}
+                </div>
             </div>
             <div class="secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide">
                 <ul id="nav-secondary" class="secondary-nav__list js-nav-clone__list">
@@ -193,6 +190,13 @@
                         <a class="primary-nav__link  col col--md-8 col--lg-10" href="{{.TaxonomyDomain}}/surveys">
                             {{ localise "SurveyTakingPart" .Language 1 }}
                         </a>
+                    </li>
+                    <li class="hide--md primary-nav__link">
+                       {{if eq .Language "cy"}}
+                            <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
+                        {{ else }}
+                            {{ localise "EnglishToggle" .Language 1 }} | <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
+                    {{end}}
                     </li>
                 </ul>
             </div>
