@@ -22,9 +22,9 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/geography/homepage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
+	geographyArea "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
+	geographyHomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/homepage"
+	geographyList "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	renderHelpers "github.com/ONSdigital/dp-frontend-renderer/render"
@@ -71,6 +71,10 @@ func main() {
 		log.Error(err, nil)
 	}
 
+	if v := os.Getenv("SITE_DOMAIN"); len(v) > 0 {
+		config.SiteDomain = v
+	}
+
 	if config.DebugMode {
 		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
 	}
@@ -94,6 +98,8 @@ func main() {
 			"slug":                     renderHelpers.Slug,
 			"markdown":                 renderHelpers.Markdown,
 			"legacyDatasetDownloadURI": renderHelpers.LegacyDataSetDownloadURI,
+			"localise":                 renderHelpers.Localise,
+			"domainSetLang":            renderHelpers.DomainSetLang,
 			"taxonomyLandingPage": func(s string) string {
 				return taxonomyRedirects[s]
 			},

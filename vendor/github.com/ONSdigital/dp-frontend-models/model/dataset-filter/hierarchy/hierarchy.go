@@ -30,6 +30,7 @@ type Hierarchy struct {
 	Query           string   `json:"query"`
 	IsSearchError   bool     `json:"is_search_error"`
 	LandingPageURL  string   `json:"landing_page_url"`
+	HasData         bool     `json:"has_data"`
 }
 
 // AddAll ...

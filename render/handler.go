@@ -39,11 +39,6 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		f()
 	}
 
-	page2.Language = req.Header.Get("Accept-Language")
-	if page2.Language != "en" && page2.Language != "cy" {
-		page2.Language = "en"
-	}
-
 	page2.PatternLibraryAssetsPath = config.PatternLibraryAssetsPath
 
 	page2.SiteDomain = config.SiteDomain
