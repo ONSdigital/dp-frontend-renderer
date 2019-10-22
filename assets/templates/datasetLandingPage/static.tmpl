@@ -25,9 +25,9 @@
                                 {{ localise "CorrectionsAndNotices" .Language 1  }}
                             {{ else if .DatasetLandingPage.Corrections}}
                                 {{ if (gt (len .DatasetLandingPage.Corrections) 1) }}
-                                    {{ localise "Corrections" .Language 2  }}
+                                    {{ localise "Correction" .Language 2  }}
                                 {{ else }}
-                                    {{ localise "Corrections" .Language 1  }}
+                                    {{ localise "Correction" .Language 1  }}
                                  {{ end }}
                             {{ else if .DatasetLandingPage.Notices}}
                                 {{ if (gt (len .DatasetLandingPage.Notices) 1) }}
