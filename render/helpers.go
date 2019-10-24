@@ -189,7 +189,7 @@ func DomainSetLang(domain string, uri string, language string) string {
 	if language == common.DefaultLang || !languageSupported {
 		domainWithTranslation = "https://www." + strippedURL
 	} else {
-		domainWithTranslation = "https://www." + language + "." + strippedURL
+		domainWithTranslation = "https://" + language + "." + strippedURL
 	}
 
 	return domainWithTranslation
