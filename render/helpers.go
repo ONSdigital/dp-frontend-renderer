@@ -167,7 +167,16 @@ func DomainSetLang(domain string, uri string, language string) string {
 			languageSupported = true
 		}
 	}
+
+	// uri comes in inconsistently, remove domain and port if they come through in uri param
+	if uri[0:4] == "http" {
+		uriParts := strings.Split(uri, "/")
+		uri = "/"
+		uri += strings.Join(uriParts[3:],"/")
+	}
+
 	url := domain + uri
+
 	strippedURL := strings.Replace(url, "https://", "", 1)
 	strippedURL = strings.Replace(strippedURL, "www.", "", 1)
 
