@@ -98,7 +98,7 @@ func TestDomainSetLang(t *testing.T){
 		So(DomainSetLang("cy.foo-bar.baz.co.uk", "","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
 		So(DomainSetLang("https://www.cy.foo-bar.baz.co.uk", "/foo/bar/baz","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
 		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
-		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "http://foo:12345/bar/baz/qux","en"), ShouldEqual, "https://foo-bar.baz.co.uk/bar/baz/qux")
+		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "http://foo:12345/bar/baz/qux","en"), ShouldEqual, "https://www.foo-bar.baz.co.uk/bar/baz/qux")
 	})
 
 	Convey("Welsh domain requested", t, func() {
@@ -130,6 +130,6 @@ func TestDomainSetLang(t *testing.T){
 		So(DomainSetLang("cy.foo-bar.baz.co.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
 		So(DomainSetLang("https://www.cy.foo-bar.baz.co.uk", "","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk")
 		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "/foo/bar/baz","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk/foo/bar/baz")
-		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "http://foo:12345/bar/baz/qux","foo"), ShouldEqual, "https://foo-bar.baz.co.uk/bar/baz/qux")
+		So(DomainSetLang("https://cy.foo-bar.baz.co.uk", "http://foo:12345/bar/baz/qux","foo"), ShouldEqual, "https://www.foo-bar.baz.co.uk/bar/baz/qux")
 	})
 }

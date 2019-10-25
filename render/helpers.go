@@ -169,7 +169,7 @@ func DomainSetLang(domain string, uri string, language string) string {
 	}
 
 	// uri comes in inconsistently, remove domain and port if they come through in uri param
-	if uri[0:4] == "http" {
+	if len(uri) > 5 && uri[0:4] == "http" {
 		uriParts := strings.Split(uri, "/")
 		uri = "/"
 		uri += strings.Join(uriParts[3:],"/")
