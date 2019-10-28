@@ -169,10 +169,9 @@ func DomainSetLang(domain string, uri string, language string) string {
 	}
 
 	// uri comes in inconsistently, remove domain and port if they come through in uri param
-	if len(uri) > 5 && uri[0:4] == "http" {
-		uriParts := strings.Split(uri, "/")
-		uri = "/"
-		uri += strings.Join(uriParts[3:],"/")
+	var findEndpointRE = regexp.MustCompile(`https?://[^/]+(.*)`)
+	if endpoint := findEndpointRE.FindStringSubmatch(uri); len(endpoint) == 2 {
+		uri = endpoint[1]
 	}
 
 	url := domain + uri
