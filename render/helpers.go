@@ -167,7 +167,15 @@ func DomainSetLang(domain string, uri string, language string) string {
 			languageSupported = true
 		}
 	}
+
+	// uri comes in inconsistently, remove domain and port if they come through in uri param
+	var findEndpointRE = regexp.MustCompile(`https?://[^/]+(.*)`)
+	if endpoint := findEndpointRE.FindStringSubmatch(uri); len(endpoint) == 2 {
+		uri = endpoint[1]
+	}
+
 	url := domain + uri
+
 	strippedURL := strings.Replace(url, "https://", "", 1)
 	strippedURL = strings.Replace(strippedURL, "www.", "", 1)
 
