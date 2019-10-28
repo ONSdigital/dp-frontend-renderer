@@ -13,7 +13,7 @@
     <div class="wrapper">
         <div class="header col-wrap">
             <div class="col col--lg-one-third col--md-one-third">
-                <a id="logo-link" href="{{.TaxonomyDomain}}/">
+                <a id="logo-link" href="/">
                     {{`<!--[if lte IE 8]>` | safeHTML}}
                         <img class="logo" src="https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png" alt="{{ localise "OfficeForNationalStatistics" .Language 1 }}">
                     {{`<![endif]-->` | safeHTML}}
@@ -34,16 +34,16 @@
             <div class="secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide">
                 <ul id="nav-secondary" class="secondary-nav__list js-nav-clone__list">
                     <li class="secondary-nav__item">
-                        <a class="secondary-nav__link  js-nav-clone__link" href="{{.TaxonomyDomain}}/releasecalendar">{{ localise "ReleaseCalendar" .Language 1 }}</a>
+                        <a class="secondary-nav__link  js-nav-clone__link" href="/releasecalendar">{{ localise "ReleaseCalendar" .Language 1 }}</a>
                     </li>
                     <li class="secondary-nav__item">
-                        <a class="secondary-nav__link  js-nav-clone__link" href="{{.TaxonomyDomain}}/methodology">{{ localise "Methodology" .Language 1 }}</a>
+                        <a class="secondary-nav__link  js-nav-clone__link" href="/methodology">{{ localise "Methodology" .Language 1 }}</a>
                     </li>
                     <li class="secondary-nav__item">
-                        <a class="secondary-nav__link  js-nav-clone__link" href="{{.TaxonomyDomain}}/news">{{ localise "Media" .Language 1 }}</a>
+                        <a class="secondary-nav__link  js-nav-clone__link" href="/news">{{ localise "Media" .Language 1 }}</a>
                     </li>
                     <li class="secondary-nav__item">
-                        <a class="secondary-nav__link  js-nav-clone__link" href="{{.TaxonomyDomain}}/aboutus">{{ localise "About" .Language 1 }}</a>
+                        <a class="secondary-nav__link  js-nav-clone__link" href="/aboutus">{{ localise "About" .Language 1 }}</a>
                     </li>
                     <li class="secondary-nav__item">
                         <a class="secondary-nav__link icon--hide js-nav-clone__link" target="_blank" rel="noopener noreferrer" href="https://blog.ons.gov.uk/">{{ localise "Blog" .Language 1 }}</a>
@@ -71,123 +71,123 @@
             <div class="wrapper nav-main--hidden" id="nav-primary" aria-expanded="false">
                 <ul class="primary-nav__list">
                     <li class="primary-nav__item {{if eq .URI "/"}}primary-nav__item--active{{end}} js-nav hide--sm old-ie--display-block">
-                      <a class="primary-nav__link col col--md-7 col--lg-9" href="{{.TaxonomyDomain}}/">{{ localise "Home" .Language 1 }}</a>
+                      <a class="primary-nav__link col col--md-7 col--lg-9" href="/">{{ localise "Home" .Language 1 }}</a>
                     </li>
                     <li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="{{.TaxonomyDomain}}/businessindustryandtrade" aria-haspopup="true">{{ localise "BusinessIndustryTrade" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/businessindustryandtrade" aria-haspopup="true">{{ localise "BusinessIndustryTrade" .Language 1 }}</a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/business" >{{ localise "Business" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/business" >{{ localise "Business" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/changestobusiness" >{{ localise "ChangesToBusiness" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/changestobusiness" >{{ localise "ChangesToBusiness" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/constructionindustry" >{{ localise "ConstructionIndustry" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/constructionindustry" >{{ localise "ConstructionIndustry" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/itandinternetindustry" >{{ localise "ITInternetIndustry" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/itandinternetindustry" >{{ localise "ITInternetIndustry" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/internationaltrade" >{{ localise "InternationalTrade" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/internationaltrade" >{{ localise "InternationalTrade" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/manufacturingandproductionindustry" >{{ localise "ManufacturingProductionIndustry" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/manufacturingandproductionindustry" >{{ localise "ManufacturingProductionIndustry" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/retailindustry" >{{ localise "RetailIndustry" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/retailindustry" >{{ localise "RetailIndustry" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/businessindustryandtrade/tourismindustry" >{{ localise "TourismIndustry" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/tourismindustry" >{{ localise "TourismIndustry" .Language 1 }}</a>
 							</li>
 						</ul>
 					</li>
 					<li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="{{.TaxonomyDomain}}/economy" aria-haspopup="true">{{ localise "Economy" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/economy" aria-haspopup="true">{{ localise "Economy" .Language 1 }}</a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/economicoutputandproductivity" >{{ localise "EconomicOutputProductivity" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/economicoutputandproductivity" >{{ localise "EconomicOutputProductivity" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/environmentalaccounts" >{{ localise "EnvironmentalAccounts" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/environmentalaccounts" >{{ localise "EnvironmentalAccounts" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/governmentpublicsectorandtaxes" >{{ localise "GovernmentPublicSectorTaxes" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/governmentpublicsectorandtaxes" >{{ localise "GovernmentPublicSectorTaxes" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/grossdomesticproductgdp" >{{ localise "GrossDomesticProduct" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/grossdomesticproductgdp" >{{ localise "GrossDomesticProduct" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/grossvalueaddedgva" >{{ localise "GrossDomesticValue" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/grossvalueaddedgva" >{{ localise "GrossDomesticValue" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/inflationandpriceindices" >{{ localise "InflationPriceIndices" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/inflationandpriceindices" >{{ localise "InflationPriceIndices" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/investmentspensionsandtrusts" >{{ localise "InvestmentsPensionsTrusts" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/investmentspensionsandtrusts" >{{ localise "InvestmentsPensionsTrusts" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/nationalaccounts" >{{ localise "NationalAccounts" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/nationalaccounts" >{{ localise "NationalAccounts" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/economy/regionalaccounts" >{{ localise "RegionalAccounts" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/economy/regionalaccounts" >{{ localise "RegionalAccounts" .Language 1 }}</a>
 							</li>
 						</ul>
 					</li>
 					<li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="{{.TaxonomyDomain}}/employmentandlabourmarket" aria-haspopup="true">{{ localise "EmploymentLabourMarket" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/employmentandlabourmarket" aria-haspopup="true">{{ localise "EmploymentLabourMarket" .Language 1 }}</a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/employmentandlabourmarket/peopleinwork" >{{ localise "PeopleInWork" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/employmentandlabourmarket/peopleinwork" >{{ localise "PeopleInWork" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/employmentandlabourmarket/peoplenotinwork" >{{ localise "PeopleNotInWork" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/employmentandlabourmarket/peoplenotinwork" >{{ localise "PeopleNotInWork" .Language 1 }}</a>
 							</li>
 						</ul>
 					</li>
 					<li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity" aria-haspopup="true">{{ localise "PeoplePopulationCommunity" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/peoplepopulationandcommunity" aria-haspopup="true">{{ localise "PeoplePopulationCommunity" .Language 1 }}</a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/birthsdeathsandmarriages" >{{ localise "BirthsDeathsMarriages" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/birthsdeathsandmarriages" >{{ localise "BirthsDeathsMarriages" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/crimeandjustice" >{{ localise "CrimeJustice" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/crimeandjustice" >{{ localise "CrimeJustice" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/culturalidentity" >{{ localise "CulturalIdentity" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/culturalidentity" >{{ localise "CulturalIdentity" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/educationandchildcare" >{{ localise "EducationChildcare" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/educationandchildcare" >{{ localise "EducationChildcare" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/elections" >{{ localise "Elections" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/elections" >{{ localise "Elections" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/healthandsocialcare" >{{ localise "HealthSocialCare" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/healthandsocialcare" >{{ localise "HealthSocialCare" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/householdcharacteristics" >{{ localise "HouseholdCharacteristics" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/householdcharacteristics" >{{ localise "HouseholdCharacteristics" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/housing" >{{ localise "Housing" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/housing" >{{ localise "Housing" .Language 1 }}</a>
 							</li>
 							<li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/leisureandtourism" >{{ localise "LeisureTourism" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/leisureandtourism" >{{ localise "LeisureTourism" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/personalandhouseholdfinances" >{{ localise "PersonalHouseholdFinances" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/personalandhouseholdfinances" >{{ localise "PersonalHouseholdFinances" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/populationandmigration" >{{ localise "PopulationMigration" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/populationandmigration" >{{ localise "PopulationMigration" .Language 1 }}</a>
 							</li>
                             <li class="primary-nav__child-item  js-expandable__child">
-								<a class="primary-nav__child-link" tabindex="-1" href="{{.TaxonomyDomain}}/peoplepopulationandcommunity/wellbeing" >{{ localise "Wellbeing" .Language 1 }}</a>
+								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/wellbeing" >{{ localise "Wellbeing" .Language 1 }}</a>
 							</li>
 						</ul>
 					</li>
                     <li class="primary-nav__item js-nav">
-                        <a class="primary-nav__link  col col--md-8 col--lg-10" href="{{.TaxonomyDomain}}/surveys">
+                        <a class="primary-nav__link  col col--md-8 col--lg-10" href="/surveys">
                             {{ localise "SurveyTakingPart" .Language 1 }}
                         </a>
                     </li>
@@ -205,7 +205,7 @@
     {{if not .SearchDisabled}}
     <div class="search nav-search--hidden print--hide" id="searchBar">
         <div class="wrapper" role="search">
-            <form class="col-wrap search__form" action="{{.TaxonomyDomain}}/search">
+            <form class="col-wrap search__form" action="/search">
                 <label class="search__label col col--md-23 col--lg-24" for="nav-search">{{ localise "SearchKeywordTimeSeriesID" .Language 1 }}</label>
                 <input type="search" autocomplete="off" class="search__input col col--md-21 col--lg-32" id="nav-search"
                        name="q" value="">
