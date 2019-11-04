@@ -175,7 +175,7 @@
                             {{ $dataset := . }}
                             <div class="show-hide show-hide--light js-show-hide border-top--abbey-sm border-top--abbey-md border-top--abbey-lg{{if .IsLast}} border-bottom--abbey-sm border-bottom--abbey-md border-bottom--abbey-lg{{end}}">
                                 <div class="js-show-hide__title{{if eq $key 0}} is-shown{{end}}">
-                                    <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }}</h3>
+                                    <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }}{{ if .VersionLabel }}: {{ .VersionLabel }}{{ end }}</h3>
                                 </div>
                                 <div class="js-show-hide__content">
                                     <div class="margin-bottom--2">
