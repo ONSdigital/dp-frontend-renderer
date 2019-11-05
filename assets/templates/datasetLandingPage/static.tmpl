@@ -47,7 +47,7 @@
                                 <section>
                                     {{ range .DatasetLandingPage.Corrections }}
                                         <p class="alert__date">{{ dateFormat .Date }}</p>
-                                        {{ .Markdown }}
+                                        {{ .Markdown | markdown}}
                                     {{ end }}
                                 </section>
                             </div>
@@ -61,7 +61,7 @@
                                 <section>
                                     {{ range .DatasetLandingPage.Notices }}
                                         <p class="alert__date">{{ dateFormat .Date }}</p>
-                                        {{ .Markdown }}
+                                        {{ .Markdown | markdown}}
                                     {{ end }}
                                 </section>
                             </div>
