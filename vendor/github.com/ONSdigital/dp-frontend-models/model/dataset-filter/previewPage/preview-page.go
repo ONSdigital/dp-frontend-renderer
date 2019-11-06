@@ -5,10 +5,11 @@ import "github.com/ONSdigital/dp-frontend-models/model"
 // Page ...
 type Page struct {
 	model.Page
-	Data             PreviewPage `json:"data"`
-	IsPreviewLoaded  bool        `json:"is_preview_loaded"`
-	IsDownloadLoaded bool        `json:"is_download_loaded"`
-	NoDimensionData  bool        `json:"no_dimension_data"`
+	Data                 PreviewPage `json:"data"`
+	EnableDatasetPreview bool        `json:"enable_dataset_preview"`
+	IsPreviewLoaded      bool        `json:"is_preview_loaded"`
+	IsDownloadLoaded     bool        `json:"is_download_loaded"`
+	NoDimensionData      bool        `json:"no_dimension_data"`
 }
 
 // PreviewPage ...
