@@ -24,6 +24,7 @@
                   {{ template "partials/latest-release-alert" . }}
               {{ end }}
               <a id="adjust-filter-options" href="/filters/{{.Data.FilterID}}/dimensions"><span class="icon icon-arrow-back--dark-small"></span>Adjust filter options</a>
+              {{ if .EnableDatasetPreview}}
               <h2><strong>Preview</strong></h2>
               <div class="table-border margin-top--3">
                 <ul class="list--neutral margin-bottom--3 margin-left">
@@ -61,6 +62,7 @@
                     {{if eq (len (index .Data.Dimensions 0).Values) 10}}<p>Displaying the first 10 rows only</p>{{end}}
                 </div>
                </div>
+               {{ end }}
                <h2><strong>Download</strong></h2>
                <div class="margin-bottom--2 margin-top--2 downloads-block">
                   {{if not .IsDownloadLoaded}}
