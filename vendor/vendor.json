@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "fJkBbYwFJnWgmIhmYaf5Pnt8CNk=",
+			"checksumSHA1": "5PuwTxKjJHFNFEaERgwzM7s6H9s=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "61a4fc32d261a3e49e950290423ec0b8050612a2",
-			"revisionTime": "2019-10-25T12:16:22Z"
+			"revision": "4b27e5097ae6ebf8ed429c0c2a2b4af330d913e6",
+			"revisionTime": "2019-12-03T15:13:28Z"
 		},
 		{
 			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
@@ -137,8 +137,8 @@
 		{
 			"checksumSHA1": "OhEOq0VNVeJ9eLoZd0ek2eld3NA=",
 			"path": "github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage",
-			"revision": "168bb39f73b56671796b7c0233063a2f97c9b4c4",
-			"revisionTime": "2019-12-02T12:31:52Z"
+			"revision": "565be4698235ebe11a74d354d777979a99112188",
+			"revisionTime": "2019-12-03T15:11:49Z"
 		},
 		{
 			"checksumSHA1": "64EH74LCo+dxhJERpuIYIXdOfK8=",
