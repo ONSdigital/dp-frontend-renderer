@@ -22,106 +22,105 @@
 		</div>
 	</div>
 </div>
-</div>
 <div class="adjust-font-size--16">
-<div class="page-content link-adjust">
-	<div class="wrapper">
-		<div class="col-wrap">
-			<div class="col col--md-50 col--lg-35 margin-left-md--1">
-				<form class="margin-bottom--2" action="{{.Data.SearchURL}}">
-					<div class="clearfix">
-						<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
-						<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-31 col--lg-31" name="q" {{if .Data.IsSearchResults}} value="{{.Data.Query}}" {{end}} placeholder="Search {{.Data.DimensionName}}">
-						<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
-							<span class="visuallyhidden">Search</span>
-							<span class="icon icon-search--light"></span>
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-		<form id="filter-form" action="{{.Data.SaveAndReturn.URL}}" method="post">
+	<div class="page-content link-adjust">
+		<div class="wrapper">
 			<div class="col-wrap">
 				<div class="col col--md-50 col--lg-35 margin-left-md--1">
-					<fieldset>
-						<legend>
-							{{if .Data.IsSearchResults}}
-								<div class="font-size--17 padding-bottom--2 margin-top--2">
-									<a id="back" href="{{ .Data.GoBack.URL }}">
-										<span class="icon icon-arrow-back--dark-small"></span>Back</a>
-								</div>
-								<span id="search-results-info" class="padding-bottom--1 margin-top--0">{{ len .Data.FilterList }} result{{if ne (len .Data.FilterList) 1}}s{{end}} containing <strong>{{.Data.Query}}</strong>.</span>
-							{{else}}
-								{{if not .Data.Parent}}
-									<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse <span class="visuallyhidden">{{ .Data.DimensionName }}</span></h2>
-								{{end}}
-								{{ if .Data.Parent }}
+					<form class="margin-bottom--2" action="{{.Data.SearchURL}}">
+						<div class="clearfix">
+							<label for="search" class="block font-size--17 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
+							<input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-31 col--lg-31" name="q" {{if .Data.IsSearchResults}} value="{{.Data.Query}}" {{end}} placeholder="Search {{.Data.DimensionName}}">
+							<button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
+								<span class="visuallyhidden">Search</span>
+								<span class="icon icon-search--light"></span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<form id="filter-form" action="{{.Data.SaveAndReturn.URL}}" method="post">
+				<div class="col-wrap">
+					<div class="col col--md-50 col--lg-35 margin-left-md--1">
+						<fieldset>
+							<legend>
+								{{if .Data.IsSearchResults}}
 									<div class="font-size--17 padding-bottom--2 margin-top--2">
 										<a id="back" href="{{ .Data.GoBack.URL }}">
 											<span class="icon icon-arrow-back--dark-small"></span>Back</a>
 									</div>
-									<h2 class="font-size--17 padding-bottom--1 font-weight-700 margin-top--0">Browse <span class="visuallyhidden">{{ .Metadata.Title }}</span></h2>
-								{{ end }}
-							{{end}}
-						</legend>
-						{{if .Data.IsSearchError}}
-							<div class="no-results-advice">
-								<h3>Please try:</h3>
-								<ul>
-									<li>Making sure that all words are spelled correctly</li>
-									<li>Searching again using different words</li>
-									<li>Check the dataset includes this <a href="{{.Data.LandingPageURL}}">{{.Data.DimensionName}}</a> option</li>
-								</ul>
-							</div>
-						{{else}}
-							<input name="save-and-return" class="hidden" type="submit" value="Save and return"/>
-							{{ if .Data.HasData }}
-								<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" id="add-all" aria-label="Add all {{.Data.DimensionName}} in this list to your saved items"/>&nbsp; &nbsp;
-									<input class="btn btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" name="remove-all" id="remove-all" aria-label="Remove all {{.Data.DimensionName}} in this list from your saved items"/>
-							{{ end }}
-							<input name="q" type="hidden" value={{.Data.Query}}/>
-							<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
-								{{ range $i, $v := .Data.FilterList }}
-									<div class="checkbox hierarchy-box border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1 clearfix">
-										<div class="{{ if ne .SubNum "0" }}width-md--25{{else}}width-md--35{{end}} float-el--left-md">
-											{{if .HasData}}
-												<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
-												<label id="{{.ID}}" class="checkbox__label" for="id-{{$i}}">
-													{{ .Label }}
-												</label>
-											{{else}}
-												<span class="inline-block margin-bottom padding-top--half">{{ .Label }}</span>
-											{{end}}
+									<span id="search-results-info" class="padding-bottom--1 margin-top--0">{{ len .Data.FilterList }} result{{if ne (len .Data.FilterList) 1}}s{{end}} containing <strong>{{.Data.Query}}</strong>.</span>
+								{{else}}
+									{{if not .Data.Parent}}
+										<h2 class="font-size--17 padding-bottom--1 font-weight-700">Browse <span class="visuallyhidden">{{ .Data.DimensionName }}</span></h2>
+									{{end}}
+									{{ if .Data.Parent }}
+										<div class="font-size--17 padding-bottom--2 margin-top--2">
+											<a id="back" href="{{ .Data.GoBack.URL }}">
+												<span class="icon icon-arrow-back--dark-small"></span>Back</a>
 										</div>
-										{{ if ne .SubNum "0" }}
-											<div class="view-link width-md--10 float-el--right-md text-right--md padding-top--1 height-sm--5 height-md--5">
-												<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}"/>
-												<div class="inline-block view-link--icon">
-													<span class="icon icon-arrow-right--dark-small"></span></div>
-											</div>
-										{{ end }}
-									</div>
+										<h2 class="font-size--17 padding-bottom--1 font-weight-700 margin-top--0">Browse <span class="visuallyhidden">{{ .Metadata.Title }}</span></h2>
+									{{ end }}
+								{{end}}
+							</legend>
+							{{if .Data.IsSearchError}}
+								<div class="no-results-advice">
+									<h3>Please try:</h3>
+									<ul>
+										<li>Making sure that all words are spelled correctly</li>
+										<li>Searching again using different words</li>
+										<li>Check the dataset includes this <a href="{{.Data.LandingPageURL}}">{{.Data.DimensionName}}</a> option</li>
+									</ul>
+								</div>
+							{{else}}
+								<input name="save-and-return" class="hidden" type="submit" value="Save and return"/>
+								{{ if .Data.HasData }}
+									<input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" id="add-all" aria-label="Add all {{.Data.DimensionName}} in this list to your saved items"/>&nbsp; &nbsp;
+									<input class="btn btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" name="remove-all" id="remove-all" aria-label="Remove all {{.Data.DimensionName}} in this list from your saved items"/>
 								{{ end }}
-							</div>
-						{{end}}
-					</fieldset>
-					<div class="margin-top js-hidden">
-						<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
-					</div>
-					<div id="save-and-return-container" class="margin-top--5">
-						<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap save-button-bottom" type="submit" value="Save and return"/>
-					</div>
-				</div>
-				<aside>
-					<div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
-						<div class="margin-bottom--6 hide--md-only hide--sm">
-							<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width save-button-right" value="Save and return"/>
+								<input name="q" type="hidden" value={{.Data.Query}}/>
+								<div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
+									{{ range $i, $v := .Data.FilterList }}
+										<div class="checkbox hierarchy-box border-bottom--gallery-sm border-bottom--gallery-md margin-bottom--1 clearfix">
+											<div class="{{ if ne .SubNum "0" }}width-md--25{{else}}width-md--35{{end}} float-el--left-md">
+												{{if .HasData}}
+													<input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>
+													<label id="{{.ID}}" class="checkbox__label" for="id-{{$i}}">
+														{{ .Label }}
+													</label>
+												{{else}}
+													<span class="inline-block margin-bottom padding-top--half">{{ .Label }}</span>
+												{{end}}
+											</div>
+											{{ if ne .SubNum "0" }}
+												<div class="view-link width-md--10 float-el--right-md text-right--md padding-top--1 height-sm--5 height-md--5">
+													<input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}"/>
+													<div class="inline-block view-link--icon">
+														<span class="icon icon-arrow-right--dark-small"></span></div>
+												</div>
+											{{ end }}
+										</div>
+									{{ end }}
+								</div>
+							{{end}}
+						</fieldset>
+						<div class="margin-top js-hidden">
+							<input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--17 text-wrap">
 						</div>
-						{{ template "partials/filter-selection" . }}
+						<div id="save-and-return-container" class="margin-top--5">
+							<input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap save-button-bottom" type="submit" value="Save and return"/>
+						</div>
 					</div>
-				</aside>
-			</form>
+					<aside>
+						<div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
+							<div class="margin-bottom--6 hide--md-only hide--sm">
+								<input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width save-button-right" value="Save and return"/>
+							</div>
+							{{ template "partials/filter-selection" . }}
+						</div>
+					</aside>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
