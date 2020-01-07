@@ -68,5 +68,9 @@
       <script type="text/javascript" src="/js/app.js"></script>
     {{`<!--<![endif]-->` | safeHTML}}
 
+    {{ if .EnableLoop11 }}
+      {{ template "partials/loop11" . }}
+    {{ end }}
+
 </body>
 </html>
