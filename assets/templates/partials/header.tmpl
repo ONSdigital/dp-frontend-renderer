@@ -3,8 +3,8 @@
     <div id="pagePath" class="hide">{{.URI}}</div>
 
     {{if .ServiceMessage}}
-        <div class="beta-banner">
-            <div class="wrapper">
+        <div class="banner">
+            <div class="wrapper banner__wrapper">
                 <p>{{.ServiceMessage}}</p>
             </div>
         </div>
@@ -219,7 +219,7 @@
     {{end}}
     {{if .BetaBannerEnabled}}
         <div class="banner">
-            <div class="wrapper">
+            <div class="wrapper banner__wrapper">
                 <div class="col col--md-40 col--lg-44">
                     <span class="banner__text-icon">{{ localise "Beta" .Language 1 }}</span>
                     <div class="banner__body">
