@@ -4,7 +4,7 @@
 
     {{if .ServiceMessage}}
         <div class="banner">
-            <div class="wrapper banner__wrapper">
+            <div class="wrapper banner--bottom-border">
                 <p>{{.ServiceMessage}}</p>
             </div>
         </div>
@@ -219,7 +219,7 @@
     {{end}}
     {{if .BetaBannerEnabled}}
         <div class="banner">
-            <div class="wrapper banner__wrapper">
+            <div class="wrapper banner--bottom-border">
                 <div class="col col--md-40 col--lg-44">
                     <span class="banner__text-icon">{{ localise "Beta" .Language 1 }}</span>
                     <div class="banner__body">
