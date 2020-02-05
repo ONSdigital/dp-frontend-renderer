@@ -20,6 +20,7 @@
 // templates/homepage.tmpl
 // templates/main.tmpl
 // templates/partials/breadcrumb.tmpl
+// templates/partials/cookies-banner.tmpl
 // templates/partials/feedback.tmpl
 // templates/partials/filter-selection.tmpl
 // templates/partials/footer.tmpl
@@ -473,7 +474,27 @@ func templatesPartialsBreadcrumbTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/breadcrumb.tmpl", size: 1025, mode: os.FileMode(420), modTime: time.Unix(1579003689, 0)}
+	info := bindataFileInfo{name: "templates/partials/breadcrumb.tmpl", size: 1025, mode: os.FileMode(420), modTime: time.Unix(1579515688, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var _templatesPartialsCookiesBannerTmpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x9c\x54\x41\x8f\xdb\x2c\x10\xbd\x7f\xbf\x62\xc4\x9d\xb5\xb4\xc7\xaf\xb6\xa5\xaa\x3f\xa0\x2b\xed\x4a\x3d\xae\x06\x98\x18\x14\xcc\x20\x18\xc7\xf5\xbf\xaf\x1c\x3b\x6a\xba\xc9\xaa\x51\xb9\x18\xc6\xf3\xde\xcc\x83\x07\xed\x81\xcb\x08\x68\x25\x70\xea\x54\x53\x27\x33\x06\x51\x30\x92\x78\x76\x9d\x7a\xf9\xfe\xfa\xa6\x20\xb8\x4e\x0d\x91\x0d\x46\x6d\x99\x8f\x81\xf4\x48\xb5\xe2\x40\x0a\x6c\xc4\x5a\x3b\xb5\x85\xab\x36\x98\x12\x15\xb0\x91\xb0\x1c\xc2\x4f\xf5\x1f\xec\x03\x4b\x40\x1d\xd1\x50\xbc\x24\xc3\x96\xab\xa0\xca\x12\xa9\x53\x2e\xd4\x1c\x71\xf9\x1f\x4c\x64\x7b\xfc\xa2\xfa\x33\xb6\x75\xe1\x74\xbf\xc8\xfb\xfb\x5c\x30\x67\x2a\xb0\x7f\x77\xc4\x2d\x2a\x82\xe5\xa8\xf5\xe8\xb4\xcc\xac\xc5\x87\xe2\xea\x16\x8a\xc3\x55\xe8\x0a\xff\xb7\xca\x17\xf9\x7f\x22\xce\x28\xff\xfc\x19\xc8\x13\xba\x90\x06\xd5\xbf\x51\x8c\x30\x55\x98\x3d\x89\xa7\x02\x0b\x4f\x80\xd6\x52\x16\xd8\x31\x6d\xe3\x9f\xef\x70\xe7\xcf\xa8\x0d\xbb\x45\xf5\x3f\x08\xa6\x4a\xd0\x22\xf8\x42\x87\x4e\x35\x9e\x62\x6e\xf6\x5c\xd5\xef\x13\x10\x5e\xc5\x47\xb2\x72\x53\xe1\x7a\x84\xb4\x5a\x03\x57\x63\xb4\x0d\xf6\x80\x86\x27\x01\xcf\xf3\xb9\xdf\x73\xa1\x2a\x85\xd3\xd0\x73\xaa\x4f\x03\x9f\x9e\xa6\x63\xdb\xec\xa1\xa7\xb6\xc9\xff\x2c\x40\x7c\xa8\xd7\xe5\xd7\x8e\x47\x3c\xae\x3f\x08\x66\x32\x35\x08\xc1\xcc\xe5\x08\x58\x61\x5e\x37\x13\x2b\x64\xae\x35\x98\x48\x80\xc9\x41\x18\x73\xe1\x13\x01\x4f\x05\x2a\x95\x53\xb0\x54\x6f\x5b\x6a\x1b\x17\x4e\x8f\x1f\xba\x99\x44\x38\x7d\xb4\xc9\x63\x28\xb8\x1f\xd6\x7a\x3b\xf7\x3b\x9c\x67\xde\x0b\x78\xa3\x36\x92\xc0\x48\xd2\x3a\x97\x30\x62\x59\xb6\xc5\x61\x8a\x51\xcf\xc1\x89\x57\x20\x4b\xa6\x4e\xed\x97\xb8\xff\xba\x79\x0a\x63\xfc\xed\xab\x8d\xf1\x8e\x84\xdb\xbd\x78\x4c\xd9\x67\xad\x23\x14\x5e\xaf\xf5\x9e\x75\xb1\xe4\xc5\x8d\x0f\x6b\xea\x5f\x49\xe0\xdb\xf6\x62\xbc\x14\x3a\x50\xa1\x64\x57\x25\xf8\x90\x88\x0f\xa1\xab\xe5\x3e\x6d\x9b\xd5\x67\xfd\xaf\x00\x00\x00\xff\xff\x3a\x65\x2a\x1a\x08\x05\x00\x00")
+
+func templatesPartialsCookiesBannerTmplBytes() ([]byte, error) {
+	return bindataRead(
+		_templatesPartialsCookiesBannerTmpl,
+		"templates/partials/cookies-banner.tmpl",
+	)
+}
+
+func templatesPartialsCookiesBannerTmpl() (*asset, error) {
+	bytes, err := templatesPartialsCookiesBannerTmplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "templates/partials/cookies-banner.tmpl", size: 1288, mode: os.FileMode(420), modTime: time.Unix(1580890305, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -553,7 +574,7 @@ func templatesPartialsHeaderTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 16279, mode: os.FileMode(420), modTime: time.Unix(1579181462, 0)}
+	info := bindataFileInfo{name: "templates/partials/header.tmpl", size: 16279, mode: os.FileMode(420), modTime: time.Unix(1579515688, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -769,6 +790,7 @@ var _bindata = map[string]func() (*asset, error){
 	"templates/homepage.tmpl": templatesHomepageTmpl,
 	"templates/main.tmpl": templatesMainTmpl,
 	"templates/partials/breadcrumb.tmpl": templatesPartialsBreadcrumbTmpl,
+	"templates/partials/cookies-banner.tmpl": templatesPartialsCookiesBannerTmpl,
 	"templates/partials/feedback.tmpl": templatesPartialsFeedbackTmpl,
 	"templates/partials/filter-selection.tmpl": templatesPartialsFilterSelectionTmpl,
 	"templates/partials/footer.tmpl": templatesPartialsFooterTmpl,
@@ -853,6 +875,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"main.tmpl": &bintree{templatesMainTmpl, map[string]*bintree{}},
 		"partials": &bintree{nil, map[string]*bintree{
 			"breadcrumb.tmpl": &bintree{templatesPartialsBreadcrumbTmpl, map[string]*bintree{}},
+			"cookies-banner.tmpl": &bintree{templatesPartialsCookiesBannerTmpl, map[string]*bintree{}},
 			"feedback.tmpl": &bintree{templatesPartialsFeedbackTmpl, map[string]*bintree{}},
 			"filter-selection.tmpl": &bintree{templatesPartialsFilterSelectionTmpl, map[string]*bintree{}},
 			"footer.tmpl": &bintree{templatesPartialsFooterTmpl, map[string]*bintree{}},
