@@ -1,6 +1,6 @@
-<form action="/submit" method="POST" id="global-cookie-message" class="cookies-banner clearfix"
+<form action="/cookies/accept-all" method="POST" id="global-cookie-message" class="cookies-banner js-cookies-banner-form clearfix"
         aria-label="cookie banner" style="display: block;">
-    <div class="cookies-banner__wrapper wrapper">
+    <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
         <div class="col col--md-two-thirds col--lg-two-thirds">
             <div class="cookies-banner__message">
                 <h3 class="cookies-banner__heading">Tell us whether you accept cookies</h3>
@@ -10,10 +10,22 @@
             </div>
             <div class="cookies-banner__buttons">
                 <div class="cookies-banner__button cookies-banner__button--accept">
-                    <button class="btn btn--primary btn--full-width" type="submit">Accept all cookies</button>
+                    <button class="btn btn--primary btn--full-width js-accept-cookies" type="submit">Accept all cookies</button>
                 </div>
                 <div class="cookies-banner__button">
                     <a role="button" href="/help/cookiesandprivacy" class="btn btn--primary btn--full-width">Set Cookie Preferences</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cookies-banner__confirmation cookies-banner hidden js-cookies-banner-confirmation" tabindex="-1">
+        <div class="cookies-banner__wrapper wrapper">
+            <div class="col">
+                <div class="cookies-banner__message">
+                    <p class="cookies-banner__confirmation-message">
+                        You’ve accepted all cookies. You can <a class="govuk-link" href="/help/cookies">change your cookie settings</a> at any time.
+                        <button type="button" class="cookie-banner__hide-button js-hide-cookies-banner">Hide</button>
+                    </p>
                 </div>
             </div>
         </div>
