@@ -7,7 +7,7 @@ var DebugMode bool
 var SiteDomain = "ons.gov.uk"
 
 // PatternLibraryAssetsPath is the URL to the CSS and JS assets from the pattern library
-var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/2760458"
+var PatternLibraryAssetsPath = "//cdn.ons.gov.uk/sixteens/f816ac8"
 
 // SupportedLanguages is a list of languages that are supported
 var SupportedLanguages = [2]string{"en", "cy"}
