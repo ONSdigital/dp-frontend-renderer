@@ -54,7 +54,11 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
                     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-    {{ template "partials/cookies-banner" . }}
+    {{ if .EnableCookiesControl }}
+      {{ if not .CookiesPreferencesSet }}
+        {{ template "partials/cookies-banner" . }}
+      {{ end }}
+    {{ end }}
     {{ template "partials/header" . }}
 
     <main id="main" role="main" tabindex="-1">
