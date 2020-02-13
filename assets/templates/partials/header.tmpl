@@ -2,14 +2,6 @@
     <a class="skiplink" href="#main" tabindex="0">{{ localise "SkipToContent" .Language 1 }}</a>
     <div id="pagePath" class="hide">{{.URI}}</div>
 
-    {{if .ServiceMessage}}
-        <div class="beta-banner">
-            <div class="wrapper">
-                <p>{{.ServiceMessage}}</p>
-            </div>
-        </div>
-    {{end}}
-
     <div class="wrapper">
         <div class="header col-wrap">
             <div class="col col--lg-one-third col--md-one-third">
@@ -217,9 +209,23 @@
         </div>
     </div>
     {{end}}
+    {{if .ServiceMessage}}
+		<div class="banner">
+			<div class="wrapper banner--bottom-border">
+				<div class="col-wrap">
+					<div class="col">
+						<span class="banner__icon icon icon-info"></span>
+						<div class="banner__body">
+							{{.ServiceMessage}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    {{end}}
     {{if .BetaBannerEnabled}}
         <div class="banner">
-            <div class="wrapper">
+            <div class="wrapper banner--bottom-border">
                 <div class="col col--md-40 col--lg-44">
                     <span class="banner__text-icon">{{ localise "Beta" .Language 1 }}</span>
                     <div class="banner__body">
