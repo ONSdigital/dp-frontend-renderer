@@ -55,9 +55,7 @@
                     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
     {{ if .EnableCookiesControl }}
-      {{ if not .CookiesPreferencesSet }}
-        {{ template "partials/cookies-banner" . }}
-      {{ end }}
+      {{ template "partials/cookies-banner" . }}
     {{ end }}
     {{ template "partials/header" . }}
 
