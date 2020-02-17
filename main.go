@@ -22,6 +22,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/cookies"
 	geographyArea "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
 	geographyHomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/homepage"
 	geographyList "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
@@ -132,6 +133,7 @@ func main() {
 	router.Post("/geography-homepage", geographyHomepage.Handler)
 	router.Post("/geography-list", geographyList.Handler)
 	router.Post("/geography-area", geographyArea.Handler)
+	router.Post("/cookies-preferences", cookies.Handler)
 
 	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
