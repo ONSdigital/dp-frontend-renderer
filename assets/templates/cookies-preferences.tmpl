@@ -1,0 +1,68 @@
+<div class="page-intro background--gallery">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col margin-top--1">
+                {{ template "partials/breadcrumb" . }}
+                <h1 class="page-intro__title margin-bottom--4">
+                    {{.Metadata.Title}}
+                </h1>
+                <h1 class="page-intro__title margin-bottom--4">Cookies on ONS.GOV.UK</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper adjust-font-size--16">
+
+    <p>{{ localise "CookiesP1" .Language 1}}</p>
+
+    <p>{{ localise "CookiesP2" .Language 1}}</p>
+
+    <h2 class="font-weight-700">{{ localise "CookiesSettings" .Language 1}}</h2>
+
+    <p>{{ localise "CookiesSettingsP1" .Language 1}}</p>
+
+    <form action="/cookies/edit" method="post"> 
+        <fieldset>
+            <legend class="font-weight-700 font-size--21">{{ localise "CookiesUsage" .Language 1}}</legend>
+            <p>{{ localise "CookiesUsageP1" .Language 1}}</p>
+            <ul>
+                <li>{{ localise "CookiesUsageBP1" .Language 1}}</li>
+                <li>{{ localise "CookiesUsageBP2" .Language 1}}</li>
+                <li>{{ localise "CookiesUsageBP3" .Language 1}}</li>
+            </ul>
+            <p>{{ localise "CookiesUsageP2" .Language 1}}</p>
+
+            <p>{{ localise "CookiesUsageP3" .Language 1}}</p>
+            <ul>
+                <li>{{ localise "CookiesUsageBP4" .Language 1}}</li>
+                <li>{{ localise "CookiesUsageBP5" .Language 1}}</li>
+                <li>{{ localise "CookiesUsageBP6" .Language 1}}</li>
+            </ul>
+
+            <p>{{ localise "CookiesUsageP4" .Language 1}}</p>
+            <div>
+                <div class="radio margin-top--1 radio--inline">
+                    <input class="radio__input"  type="radio" name="cookie-policy-usage" id="usage-on" {{ if eq .CookiesPolicy.Usage true }}checked{{ end }}/>
+                    <label class="radio__label" for="usage-on">{{ localise "On" .Language 1}}</label>
+                </div>
+                <div class="radio margin-top--1 radio--inline">
+                    <input class="radio__input"  type="radio" name="cookie-policy-usage" id="usage-off" {{ if eq .CookiesPolicy.Usage false }}checked{{ end }} />
+                    <label class="radio__label" for="usage-off">{{ localise "Off" .Language 1}}</label>
+                </div>
+            </duv>
+        </fieldset>
+    
+
+    <h3 class="font-weight-700">{{ localise "CookiesEssential" .Language 1}}</h3>
+
+    <p>{{ localise "CookiesEssentialP1" .Language 1}}</p>
+
+    <p>{{ localise "CookiesEssentialP2" .Language 1}}</p>
+    
+    <p>{{ localise "CookiesEssentialP3" .Language 1}}</p>
+
+    <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
+
+    </form>
+</div>
