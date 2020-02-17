@@ -13,9 +13,18 @@
                      <li class="footer-nav__item">
                         <a href="/help/accessibility">{{ localise "Accessibility" .Language 1 }}</a>
                      </li>
-                     <li class="footer-nav__item">
-                        <a href="/help/cookiesandprivacy">{{ localise "CookiesPrivacy" .Language 1 }}</a>
-                     </li>
+                     {{ if not .EnableCookiesControl }}
+                        <li class="footer-nav__item">
+                           <a href="/help/cookiesandprivacy">{{ localise "CookiesPrivacy" .Language 1 }}</a>
+                        </li>
+                     {{ else }}
+                        <li class="footer-nav__item">
+                           <a href="/cookies/edit">{{ localise "Cookies" .Language 1 }}</a>
+                        </li>
+                        <li class="footer-nav__item">
+                           <a href="/help/privacy">{{ localise "Privacy" .Language 1 }}</a>
+                        </li>
+                     {{ end }}
                      <li class="footer-nav__item">
                         <a href="/help/termsandconditions">{{ localise "TermsConditions" .Language 1 }}</a>
                      </li>

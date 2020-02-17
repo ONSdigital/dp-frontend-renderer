@@ -243,6 +243,14 @@ one = "Hygyrchedd"
 description = "Cookies and privacy"
 one = "Briwsion a phreifatrwydd"
 
+[Cookies]
+description = "Cookies"
+one = "Cookies"
+
+[Privacy]
+description = "Privacy"
+one = "Privacy"
+
 [TermsConditions]
 description = "Terms and conditions"
 one = "Telerau ac amodau"

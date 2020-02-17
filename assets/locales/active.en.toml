@@ -241,7 +241,15 @@ one = "Accessibility"
 
 [CookiesPrivacy]
 description = "Cookies and privacy"
-one = "Cookies and privacy"
+one = "Briwsion a phreifatrwydd"
+
+[Cookies]
+description = "Cookies"
+one = "Cookies"
+
+[Privacy]
+description = "Privacy"
+one = "Privacy"
 
 [TermsConditions]
 description = "Terms and conditions"
