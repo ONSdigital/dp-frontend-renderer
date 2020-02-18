@@ -402,3 +402,31 @@ one = "Related link"
 two = "Related links"
 few = "Related links"
 other = "Related links"
+
+[CookiesBannerHeading]
+description = "Tell us whether you accept cookies"
+one = "Tell us whether your accept cookies"
+
+[CookiesBannerOverview]
+description = "We would like to <a href=\"cookies\">use cookies to collect information</a> about how you use <strong>ons.gov.uk</strong>."
+one = "We would like to <a href=\"/cookies\">use cookies to collect information</a> about how you use <strong>ons.gov.uk</strong>."
+
+[CookiesBannerWhyWeUse]
+description = "We use this information to make the website work as well as possible and improve our services."
+one = "We use this information to make the website work as well as possible and improve our services."
+
+[CookiesBannerAcceptAllAction]
+description = "Accept all cookies"
+one = "Accept all cookies"
+
+[CookiesBannerSetPreferencesAction]
+description = "Set Cookie Preferences"
+one = "Set Cookie Preferences"
+
+[CookiesBannerSuccess]
+description = "You’ve accepted all cookies. You can <a href=\"/cookies\">change your cookie settings</a> at any time."
+one = "You’ve accepted all cookies. You can <a href=\"/cookies\">change your cookie settings</a> at any time."
+
+[CookiesBannerHide]
+description = "Hide"
+one = "Hide"
