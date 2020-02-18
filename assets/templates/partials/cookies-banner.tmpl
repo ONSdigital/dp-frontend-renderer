@@ -2,7 +2,7 @@
     <form action="/cookies/accept-all" method="GET" id="global-cookie-message" class="cookies-banner js-cookies-banner-form clearfix"
             aria-label="cookie banner" style="display: block;">
         <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
-            <div class="col col--md-two-thirds col--lg-two-thirds">
+            <div>
                 <div class="cookies-banner__message">
                     <h3 class="cookies-banner__heading">{{ localise "CookiesBannerHeading" .Language 1 }}</h3>
                     <p class="cookies-banner__body">{{ localise "CookiesBannerOverview" .Language 1 | safeHTML }}</p>
@@ -13,7 +13,7 @@
                         <button class="btn btn--primary btn--full-width js-accept-cookies" type="submit">{{ localise "CookiesBannerAcceptAllAction" .Language 1 }}</button>
                     </div>
                     <div class="cookies-banner__button">
-                        <a role="button" href="/help/cookiesandprivacy" class="btn btn--primary btn--full-width">{{ localise "CookiesBannerSetPreferencesAction" .Language 1 }}</a>
+                        <a role="button" href="/cookies" class="btn btn--primary btn--full-width">{{ localise "CookiesBannerSetPreferencesAction" .Language 1 }}</a>
                     </div>
                 </div>
             </div>
@@ -31,4 +31,4 @@
             </div>
         </div>
     </form>
-{{ end}}
+{{ end }}
