@@ -2,7 +2,7 @@
     <form action="/cookies/accept-all" method="GET" id="global-cookie-message" class="cookies-banner js-cookies-banner-form clearfix"
             aria-label="cookie banner" style="display: block;">
         <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
-            <div class="col col--md-two-thirds col--lg-two-thirds">
+            <div>
                 <div class="cookies-banner__message">
                     <h3 class="cookies-banner__heading">{{ localise "CookiesBannerHeading" .Language 1 }}</h3>
                     <p class="cookies-banner__body">{{ localise "CookiesBannerOverview" .Language 1 | safeHTML }}</p>
