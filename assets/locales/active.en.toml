@@ -407,9 +407,9 @@ other = "Related links"
 # Cookies page
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-[Cookies]
-description = "Cookies"
-one = "Cookies"
+[CookiesOnONS]
+description = "Cookies on ONS.GOV.UK"
+one = "Cookies on ONS.GOV.UK"
 
 [CookiesP1]
 description = "Cookies are files saved on your phone, tablet or computer when you visit a website."
@@ -485,7 +485,7 @@ one = "They always need to be on to allow the website to function properly."
 
 [CookiesEssentialP3]
 description = "Find out more about cookies on ons.gov.uk"
-one = "Find out more about cookies on ons.gov.uk"
+one = "<a href=\"/help/cookies\">Find out more about cookies on ons.gov.uk</a>"
 
 [On]
 description = "On"
