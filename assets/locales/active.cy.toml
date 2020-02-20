@@ -432,44 +432,32 @@ description = "Cookies that measure website use"
 one = "Cookies that measure website use"
 
 [CookiesUsageP1]
-description = "We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:"
-one = "We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:"
+description = "We use Google Analytics and Hotjar to measure how you use the website so we can improve it based on user needs. Google Analytics and Hotjar set cookies that store anonymised information about:"
+one = "We use Google Analytics and Hotjar to measure how you use the website so we can improve it based on user needs. Google Analytics and Hotjar set cookies that store anonymised information about:"
 
 [CookiesUsageBP1]
 description = "how you got to the site"
 one = "how you got to the site"
 
 [CookiesUsageBP2]
-description = "the pages you visit on ONS.gov.uk, and how long you spend on each page"
-one = "the pages you visit on ONS.gov.uk, and how long you spend on each page"
+description = "the pages you visit on ons.gov.uk and government digital services, and how long you spend on each page"
+one = "the pages you visit on ons.gov.uk and government digital services, and how long you spend on each page"
 
 [CookiesUsageBP3]
 description = "what you click on while you're visiting the site"
 one = "what you click on while you're visiting the site"
 
-[CookiesUsageP2]
-description = "We do not allow Google to use or share the data about how you use this site."
-one = "We do not allow Google to use or share the data about how you use this site."
-
-[CookiesUsageP3]
-description = "Hotjar sets cookies that store anonymised information about:"
-one = "Hotjar sets cookies that store anonymised information about:"
-
 [CookiesUsageBP4]
-description = "whether you have participated in a Hotjar survey"
-one = "whether you have participated in a Hotjar survey"
-
-[CookiesUsageBP5]
 description = "the way in which you interact with a page"
 one = "the way in which you interact with a page"
 
-[CookiesUsageBP6]
-description = "what you click on while you’re visiting the site"
-one = "what you click on while you’re visiting the site"
+[CookiesUsageBP5]
+description = "whether you have participated in a Hotjar survey"
+one = "whether you have participated in a Hotjar survey"
 
-[CookiesUsageP4]
-description = "Loop11 sets cookies that store:"
-one = "Loop11 sets cookies that store:"
+[CookiesUsageP2]
+description = "We do not allow Google or Hotjar to use or share the data about how you use this site."
+one = "We do not allow Google or Hotjar to use or share the data about how you use this site."
 
 [CookiesEssential]
 description = "Strictly necessary cookies"
