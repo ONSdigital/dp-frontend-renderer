@@ -2,6 +2,7 @@ package render
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -36,6 +37,12 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	if f != nil {
 		f()
 	}
+
+	fmt.Println(string(b))
+
+	fmt.Println("--------")
+
+	fmt.Printf("%+v\n", page)
 
 	page2.PatternLibraryAssetsPath = config.PatternLibraryAssetsPath
 

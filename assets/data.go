@@ -115,7 +115,7 @@ func templatesCookiesPreferencesTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/cookies-preferences.tmpl", size: 2991, mode: os.FileMode(420), modTime: time.Unix(1582036088, 0)}
+	info := bindataFileInfo{name: "templates/cookies-preferences.tmpl", size: 2991, mode: os.FileMode(420), modTime: time.Unix(1582105434, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
