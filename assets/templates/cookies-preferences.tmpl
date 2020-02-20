@@ -51,19 +51,19 @@
                     <input class="radio__input"  type="radio" name="cookie-policy-usage" id="usage-off" value="false" {{ if eq .CookiesPolicy.Usage false }}checked{{ end }} />
                     <label class="radio__label" for="usage-off">{{ localise "Off" .Language 1}}</label>
                 </div>
-            </duv>
+            </div>
         </fieldset>
     
 
-    <h3 class="font-weight-700 margin-top--2">{{ localise "CookiesEssential" .Language 1}}</h3>
+        <h3 class="font-weight-700 margin-top--2">{{ localise "CookiesEssential" .Language 1}}</h3>
 
-    <p>{{ localise "CookiesEssentialP1" .Language 1}}</p>
+        <p>{{ localise "CookiesEssentialP1" .Language 1}}</p>
 
-    <p>{{ localise "CookiesEssentialP2" .Language 1}}</p>
-    
-    <p>{{ localise "CookiesEssentialP3" .Language 1 | safeHTML }}</p>
+        <p>{{ localise "CookiesEssentialP2" .Language 1}}</p>
+        
+        <p>{{ localise "CookiesEssentialP3" .Language 1 | safeHTML }}</p>
 
-    <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
+        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
 
     </form>
 </div>
