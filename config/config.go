@@ -5,13 +5,13 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
-// Configuration structure which hold information for configuring the import API
+// Configuration structure which hold information for configuring the renderer
 type Config struct {
 	BindAddr                 string    `envconfig:"BIND_ADDR"`
 	Debug                    bool      `envconfig:"DEBUG"`
 	SiteDomain               string    `envconfig:"SITE_DOMAIN"`
 	PatternLibraryAssetsPath string    `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
-	SupportedLanguages       [2]string `envconfig:"GENERATE_DOWNLOADS_TOPIC"`
+	SupportedLanguages       [2]string `envconfig:"SUPPORTED_LANGUAGES"`
 	EnableCookiesControl     bool      `envconfig:"ENABLE_COOKIES_CONTROL"`
 }
 
