@@ -2,7 +2,6 @@ package render
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -14,6 +13,10 @@ import (
 
 //Handler resolves the rendering of a specific pagem with a given model and template name
 func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *model.Page, templateName string, f func()) {
+	cfg, err := config.Get()
+	if err != nil {
+		log.ErrorR(req, err, nil)
+	}
 	b, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		render.JSON(w, 400, model.ErrorResponse{
@@ -38,15 +41,9 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		f()
 	}
 
-	fmt.Println(string(b))
-
-	fmt.Println("--------")
-
-	fmt.Printf("%+v\n", page)
-
-	page2.PatternLibraryAssetsPath = config.PatternLibraryAssetsPath
-
-	page2.SiteDomain = config.SiteDomain
+	page2.PatternLibraryAssetsPath = cfg.PatternLibraryAssetsPath
+	page2.SiteDomain = cfg.SiteDomain
+	page2.EnableCookiesControl = cfg.EnableCookiesControl
 
 	log.DebugR(req, "rendered template", log.Data{"template": templateName})
 

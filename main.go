@@ -5,13 +5,13 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-	"strconv"
 	"time"
 
 	"gopkg.in/yaml.v2"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/cookies"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
@@ -22,7 +22,6 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/cookies"
 	geographyArea "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
 	geographyHomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/homepage"
 	geographyList "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
@@ -61,32 +60,21 @@ func init() {
 }
 
 func main() {
-	bindAddr := os.Getenv("BIND_ADDR")
-	if len(bindAddr) == 0 {
-		bindAddr = ":20010"
-	}
-
-	var err error
-	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
-	if err != nil {
-		log.Error(err, nil)
-	}
-
-	if v := os.Getenv("SITE_DOMAIN"); len(v) > 0 {
-		config.SiteDomain = v
-	}
-
-	if config.DebugMode {
-		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
-	}
 
 	log.Namespace = "dp-frontend-renderer"
+
+	cfg, err := config.Get()
+	if err != nil {
+		log.Error(err, nil)
+		os.Exit(1)
+	}
+	cfg.Log()
 
 	log.Debug("overriding default renderer with service assets", nil)
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,
-		IsDevelopment: config.DebugMode,
+		IsDevelopment: cfg.Debug,
 		Layout:        "main",
 		Funcs: []template.FuncMap{{
 			"humanSize":                renderHelpers.HumanSize,
@@ -135,10 +123,9 @@ func main() {
 	router.Post("/geography-area", geographyArea.Handler)
 	router.Post("/cookies-preferences", cookies.Handler)
 
-	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
 
 	server := &http.Server{
-		Addr:         bindAddr,
+		Addr:         cfg.BindAddr,
 		Handler:      alice,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
