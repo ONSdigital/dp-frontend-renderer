@@ -135,16 +135,16 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "OhEOq0VNVeJ9eLoZd0ek2eld3NA=",
+			"checksumSHA1": "CAiFIIcirc/tBGdkH/U68QrkIOE=",
 			"path": "github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage",
-			"revision": "565be4698235ebe11a74d354d777979a99112188",
-			"revisionTime": "2019-12-03T15:11:49Z"
+			"revision": "ceb0b18f69b40f36040c7e0556b0e3cf4f81f66b",
+			"revisionTime": "2020-02-24T14:43:51Z"
 		},
 		{
-			"checksumSHA1": "64EH74LCo+dxhJERpuIYIXdOfK8=",
+			"checksumSHA1": "5DH1PWentof1sQLvpTMH6B3Gkvg=",
 			"path": "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area",
-			"revision": "b47560862a2be18a304108dc03bf4dc3a115452a",
-			"revisionTime": "2018-09-17T08:56:49Z"
+			"revision": "ceb0b18f69b40f36040c7e0556b0e3cf4f81f66b",
+			"revisionTime": "2020-02-24T14:43:51Z"
 		},
 		{
 			"checksumSHA1": "a1j+FiKx0eqh3hz8knUfoiEh2dQ=",
@@ -181,6 +181,12 @@
 			"path": "github.com/ONSdigital/go-ns/render",
 			"revision": "bc738aa12b6d88fb7a8a55f0bb4ea47b08e210af",
 			"revisionTime": "2017-11-22T09:55:22Z"
+		},
+		{
+			"checksumSHA1": "r2PdGOPVGXt0WTdGQXN5aHfp0RM=",
+			"path": "github.com/ONSdigital/log.go/log",
+			"revision": "93cc21caa3b378645874496cca0d8204bdf0f891",
+			"revisionTime": "2019-02-14T09:59:51Z"
 		},
 		{
 			"checksumSHA1": "jQ7JB1XsEO3528jVoX9wKM/9wWU=",
@@ -235,6 +241,12 @@
 			"path": "github.com/justinas/alice",
 			"revision": "1051eaf52fcafdd87ead59d28b065f1fcb8274ec",
 			"revisionTime": "2016-09-10T10:38:22Z"
+		},
+		{
+			"checksumSHA1": "i1+Ef2OakJK8UC7zk9N7a0w+9J4=",
+			"path": "github.com/kelseyhightower/envconfig",
+			"revision": "0b417c4ec4a8a82eecc22a1459a504aa55163d61",
+			"revisionTime": "2019-05-24T18:54:01Z"
 		},
 		{
 			"checksumSHA1": "hBgLmZ/4mCxmnH88mqFKBkpJFUY=",

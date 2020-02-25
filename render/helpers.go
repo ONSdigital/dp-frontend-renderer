@@ -12,7 +12,7 @@ import (
 
 	"github.com/BurntSushi/toml"
 	"github.com/ONSdigital/go-ns/common"
-	"github.com/ONSdigital/go-ns/log"
+	"github.com/ONSdigital/log.go/log"
 	"github.com/c2h5oh/datasize"
 	"github.com/gosimple/slug"
 	"github.com/nicksnyder/go-i18n/v2/i18n"
@@ -44,7 +44,7 @@ func InitLocaleBundle() (*i18n.Bundle, error) {
 		filePath := "locales/active." + locale + ".toml"
 		asset, err := assets.Asset(filePath)
 		if err != nil {
-			log.Error(err, nil)
+			log.Event(nil, "failed to get locale file", log.Error(err))
 		}
 		bundle.ParseMessageFileBytes(asset, filePath)
 	}
@@ -70,7 +70,7 @@ func SafeHTML(s string) template.HTML {
 func DateFormat(s string) template.HTML {
 	t, err := time.Parse(time.RFC3339, s)
 	if err != nil {
-		log.Error(err, nil)
+		log.Event(nil, "failed to parse time", log.Error(err))
 		return template.HTML(s)
 	}
 	return template.HTML(t.Format("02 January 2006"))
@@ -79,7 +79,7 @@ func DateFormat(s string) template.HTML {
 func DateFormatYYYYMMDD(s string) template.HTML {
 	t, err := time.Parse(time.RFC3339, s)
 	if err != nil {
-		log.Error(err, nil)
+		log.Event(nil, "failed to parse time", log.Error(err))
 		return template.HTML(s)
 	}
 	return template.HTML(t.Format("2006/01/02"))
@@ -135,7 +135,7 @@ func Markdown(md string) template.HTML {
 func Localise(key string, language string, plural int, templateArguments ...string) string {
 	if key == "" {
 		err := fmt.Errorf("key " + key + " not found in locale file")
-		log.Error(err, nil)
+		log.Event(nil, "no locale look up key provided", log.Error(err))
 		return ""
 	}
 	if language == "" {
@@ -192,7 +192,7 @@ func DomainSetLang(domain string, uri string, language string) string {
 	domainWithTranslation := ""
 	if !languageSupported {
 		err := fmt.Errorf("Language: " + language + " is not supported resolving to " + common.DefaultLang)
-		log.Error(err, nil)
+		log.Event(nil, "language fail", log.Error(err))
 	}
 	if language == common.DefaultLang || !languageSupported {
 		domainWithTranslation = "https://www." + strippedURL

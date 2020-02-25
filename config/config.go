@@ -1,7 +1,6 @@
 package config
 
 import (
-	"github.com/ONSdigital/go-ns/log"
 	"github.com/kelseyhightower/envconfig"
 )
 
@@ -21,7 +20,6 @@ var cfg *Config
 func Get() (*Config, error) {
 	cfg, err := get()
 	if err != nil {
-		log.Error(err, nil)
 		return nil, err
 	}
 
@@ -36,7 +34,6 @@ func Get() (*Config, error) {
 
 func get() (*Config, error) {
 	if cfg != nil {
-		log.Debug("cfg already set and is not nil", nil)
 		return cfg, nil
 	}
 
@@ -49,15 +46,4 @@ func get() (*Config, error) {
 	}
 
 	return cfg, envconfig.Process("", cfg)
-}
-
-func (cfg *Config) Log() {
-	log.Debug("Configuration", log.Data{
-		"BindAddr":                 cfg.BindAddr,
-		"Debug":                    cfg.Debug,
-		"SiteDomain":               cfg.SiteDomain,
-		"PatternLibraryAssetsPath": cfg.PatternLibraryAssetsPath,
-		"SupportedLanguages":       cfg.SupportedLanguages,
-		"EnableCookiesControl":     cfg.EnableCookiesControl,
-	})
 }

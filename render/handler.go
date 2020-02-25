@@ -1,28 +1,26 @@
 package render
 
 import (
+	"context"
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
-	"github.com/ONSdigital/go-ns/log"
 	"github.com/ONSdigital/go-ns/render"
+	"github.com/ONSdigital/log.go/log"
 )
 
 //Handler resolves the rendering of a specific pagem with a given model and template name
-func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *model.Page, templateName string, f func()) {
-	cfg, err := config.Get()
-	if err != nil {
-		log.ErrorR(req, err, nil)
-	}
+func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *model.Page, templateName string, f func(), cfg config.Config) {
+	ctx := context.Background()
 	b, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.ErrorR(req, err, nil)
+		log.Event(ctx, "failed to read request body", log.Data{"request": req}, log.Error(err))
 		return
 	}
 
@@ -33,7 +31,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.ErrorR(req, err, nil)
+		log.Event(ctx, "failed to unmarshal request body to page", log.Data{"request": req}, log.Error(err))
 		return
 	}
 
@@ -45,14 +43,14 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	page2.SiteDomain = cfg.SiteDomain
 	page2.EnableCookiesControl = cfg.EnableCookiesControl
 
-	log.DebugR(req, "rendered template", log.Data{"template": templateName})
+	log.Event(ctx, "rendered template", log.Data{"template": templateName}, log.INFO)
 
 	err = render.HTML(w, 200, templateName, page)
 	if err != nil {
 		render.JSON(w, 500, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.ErrorR(req, err, nil)
+		log.Event(ctx, "failed to render template", log.Data{"request": req}, log.Error(err))
 		return
 	}
 }
