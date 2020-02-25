@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "hEDY1K4lAova2Ej92ia5HeyQMME=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
+			"revision": "45cb171b8e0b9ea6c197afc7c43e0ac87816572c",
+			"revisionTime": "2019-06-19T09:55:20Z"
+		},
+		{
 			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "874caa20ddead708abfc4671e54ef8bdb1a99c3e",
@@ -13,12 +19,6 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
-			"checksumSHA1": "hEDY1K4lAova2Ej92ia5HeyQMME=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "45cb171b8e0b9ea6c197afc7c43e0ac87816572c",
-			"revisionTime": "2019-06-19T09:55:20Z"
 		},
 		{
 			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",
@@ -195,6 +195,12 @@
 			"revisionTime": "2017-05-19T14:33:21Z"
 		},
 		{
+			"checksumSHA1": "BxH9xJUqczhpL57gfKZe2/VlBHY=",
+			"path": "github.com/fatih/color",
+			"revision": "3f9d52f7176a6927daacff70a3e8d1dc2025c53e",
+			"revisionTime": "2018-10-10T23:13:11Z"
+		},
+		{
 			"checksumSHA1": "ST3iiJ6vhtfZDnujuW/HGXQCtZM=",
 			"path": "github.com/golang/mock/gomock",
 			"revision": "9e3cfa9279f269a4c4d703dacd64b05184cec28e",
@@ -231,6 +237,12 @@
 			"revisionTime": "2017-08-21T11:09:01Z"
 		},
 		{
+			"checksumSHA1": "+HUsIuEnSLik8Jrrw9MDdxmhT5c=",
+			"path": "github.com/hokaccha/go-prettyjson",
+			"revision": "f579f869bbfea48a61fbea09207cadd1aaeceb83",
+			"revisionTime": "2018-09-20T04:03:06Z"
+		},
+		{
 			"checksumSHA1": "cIiyvAduLLFvu+tg1Qr5Jw3jeWo=",
 			"path": "github.com/jtolds/gls",
 			"revision": "b4936e06046bbecbb94cae9c18127ebe510a2cb9",
@@ -247,6 +259,18 @@
 			"path": "github.com/kelseyhightower/envconfig",
 			"revision": "0b417c4ec4a8a82eecc22a1459a504aa55163d61",
 			"revisionTime": "2019-05-24T18:54:01Z"
+		},
+		{
+			"checksumSHA1": "XCrIQIhBqX1Ierm/Uz9lLjizT8c=",
+			"path": "github.com/mattn/go-colorable",
+			"revision": "98ec13f34aabf44cc914c65a1cfb7b9bc815aef1",
+			"revisionTime": "2019-09-30T17:34:38Z"
+		},
+		{
+			"checksumSHA1": "nj9rbH76zpC2GJcnxb6cdSRYNRQ=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "62f712808a2a54a0f220e557074b33f99af9440b",
+			"revisionTime": "2019-10-03T00:19:46Z"
 		},
 		{
 			"checksumSHA1": "hBgLmZ/4mCxmnH88mqFKBkpJFUY=",
@@ -368,6 +392,12 @@
 			"path": "golang.org/x/net/context",
 			"revision": "da137c7871d730100384dbcf36e6f8fa493aef5b",
 			"revisionTime": "2019-06-28T18:40:41Z"
+		},
+		{
+			"checksumSHA1": "eQpQD1D5YeI1niWftHZgBni3Hkk=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "aed5e4c7ecf9f069775e08834fb724544628d38d",
+			"revisionTime": "2019-10-05T07:28:58Z"
 		},
 		{
 			"checksumSHA1": "8ea1h1pimPfXc6cE5l3SQTe7SVo=",
