@@ -13,7 +13,7 @@
                         <button class="btn btn--full-width btn--primary btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies" type="submit">{{ localise "CookiesBannerAcceptAllAction" .Language 1 }}</button>
                     </div>
                     <div class="cookies-banner__button">
-                        <a role="button" href="/cookies/edit" class="btn btn--full-width btn--primary btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies">{{ localise "CookiesBannerSetPreferencesAction" .Language 1 }}</a>
+                        <a role="button" href="/cookies" class="btn btn--full-width btn--primary btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies">{{ localise "CookiesBannerSetPreferencesAction" .Language 1 }}</a>
                     </div>
                 </div>
             </div>
@@ -21,8 +21,8 @@
         <div class="cookies-banner__confirmation cookies-banner hidden js-cookies-banner-confirmation" tabindex="-1">
             <div class="cookies-banner__wrapper wrapper">
                 <div class="col">
-                    <div class="cookies-banner__message">
-                        <p class="cookies-banner__confirmation-message adjust-font-size--18">
+                    <div class="cookies-banner__message adjust-font-size--18">
+                        <p class="cookies-banner__confirmation-message">
                             {{ localise "CookiesBannerSuccess" .Language 1 | safeHTML }}
                             <button type="button" class="cookies-banner__button--hide js-hide-cookies-banner">{{ localise "CookiesBannerHide" .Language 1 }}</button>
                         </p>
