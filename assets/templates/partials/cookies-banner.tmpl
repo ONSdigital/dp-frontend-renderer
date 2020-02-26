@@ -3,17 +3,17 @@
             aria-label="cookie banner" style="display: block;">
         <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
             <div>
-                <div class="cookies-banner__message">
+                <div class="cookies-banner__message adjust-font-size--18">
                     <h3 class="cookies-banner__heading">{{ localise "CookiesBannerHeading" .Language 1 }}</h3>
                     <p class="cookies-banner__body">{{ localise "CookiesBannerOverview" .Language 1 | safeHTML }}</p>
                     <p class="cookies-banner__body">{{ localise "CookiesBannerWhyWeUse" .Language 1 }}</p>
                 </div>
                 <div class="cookies-banner__buttons">
                     <div class="cookies-banner__button cookies-banner__button--accept">
-                        <button class="btn btn--primary btn--full-width js-accept-cookies" type="submit">{{ localise "CookiesBannerAcceptAllAction" .Language 1 }}</button>
+                        <button class="btn btn--full-width btn--primary btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies" type="submit">{{ localise "CookiesBannerAcceptAllAction" .Language 1 }}</button>
                     </div>
                     <div class="cookies-banner__button">
-                        <a role="button" href="/cookies" class="btn btn--primary btn--full-width">{{ localise "CookiesBannerSetPreferencesAction" .Language 1 }}</a>
+                        <a role="button" href="/cookies" class="btn btn--full-width btn--primary btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies">{{ localise "CookiesBannerSetPreferencesAction" .Language 1 }}</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
             <div class="cookies-banner__wrapper wrapper">
                 <div class="col">
                     <div class="cookies-banner__message">
-                        <p class="cookies-banner__confirmation-message">
+                        <p class="cookies-banner__confirmation-message adjust-font-size--18">
                             {{ localise "CookiesBannerSuccess" .Language 1 | safeHTML }}
                             <button type="button" class="cookies-banner__button--hide js-hide-cookies-banner">{{ localise "CookiesBannerHide" .Language 1 }}</button>
                         </p>
