@@ -19,6 +19,6 @@ generate:
 	mv assets/debug.go.new assets/debug.go
 
 test:
-	go test -cover $(shell go list ./... | grep -v /vendor/) -tags 'production' ./...
+	go test -race -cover $(shell go list ./... | grep -v /vendor/) -tags 'production' ./...
 
 .PHONY: build debug generate

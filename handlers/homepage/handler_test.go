@@ -5,16 +5,15 @@ import (
 	"errors"
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-models/model/homepage"
+	"github.com/ONSdigital/dp-frontend-renderer/config"
+	"github.com/ONSdigital/go-ns/render"
 	"github.com/gorilla/pat"
+	. "github.com/smartystreets/goconvey/convey"
+	unrolled "github.com/unrolled/render"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
-	"github.com/ONSdigital/dp-frontend-renderer/config"
-	"github.com/ONSdigital/go-ns/render"
-	. "github.com/smartystreets/goconvey/convey"
-	unrolled "github.com/unrolled/render"
 )
 
 type fakeRenderer struct {
@@ -65,11 +64,11 @@ func TestHandler(t *testing.T) {
 		EnableCookiesControl:     false,
 		PatternLibraryAssetsPath: "foobar.com",
 	}
-	cfg.PatternLibraryAssetsPath = "foobar.com"
 
 	Convey("Handler returns 400 status code response when request body is empty", t, func() {
 		rdr := bytes.NewReader([]byte(``))
-		request := httptest.NewRequest("POST", "/", rdr)
+		request, err := http.NewRequest("POST", "/", rdr)
+		So(err, ShouldBeNil)
 		w := doTestRequest("/", request, Handler(cfg), nil)
 		So(w.Code, ShouldEqual, 400)
 	})
@@ -112,7 +111,7 @@ func TestHandler(t *testing.T) {
 		So(w.Code, ShouldEqual, 500)
 		So(f.binding, ShouldHaveSameTypeAs, model.ErrorResponse{})
 		p := f.binding.(model.ErrorResponse)
-		So(p.Error, ShouldEqual, "Error from HTML")
+		So(p.Error, ShouldEqual, "error from HTML")
 		f.errorOnHTML = false
 	})
 
@@ -123,6 +122,6 @@ func TestHandler(t *testing.T) {
 		So(w.Code, ShouldEqual, 400)
 		So(f.binding, ShouldHaveSameTypeAs, model.ErrorResponse{})
 		p := f.binding.(model.ErrorResponse)
-		So(p.Error, ShouldEqual, "Error from reader")
+		So(p.Error, ShouldEqual, "error from reader")
 	})
 }

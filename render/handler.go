@@ -20,7 +20,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.Event(ctx, "failed to read request body", log.Data{"request": req}, log.Error(err))
+		log.Event(ctx, "failed to read request body", log.Error(err))
 		return
 	}
 
@@ -31,7 +31,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.Event(ctx, "failed to unmarshal request body to page", log.Data{"request": req}, log.Error(err))
+		log.Event(ctx, "failed to unmarshal request body to page", log.Error(err))
 		return
 	}
 
@@ -50,7 +50,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		render.JSON(w, 500, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.Event(ctx, "failed to render template", log.Data{"request": req}, log.Error(err))
+		log.Event(ctx, "failed to render template", log.Error(err))
 		return
 	}
 }
