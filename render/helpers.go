@@ -44,7 +44,7 @@ func InitLocaleBundle() (*i18n.Bundle, error) {
 		filePath := "locales/active." + locale + ".toml"
 		asset, err := assets.Asset(filePath)
 		if err != nil {
-			log.Event(nil, "failed to get locale file", log.Error(err))
+			log.Event(nil, "failed to get locale file", log.Error(err), log.ERROR)
 		}
 		bundle.ParseMessageFileBytes(asset, filePath)
 	}
@@ -70,7 +70,7 @@ func SafeHTML(s string) template.HTML {
 func DateFormat(s string) template.HTML {
 	t, err := time.Parse(time.RFC3339, s)
 	if err != nil {
-		log.Event(nil, "failed to parse time", log.Error(err))
+		log.Event(nil, "failed to parse time", log.Error(err), log.ERROR)
 		return template.HTML(s)
 	}
 	return template.HTML(t.Format("02 January 2006"))
@@ -79,7 +79,7 @@ func DateFormat(s string) template.HTML {
 func DateFormatYYYYMMDD(s string) template.HTML {
 	t, err := time.Parse(time.RFC3339, s)
 	if err != nil {
-		log.Event(nil, "failed to parse time", log.Error(err))
+		log.Event(nil, "failed to parse time", log.Error(err), log.ERROR)
 		return template.HTML(s)
 	}
 	return template.HTML(t.Format("2006/01/02"))
@@ -135,7 +135,7 @@ func Markdown(md string) template.HTML {
 func Localise(key string, language string, plural int, templateArguments ...string) string {
 	if key == "" {
 		err := fmt.Errorf("key " + key + " not found in locale file")
-		log.Event(nil, "no locale look up key provided", log.Error(err))
+		log.Event(nil, "no locale look up key provided", log.Error(err), log.ERROR)
 		return ""
 	}
 	if language == "" {
@@ -192,7 +192,7 @@ func DomainSetLang(domain string, uri string, language string) string {
 	domainWithTranslation := ""
 	if !languageSupported {
 		err := fmt.Errorf("Language: " + language + " is not supported resolving to " + common.DefaultLang)
-		log.Event(nil, "language fail", log.Error(err))
+		log.Event(nil, "language fail", log.Error(err), log.ERROR)
 	}
 	if language == common.DefaultLang || !languageSupported {
 		domainWithTranslation = "https://www." + strippedURL

@@ -13,19 +13,23 @@ import (
 	"github.com/ONSdigital/log.go/log"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
+	"github.com/pkg/errors"
 	unrolled "github.com/unrolled/render"
 	"html/template"
 	"net/http"
 	"time"
 )
 
+const (
+	namespace = "dp-frontend-renderer"
+)
+
 func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
-	log.Namespace = "dp-frontend-renderer"
+	log.Namespace = namespace
 
 	cfg, err := config.Get()
 	if err != nil {
-		log.Event(ctx, "unable to retrieve service configuration", log.Error(err))
-		return err
+		return errors.Wrap(err, "unable to retrieve service configuration")
 	}
 
 	log.Event(ctx, "got service configuration", log.Data{"config": cfg}, log.INFO)
@@ -71,8 +75,7 @@ func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
 	}
 
 	if err = server.ListenAndServe(); err != nil {
-		log.Event(ctx, "unable to retrieve service configuration", log.Error(err))
-		return err
+		return errors.Wrap(err, "failed to start server")
 	}
 	// nil translates to exit code 0
 	return nil
