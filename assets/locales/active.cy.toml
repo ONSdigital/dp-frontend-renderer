@@ -408,8 +408,8 @@ description = "Tell us whether you accept cookies"
 one = "Tell us whether you accept cookies"
 
 [CookiesBannerOverview]
-description = "We would like to <a href=\"/cookies/edit\">use cookies to collect information</a> about how you use <strong>ons.gov.uk</strong>."
-one = "We would like to <a href=\"/cookies/edit\">use cookies to collect information</a> about how you use <strong>ons.gov.uk</strong>."
+description = "We would like to <a href=\"/cookies\">use cookies to collect information</a> about how you use <strong>ons.gov.uk</strong>."
+one = "We would like to <a href=\"/cookies\">use cookies to collect information</a> about how you use <strong>ons.gov.uk</strong>."
 
 [CookiesBannerWhyWeUse]
 description = "We use this information to make the website work as well as possible and improve our services."
