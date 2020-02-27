@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "hEDY1K4lAova2Ej92ia5HeyQMME=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
+			"revision": "45cb171b8e0b9ea6c197afc7c43e0ac87816572c",
+			"revisionTime": "2019-06-19T09:55:20Z"
+		},
+		{
 			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "874caa20ddead708abfc4671e54ef8bdb1a99c3e",
@@ -13,12 +19,6 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
-			"checksumSHA1": "hEDY1K4lAova2Ej92ia5HeyQMME=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "45cb171b8e0b9ea6c197afc7c43e0ac87816572c",
-			"revisionTime": "2019-06-19T09:55:20Z"
 		},
 		{
 			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",
@@ -135,16 +135,16 @@
 			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
-			"checksumSHA1": "OhEOq0VNVeJ9eLoZd0ek2eld3NA=",
+			"checksumSHA1": "CAiFIIcirc/tBGdkH/U68QrkIOE=",
 			"path": "github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage",
-			"revision": "565be4698235ebe11a74d354d777979a99112188",
-			"revisionTime": "2019-12-03T15:11:49Z"
+			"revision": "ceb0b18f69b40f36040c7e0556b0e3cf4f81f66b",
+			"revisionTime": "2020-02-24T14:43:51Z"
 		},
 		{
-			"checksumSHA1": "64EH74LCo+dxhJERpuIYIXdOfK8=",
+			"checksumSHA1": "5DH1PWentof1sQLvpTMH6B3Gkvg=",
 			"path": "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area",
-			"revision": "b47560862a2be18a304108dc03bf4dc3a115452a",
-			"revisionTime": "2018-09-17T08:56:49Z"
+			"revision": "ceb0b18f69b40f36040c7e0556b0e3cf4f81f66b",
+			"revisionTime": "2020-02-24T14:43:51Z"
 		},
 		{
 			"checksumSHA1": "a1j+FiKx0eqh3hz8knUfoiEh2dQ=",
@@ -177,16 +177,28 @@
 			"revisionTime": "2018-07-05T11:25:05Z"
 		},
 		{
-			"checksumSHA1": "YtiRks0ZOuqkOz5OJHooyGnL6J0=",
+			"checksumSHA1": "EfG9kH3S7Sn1ejm0oAnUWtuDA84=",
 			"path": "github.com/ONSdigital/go-ns/render",
-			"revision": "bc738aa12b6d88fb7a8a55f0bb4ea47b08e210af",
-			"revisionTime": "2017-11-22T09:55:22Z"
+			"revision": "a11716f93bad0ed9c770a9905aa00efee41b1e45",
+			"revisionTime": "2020-02-04T21:19:52Z"
+		},
+		{
+			"checksumSHA1": "r2PdGOPVGXt0WTdGQXN5aHfp0RM=",
+			"path": "github.com/ONSdigital/log.go/log",
+			"revision": "93cc21caa3b378645874496cca0d8204bdf0f891",
+			"revisionTime": "2019-02-14T09:59:51Z"
 		},
 		{
 			"checksumSHA1": "jQ7JB1XsEO3528jVoX9wKM/9wWU=",
 			"path": "github.com/c2h5oh/datasize",
 			"revision": "54516c931ae99c3c74637b9ea2390cf9a6327f26",
 			"revisionTime": "2017-05-19T14:33:21Z"
+		},
+		{
+			"checksumSHA1": "BxH9xJUqczhpL57gfKZe2/VlBHY=",
+			"path": "github.com/fatih/color",
+			"revision": "3f9d52f7176a6927daacff70a3e8d1dc2025c53e",
+			"revisionTime": "2018-10-10T23:13:11Z"
 		},
 		{
 			"checksumSHA1": "ST3iiJ6vhtfZDnujuW/HGXQCtZM=",
@@ -225,6 +237,12 @@
 			"revisionTime": "2017-08-21T11:09:01Z"
 		},
 		{
+			"checksumSHA1": "+HUsIuEnSLik8Jrrw9MDdxmhT5c=",
+			"path": "github.com/hokaccha/go-prettyjson",
+			"revision": "f579f869bbfea48a61fbea09207cadd1aaeceb83",
+			"revisionTime": "2018-09-20T04:03:06Z"
+		},
+		{
 			"checksumSHA1": "cIiyvAduLLFvu+tg1Qr5Jw3jeWo=",
 			"path": "github.com/jtolds/gls",
 			"revision": "b4936e06046bbecbb94cae9c18127ebe510a2cb9",
@@ -235,6 +253,24 @@
 			"path": "github.com/justinas/alice",
 			"revision": "1051eaf52fcafdd87ead59d28b065f1fcb8274ec",
 			"revisionTime": "2016-09-10T10:38:22Z"
+		},
+		{
+			"checksumSHA1": "i1+Ef2OakJK8UC7zk9N7a0w+9J4=",
+			"path": "github.com/kelseyhightower/envconfig",
+			"revision": "0b417c4ec4a8a82eecc22a1459a504aa55163d61",
+			"revisionTime": "2019-05-24T18:54:01Z"
+		},
+		{
+			"checksumSHA1": "XCrIQIhBqX1Ierm/Uz9lLjizT8c=",
+			"path": "github.com/mattn/go-colorable",
+			"revision": "98ec13f34aabf44cc914c65a1cfb7b9bc815aef1",
+			"revisionTime": "2019-09-30T17:34:38Z"
+		},
+		{
+			"checksumSHA1": "nj9rbH76zpC2GJcnxb6cdSRYNRQ=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "62f712808a2a54a0f220e557074b33f99af9440b",
+			"revisionTime": "2019-10-03T00:19:46Z"
 		},
 		{
 			"checksumSHA1": "hBgLmZ/4mCxmnH88mqFKBkpJFUY=",
@@ -290,6 +326,12 @@
 			"path": "github.com/pelletier/go-toml",
 			"revision": "dba45d427ff48cfb9bcf633db3a8e43b7364e261",
 			"revisionTime": "2019-05-30T03:55:49Z"
+		},
+		{
+			"checksumSHA1": "I7hloldMJZTqUx6hbVDp5nk9fZQ=",
+			"path": "github.com/pkg/errors",
+			"revision": "27936f6d90f9c8e1145f11ed52ffffbfdb9e0af7",
+			"revisionTime": "2019-02-27T00:00:51Z"
 		},
 		{
 			"checksumSHA1": "pvg8L4xN+zO9HLJislpVeHPPLjM=",
@@ -356,6 +398,12 @@
 			"path": "golang.org/x/net/context",
 			"revision": "da137c7871d730100384dbcf36e6f8fa493aef5b",
 			"revisionTime": "2019-06-28T18:40:41Z"
+		},
+		{
+			"checksumSHA1": "eQpQD1D5YeI1niWftHZgBni3Hkk=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "aed5e4c7ecf9f069775e08834fb724544628d38d",
+			"revisionTime": "2019-10-05T07:28:58Z"
 		},
 		{
 			"checksumSHA1": "8ea1h1pimPfXc6cE5l3SQTe7SVo=",

@@ -1,41 +1,12 @@
 package main
 
 import (
-	"html/template"
-	"io/ioutil"
-	"net/http"
-	"os"
-	"strconv"
-	"time"
-
+	"context"
+	"github.com/ONSdigital/dp-frontend-renderer/service"
+	"github.com/ONSdigital/log.go/log"
 	"gopkg.in/yaml.v2"
-
-	"github.com/ONSdigital/dp-frontend-renderer/assets"
-	"github.com/ONSdigital/dp-frontend-renderer/config"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelector"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/hierarchy"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/listSelector"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/timeSelector"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
-	geographyArea "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
-	geographyHomepage "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/homepage"
-	geographyList "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
-	renderHelpers "github.com/ONSdigital/dp-frontend-renderer/render"
-	"github.com/ONSdigital/go-ns/handlers/requestID"
-	"github.com/ONSdigital/go-ns/handlers/timeout"
-	"github.com/ONSdigital/go-ns/healthcheck"
-	"github.com/ONSdigital/go-ns/log"
-	"github.com/ONSdigital/go-ns/render"
-	"github.com/gorilla/pat"
-	"github.com/justinas/alice"
-	unrolled "github.com/unrolled/render"
+	"io/ioutil"
+	"os"
 )
 
 var taxonomyRedirects map[string]string
@@ -48,102 +19,21 @@ func init() {
 		taxonomyRedirects = make(map[string]string)
 		b, err := ioutil.ReadFile("taxonomy-redirects.yml")
 		if err != nil {
-			log.ErrorC("could not open taxonomy redirect file", err, nil)
+			log.Event(nil, "could not open taxonomy redirect file", log.Error(err), log.FATAL)
 			os.Exit(1)
 		}
 
 		if err := yaml.Unmarshal(b, &taxonomyRedirects); err != nil {
-			log.ErrorC("could not unmarshal taxonomy redirects file", err, nil)
+			log.Event(nil, "could not unmarshal taxonomy redirects file", log.Error(err), log.FATAL)
 			os.Exit(1)
 		}
 	}
 }
 
 func main() {
-	bindAddr := os.Getenv("BIND_ADDR")
-	if len(bindAddr) == 0 {
-		bindAddr = ":20010"
-	}
-
-	var err error
-	config.DebugMode, err = strconv.ParseBool(os.Getenv("DEBUG"))
-	if err != nil {
-		log.Error(err, nil)
-	}
-
-	if v := os.Getenv("SITE_DOMAIN"); len(v) > 0 {
-		config.SiteDomain = v
-	}
-
-	if config.DebugMode {
-		config.PatternLibraryAssetsPath = "http://localhost:9000/dist"
-	}
-
-	log.Namespace = "dp-frontend-renderer"
-
-	log.Debug("overriding default renderer with service assets", nil)
-	render.Renderer = unrolled.New(unrolled.Options{
-		Asset:         assets.Asset,
-		AssetNames:    assets.AssetNames,
-		IsDevelopment: config.DebugMode,
-		Layout:        "main",
-		Funcs: []template.FuncMap{{
-			"humanSize":                renderHelpers.HumanSize,
-			"safeHTML":                 renderHelpers.SafeHTML,
-			"dateFormat":               renderHelpers.DateFormat,
-			"dateFormatYYYYMMDD":       renderHelpers.DateFormatYYYYMMDD,
-			"last":                     renderHelpers.Last,
-			"loop":                     renderHelpers.Loop,
-			"subtract":                 renderHelpers.Subtract,
-			"slug":                     renderHelpers.Slug,
-			"markdown":                 renderHelpers.Markdown,
-			"legacyDatasetDownloadURI": renderHelpers.LegacyDataSetDownloadURI,
-			"localise":                 renderHelpers.Localise,
-			"domainSetLang":            renderHelpers.DomainSetLang,
-			"taxonomyLandingPage": func(s string) string {
-				return taxonomyRedirects[s]
-			},
-		}},
-	})
-
-	router := pat.New()
-	alice := alice.New(
-		timeout.Handler(10*time.Second),
-		log.Handler,
-		requestID.Handler(16),
-	).Then(router)
-
-	router.Get("/healthcheck", healthcheck.Do)
-	router.Post("/homepage", homepage.Handler)
-	router.Post("/feedback", feedback.Handler)
-	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler)
-	router.Post("/dataset-edition-list", datasetLandingPage.EditionListHandler)
-	router.Post("/dataset-version-list", datasetLandingPage.VersionListHandler)
-	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler)
-	router.Post("/productPage", productPage.Handler)
-	router.Post("/error", errorPage.Handler)
-	router.Post("/dataset-filter/preview-page", previewPage.Handler)
-	router.Post("/dataset-filter/geography", geography.Handler)
-	router.Post("/dataset-filter/hierarchy", hierarchy.Handler)
-	router.Post("/dataset-filter/filter-overview", filterOverview.Handler)
-	router.Post("/dataset-filter/list-selector", listSelector.Handler)
-	router.Post("/dataset-filter/time", timeSelector.Handler)
-	router.Post("/dataset-filter/age", ageSelector.Handler)
-	router.Post("/geography-homepage", geographyHomepage.Handler)
-	router.Post("/geography-list", geographyList.Handler)
-	router.Post("/geography-area", geographyArea.Handler)
-
-	log.Debug("Starting server", log.Data{"bind_addr": bindAddr})
-
-	server := &http.Server{
-		Addr:         bindAddr,
-		Handler:      alice,
-		ReadTimeout:  5 * time.Second,
-		WriteTimeout: 10 * time.Second,
-	}
-
-	if err = server.ListenAndServe(); err != nil {
-		log.Error(err, nil)
+	ctx := context.Background()
+	if err := service.Run(ctx, taxonomyRedirects); err != nil {
+		log.Event(nil, "unable to run application", log.Error(err), log.FATAL)
 		os.Exit(1)
 	}
 }
