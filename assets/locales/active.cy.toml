@@ -421,7 +421,8 @@ one = "Accept all cookies"
 
 [CookiesBannerSetPreferencesAction]
 description = "Set cookie preferences"
-one = "Set cookie preferences"
+one = "Set cookie preference"
+other = "Set cookie preferences"
 
 [CookiesBannerSuccess]
 description = "You’ve accepted all cookies. You can <a href=\"/cookies\">change your cookie settings</a> at any time."
