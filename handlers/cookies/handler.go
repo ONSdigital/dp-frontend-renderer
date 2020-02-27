@@ -1,6 +1,7 @@
 package cookies
 
 import (
+	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"net/http"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
@@ -8,9 +9,10 @@ import (
 )
 
 //Handler ...
-func Handler(w http.ResponseWriter, req *http.Request) {
-	var page model.Page
+func Handler(cfg config.Config) http.HandlerFunc{
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page model.Page
 
-	render.Handler(w, req, &page, &page, "cookies-preferences", nil)
-
+		render.Handler(w, req, &page, &page, "cookies-preferences", nil, cfg)
+	}
 }

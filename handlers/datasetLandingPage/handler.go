@@ -1,6 +1,7 @@
 package datasetLandingPage
 
 import (
+	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"net/http"
 
 	"github.com/ONSdigital/dp-frontend-models/model/datasetVersionsList"
@@ -14,28 +15,36 @@ import (
 const xRequestIDParam = "X-Request-Id"
 
 //FilterHandler ...
-func FilterHandler(w http.ResponseWriter, req *http.Request) {
-	var page datasetLandingPageFilterable.Page
+func FilterHandler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page datasetLandingPageFilterable.Page
 
-	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/filterable", nil)
+		render.Handler(w, req, &page, &page.Page, "datasetLandingPage/filterable", nil, cfg)
+	}
 }
 
 //StaticHandler builds the template for non-filterable dataset landing pages
-func StaticHandler(w http.ResponseWriter, req *http.Request) {
-	var page datasetLandingPageStatic.Page
+func StaticHandler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page datasetLandingPageStatic.Page
 
-	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/static", nil)
+		render.Handler(w, req, &page, &page.Page, "datasetLandingPage/static", nil, cfg)
+	}
 }
 
 //EditionListHandler ...
-func EditionListHandler(w http.ResponseWriter, req *http.Request) {
-	var page datasetEditionsList.Page
+func EditionListHandler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page datasetEditionsList.Page
 
-	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/edition-list", nil)
+		render.Handler(w, req, &page, &page.Page, "datasetLandingPage/edition-list", nil, cfg)
+	}
 }
 
-func VersionListHandler(w http.ResponseWriter, req *http.Request) {
-	var page datasetVersionsList.Page
+func VersionListHandler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page datasetVersionsList.Page
 
-	render.Handler(w, req, &page, &page.Page, "datasetLandingPage/version-list", nil)
+		render.Handler(w, req, &page, &page.Page, "datasetLandingPage/version-list", nil, cfg)
+	}
 }
