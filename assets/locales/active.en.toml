@@ -243,6 +243,15 @@ one = "Accessibility"
 description = "Cookies and privacy"
 one = "Cookies and privacy"
 
+[Cookies]
+description = "Cookies"
+one = "Cookie"
+other = "Cookies"
+
+[Privacy]
+description = "Privacy"
+one = "Privacy"
+
 [TermsConditions]
 description = "Terms and conditions"
 one = "Terms and conditions"
@@ -402,6 +411,93 @@ one = "Related link"
 two = "Related links"
 few = "Related links"
 other = "Related links"
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Cookies page
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[CookiesOnONS]
+description = "Cookies on ONS.GOV.UK"
+one = "Cookies on ONS.GOV.UK"
+
+[CookiesP1]
+description = "Cookies are files saved on your phone, tablet or computer when you visit a website."
+one = "Cookies are files saved on your phone, tablet or computer when you visit a website."
+
+[CookiesP2]
+description = "We use cookies to store information about how you use the ons.gov.uk website, such as the pages you visit."
+one = "We use cookies to store information about how you use the ons.gov.uk website, such as the pages you visit."
+
+[CookiesSettings]
+description = "Cookie settings"
+one = "Cookie settings"
+
+[CookiesSettingsP1]
+description = "We use 2 types of cookie. You can choose which cookies you're happy for us to use."
+one = "We use 2 types of cookie. You can choose which cookies you're happy for us to use."
+
+[CookiesUsage]
+description = "Cookies that measure website use"
+one = "Cookies that measure website use"
+
+[CookiesUsageP1]
+description = "We use Google Analytics and Hotjar to measure how you use the website so we can improve it based on user needs. Google Analytics and Hotjar set cookies that store anonymised information about:"
+one = "We use Google Analytics and Hotjar to measure how you use the website so we can improve it based on user needs. Google Analytics and Hotjar set cookies that store anonymised information about:"
+
+[CookiesUsageBP1]
+description = "how you got to the site"
+one = "how you got to the site"
+
+[CookiesUsageBP2]
+description = "the pages you visit on ons.gov.uk and government digital services, and how long you spend on each page"
+one = "the pages you visit on ons.gov.uk and government digital services, and how long you spend on each page"
+
+[CookiesUsageBP3]
+description = "what you click on while you're visiting the site"
+one = "what you click on while you're visiting the site"
+
+[CookiesUsageBP4]
+description = "the way in which you interact with a page"
+one = "the way in which you interact with a page"
+
+[CookiesUsageBP5]
+description = "whether you have participated in a Hotjar survey"
+one = "whether you have participated in a Hotjar survey"
+
+[CookiesUsageP2]
+description = "We do not allow Google or Hotjar to use or share the data about how you use this site."
+one = "We do not allow Google or Hotjar to use or share the data about how you use this site."
+
+[CookiesEssential]
+description = "Strictly necessary cookies"
+one = "Strictly necessary cookies"
+
+[CookiesEssentialP1]
+description = "These essential cookies do things like remember your progress through a form."
+one = "These essential cookies do things like remember your progress through a form."
+
+[CookiesEssentialP2]
+description = "They always need to be on to allow the website to function properly."
+one = "They always need to be on to allow the website to function properly."
+
+[CookiesEssentialP3]
+description = "Find out more about cookies on ons.gov.uk"
+one = "<a href=\"/help/cookies\">Find out more about cookies on ons.gov.uk</a>"
+
+[On]
+description = "On"
+one = "On"
+
+[Off]
+description = "Off"
+one = "Off"
+
+[SaveChanges]
+description = "Save changes"
+one = "Save change"
+two = "Save changes"
+few = "Save changes"
+other = "Save changes"
 
 [CookiesBannerHeading]
 description = "Tell us whether you accept cookies"
