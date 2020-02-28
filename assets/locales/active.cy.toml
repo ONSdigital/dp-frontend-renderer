@@ -245,7 +245,8 @@ one = "Briwsion a phreifatrwydd"
 
 [Cookies]
 description = "Cookies"
-one = "Cookies"
+one = "Cookie"
+other = "Cookies"
 
 [Privacy]
 description = "Privacy"

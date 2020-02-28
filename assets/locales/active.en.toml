@@ -245,7 +245,8 @@ one = "Cookies and privacy"
 
 [Cookies]
 description = "Cookies"
-one = "Cookies"
+one = "Cookie"
+other = "Cookies"
 
 [Privacy]
 description = "Privacy"
