@@ -6,20 +6,24 @@
 # - Description should be the English version of the text, unless English version is a shorthand e.g. Home button is shorthand in English for Homepage
 # - Arguments can be added via {{.argN}} where N is integer index starting at 0 e.g. {{.arg0}} {{.arg1}}
 # - To inject HTML (Avoid where possible as it is messy) use "| safeHTML" e.g. {{ localise Foo .Language 1 | safeHTML }} where Foo might be "<strong>test</strong>"
+# count - 0 = zero
 # count - 1 = one
 # count - 2 = two; useful for languages with mutations like welsh (radical) 'brother'=brawd, two (soft) 'brothers'=frawd, three or more (nasal) 'brothers'=brodyr
 # count - 3 = few
-# count - 4 = other; typically use this for general plurals
-# Why use numbers for one, two, few, other? - This enables us to pass in variables e.g. an array length and it to automatically get the correct plural form
+# count - 6 = many
+# count - 4 = other; 4,5 & >6
+# Plural rules can be found here: http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Used for tests
 [Foo]
 description = "Used for localisation tests"
+zero = "No Foos (Welsh)"
 one = "One Foo (Welsh)"
 two = "Two Foos (Welsh)"
 few = "Three Foos (Welsh)"
-other = "More than a few Foos (Welsh)"
+many = "Six Foos (Welsh)"
+other = "Four, five or more than six but not six Foos (Welsh)"
 
 # Primarily used in header template
 [OfficeForNationalStatistics]
@@ -318,6 +322,7 @@ description = "Notice"
 one = "Notice"
 two = "Notices"
 few = "Notices"
+many = "Notices"
 other = "Notices"
 
 [Correction]
@@ -325,6 +330,7 @@ description = "Correction"
 one = "Correction"
 two = "Corrections"
 few = "Corrections"
+many = "Corrections"
 other = "Corrections"
 
 [Contact]
@@ -360,6 +366,7 @@ description = "Your download option"
 one = "Your download option"
 two = "Your download options"
 few = "Your download options"
+many = "Your download options"
 other = "Your download options"
 
 [DownloadInFormatWithSingleTitle]
@@ -379,6 +386,7 @@ description = "Previous versions </a> of this data are available."
 one = "Previous version </a> of this data is available."
 two = "Previous versions </a> of this data are available."
 few = "Previous versions </a> of this data are available."
+many = "Previous versions </a> of this data are available."
 other = "Previous versions </a> of this data are available."
 
 [UsefulSupportingFiles]
@@ -410,6 +418,7 @@ description = "Related links"
 one = "Related links"
 two = "Related links"
 few = "Related links"
+many = "Related links"
 other = "Related links"
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
