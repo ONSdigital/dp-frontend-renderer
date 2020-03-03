@@ -5,7 +5,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 
-	cookiespreferences "github.com/ONSdigital/dp-frontend-models/model/cookiesPreferences"
+	"github.com/ONSdigital/dp-frontend-models/model/cookiespreferences"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 )
 
