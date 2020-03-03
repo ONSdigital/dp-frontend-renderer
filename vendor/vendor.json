@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "hEDY1K4lAova2Ej92ia5HeyQMME=",
+			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "45cb171b8e0b9ea6c197afc7c43e0ac87816572c",
-			"revisionTime": "2019-06-19T09:55:20Z"
+			"revision": "e83eb22fe44d4bf8c4037b3b2d6b9d074d2ad955",
+			"revisionTime": "2020-03-03T08:27:25Z"
 		},
 		{
 			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
@@ -19,6 +19,12 @@
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
 			"revisionTime": "2017-07-18T12:33:43Z"
+		},
+		{
+			"checksumSHA1": "/SwWzXThppnBIiF3QbU+N1QX/pQ=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model/cookiesPreferences",
+			"revision": "e83eb22fe44d4bf8c4037b3b2d6b9d074d2ad955",
+			"revisionTime": "2020-03-03T08:27:25Z"
 		},
 		{
 			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",

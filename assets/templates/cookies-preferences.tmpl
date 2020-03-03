@@ -12,14 +12,14 @@
 </div>
 
 <div class="wrapper adjust-font-size--18">
-
-    <div class="min-height--10 margin-top--4 cookies-banner__preferences-success">
-        <div class="font-size--18 cookies-banner__preferences-success-body">
-            <h2 class="font-weight-700 margin-top--2">{{ localise "CookiesPreferencesSaved" .Language 2 }}</h2>
-            <p class="padding-bottom--0 margin-top--1 margin-bottom--1">{{ localise "CookiesPreferencesSavedAmend" .Language 2 | safeHTML }}</p>
+    {{if .PreferencesUpdated }}
+        <div class="min-height--10 margin-top--4 cookies-banner__preferences-success">
+            <div class="font-size--18 cookies-banner__preferences-success-body">
+                <h2 class="font-weight-700 margin-top--2">{{ localise "CookiesPreferencesSaved" .Language 2 }}</h2>
+                <p class="padding-bottom--0 margin-top--1 margin-bottom--1">{{ localise "CookiesPreferencesSavedAmend" .Language 2 | safeHTML }}</p>
+            </div>
         </div>
-    </div>
-  
+    {{end}}
 
     <p>{{ localise "CookiesP1" .Language 1}}</p>
 
