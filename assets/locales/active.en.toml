@@ -418,6 +418,22 @@ one = "We use cookies to store information about how you use the ons.gov.uk webs
 description = "Cookie settings"
 one = "Cookie settings"
 
+[CookiesNoJSWarn1]
+description = "We use Javascript to set most of our cookies. It appears that Javascript is not running on your browser, so we are unable to change your cookie settings. To change this you can try:"
+one = "We use Javascript to set most of our cookies. It appears that Javascript is not running on your browser, so we are unable to change your cookie settings. To change this you can try:"
+
+[CookiesNoJSWarn2]
+description = "Without Javascript we cannot set any cookies that aren’t strictly necessary."
+one = "Without Javascript we cannot set any cookies that aren’t strictly necessary."
+
+[CookiesNoJSOpt1]
+description = "reloading the page"
+one = "reloading the page"
+
+[CookiesNoJSOpt2]
+description = "turning on JavaScript in your browser"
+one = "turning on JavaScript in your browser"
+
 [CookiesSettingsP1]
 description = "We use 2 types of cookie. You can choose which cookies you're happy for us to use."
 one = "We use 2 types of cookie. You can choose which cookies you're happy for us to use."

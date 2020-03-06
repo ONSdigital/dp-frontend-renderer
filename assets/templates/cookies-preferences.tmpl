@@ -19,6 +19,15 @@
 
     <h2 class="font-weight-700">{{ localise "CookiesSettings" .Language 1}}</h2>
 
+    <div id=cookies-no-js>
+        <p> {{ localise "CookiesNoJSWarn1" .Language 1}} </p>
+        <ul class="margin-left--1">
+            <li>{{ localise "CookiesNoJSOpt1" .Language 1}}</li>
+            <li>{{ localise "CookiesNoJSOpt2" .Language 1}}</li>
+        </ul>
+        <p> {{ localise "CookiesNoJSWarn2" .Language 1}} </p>
+    </div>
+
     <p>{{ localise "CookiesSettingsP1" .Language 1}}</p>
 
     <form action="/cookies" method="post"> 
