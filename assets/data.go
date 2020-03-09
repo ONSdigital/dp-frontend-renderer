@@ -115,7 +115,7 @@ func templatesCookiesPreferencesTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/cookies-preferences.tmpl", size: 3271, mode: os.FileMode(420), modTime: time.Unix(1583246990, 0)}
+	info := bindataFileInfo{name: "templates/cookies-preferences.tmpl", size: 3271, mode: os.FileMode(420), modTime: time.Unix(1583748059, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -475,7 +475,7 @@ func templatesMainTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/main.tmpl", size: 3312, mode: os.FileMode(420), modTime: time.Unix(1582103939, 0)}
+	info := bindataFileInfo{name: "templates/main.tmpl", size: 3312, mode: os.FileMode(420), modTime: time.Unix(1583744043, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -515,7 +515,7 @@ func templatesPartialsCookiesBannerTmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/cookies-banner.tmpl", size: 2271, mode: os.FileMode(420), modTime: time.Unix(1583246992, 0)}
+	info := bindataFileInfo{name: "templates/partials/cookies-banner.tmpl", size: 2271, mode: os.FileMode(420), modTime: time.Unix(1583748059, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -635,7 +635,7 @@ func templatesPartialsLoop11Tmpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/partials/loop11.tmpl", size: 200, mode: os.FileMode(420), modTime: time.Unix(1582016847, 0)}
+	info := bindataFileInfo{name: "templates/partials/loop11.tmpl", size: 200, mode: os.FileMode(420), modTime: time.Unix(1583744043, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -715,7 +715,7 @@ func localesActiveCyToml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "locales/active.cy.toml", size: 15700, mode: os.FileMode(420), modTime: time.Unix(1583246990, 0)}
+	info := bindataFileInfo{name: "locales/active.cy.toml", size: 15700, mode: os.FileMode(420), modTime: time.Unix(1583748059, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -735,7 +735,7 @@ func localesActiveEnToml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "locales/active.en.toml", size: 14755, mode: os.FileMode(420), modTime: time.Unix(1583246990, 0)}
+	info := bindataFileInfo{name: "locales/active.en.toml", size: 14755, mode: os.FileMode(420), modTime: time.Unix(1583748059, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
