@@ -27,10 +27,19 @@
 
     <h2 class="font-weight-700">{{ localise "CookiesSettings" .Language 1}}</h2>
 
-    <p>{{ localise "CookiesSettingsP1" .Language 1}}</p>
+    <div class="cookies-no-js">
+        <p> {{ localise "CookiesNoJSWarn1" .Language 1}} </p>
+        <ul class="margin-left--1">
+            <li>{{ localise "CookiesNoJSOpt1" .Language 1}}</li>
+            <li>{{ localise "CookiesNoJSOpt2" .Language 1}}</li>
+        </ul>
+        <p> {{ localise "CookiesNoJSWarn2" .Language 1}} </p>
+    </div>
 
-    <form action="/cookies" method="post"> 
-        <fieldset class="margin-bottom--6">
+    <p class="cookies-js hidden">{{ localise "CookiesSettingsP1" .Language 1}}</p>
+
+    <form action="/cookies" method="post">
+        <fieldset class="margin-bottom--6 cookies-js hidden">
             <legend class="font-weight-700 font-size--21">{{ localise "CookiesUsage" .Language 1}}</legend>
             <p>{{ localise "CookiesUsageP1" .Language 1}}</p>
             <ul class="margin-left--1">
@@ -62,7 +71,7 @@
         
         <p>{{ localise "CookiesEssentialP3" .Language 1 | safeHTML }}</p>
 
-        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
+        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap cookies-js hidden" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
 
     </form>
 </div>
