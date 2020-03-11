@@ -3,8 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-<<<<<<< HEAD
-=======
 			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
@@ -17,40 +15,12 @@
 			"revisionTime": "2019-06-19T09:55:20Z"
 		},
 		{
->>>>>>> develop
 			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "874caa20ddead708abfc4671e54ef8bdb1a99c3e",
 			"revisionTime": "2020-02-12T14:06:56Z"
 		},
 		{
-<<<<<<< HEAD
-			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
-			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
-			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "e83eb22fe44d4bf8c4037b3b2d6b9d074d2ad955",
-			"revisionTime": "2020-03-03T08:27:25Z"
-		},
-		{
-			"checksumSHA1": "/SwWzXThppnBIiF3QbU+N1QX/pQ=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/cookiesPreferences",
-			"revision": "e83eb22fe44d4bf8c4037b3b2d6b9d074d2ad955",
-			"revisionTime": "2020-03-03T08:27:25Z"
-		},
-		{
-			"checksumSHA1": "7T9JkM5UWqeyW7nsTrIXtNaL4mE=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model/cookiespreferences",
-			"revision": "e83eb22fe44d4bf8c4037b3b2d6b9d074d2ad955",
-			"revisionTime": "2020-03-03T08:27:25Z"
-		},
-		{
-=======
->>>>>>> develop
 			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/age",
 			"revision": "61ae74395c11b344de9590abfa54dcb7a2557c3c",
