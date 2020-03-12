@@ -451,12 +451,12 @@ description = "how you got to the site"
 one = "how you got to the site"
 
 [CookiesUsageBP2]
-description = "the pages you visit on ons.gov.uk and government digital services, and how long you spend on each page"
-one = "the pages you visit on ons.gov.uk and government digital services, and how long you spend on each page"
+description = "the pages you visit on ons.gov.uk and how long you spend on each page"
+one = "the pages you visit on ons.gov.uk and how long you spend on each page"
 
 [CookiesUsageBP3]
-description = "what you click on while you're visiting the site"
-one = "what you click on while you're visiting the site"
+description = "what you click on while you are visiting the site"
+one = "what you click on while you are visiting the site"
 
 [CookiesUsageBP4]
 description = "the way in which you interact with a page"
