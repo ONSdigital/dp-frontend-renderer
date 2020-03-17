@@ -552,3 +552,13 @@ one = "You’ve accepted all cookies. You can <a href=\"/cookies\">change your c
 [CookiesBannerHide]
 description = "Hide"
 one = "Hide"
+
+[CookiesPreferencesSaved]
+description = "We have saved your cookie preferences."
+one = "We have saved your cookie preference."
+other = "We have saved your cookie preferences."
+
+[CookiesPreferencesSavedAmend]
+description = "Should you ever wish to amend them, visit <strong><a href=\"/cookies\">ons.gov.uk/cookies</a></strong>."
+one = "Should you ever wish to amend them, visit <strong><a href=\"/cookies\">ons.gov.uk/cookies</a></strong>."
+other = "Should you ever wish to amend them, visit <strong><a href=\"/cookies\">ons.gov.uk/cookies</a></strong>."
