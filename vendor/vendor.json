@@ -3,8 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-<<<<<<< HEAD
-=======
 			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
@@ -17,28 +15,12 @@
 			"revisionTime": "2019-06-19T09:55:20Z"
 		},
 		{
->>>>>>> develop
 			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "874caa20ddead708abfc4671e54ef8bdb1a99c3e",
 			"revisionTime": "2020-02-12T14:06:56Z"
 		},
 		{
-<<<<<<< HEAD
-			"checksumSHA1": "vyodphCGWpSvHLpLElB/00cPrvs=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "6656fa7cc64f6b081476dfd2bd5f13be443a7b30",
-			"revisionTime": "2020-03-06T10:29:15Z"
-		},
-		{
-			"checksumSHA1": "vyodphCGWpSvHLpLElB/00cPrvs=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "6656fa7cc64f6b081476dfd2bd5f13be443a7b30",
-			"revisionTime": "2020-03-06T10:29:15Z"
-		},
-		{
-=======
->>>>>>> develop
 			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model/dataset-filter/age",
 			"revision": "61ae74395c11b344de9590abfa54dcb7a2557c3c",
