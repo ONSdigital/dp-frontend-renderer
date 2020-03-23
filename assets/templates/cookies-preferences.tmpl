@@ -12,6 +12,14 @@
 </div>
 
 <div class="wrapper adjust-font-size--18">
+    {{if .PreferencesUpdated }}
+        <div class="min-height--10 margin-top--4 cookies-banner__preferences-success">
+            <div class="font-size--18 cookies-banner__preferences-success-body">
+                <h2 class="font-weight-700 margin-top--2">{{ localise "CookiesPreferencesSaved" .Language 2 }}</h2>
+                <p class="padding-bottom--0 margin-top--1 margin-bottom--1">{{ localise "CookiesPreferencesSavedAmend" .Language 2 | safeHTML }}</p>
+            </div>
+        </div>
+    {{end}}
 
     <p>{{ localise "CookiesP1" .Language 1}}</p>
 
@@ -19,10 +27,19 @@
 
     <h2 class="font-weight-700">{{ localise "CookiesSettings" .Language 1}}</h2>
 
-    <p>{{ localise "CookiesSettingsP1" .Language 1}}</p>
+    <div class="cookies-no-js">
+        <p> {{ localise "CookiesNoJSWarn1" .Language 1}} </p>
+        <ul class="margin-left--1">
+            <li>{{ localise "CookiesNoJSOpt1" .Language 1}}</li>
+            <li>{{ localise "CookiesNoJSOpt2" .Language 1}}</li>
+        </ul>
+        <p> {{ localise "CookiesNoJSWarn2" .Language 1}} </p>
+    </div>
 
-    <form action="/cookies" method="post"> 
-        <fieldset class="margin-bottom--6">
+    <p class="cookies-js hidden">{{ localise "CookiesSettingsP1" .Language 1}}</p>
+
+    <form action="/cookies" method="post">
+        <fieldset class="margin-bottom--6 cookies-js hidden">
             <legend class="font-weight-700 font-size--21">{{ localise "CookiesUsage" .Language 1}}</legend>
             <p>{{ localise "CookiesUsageP1" .Language 1}}</p>
             <ul class="margin-left--1">
@@ -54,7 +71,7 @@
         
         <p>{{ localise "CookiesEssentialP3" .Language 1 | safeHTML }}</p>
 
-        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
+        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap cookies-js hidden" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
 
     </form>
 </div>
