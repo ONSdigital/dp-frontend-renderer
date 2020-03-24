@@ -1,8 +1,9 @@
 package config
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 // TestConfig tests config options correctly default if not set
@@ -23,6 +24,7 @@ func TestConfig(t *testing.T) {
 				So(cfg.SiteDomain, ShouldEqual, "ons.gov.uk")
 				So(cfg.SupportedLanguages, ShouldEqual, [2]string{"en", "cy"})
 				So(cfg.EnableCookiesControl, ShouldEqual, false)
+				So(cfg.EnableJsonLd, ShouldEqual, false)
 			})
 		})
 	})
