@@ -48,6 +48,7 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
     <!-- End Google Tag Manager -->
+        {{ template "partials/json-ld/root" .}}
 </head>
 <body class="{{ .Type }}">
   <!-- Google Tag Manager (noscript) -->
@@ -60,7 +61,7 @@
     {{ template "partials/header" . }}
 
     <main id="main" role="main" tabindex="-1">
-        {{yield}}
+      {{yield}}
     </main>
 
     {{ template "partials/footer" . }}
