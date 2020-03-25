@@ -21,6 +21,9 @@
 		{{`<!--[if gt IE 9]><!-->` | safeHTML}}
       <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{`<!--<![endif]-->` | safeHTML}}
+    {{ if .EnableJSONLDControl }}
+      {{ template "partials/json-ld/base" . }}
+    {{ end }}
 
     <!-- Add page title to dataLayer - Google Tag Manager -->
     <script>
@@ -48,7 +51,6 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
     <!-- End Google Tag Manager -->
-        {{ template "partials/json-ld/base" . }}
 </head>
 <body class="{{ .Type }}">
   <!-- Google Tag Manager (noscript) -->

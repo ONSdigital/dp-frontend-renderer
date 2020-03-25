@@ -214,13 +214,3 @@ func HasField(data interface{}, name string) bool {
 	}
 	return rv.FieldByName(name).IsValid()
 }
-
-// ConvertToSchemaType takes our Page model type and maps that to correct JSON-LD schema
-// as per http://schema.org
-func ConvertToSchemaType(pageType string) string {
-	switch pageType {
-		"dataset-landing-page":
-		
-	}
-
-}

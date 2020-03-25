@@ -12,7 +12,7 @@ type Config struct {
 	PatternLibraryAssetsPath string    `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
 	SupportedLanguages       [2]string `envconfig:"SUPPORTED_LANGUAGES"`
 	EnableCookiesControl     bool      `envconfig:"ENABLE_COOKIES_CONTROL"`
-	EnableJSONLdControl      bool      `envconfig:"ENABLE_JSONLD_CONTROL"`
+	EnableJSONLDControl      bool      `envconfig:"ENABLE_JSONLD_CONTROL"`
 }
 
 var cfg *Config
@@ -44,7 +44,7 @@ func get() (*Config, error) {
 		SiteDomain:           "ons.gov.uk",
 		SupportedLanguages:   [2]string{"en", "cy"},
 		EnableCookiesControl: false,
-		EnableJsonLd:         false,
+		EnableJSONLDControl:  false,
 	}
 
 	return cfg, envconfig.Process("", cfg)

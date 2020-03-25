@@ -3,22 +3,22 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
-			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
-			"revisionTime": "2017-07-18T12:33:43Z"
-		},
-		{
 			"checksumSHA1": "hEDY1K4lAova2Ej92ia5HeyQMME=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
 			"revision": "45cb171b8e0b9ea6c197afc7c43e0ac87816572c",
 			"revisionTime": "2019-06-19T09:55:20Z"
 		},
 		{
-			"checksumSHA1": "F8OAHCEjt0z3+3UtJGKy82Sjyug=",
+			"checksumSHA1": "/lsBsQKh/5LdICUtHuljsxxDeEQ=",
 			"path": "github.com/ONSdigital/dp-frontend-models/model",
-			"revision": "874caa20ddead708abfc4671e54ef8bdb1a99c3e",
-			"revisionTime": "2020-02-12T14:06:56Z"
+			"revision": "775e0ac2ae6daab07837a1b2c402314f00069ded",
+			"revisionTime": "2020-03-25T14:35:36Z"
+		},
+		{
+			"checksumSHA1": "HGcaKsLnyiPHC1fYKvGTIH00Z4c=",
+			"path": "github.com/ONSdigital/dp-frontend-models/model",
+			"revision": "fd87760f288b942010fdb9db9ae9ffe91212ad36",
+			"revisionTime": "2017-07-18T12:33:43Z"
 		},
 		{
 			"checksumSHA1": "4HqfcBn97KejGsi17+7HiYKDosw=",

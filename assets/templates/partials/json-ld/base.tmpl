@@ -1,9 +1,11 @@
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "name": {{ template "partials/json-ld/name" . -}}
-    {{ if hasField . "DatasetLandingPage" -}}
-        {{ template "partials/json-ld/dataset" . }}
-    {{- end }}
-}
-</script>
+{{ if .HasJSONLD }}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "name": {{ template "partials/json-ld/name" . -}}
+        {{ if hasField . "DatasetLandingPage" -}}
+            {{ template "partials/json-ld/dataset" . }}
+        {{- end }}
+    }
+    </script>
+{{ end }}

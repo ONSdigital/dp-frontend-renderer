@@ -22,4 +22,6 @@ type Page struct {
 	EnableCookiesControl             bool           `json:"enable_cookies_control"`
 	CookiesPreferencesSet            bool           `json:"cookies_preferences_set"`
 	CookiesPolicy                    CookiesPolicy  `json:"cookies_policy"`
+	EnableJSONLDControl              bool           `json:"enable_jsonld_control"`
+	HasJSONLD                        bool           `json:"has_jsonld"`
 }
