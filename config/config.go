@@ -12,7 +12,7 @@ type Config struct {
 	PatternLibraryAssetsPath string    `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
 	SupportedLanguages       [2]string `envconfig:"SUPPORTED_LANGUAGES"`
 	EnableCookiesControl     bool      `envconfig:"ENABLE_COOKIES_CONTROL"`
-	EnableJsonLd             bool      `envconfig:"ENABLE_JSON_LD"`
+	EnableJSONLdControl      bool      `envconfig:"ENABLE_JSONLD_CONTROL"`
 }
 
 var cfg *Config
