@@ -1,14 +1,18 @@
 "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-{{ if .Version.Description }}
-    "description": {{ .Version.Description }},
-{{ end }}
 "creator": {
     "@type": "Organization",
     "name": "Office for National Statistics",  
     "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
 },
+{{ if .Version.Description }}
+    "description": {{ .Version.Description }},
+{{ end }}
 {{ $length := len .Datasets }} {{ if gt $length 0 }}
     "distribution": [
-
+    {{ range $i, $el := .Version.Downloads }}
+        "@type": "DataDownload",
+        "encodingFormat": {{ .Extension }},
+        "url": {{ .URI }}
+    {{ end }}
     ]
-{{end}}
+{{ end }}
