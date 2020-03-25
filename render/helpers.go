@@ -2,13 +2,14 @@ package render
 
 import (
 	"fmt"
-	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"html/template"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/ONSdigital/dp-frontend-renderer/assets"
 
 	"github.com/BurntSushi/toml"
 	"github.com/ONSdigital/go-ns/common"
@@ -159,7 +160,6 @@ func Localise(key string, language string, plural int, templateArguments ...stri
 	return translation
 }
 
-
 func DomainSetLang(domain string, uri string, language string) string {
 	languageSupported := false
 	for _, locale := range common.SupportedLanguages {
@@ -201,4 +201,16 @@ func DomainSetLang(domain string, uri string, language string) string {
 	}
 
 	return domainWithTranslation
+}
+
+// HasField checks to see if the field is present in the struct
+func HasField(data interface{}, name string) bool {
+	rv := reflect.ValueOf(data)
+	if rv.Kind() == reflect.Ptr {
+		rv = rv.Elem()
+	}
+	if rv.Kind() != reflect.Struct {
+		return false
+	}
+	return rv.FieldByName(name).IsValid()
 }

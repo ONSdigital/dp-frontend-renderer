@@ -2,6 +2,10 @@ package service
 
 import (
 	"context"
+	"html/template"
+	"net/http"
+	"time"
+
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	renderHelpers "github.com/ONSdigital/dp-frontend-renderer/render"
@@ -15,9 +19,6 @@ import (
 	"github.com/justinas/alice"
 	"github.com/pkg/errors"
 	unrolled "github.com/unrolled/render"
-	"html/template"
-	"net/http"
-	"time"
 )
 
 const (
@@ -53,6 +54,7 @@ func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
 			"legacyDatasetDownloadURI": renderHelpers.LegacyDataSetDownloadURI,
 			"localise":                 renderHelpers.Localise,
 			"domainSetLang":            renderHelpers.DomainSetLang,
+			"hasField":                 renderHelpers.HasField,
 			"taxonomyLandingPage": func(s string) string {
 				return taxonomyRedirects[s]
 			},
