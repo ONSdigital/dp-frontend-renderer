@@ -54,6 +54,9 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
                     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+    {{ if .EnableCookiesControl }}
+      {{ template "partials/cookies-banner" . }}
+    {{ end }}
     {{ template "partials/header" . }}
 
     <main id="main" role="main" tabindex="-1">
@@ -67,10 +70,5 @@
       <script type="text/javascript" src="{{.PatternLibraryAssetsPath}}/js/main.js"></script>
       <script type="text/javascript" src="/js/app.js"></script>
     {{`<!--<![endif]-->` | safeHTML}}
-
-    {{ if .EnableLoop11 }}
-      {{ template "partials/loop11" . }}
-    {{ end }}
-
 </body>
 </html>

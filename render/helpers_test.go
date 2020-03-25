@@ -72,14 +72,32 @@ func TestLocalise(t *testing.T) {
 	Convey("English singular is returned", t, func() {
 		So(Localise("Foo", "en", 1), ShouldEqual, "One Foo (English)")
 	})
-	Convey("English plural is returned for more than two", t, func() {
-		So(Localise("Foo", "en", 4), ShouldEqual, "More than a few Foos (English)")
+	Convey("English plural is returned for more than one", t, func() {
+		So(Localise("Foo", "en", 4), ShouldEqual, "Two or more Foos (English)")
+	})
+	Convey("Welsh nil value sentence returned", t, func() {
+		So(Localise("Foo", "cy", 0), ShouldEqual, "No Foos (Welsh)")
 	})
 	Convey("Welsh singular is returned", t, func() {
 		So(Localise("Foo", "cy", 1), ShouldEqual, "One Foo (Welsh)")
 	})
-	Convey("Welsh plural for more than two is returned", t, func() {
-		So(Localise("Foo", "cy", 4), ShouldEqual, "More than a few Foos (Welsh)")
+	Convey("Welsh plural for two is returned", t, func() {
+		So(Localise("Foo", "cy", 2), ShouldEqual, "Two Foos (Welsh)")
+	})
+	Convey("Welsh plural for few(3) is returned", t, func() {
+		So(Localise("Foo", "cy", 3), ShouldEqual, "Three Foos (Welsh)")
+	})
+	Convey("Welsh plural for other (4) is returned", t, func() {
+		So(Localise("Foo", "cy", 4), ShouldEqual, "Four, five or more than six but not six Foos (Welsh)")
+	})
+	Convey("Welsh plural for other (5) is returned", t, func() {
+		So(Localise("Foo", "cy", 5), ShouldEqual, "Four, five or more than six but not six Foos (Welsh)")
+	})
+	Convey("Welsh plural for many (6) is returned", t, func() {
+		So(Localise("Foo", "cy", 6), ShouldEqual, "Six Foos (Welsh)")
+	})
+	Convey("Welsh plural for many (7) is returned", t, func() {
+		So(Localise("Foo", "cy", 7), ShouldEqual, "Four, five or more than six but not six Foos (Welsh)")
 	})
 }
 
