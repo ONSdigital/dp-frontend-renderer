@@ -3,6 +3,11 @@ package homepage
 import (
 	"bytes"
 	"errors"
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
@@ -10,10 +15,6 @@ import (
 	"github.com/gorilla/pat"
 	. "github.com/smartystreets/goconvey/convey"
 	unrolled "github.com/unrolled/render"
-	"io"
-	"net/http"
-	"net/http/httptest"
-	"testing"
 )
 
 type fakeRenderer struct {
@@ -82,24 +83,6 @@ func TestHandler(t *testing.T) {
 		p := f.binding.(*homepage.Page)
 		So(p.ServiceMessage, ShouldEqual, "Foo bar")
 		So(p.PatternLibraryAssetsPath, ShouldEqual, cfg.PatternLibraryAssetsPath)
-	})
-
-	Convey("SparklineData dates are copied to HeadlineFigure", t, func() {
-		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": [{"name": "foo"}, {"name": "bar"}, {"name": "baz"}]}]}}`))
-		request := httptest.NewRequest("POST", "/", rdr)
-		w := doTestRequest("/", request, Handler(cfg), nil)
-		So(w.Code, ShouldEqual, 200)
-		So(f.binding, ShouldHaveSameTypeAs, &homepage.Page{})
-		p := f.binding.(*homepage.Page)
-		So(p.Data.HeadlineFigures[0].StartDate, ShouldEqual, "foo")
-		So(p.Data.HeadlineFigures[0].EndDate, ShouldEqual, "baz")
-	})
-
-	Convey("SparklineData dates are skipped if sparklineData is empty", t, func() {
-		rdr := bytes.NewReader([]byte(`{"data": {"headlineFigures": [{"sparklineData": []}]}}`))
-		request := httptest.NewRequest("POST", "/", rdr)
-		w := doTestRequest("/", request, Handler(cfg), nil)
-		So(w.Code, ShouldEqual, 200)
 	})
 
 	Convey("Handler returns 500 status code when HTML render returns an error", t, func() {
