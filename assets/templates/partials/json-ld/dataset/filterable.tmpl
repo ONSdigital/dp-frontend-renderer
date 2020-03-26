@@ -1,0 +1,13 @@
+{{ $data := .DatasetLandingPage -}}
+{{ $length := len $data.Datasets }}
+{{ if gt $length 0 -}}
+        "distribution": [
+        {{ range $i, $el := $data.Version.Downloads -}}
+            "@type": "DataDownload",
+            "encodingFormat": {{ .Extension -}},
+            "contentUrl": {{ .URI -}},
+        {{- end }}
+        ]
+{{- end }}
+"datePublished": {{ dateFormat .ReleaseDate }},
+"description": {{ $data.Version.Description }}

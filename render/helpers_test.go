@@ -153,12 +153,10 @@ func TestDomainSetLang(t *testing.T) {
 }
 
 func TestHasFields(t *testing.T) {
-
 	type testStruct struct {
 		id   string
 		name string
 	}
-
 	testData := testStruct{
 		id:   "1234567",
 		name: "Test Data",

@@ -1,0 +1,13 @@
+"@type": "Dataset",
+    "creator": {
+        "@type": "Organization",
+        "name": "Office for National Statistics",  
+        "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
+        },
+    "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "url": {{ .URI }},
+{{ if eq .Type "legacy_dataset_landing_page" }}
+    {{ template "partials/json-ld/dataset/legacy" .  -}}
+{{else}}
+    {{ template "partials/json-ld/dataset/filterable" . -}}
+{{- end }}
