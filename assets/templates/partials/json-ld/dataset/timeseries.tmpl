@@ -1,0 +1,7 @@
+"headline": {{ template "partials/json-ld/name" . }},
+"keywords": [{{ .DatasetLandingPage.DatasetID }}],
+"dateModified": {{ .DatasetLandingPage.ReleaseDate }}
+"author": {
+    "@type": "Person",
+    "name": {{ .ContactDetails.Name }},
+},
