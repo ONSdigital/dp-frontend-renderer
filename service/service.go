@@ -55,7 +55,7 @@ func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
 			"localise":                 renderHelpers.Localise,
 			"domainSetLang":            renderHelpers.DomainSetLang,
 			"hasField":                 renderHelpers.HasField,
-			"buildURI":                 renderHelpers.BuildURL,
+			"buildURL":                 renderHelpers.BuildURL,
 			"taxonomyLandingPage": func(s string) string {
 				return taxonomyRedirects[s]
 			},
