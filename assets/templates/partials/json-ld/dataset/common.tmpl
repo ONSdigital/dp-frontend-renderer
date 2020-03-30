@@ -7,7 +7,7 @@
     "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
 {{ if .DatasetLandingPage.IsTimeseries -}}{{ template "partials/json-ld/dataset/timeseries" . -}}{{- end }}
 {{ if eq .Type "legacy_dataset_landing_page" -}}
-    {{ template "partials/json-ld/dataset/legacy" .  -}}
+    {{ template "partials/json-ld/dataset/legacy" . -}}
 {{else}}
     {{ template "partials/json-ld/dataset/filterable" . -}}
 {{- end }}
