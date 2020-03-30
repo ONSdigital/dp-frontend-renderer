@@ -1,13 +1,14 @@
 {{ $data := .DatasetLandingPage -}}
     {{ $length := len $data.Datasets }}{{ if gt $length 0 -}}
         {{ $latestDataset := index $data.Datasets 0}}
-        "distribution": {
-        {{ range $i, $el := $latestDataset.Downloads -}}
+        "distribution": [
+        {{ range $i, $el := $latestDataset.Downloads -}} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension -}},
             "contentUrl": {{ .URI -}},
+            },
         {{- end }}
-    }
+    ],
     {{- end }}
     "url": {{ buildURL .URI .SiteDomain }},
     "datePublished": {{ dateFormat $data.ReleaseDate }},
