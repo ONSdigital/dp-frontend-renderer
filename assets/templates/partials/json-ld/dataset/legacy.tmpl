@@ -9,5 +9,6 @@
         {{- end }}
     }
     {{- end }}
+    "url": {{ buildURI .URI .SiteDomain }},
     "datePublished": {{ dateFormat $data.ReleaseDate }},
     "description": {{ .Metadata.Description }}

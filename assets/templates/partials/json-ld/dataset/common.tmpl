@@ -5,11 +5,10 @@
         "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
         },
     "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-    "url": {{ .URI }},
-{{ if .DatasetLandingPage.IsTimeseries }}
-    {{ template "partials/json-ld/dataset/timeseries" .}}
-{{end }}
-{{ if eq .Type "legacy_dataset_landing_page" }}
+{{ if .DatasetLandingPage.IsTimeseries -}}
+    {{ template "partials/json-ld/dataset/timeseries" . -}}
+{{- end }}
+{{ if eq .Type "legacy_dataset_landing_page" -}}
     {{ template "partials/json-ld/dataset/legacy" .  -}}
 {{else}}
     {{ template "partials/json-ld/dataset/filterable" . -}}

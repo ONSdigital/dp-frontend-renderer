@@ -169,3 +169,16 @@ func TestHasFields(t *testing.T) {
 		So(HasField(testData, "dataset"), ShouldEqual, false)
 	})
 }
+
+func TestBuildURL(t *testing.T) {
+	Convey("That the returned value is ons.gov.uk/datasets/cpih01", t, func() {
+		got := BuildURL("/datasets/cpih01", "ons.gov.uk")
+		want := "ons.gov.uk/datasets/cpih01"
+		So(got, ShouldEqual, want)
+	})
+	Convey("That the returned value is http://localhost:8081/employmentandlabourmarket/peopleinwork", t, func() {
+		got := BuildURL("/employmentandlabourmarket/peopleinwork", "http://localhost:8081")
+		want := "http://localhost:8081/employmentandlabourmarket/peopleinwork"
+		So(got, ShouldEqual, want)
+	})
+}
