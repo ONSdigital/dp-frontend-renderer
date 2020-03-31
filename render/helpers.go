@@ -217,8 +217,5 @@ func HasField(data interface{}, name string) bool {
 
 // BuildURL builds the full URI for a given dataset - function required to build URL for legacy dataset pages
 func BuildURL(uri, siteDomain string) string {
-	var fullURL strings.Builder
-	fullURL.WriteString(siteDomain)
-	fullURL.WriteString(uri)
-	return fullURL.String()
+	return fmt.Sprintf("%s%s", siteDomain, uri)
 }
