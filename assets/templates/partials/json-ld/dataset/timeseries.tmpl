@@ -1,7 +1,3 @@
-"headline": {{ template "partials/json-ld/name" . }},
+"headline": {{ .Metadata.Title }},
 "keywords": ["timeseries", {{ .DatasetLandingPage.DatasetID }}],
 "dateModified": {{ .DatasetLandingPage.ReleaseDate }},
-"author": {
-    "@type": "Person",
-    "name": {{ .ContactDetails.Name }},
-},
