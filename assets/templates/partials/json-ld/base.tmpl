@@ -1,7 +1,7 @@
 <script type="application/ld+json">
     {
         "@context": "http://schema.org",
-        "name": {{ template "partials/json-ld/name" . -}}
+        "name": {{ .Metadata.Title -}},
         {{ if hasField . "DatasetLandingPage" -}}
             {{ template "partials/json-ld/dataset/common" . -}}
         {{- end }}
