@@ -18,12 +18,12 @@ import (
 	geographyList "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
-	"github.com/ONSdigital/go-ns/healthcheck"
+	"github.com/ONSdigital/dp-healthcheck/healthcheck"
 	"github.com/gorilla/pat"
 )
 
-func Setup(router *pat.Router, cfg *config.Config) {
-	router.Get("/healthcheck", healthcheck.Do)
+func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) {
+	router.Get("/health", hc.Handler)
 	router.Post("/homepage", homepage.Handler(*cfg))
 	router.Post("/feedback", feedback.Handler(*cfg))
 	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler(*cfg))

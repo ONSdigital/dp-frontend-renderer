@@ -1,8 +1,10 @@
 package config
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+	"time"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 // TestConfig tests config options correctly default if not set
@@ -23,6 +25,8 @@ func TestConfig(t *testing.T) {
 				So(cfg.SiteDomain, ShouldEqual, "ons.gov.uk")
 				So(cfg.SupportedLanguages, ShouldEqual, [2]string{"en", "cy"})
 				So(cfg.EnableCookiesControl, ShouldEqual, false)
+				So(cfg.HealthCheckInterval, ShouldEqual, 10*time.Second)
+				So(cfg.HealthCheckRecoveryInterval, ShouldEqual, 1*time.Minute)
 			})
 		})
 	})

@@ -2,11 +2,21 @@ package main
 
 import (
 	"context"
+	"io/ioutil"
+	"os"
+
 	"github.com/ONSdigital/dp-frontend-renderer/service"
 	"github.com/ONSdigital/log.go/log"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
-	"os"
+)
+
+var (
+	// BuildTime represents the time in which the service was built
+	BuildTime string
+	// GitCommit represents the commit (SHA-1) hash of the service that is running
+	GitCommit string
+	// Version represents the version of the service that is running
+	Version string
 )
 
 var taxonomyRedirects map[string]string
@@ -32,7 +42,12 @@ func init() {
 
 func main() {
 	ctx := context.Background()
-	if err := service.Run(ctx, taxonomyRedirects); err != nil {
+
+	log.Event(ctx, "BuildTime", log.Data{"BuildTime": BuildTime})
+	log.Event(ctx, "GitCommit", log.Data{"GitCommit": GitCommit})
+	log.Event(ctx, "Version", log.Data{"Version": Version})
+
+	if err := service.Run(ctx, taxonomyRedirects, BuildTime, GitCommit, Version); err != nil {
 		log.Event(nil, "unable to run application", log.Error(err), log.FATAL)
 		os.Exit(1)
 	}

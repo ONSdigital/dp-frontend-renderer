@@ -1,24 +1,31 @@
 BINPATH ?= build
 
-build: generate
-	go build -tags 'production' -o $(BINPATH)/dp-frontend-renderer
+BUILD_TIME=$(shell date +%s)
+GIT_COMMIT=$(shell git rev-parse HEAD)
+VERSION ?= $(shell git tag --points-at HEAD | grep ^v | head -n 1)
+LDFLAGS=-ldflags "-w -s -X 'main.Version=${VERSION}' -X 'main.BuildTime=$(BUILD_TIME)' -X 'main.GitCommit=$(GIT_COMMIT)'"
+
+build: generate-prod
+	go build $(LDFLAGS) -tags 'production' -o $(BINPATH)/dp-frontend-renderer
 	cp taxonomy-redirects.yml $(BINPATH)
 
-debug: generate
-	go build -tags 'debug' -o build/dp-frontend-renderer
+debug: generate-debug
+	go build $(LDFLAGS) -tags 'debug' -o build/dp-frontend-renderer
 	HUMAN_LOG=1 DEBUG=1 ./build/dp-frontend-renderer
 
-generate:
+generate-debug:
+	# build the dev version
+	cd assets; go-bindata -debug -o data.go -pkg assets templates/... locales/...
+	{ echo "// +build debug"; cat assets/data.go; } > assets/debug.go.new
+	mv assets/debug.go.new assets/data.go
+
+generate-prod:
 	# build the production version
 	go generate ./...
 	{ echo "// +build production"; cat assets/data.go; } > assets/data.go.new
 	mv assets/data.go.new assets/data.go
-	# build the dev version
-	cd assets; go-bindata -debug -o debug.go -pkg assets templates/... locales/...
-	{ echo "// +build debug"; cat assets/debug.go; } > assets/debug.go.new
-	mv assets/debug.go.new assets/debug.go
 
 test:
-	go test -race -cover $(shell go list ./... | grep -v /vendor/) -tags 'production' ./...
+	go test -race -cover -tags 'production' ./...
 
 .PHONY: build debug generate
