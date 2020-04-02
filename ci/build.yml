@@ -6,14 +6,13 @@ image_resource:
   type: docker-image
   source:
     repository: golang
-    tag: 1.12.0
+    tag: 1.13.8
 
 inputs:
   - name: dp-frontend-renderer
-    path: go/src/github.com/ONSdigital/dp-frontend-renderer
 
 outputs:
   - name: build
 
 run:
-  path: go/src/github.com/ONSdigital/dp-frontend-renderer/ci/scripts/build.sh
+  path: dp-frontend-renderer/ci/scripts/build.sh

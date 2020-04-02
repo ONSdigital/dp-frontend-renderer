@@ -14,6 +14,7 @@ type Config struct {
 	PatternLibraryAssetsPath    string        `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
 	SupportedLanguages          [2]string     `envconfig:"SUPPORTED_LANGUAGES"`
 	EnableCookiesControl        bool          `envconfig:"ENABLE_COOKIES_CONTROL"`
+	ShutdownTimeout             time.Duration `envconfig:"GRACEFUL_SHUTDOWN_TIMEOUT"`
 	HealthCheckInterval         time.Duration `envconfig:"HEALTHCHECK_INTERVAL"`
 	HealthCheckRecoveryInterval time.Duration `envconfig:"HEALTHCHECK_RECOVERY_INTERVAL"`
 }
@@ -47,6 +48,7 @@ func get() (*Config, error) {
 		SiteDomain:                  "ons.gov.uk",
 		SupportedLanguages:          [2]string{"en", "cy"},
 		EnableCookiesControl:        false,
+		ShutdownTimeout:             5 * time.Second,
 		HealthCheckInterval:         10 * time.Second,
 		HealthCheckRecoveryInterval: 1 * time.Minute,
 	}

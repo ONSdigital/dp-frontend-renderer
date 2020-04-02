@@ -16,16 +16,16 @@ debug: generate-debug
 generate-debug:
 	# build the dev version
 	cd assets; go-bindata -debug -o data.go -pkg assets templates/... locales/...
-	{ echo "// +build debug"; cat assets/data.go; } > assets/debug.go.new
+	{ echo "// +build debug\n"; cat assets/data.go; } > assets/debug.go.new
 	mv assets/debug.go.new assets/data.go
 
 generate-prod:
 	# build the production version
 	go generate ./...
-	{ echo "// +build production"; cat assets/data.go; } > assets/data.go.new
+	{ echo "// +build production\n"; cat assets/data.go; } > assets/data.go.new
 	mv assets/data.go.new assets/data.go
 
-test:
+test: generate-prod
 	go test -race -cover -tags 'production' ./...
 
 .PHONY: build debug generate
