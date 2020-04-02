@@ -78,20 +78,28 @@ func main() {
 	// Wait for OS signal, and do graceful shutdown
 	signal := <-signals
 	log.Event(ctx, "shutting down after os signal received", log.INFO, log.Data{"signal": signal, "shutdown_timeout": cfg.ShutdownTimeout})
-
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), cfg.ShutdownTimeout)
 
-	log.Event(shutdownCtx, "stopping healthcheck", log.INFO)
-	hc.Stop()
+	// Shutdown goroutine
+	go func() {
+		log.Event(shutdownCtx, "stopping healthcheck", log.INFO)
+		hc.Stop()
 
-	log.Event(shutdownCtx, "stopping http server", log.INFO)
-	if err := httpServer.Shutdown(shutdownCtx); err != nil {
-		log.Event(shutdownCtx, "failed to gracefully shutdown http server", log.FATAL, log.Error(err))
+		log.Event(shutdownCtx, "stopping http server", log.INFO)
+		if err := httpServer.Shutdown(shutdownCtx); err != nil {
+			log.Event(shutdownCtx, "failed to gracefully shutdown http server", log.FATAL, log.Error(err))
+			os.Exit(1)
+		}
+
+		cancel()
+	}()
+
+	// wait for Shutdown timeout or success (via cancel)
+	<-shutdownCtx.Done()
+	if shutdownCtx.Err() == context.DeadlineExceeded {
+		log.Event(shutdownCtx, "shutdown timeout", log.ERROR, log.Error(shutdownCtx.Err()))
 		os.Exit(1)
 	}
-
-	cancel()
-	log.Event(shutdownCtx, "graceful shutdown was successful", log.INFO)
+	log.Event(shutdownCtx, "done shutdown gracefully", log.ERROR, log.Data{"context": shutdownCtx.Err()})
 	os.Exit(0)
-
 }
