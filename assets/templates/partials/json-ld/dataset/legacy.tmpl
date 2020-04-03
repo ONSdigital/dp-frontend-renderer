@@ -1,15 +1,15 @@
-{{ $data := .DatasetLandingPage -}}
-    {{ $length := len $data.Datasets }}{{ if gt $length 0 -}}
+{{ $data := .DatasetLandingPage }}
+    {{ $length := len $data.Datasets }}{{ if gt $length 0 }}
         {{ $latestDataset := index $data.Datasets 0}}
         "distribution": [
-        {{ range $i, $el := $latestDataset.Downloads -}} {
+        {{ range $i, $el := $latestDataset.Downloads }} {
             "@type": "DataDownload",
-            "encodingFormat": {{ .Extension -}},
-            "contentUrl": {{ .URI -}},
+            "encodingFormat": {{ .Extension }},
+            "contentUrl": {{ .URI }},
             },
-        {{- end }}
+        {{ end }}
     ],
-    {{- end }}
+    {{ end }}
     "url": {{ buildURL .URI .SiteDomain }},
     "datePublished": {{ dateFormat $data.ReleaseDate }},
     "description": {{ .Metadata.Description }}
