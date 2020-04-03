@@ -16,7 +16,7 @@
         {{ end}}
     "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
         {{ if hasField $PageData "DatasetLandingPage" }}
-            {{ template "partials/json-ld/dataset/common" . -}}
+            {{ template "partials/json-ld/dataset/common" . }}
         {{ end }}
     }
 </script>
