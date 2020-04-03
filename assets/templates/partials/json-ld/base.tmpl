@@ -7,14 +7,14 @@
         "name": "Office for National Statistics",  
         "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
         },
-        {{ if hasField . "ContactDetails" -}}
+        {{ if hasField . "ContactDetails" }}
             "author": {
             "@type": "Person",
             "name": {{ .ContactDetails.Name }},
             },
         {{- end}}
     "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-        {{ if hasField . "DatasetLandingPage" -}}
+        {{ if hasField . "DatasetLandingPage" }}
             {{ template "partials/json-ld/dataset/common" . -}}
         {{- end }}
     }
