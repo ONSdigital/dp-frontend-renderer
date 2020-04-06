@@ -215,7 +215,12 @@ func HasField(data interface{}, name string) bool {
 	return rv.FieldByName(name).IsValid()
 }
 
-// BuildURL builds the full URI for a given dataset - function required to build URL for legacy dataset pages
-func BuildURL(uri, siteDomain string) string {
-	return fmt.Sprintf("%s%s", siteDomain, uri)
+// BuildURL builds the full URI for a given dataset - function required to build URL property for JSONLD tags
+// for legacy and filterable dataset pages due to differences in their models
+func BuildURL(uri, siteDomain, datasetType string) string {
+	if datasetType == "legacy" {
+		return fmt.Sprintf("www.%s%s", siteDomain, uri)
+	}
+
+	return fmt.Sprintf("www.%s/datasets/%s", siteDomain, uri)
 }

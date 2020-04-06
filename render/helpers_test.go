@@ -171,14 +171,14 @@ func TestHasFields(t *testing.T) {
 }
 
 func TestBuildURL(t *testing.T) {
-	Convey("That the returned value is ons.gov.uk/datasets/cpih01", t, func() {
-		got := BuildURL("/datasets/cpih01", "ons.gov.uk")
-		want := "ons.gov.uk/datasets/cpih01"
+	Convey("That the returned value is https://www.ons.gov.uk/datasets/cpih01 for filterable pages", t, func() {
+		got := BuildURL("cpih01", "ons.gov.uk", "filterable")
+		want := "www.ons.gov.uk/datasets/cpih01"
 		So(got, ShouldEqual, want)
 	})
-	Convey("That the returned value is http://localhost:8081/employmentandlabourmarket/peopleinwork", t, func() {
-		got := BuildURL("/employmentandlabourmarket/peopleinwork", "http://localhost:8081")
-		want := "http://localhost:8081/employmentandlabourmarket/peopleinwork"
+	Convey("That the returned value is http://localhost:8081/employmentandlabourmarket/peopleinwork for legacy pages", t, func() {
+		got := BuildURL("/employmentandlabourmarket/peopleinwork", "ons.gov.uk", "legacy")
+		want := "www.ons.gov.uk/employmentandlabourmarket/peopleinwork"
 		So(got, ShouldEqual, want)
 	})
 }

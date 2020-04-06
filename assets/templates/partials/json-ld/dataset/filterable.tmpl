@@ -10,6 +10,6 @@
         {{ end }}
         ],
 {{ end }}
-"url": {{ .URI }},
+"url": {{ buildURL .DatasetId .SiteDomain "filterable" }},
 "datePublished": {{ dateFormat .ReleaseDate }},
 "description": {{ $data.Version.Description }}
