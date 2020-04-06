@@ -182,3 +182,17 @@ func TestBuildURL(t *testing.T) {
 		So(got, ShouldEqual, want)
 	})
 }
+
+func TestNotLastItem(t *testing.T) {
+	Convey("That true is returned when index is 1 and length is 3", t, func() {
+		got := NotLastItem(3, 1)
+		want := true
+		So(got, ShouldEqual, want)
+	})
+	Convey("That false is returned when index is 0 and length is 1", t, func() {
+		got := NotLastItem(1, 0)
+		want := false
+		So(got, ShouldEqual, want)
+	})
+
+}
