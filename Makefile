@@ -15,13 +15,13 @@ debug: generate-debug
 
 generate-debug:
 	# build the dev version
-	cd assets; go-bindata -debug -o data.go -pkg assets templates/... locales/...
+	cd assets; go run github.com/jteeuwen/go-bindata/go-bindata -debug -o data.go -pkg assets templates/... locales/...
 	{ echo "// +build debug\n"; cat assets/data.go; } > assets/debug.go.new
 	mv assets/debug.go.new assets/data.go
 
 generate-prod:
 	# build the production version
-	go generate ./...
+	cd assets; go run github.com/jteeuwen/go-bindata/go-bindata -o data.go -pkg assets templates/... locales/...
 	{ echo "// +build production\n"; cat assets/data.go; } > assets/data.go.new
 	mv assets/data.go.new assets/data.go
 

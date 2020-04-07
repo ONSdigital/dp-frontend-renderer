@@ -43,6 +43,9 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 			"legacyDatasetDownloadURI": renderHelpers.LegacyDataSetDownloadURI,
 			"localise":                 renderHelpers.Localise,
 			"domainSetLang":            renderHelpers.DomainSetLang,
+			"hasField":                 renderHelpers.HasField,
+			"buildURL":                 renderHelpers.BuildURL,
+			"notLastItem":              renderHelpers.NotLastItem,
 			"taxonomyLandingPage": func(s string) string {
 				return taxonomyRedirects[s]
 			},

@@ -1,0 +1,7 @@
+"@type": "Dataset",
+{{ if .DatasetLandingPage.IsTimeseries -}}{{ template "partials/json-ld/dataset/timeseries" . }}{{ end }}
+{{ if eq .Type "legacy_dataset_landing_page" }}
+    {{ template "partials/json-ld/dataset/legacy" . }}
+{{else}}
+    {{ template "partials/json-ld/dataset/filterable" . }}
+{{ end }}

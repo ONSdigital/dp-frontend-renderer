@@ -202,3 +202,29 @@ func DomainSetLang(domain string, uri string, language string) string {
 
 	return domainWithTranslation
 }
+
+// HasField checks to see if the field is present in the struct
+func HasField(data interface{}, name string) bool {
+	rv := reflect.ValueOf(data)
+	if rv.Kind() == reflect.Ptr {
+		rv = rv.Elem()
+	}
+	if rv.Kind() != reflect.Struct {
+		return false
+	}
+	return rv.FieldByName(name).IsValid()
+}
+
+// BuildURL builds the full URI for a given dataset - function required to build URL for legacy dataset pages
+func BuildURL(uri, siteDomain string) string {
+	return fmt.Sprintf("%s%s", siteDomain, uri)
+}
+
+// NotLastItem returns true/false based on if the index equals the length
+// Example of use is in JSON-LD partials, where we must determine whether or not a comma should be rendered in a range
+func NotLastItem(length, index int) bool {
+	if index < length-1 {
+		return true
+	}
+	return false
+}
