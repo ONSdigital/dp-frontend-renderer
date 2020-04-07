@@ -176,7 +176,7 @@ func TestBuildURL(t *testing.T) {
 		want := "www.ons.gov.uk/datasets/cpih01"
 		So(got, ShouldEqual, want)
 	})
-	Convey("That the returned value is http://localhost:8081/employmentandlabourmarket/peopleinwork for legacy pages", t, func() {
+	Convey("That the returned value is www.ons.gov.uk/employmentandlabourmarket/peopleinwork for legacy pages", t, func() {
 		got := BuildURL("/employmentandlabourmarket/peopleinwork", "ons.gov.uk", "legacy")
 		want := "www.ons.gov.uk/employmentandlabourmarket/peopleinwork"
 		So(got, ShouldEqual, want)
