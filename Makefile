@@ -10,7 +10,7 @@ build: generate-prod
 	cp taxonomy-redirects.yml $(BINPATH)
 
 debug: generate-debug
-	go build $(LDFLAGS) -tags 'debug' -o build/dp-frontend-renderer
+	go build $(LDFLAGS) -race -tags 'debug' -o build/dp-frontend-renderer
 	HUMAN_LOG=1 DEBUG=1 ./build/dp-frontend-renderer
 
 generate-debug:

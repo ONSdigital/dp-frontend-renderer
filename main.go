@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"io/ioutil"
 	"os"
 	"os/signal"
@@ -50,23 +51,32 @@ func main() {
 	log.Namespace = namespace
 	ctx := context.Background()
 
+	if err := run(ctx); err != nil {
+		log.Event(ctx, "application unexpectedly failed", log.ERROR, log.Error(err))
+		os.Exit(1)
+	}
+
+	os.Exit(0)
+}
+
+func run(ctx context.Context) error {
+	// Make os Signal channels
+	signals := make(chan os.Signal, 1)
+	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
+
 	// Get Config
 	cfg, err := config.Get()
 	if err != nil {
 		log.Event(ctx, "unable to retrieve service configuration", log.FATAL, log.Error(err))
-		os.Exit(1)
+		return err
 	}
 	log.Event(ctx, "got service configuration", log.Data{"config": cfg}, log.INFO)
-
-	// Make os Signal channels
-	signals := make(chan os.Signal, 1)
-	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
 
 	// Create healthcheck with versionInfo
 	versionInfo, err := healthcheck.NewVersionInfo(BuildTime, GitCommit, Version)
 	if err != nil {
 		log.Event(ctx, "failed to create versionInfo for healthcheck", log.FATAL, log.Error(err))
-		os.Exit(1)
+		return err
 	}
 	hc := healthcheck.New(versionInfo, cfg.HealthCheckCriticalTimeout, cfg.HealthCheckInterval)
 
@@ -80,26 +90,42 @@ func main() {
 	log.Event(ctx, "shutting down after os signal received", log.INFO, log.Data{"signal": signal, "shutdown_timeout": cfg.ShutdownTimeout})
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), cfg.ShutdownTimeout)
 
+	// track shutdown gracefully closes app
+	var gracefulShutdown bool
+
 	// Shutdown goroutine
 	go func() {
+		defer cancel()
+		var hasShutdownError bool
+
 		log.Event(shutdownCtx, "stopping healthcheck", log.INFO)
 		hc.Stop()
 
 		log.Event(shutdownCtx, "stopping http server", log.INFO)
 		if err := httpServer.Shutdown(shutdownCtx); err != nil {
 			log.Event(shutdownCtx, "failed to gracefully shutdown http server", log.FATAL, log.Error(err))
-			os.Exit(1)
+			hasShutdownError = true
 		}
 
-		cancel()
+		if !hasShutdownError {
+			gracefulShutdown = true
+		}
 	}()
 
 	// wait for Shutdown timeout or success (via cancel)
 	<-shutdownCtx.Done()
+
 	if shutdownCtx.Err() == context.DeadlineExceeded {
 		log.Event(shutdownCtx, "shutdown timeout", log.ERROR, log.Error(shutdownCtx.Err()))
-		os.Exit(1)
+		return shutdownCtx.Err()
 	}
+
+	if !gracefulShutdown {
+		err = errors.New("failed to shutdown gracefully")
+		log.Event(shutdownCtx, "failed to shutdown gracefully ", log.ERROR, log.Error(err))
+		return err
+	}
+
 	log.Event(shutdownCtx, "done shutdown gracefully", log.INFO, log.Data{"context": shutdownCtx.Err()})
-	os.Exit(0)
+	return nil
 }

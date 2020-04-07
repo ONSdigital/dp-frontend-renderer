@@ -70,7 +70,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 
 	// Start the HTTP server in a new go routine
 	go func() {
-		if err := server.ListenAndServe(); err != nil {
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Event(ctx, "error starting http server", log.ERROR, log.Error(err))
 		}
 	}()
