@@ -1,12 +1,13 @@
 {{ $data := .DatasetLandingPage }}
     {{ $length := len $data.Datasets }}{{ if gt $length 0 }}
         {{ $latestDataset := index $data.Datasets 0}}
+        {{ $numberOfDownloads := len $latestDataset.Downloads }}
         "distribution": [
         {{ range $i, $el := $latestDataset.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
             "contentUrl": {{ .URI }}
-            }{{ if notLastItem $length $i }},{{end}}
+            }{{ if notLastItem $numberOfDownloads $i }},{{end}}
         {{ end }}
     ],
     {{ end }}
