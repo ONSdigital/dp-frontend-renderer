@@ -68,7 +68,7 @@ func main() {
 		log.Event(ctx, "failed to create versionInfo for healthcheck", log.FATAL, log.Error(err))
 		os.Exit(1)
 	}
-	hc := healthcheck.New(versionInfo, cfg.HealthCheckRecoveryInterval, cfg.HealthCheckInterval)
+	hc := healthcheck.New(versionInfo, cfg.HealthCheckCriticalTimeout, cfg.HealthCheckInterval)
 
 	hc.Start(ctx)
 
@@ -100,6 +100,6 @@ func main() {
 		log.Event(shutdownCtx, "shutdown timeout", log.ERROR, log.Error(shutdownCtx.Err()))
 		os.Exit(1)
 	}
-	log.Event(shutdownCtx, "done shutdown gracefully", log.ERROR, log.Data{"context": shutdownCtx.Err()})
+	log.Event(shutdownCtx, "done shutdown gracefully", log.INFO, log.Data{"context": shutdownCtx.Err()})
 	os.Exit(0)
 }

@@ -4,7 +4,6 @@ import (
 	"context"
 	"html/template"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/ONSdigital/dp-frontend-renderer/assets"
@@ -72,8 +71,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 	// Start the HTTP server in a new go routine
 	go func() {
 		if err := server.ListenAndServe(); err != nil {
-			log.Event(ctx, "error starting http server", log.FATAL, log.Error(err))
-			os.Exit(1)
+			log.Event(ctx, "error starting http server", log.ERROR, log.Error(err))
 		}
 	}()
 

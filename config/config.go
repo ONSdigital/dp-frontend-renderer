@@ -8,16 +8,16 @@ import (
 
 // Config structure which hold information for configuring the renderer
 type Config struct {
-	BindAddr                    string        `envconfig:"BIND_ADDR"`
-	Debug                       bool          `envconfig:"DEBUG"`
-	SiteDomain                  string        `envconfig:"SITE_DOMAIN"`
-	PatternLibraryAssetsPath    string        `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
-	SupportedLanguages          [2]string     `envconfig:"SUPPORTED_LANGUAGES"`
-	EnableCookiesControl        bool          `envconfig:"ENABLE_COOKIES_CONTROL"`
-	ShutdownTimeout             time.Duration `envconfig:"GRACEFUL_SHUTDOWN_TIMEOUT"`
-	HealthCheckInterval         time.Duration `envconfig:"HEALTHCHECK_INTERVAL"`
-	HealthCheckRecoveryInterval time.Duration `envconfig:"HEALTHCHECK_RECOVERY_INTERVAL"`
-	EnableJSONLDControl         bool          `envconfig:"ENABLE_JSONLD_CONTROL"`
+	BindAddr                   string        `envconfig:"BIND_ADDR"`
+	Debug                      bool          `envconfig:"DEBUG"`
+	SiteDomain                 string        `envconfig:"SITE_DOMAIN"`
+	PatternLibraryAssetsPath   string        `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
+	SupportedLanguages         [2]string     `envconfig:"SUPPORTED_LANGUAGES"`
+	EnableCookiesControl       bool          `envconfig:"ENABLE_COOKIES_CONTROL"`
+	ShutdownTimeout            time.Duration `envconfig:"GRACEFUL_SHUTDOWN_TIMEOUT"`
+	HealthCheckInterval        time.Duration `envconfig:"HEALTHCHECK_INTERVAL"`
+	HealthCheckCriticalTimeout time.Duration `envconfig:"HEALTHCHECK_CRITICAL_TIMEOUT"`
+	EnableJSONLDControl        bool          `envconfig:"ENABLE_JSONLD_CONTROL"`
 }
 
 var cfg *Config
@@ -44,15 +44,15 @@ func get() (*Config, error) {
 	}
 
 	cfg = &Config{
-		BindAddr:                    ":20010",
-		Debug:                       false,
-		SiteDomain:                  "ons.gov.uk",
-		SupportedLanguages:          [2]string{"en", "cy"},
-		EnableCookiesControl:        false,
-		ShutdownTimeout:             5 * time.Second,
-		HealthCheckInterval:         10 * time.Second,
-		HealthCheckRecoveryInterval: 1 * time.Minute,
-		EnableJSONLDControl:         false,
+		BindAddr:                   ":20010",
+		Debug:                      false,
+		SiteDomain:                 "ons.gov.uk",
+		SupportedLanguages:         [2]string{"en", "cy"},
+		EnableCookiesControl:       false,
+		ShutdownTimeout:            5 * time.Second,
+		HealthCheckInterval:        10 * time.Second,
+		HealthCheckCriticalTimeout: 1 * time.Minute,
+		EnableJSONLDControl:        false,
 	}
 
 	return cfg, envconfig.Process("", cfg)

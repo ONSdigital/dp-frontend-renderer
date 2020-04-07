@@ -27,7 +27,7 @@ func TestConfig(t *testing.T) {
 				So(cfg.EnableCookiesControl, ShouldEqual, false)
 				So(cfg.ShutdownTimeout, ShouldEqual, 5*time.Second)
 				So(cfg.HealthCheckInterval, ShouldEqual, 10*time.Second)
-				So(cfg.HealthCheckRecoveryInterval, ShouldEqual, 1*time.Minute)
+				So(cfg.HealthCheckCriticalTimeout, ShouldEqual, 1*time.Minute)
 				So(cfg.EnableJSONLDControl, ShouldEqual, false)
 			})
 		})
