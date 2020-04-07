@@ -50,8 +50,8 @@ func get() (*Config, error) {
 		SupportedLanguages:         [2]string{"en", "cy"},
 		EnableCookiesControl:       false,
 		ShutdownTimeout:            5 * time.Second,
-		HealthCheckInterval:        10 * time.Second,
-		HealthCheckCriticalTimeout: 1 * time.Minute,
+		HealthCheckInterval:        30 * time.Second,
+		HealthCheckCriticalTimeout: 90 * time.Second,
 		EnableJSONLDControl:        false,
 	}
 

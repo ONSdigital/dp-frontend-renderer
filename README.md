@@ -12,8 +12,8 @@ dp-frontend-renderer
 | PATTERN_LIBRARY_ASSETS_PATH   |                       | Pattern library location
 | SUPPORTED_LANGUAGES           | [2]string{"en", "cy"} | languages supported
 | GRACEFUL_SHUTDOWN_TIMEOUT     | 5s                    | The graceful shutdown timeout
-|	HEALTHCHECK_INTERVAL          | 10s                   | Time between calls to healthchecks
-|	HEALTHCHECK_RECOVERY_INTERVAL | 1m                    | Timeout to consider a failing healthcheck critical
+|	HEALTHCHECK_INTERVAL          | 30s                   | Time between calls to healthchecks
+|	HEALTHCHECK_CRITICAL_TIMEOUT  | 90s                   | Timeout to consider a failing healthcheck critical
 
 ### Adding new page types
 
