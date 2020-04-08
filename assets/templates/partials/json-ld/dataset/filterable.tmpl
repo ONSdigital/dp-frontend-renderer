@@ -1,16 +1,17 @@
 {{ $data := .DatasetLandingPage }}
 {{ $URLPath := .URI }}
 {{ $length := len $data.Version.Downloads }}
+{{ $SiteDomain := .SiteDomain }}
 {{ if gt $length 0 }}
         "distribution": [
         {{ range $i, $el := $data.Version.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            "contentUrl": {{concatenateStrings "www.ons.gov.uk" .URI }}
+            "contentUrl": {{concatenateStrings $SiteDomain .URI }}
             }{{if notLastItem $length $i }},{{end}}
         {{ end }}
         ],
 {{ end }}
-"url": {{ concatenateStrings "www." .SiteDomain "/datasets/" .DatasetId }},
+"url": {{ concatenateStrings .SiteDomain "/datasets/" .DatasetId }},
 "datePublished": {{ dateFormat .ReleaseDate }},
 "description": {{ $data.Version.Description }}

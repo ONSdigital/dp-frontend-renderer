@@ -1,5 +1,8 @@
 {{ $data := .DatasetLandingPage }}
 {{ $URLPath := .URI }}
+{{ $SiteDomain := .SiteDomain }}
+{{ $SubDomain := "www."}}
+{{ if eq .Language "cy"}}{{$SubDomain = "cy."}}{{end}}
     {{ $length := len $data.Datasets }}{{ if gt $length 0 }}
         {{ $latestDataset := index $data.Datasets 0}}
         {{ $numberOfDownloads := len $latestDataset.Downloads }}
@@ -7,11 +10,11 @@
         {{ range $i, $el := $latestDataset.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            "contentUrl": {{concatenateStrings "www.ons.gov.uk/file?uri=" $URLPath "/current/" .URI }}
+            "contentUrl": {{concatenateStrings $SubDomain $SiteDomain "/file?uri=" $URLPath "/current/" .URI }}
             }{{ if notLastItem $numberOfDownloads $i }},{{end}}
         {{ end }}
     ],
     {{ end }}
-    "url": {{ concatenateStrings "www." .SiteDomain $URLPath }},
+    "url": {{ concatenateStrings $SubDomain .SiteDomain $URLPath }},
     "datePublished": {{ dateFormat $data.ReleaseDate }},
     "description": {{ .Metadata.Description }}
