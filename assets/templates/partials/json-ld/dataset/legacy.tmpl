@@ -7,7 +7,7 @@
         {{ range $i, $el := $latestDataset.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            "contentUrl": "https://www.ons.gov.uk/file?uri=:{{$URLPath}}{{.URI}}"
+            "contentUrl": "https://www.ons.gov.uk/file?uri={{$URLPath}}/{{.URI}}"
             }{{ if notLastItem $numberOfDownloads $i }},{{end}}
         {{ end }}
     ],
