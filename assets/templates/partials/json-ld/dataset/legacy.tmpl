@@ -7,11 +7,11 @@
         {{ range $i, $el := $latestDataset.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            "contentUrl": "https://www.ons.gov.uk/file?uri={{$URLPath}}/{{.URI}}"
+            "contentUrl": {{concatenateStrings "www.ons.gov.uk/file?uri=" $URLPath "/current/" .URI }}
             }{{ if notLastItem $numberOfDownloads $i }},{{end}}
         {{ end }}
     ],
     {{ end }}
-    "url": {{ buildURL $URLPath .SiteDomain "legacy" }},
+    "url": {{ concatenateStrings "www." .SiteDomain $URLPath }},
     "datePublished": {{ dateFormat $data.ReleaseDate }},
     "description": {{ .Metadata.Description }}

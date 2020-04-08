@@ -170,15 +170,10 @@ func TestHasFields(t *testing.T) {
 	})
 }
 
-func TestBuildURL(t *testing.T) {
+func TestConcatenateStrings(t *testing.T) {
 	Convey("That the returned value is https://www.ons.gov.uk/datasets/cpih01 for filterable pages", t, func() {
-		got := BuildURL("cpih01", "ons.gov.uk", "filterable")
+		got := ConcatenateStrings("www.ons.gov.uk", "/datasets/", "cpih01")
 		want := "www.ons.gov.uk/datasets/cpih01"
-		So(got, ShouldEqual, want)
-	})
-	Convey("That the returned value is www.ons.gov.uk/employmentandlabourmarket/peopleinwork for legacy pages", t, func() {
-		got := BuildURL("/employmentandlabourmarket/peopleinwork", "ons.gov.uk", "legacy")
-		want := "www.ons.gov.uk/employmentandlabourmarket/peopleinwork"
 		So(got, ShouldEqual, want)
 	})
 }
