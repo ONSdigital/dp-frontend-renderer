@@ -10,31 +10,19 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	renderHelpers "github.com/ONSdigital/dp-frontend-renderer/render"
 	"github.com/ONSdigital/dp-frontend-renderer/routes"
+	"github.com/ONSdigital/dp-healthcheck/healthcheck"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
-	"github.com/ONSdigital/go-ns/handlers/timeout"
-	deprecatedLog "github.com/ONSdigital/go-ns/log"
 	"github.com/ONSdigital/go-ns/render"
 	"github.com/ONSdigital/log.go/log"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
-	"github.com/pkg/errors"
 	unrolled "github.com/unrolled/render"
 )
 
-const (
-	namespace = "dp-frontend-renderer"
-)
+// Run creates the routes, middleware and starts the HTTP server in a separate go routine.
+func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]string, hc *healthcheck.HealthCheck) *http.Server {
 
-func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
-	log.Namespace = namespace
-
-	cfg, err := config.Get()
-	if err != nil {
-		return errors.Wrap(err, "unable to retrieve service configuration")
-	}
-
-	log.Event(ctx, "got service configuration", log.Data{"config": cfg}, log.INFO)
-
+	// Override default renderer with service assets
 	log.Event(ctx, "overriding default renderer with service assets", log.INFO)
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
@@ -63,14 +51,16 @@ func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
 		}},
 	})
 
+	// Create router with middleware and routes
 	router := pat.New()
 	alice := alice.New(
-		timeout.Handler(10*time.Second),
-		deprecatedLog.Handler,
+		timeoutHandler(10*time.Second),
+		log.Middleware,
 		requestID.Handler(16),
 	).Then(router)
-	routes.Setup(router, cfg)
+	routes.Setup(router, cfg, hc)
 
+	// Create HTTP server
 	server := &http.Server{
 		Addr:         cfg.BindAddr,
 		Handler:      alice,
@@ -78,9 +68,19 @@ func Run(ctx context.Context, taxonomyRedirects map[string]string) error {
 		WriteTimeout: 10 * time.Second,
 	}
 
-	if err = server.ListenAndServe(); err != nil {
-		return errors.Wrap(err, "failed to start server")
+	// Start the HTTP server in a new go routine
+	go func() {
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Event(ctx, "error starting http server", log.ERROR, log.Error(err))
+		}
+	}()
+
+	return server
+}
+
+// timeoutHandler implements a HTTP timeout
+func timeoutHandler(timeout time.Duration) func(h http.Handler) http.Handler {
+	return func(h http.Handler) http.Handler {
+		return http.TimeoutHandler(h, timeout, "timed out")
 	}
-	// nil translates to exit code 0
-	return nil
 }

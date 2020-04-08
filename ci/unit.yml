@@ -10,7 +10,6 @@ image_resource:
 
 inputs:
   - name: dp-frontend-renderer
-    path: go/src/github.com/ONSdigital/dp-frontend-renderer
 
 run:
-  path: go/src/github.com/ONSdigital/dp-frontend-renderer/ci/scripts/unit.sh
+  path: dp-frontend-renderer/ci/scripts/unit.sh

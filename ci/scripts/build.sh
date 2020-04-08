@@ -1,10 +1,9 @@
 #!/bin/bash -eux
 
 export BINPATH=$(pwd)/build
-export GOPATH=$(pwd)/go
+cwd=$(pwd)
 
-pushd $GOPATH/src/github.com/ONSdigital/dp-frontend-renderer
-  go build -tags 'production' -o $BINPATH/dp-frontend-renderer
-  cp taxonomy-redirects.yml $BINPATH/
+pushd $cwd/dp-frontend-renderer
+  make build
   cp Dockerfile.concourse $BINPATH/
 popd

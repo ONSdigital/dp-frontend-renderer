@@ -1,8 +1,17 @@
-build
-assets/debug.go
-
+# Mac
 *.DS_Store
+
+# Intellij
 .idea/
+*.iml
+*.iws
+
+#VSCode
+.vscode/*
+
+# Build / generate
+assets/data.go
+build
+
 .tags*
 *.iml
-.vscode/*

@@ -52,7 +52,7 @@ job "dp-frontend-renderer" {
 
         check {
           type     = "http"
-          path     = "/healthcheck"
+          path     = "/health"
           interval = "10s"
           timeout  = "2s"
         }
@@ -119,7 +119,7 @@ job "dp-frontend-renderer" {
 
         check {
           type     = "http"
-          path     = "/healthcheck"
+          path     = "/health"
           interval = "10s"
           timeout  = "2s"
         }

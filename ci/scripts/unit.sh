@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
-export GOPATH=$(pwd)/go
+cwd=$(pwd)
 
-pushd $GOPATH/src/github.com/ONSdigital/dp-frontend-renderer
-  go test -tags 'production' ./...
+pushd $cwd/dp-frontend-renderer
+  make test
 popd
