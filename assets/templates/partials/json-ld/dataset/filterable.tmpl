@@ -2,16 +2,18 @@
 {{ $URLPath := .URI }}
 {{ $length := len $data.Version.Downloads }}
 {{ $SiteDomain := .SiteDomain }}
+{{ $SubDomain := "www."}}
+{{ if eq .Language "cy"}}{{$SubDomain = "cy."}}{{end}}
 {{ if gt $length 0 }}
         "distribution": [
         {{ range $i, $el := $data.Version.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            "contentUrl": {{concatenateStrings $SiteDomain .URI }}
+            "contentUrl": {{concatenateStrings $SubDomain $SiteDomain .URI }}
             }{{if notLastItem $length $i }},{{end}}
         {{ end }}
         ],
 {{ end }}
-"url": {{ concatenateStrings .SiteDomain "/datasets/" .DatasetId }},
+"url": {{ concatenateStrings $SubDomain .SiteDomain "/datasets/" .DatasetId }},
 "datePublished": {{ dateFormat .ReleaseDate }},
 "description": {{ $data.Version.Description }}
