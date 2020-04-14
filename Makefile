@@ -5,6 +5,10 @@ GIT_COMMIT=$(shell git rev-parse HEAD)
 VERSION ?= $(shell git tag --points-at HEAD | grep ^v | head -n 1)
 LDFLAGS=-ldflags "-w -s -X 'main.Version=${VERSION}' -X 'main.BuildTime=$(BUILD_TIME)' -X 'main.GitCommit=$(GIT_COMMIT)'"
 
+.PHONY: audit
+audit:
+	nancy go.sum
+
 build: generate-prod
 	go build $(LDFLAGS) -tags 'production' -o $(BINPATH)/dp-frontend-renderer
 	cp taxonomy-redirects.yml $(BINPATH)
