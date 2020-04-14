@@ -9,27 +9,30 @@ LDFLAGS=-ldflags "-w -s -X 'main.Version=${VERSION}' -X 'main.BuildTime=$(BUILD_
 audit:
 	nancy go.sum
 
+.PHONY: build
 build: generate-prod
 	go build $(LDFLAGS) -tags 'production' -o $(BINPATH)/dp-frontend-renderer
 	cp taxonomy-redirects.yml $(BINPATH)
 
+.PHONY: debug
 debug: generate-debug
 	go build $(LDFLAGS) -race -tags 'debug' -o build/dp-frontend-renderer
 	HUMAN_LOG=1 DEBUG=1 ./build/dp-frontend-renderer
 
+.PHONY: generate-debug
 generate-debug:
 	# build the dev version
 	cd assets; go run github.com/jteeuwen/go-bindata/go-bindata -debug -o data.go -pkg assets templates/... locales/...
 	{ echo "// +build debug\n"; cat assets/data.go; } > assets/debug.go.new
 	mv assets/debug.go.new assets/data.go
 
+.PHONY: generate-prod
 generate-prod:
 	# build the production version
 	cd assets; go run github.com/jteeuwen/go-bindata/go-bindata -o data.go -pkg assets templates/... locales/...
 	{ echo "// +build production\n"; cat assets/data.go; } > assets/data.go.new
 	mv assets/data.go.new assets/data.go
 
+.PHONY: test
 test: generate-prod
 	go test -race -cover -tags 'production' ./...
-
-.PHONY: build debug generate
