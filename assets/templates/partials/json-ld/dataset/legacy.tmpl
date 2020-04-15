@@ -1,8 +1,8 @@
 {{ $data := .DatasetLandingPage }}
 {{ $URLPath := .URI }}
 {{ $SiteDomain := .SiteDomain }}
-{{ $SubDomain := "www."}}
-{{ if eq .Language "cy"}}{{$SubDomain = "cy."}}{{end}}
+{{ $SubDomain := "https://www."}}
+{{ if eq .Language "cy"}}{{$SubDomain = "https://cy."}}{{end}}
     {{ $length := len $data.Datasets }}{{ if gt $length 0 }}
         {{ $latestDataset := index $data.Datasets 0}}
         {{ $numberOfDownloads := len $latestDataset.Downloads }}

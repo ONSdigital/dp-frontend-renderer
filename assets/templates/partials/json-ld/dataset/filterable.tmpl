@@ -2,14 +2,14 @@
 {{ $URLPath := .URI }}
 {{ $length := len $data.Version.Downloads }}
 {{ $SiteDomain := .SiteDomain }}
-{{ $SubDomain := "www."}}
-{{ if eq .Language "cy"}}{{$SubDomain = "cy."}}{{end}}
+{{ $SubDomain := "https://www."}}
+{{ if eq .Language "cy"}}{{$SubDomain = "https://cy."}}{{end}}
 {{ if gt $length 0 }}
-        "distribution": [
+    "distribution": [
         {{ range $i, $el := $data.Version.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            "contentUrl": {{concatenateStrings $SubDomain $SiteDomain .URI }}
+            "contentUrl":{{if eq .Extension "txt"}}{{concatenateStrings $SubDomain $SiteDomain .URI }}{{else}}{{concatenateStrings .URI}}{{end}}
             }{{if notLastItem $length $i }},{{end}}
         {{ end }}
         ],
