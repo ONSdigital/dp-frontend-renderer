@@ -9,7 +9,7 @@
         {{ range $i, $el := $data.Version.Downloads }} {
             "@type": "DataDownload",
             "encodingFormat": {{ .Extension }},
-            {{if eq .Extension "txt"}}"contentUrl": {{concatenateStrings $SubDomain $SiteDomain .URI }}{{else}}"contentUrl": {{concatenateStrings .URI}}{{end}}
+            "contentUrl":{{if eq .Extension "txt"}}{{concatenateStrings $SubDomain $SiteDomain .URI }}{{else}}{{concatenateStrings .URI}}{{end}}
             }{{if notLastItem $length $i }},{{end}}
         {{ end }}
         ],
