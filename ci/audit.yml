@@ -9,7 +9,6 @@ image_resource:
 
 inputs:
   - name: dp-frontend-renderer
-    path: dp-frontend-renderer
 
 run:
   path: dp-frontend-renderer/ci/scripts/audit.sh
