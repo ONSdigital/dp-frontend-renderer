@@ -15,8 +15,8 @@
     {{if .PreferencesUpdated }}
         <div class="min-height--10 margin-top--4 cookies-banner__preferences-success">
             <div class="font-size--18 cookies-banner__preferences-success-body">
-                <h2 class="font-weight-700 margin-top--2">{{ localise "CookiesPreferencesSaved" .Language 2 }}</h2>
-                <p class="padding-bottom--0 margin-top--1 margin-bottom--1">{{ localise "CookiesPreferencesSavedAmend" .Language 2 | safeHTML }}</p>
+                <h2 class="font-weight-700 margin-top--2">{{ localise "CookiesPreferencesSaved" .Language 4 }}</h2>
+                <p class="padding-bottom--0 margin-top--1 margin-bottom--1">{{ localise "CookiesPreferencesSavedAmend" .Language 4 | safeHTML }}</p>
             </div>
         </div>
     {{end}}
@@ -71,7 +71,7 @@
         
         <p>{{ localise "CookiesEssentialP3" .Language 1 | safeHTML }}</p>
 
-        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap cookies-js hidden" type="submit">{{ localise "SaveChanges" .Language 2}}</button>
+        <button class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-top--2 margin-right--2 font-weight-700 font-size--17 text-wrap cookies-js hidden" type="submit">{{ localise "SaveChanges" .Language 4}}</button>
 
     </form>
 </div>
