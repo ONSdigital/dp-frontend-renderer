@@ -1,7 +1,7 @@
 {{$PageData := .}}
 <script type="application/ld+json">
     {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "name": {{ .Metadata.Title }},
         "publisher": {
         "@type": "GovernmentOrganization",
@@ -14,7 +14,7 @@
             "name": {{ .ContactDetails.Name }}
             },
         {{ end}}
-    "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
         {{ if hasField $PageData "DatasetLandingPage" }}
             {{ template "partials/json-ld/dataset/common" . }}
         {{ end }}
