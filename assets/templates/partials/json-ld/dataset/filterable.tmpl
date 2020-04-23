@@ -14,6 +14,6 @@
         {{ end }}
         ],
 {{ end }}
-"url": {{ concatenateStrings $SubDomain .SiteDomain "/datasets/" .DatasetId }},
-"datePublished": {{ dateFormat .ReleaseDate }},
+"url": {{ concatenateStrings $SubDomain .SiteDomain "/datasets/" .DatasetId "/editions/" $data.Version.Edition "/versions/" $data.Version.Version  }},
+"datePublished": {{ .ReleaseDate }},
 "description": {{ $data.Version.Description }}

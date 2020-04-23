@@ -16,5 +16,5 @@
     ],
     {{ end }}
     "url": {{ concatenateStrings $SubDomain .SiteDomain $URLPath }},
-    "datePublished": {{ dateFormat $data.ReleaseDate }},
+    "datePublished": {{ $data.ReleaseDate }},
     "description": {{ .Metadata.Description }}
