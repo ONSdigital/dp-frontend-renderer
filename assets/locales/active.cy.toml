@@ -562,3 +562,11 @@ other = "We have saved your cookie preferences."
 description = "Should you ever wish to amend them, visit <strong><a href=\"/cookies\">ons.gov.uk/cookies</a></strong>."
 one = "Should you ever wish to amend them, visit <strong><a href=\"/cookies\">ons.gov.uk/cookies</a></strong>."
 other = "Should you ever wish to amend them, visit <strong><a href=\"/cookies\">ons.gov.uk/cookies</a></strong>."
+
+[Covid19BannerTitle]
+description = "Coronafeirws (COVID-19)"
+one = "Coronafeirws (COVID-19)"
+
+[Covid19BannerBody]
+description = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
+one = "Y data a’r dadansoddiad diweddaraf ar y coronafeirws."
