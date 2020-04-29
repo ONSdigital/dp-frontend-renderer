@@ -1,15 +1,11 @@
 <div class="page-content">
     {{ template "partials/banners/covid" . }}
-    
-    <div class="wrapper background-gallery">
+    <div class="wrapper padding-left--0 padding-right--0 background-gallery">
         <div class="tiles col-wrap">
             <div class="tiles__block tiles__block-no-mar-bottom">
                 <div class="col col--md-23 col--lg-29 height-sm--48 background--white margin-left-md--1 margin-bottom--0">
-                    {{ template "partials/banners/tile-banner" . }}
+                    {{ template "partials/banners/survey" . }}
                     {{ template "partials/banners/census" . }}
-                </div>
-                <div class="col col--md-23 col--lg-29 height-sm--48 background--white margin-left-md--1 margin-bottom--0">
-                    {{ template "partials/banners/test" . }}
                 </div>
             </div>
         </div>
