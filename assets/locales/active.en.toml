@@ -545,3 +545,7 @@ one = "Coronavirus (COVID-19)"
 [Covid19BannerBody]
 description = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
 one = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
+
+[CensusBannerBody]
+description = "Discover how our census statistics help paint a picture of the nation and how we live."
+one = "Discover how our census statistics help paint a picture of the nation and how we live."
