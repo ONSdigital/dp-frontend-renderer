@@ -218,6 +218,10 @@ one = "Lles"
 description = "Taking part in a survey?"
 one = "Cymryd rhan mewn arolwg?"
 
+[SurveyFindOut]
+description = "Find out what you need to do"
+one = "Find out what you need to do"
+
 [SearchKeywordTimeSeriesID]
 description = "Search for a keyword(s) or time series ID"
 one = "Chwilio am allweddair neu ID cyfres amser"
