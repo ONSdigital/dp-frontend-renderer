@@ -537,3 +537,11 @@ one = "You’ve accepted all cookies. You can <a href=\"/cookies\">change your c
 [CookiesBannerHide]
 description = "Hide"
 one = "Hide"
+
+[Covid19BannerTitle]
+description = "Coronavirus (COVID-19)"
+one = "Coronavirus (COVID-19)"
+
+[Covid19BannerBody]
+description = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
+one = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
