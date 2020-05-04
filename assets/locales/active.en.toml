@@ -210,6 +210,10 @@ one = "Well-being"
 description = "Taking part in a survey?"
 one = "Taking part in a survey?"
 
+[SurveyFindOut]
+description = "It's never been more important"
+one = "It's never been more important."
+
 [SearchKeywordTimeSeriesID]
 description = "Search for a keyword(s) or time series ID"
 one = "Search for a keyword(s) or time series ID"
@@ -545,3 +549,7 @@ one = "Coronavirus (COVID-19)"
 [Covid19BannerBody]
 description = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
 one = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
+
+[CensusBannerBody]
+description = "Discover how our census statistics help paint a picture of the nation and how we live."
+one = "Discover how our census statistics help paint a picture of the nation and how we live."

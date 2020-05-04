@@ -218,6 +218,10 @@ one = "Lles"
 description = "Taking part in a survey?"
 one = "Cymryd rhan mewn arolwg?"
 
+[SurveyFindOut]
+description = "It's never been more important"
+one = "It's never been more important."
+
 [SearchKeywordTimeSeriesID]
 description = "Search for a keyword(s) or time series ID"
 one = "Chwilio am allweddair neu ID cyfres amser"
@@ -570,3 +574,7 @@ one = "Coronafeirws (COVID-19)"
 [Covid19BannerBody]
 description = "Get the latest data and analysis on coronavirus (COVID-19) in the UK."
 one = "Y data a’r dadansoddiad diweddaraf ar y coronafeirws."
+
+[CensusBannerBody]
+description = "Discover how our census statistics help paint a picture of the nation and how we live."
+one = "Discover how our census statistics help paint a picture of the nation and how we live."
