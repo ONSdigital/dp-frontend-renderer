@@ -211,8 +211,8 @@ description = "Taking part in a survey?"
 one = "Taking part in a survey?"
 
 [SurveyFindOut]
-description = "Find out what you need to do"
-one = "Find out what you need to do"
+description = "It's never been more important"
+one = "It's never been more important."
 
 [SearchKeywordTimeSeriesID]
 description = "Search for a keyword(s) or time series ID"
