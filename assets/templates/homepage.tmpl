@@ -1,12 +1,5 @@
 <div class="page-content">
     {{ template "partials/banners/covid" . }}
-    <div class="wrapper background-gallery">
-        <div class="tiles col-wrap">
-            <div class="tiles__block tiles__block-no-mar-bottom">
-                {{ template "homepage/in-focus" . }}
-            </div>
-        </div>
-    </div>
     <div class="wrapper padding-left--0 padding-right--0 background-gallery">
         <div class="tiles col-wrap">
             <div class="tiles__block tiles__block-no-mar-bottom">
@@ -15,6 +8,13 @@
                     {{ template "partials/banners/survey" . }}
                     {{ template "partials/banners/census" . }}
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper background-gallery">
+        <div class="tiles col-wrap">
+            <div class="tiles__block tiles__block-no-mar-bottom">
+                {{ template "homepage/in-focus" . }}
             </div>
         </div>
     </div>
