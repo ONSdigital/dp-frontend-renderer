@@ -1,42 +1,51 @@
+{{ $Population := (index .Data.MainFigures 0) }}
+{{ $Inflation := (index .Data.MainFigures 1) }}
+{{ $GDP := (index .Data.MainFigures 2) }}
+{{ $EmploymentRate := (index .Data.MainFigures 3) }}
+{{ $UnemploymentRate := (index .Data.MainFigures 4) }}
 <div class=wrapper>
     <div col-wrap>
-{{.Data}}
-{{.Data.Releases}}
-{{.Data.Featured}}
-{{.Data.AroundONS}}
         <div class="col margin-top--1">
             <h1 class="col col--lg-12 col--md-12 margin-top--1 margin-bottom--0 margin-right--0 margin-left--0 font-size--30">
                 Main
                 figures</h1><span class="hide--sm font-size--18 line-height--75"> –  </span><span
                 class="tile__link margin-left--0 line-height-lg--75 line-height-md--75"><a
-                href="https://www.ons.gov.uk/timeseriestool ">From our time series explorer</a></span>
+                href="https://www.ons.gov.uk/timeseriestool">From our time series explorer</a></span>
         </div>
         <!--desktop-->
         <div class="hide--sm">
             <div class="col col--lg-29 col--md-29 tile margin-right--1">
                 <div class="margin-top--1"><h2><span class="tile__title">Employment rate</span></h2></div>
-                <div class="margin-top-md--2 margin-top-lg--2">Aged 16 to 64 seasonally adjusted (Oct - Dev 2019)</div>
+                <div class="margin-top-md--2 margin-top-lg--2">Aged 16 to 64 seasonally adjusted ({{ $EmploymentRate.Date }})</div>
                 <div class="col col--lg-12 col--md-12">
                     <div class="margin-top--1">Employed</div>
-                    <div class="tile__figure">76.5%</div>
+                    <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
                     <div class="tile__trend">
-                        <span class="tile__trend__icon">&uarr;</span><span class="tile__trend__text">0.01% on previous quarter</span>
+                        <span class="tile__trend__icon">
+                        {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
+                        {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
+                        </span><span class="tile__trend__text">{{ $EmploymentRate.TrendDescription }}</span>
                     </div>
                     <div class="margin-top--2">
-                        <span class="tile__link">Analysis</span>
-                        <span class="tile__link">Data</span>
+                        <span class="tile__link"><a href="{{ $EmploymentRate.FigureURIs.Analysis }}">Analysis</a></span>
+                        <span class="tile__link"><a href="{{ $EmploymentRate.FigureURIs.Data }}">Data</a></span>
                     </div>
                 </div>
                 <div class="col tile__split-bar print--hide hide--md hide--lg"></div>
                 <div class="col padding-left-lg--2 padding-left-md--2 col--lg-12 col--md-12">
                     <div class="margin-top--1">Unemployed</div>
-                    <div class="tile__figure">3.8%</div>
+                    <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                     <div class="tile__trend">
-                        <span class="tile__trend__icon">&uarr;</span><span class="tile__trend__text">0.2% on previous quarter</span>
+                        <span class="tile__trend__icon">
+                        {{if $UnemploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $UnemploymentRate.Trend.IsDown}}&darr;{{ end }}
+                        {{if $UnemploymentRate.Trend.IsFlat}}={{ end }}
+                        </span><span class="tile__trend__text">{{ $UnemploymentRate.TrendDescription }}</span>
                     </div>
                     <div class="margin-top--2">
-                        <span class="tile__link">Analysis</span>
-                        <span class="tile__link">Data</span>
+                        <span class="tile__link"><a href="{{ $UnemploymentRate.FigureURIs.Analysis }}">Analysis</a></span>
+                        <span class="tile__link"><a href="{{ $UnemploymentRate.FigureURIs.Data }}">Data</a></span>
                     </div>
                 </div>
             </div>
@@ -44,13 +53,16 @@
                 <div class=tile__content>
                     <div class="margin-top--1"><h2><span class="tile__title">Inflation</span></h2></div>
                     <div class="margin-top--2">CPIH 12-month rate</div>
-                    <div class="margin-top--1">Feb 2020</div>
-                    <div class="tile__figure">1.7%</div>
-                    <div class="tile__trend"><span class="tile__trend__icon">&uarr;</span><span
-                            class="tile__trend__text">0.1 on previous month</span>
+                    <div class="margin-top--1">{{ $Inflation.Date }}</div>
+                    <div class="tile__figure">{{ $Inflation.Figure }}{{ $Inflation.Unit }}</div>
+                    <div class="tile__trend"><span class="tile__trend__icon">
+                    {{if $Inflation.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $Inflation.Trend.IsDown}}&darr;{{ end }}
+                    {{if $Inflation.Trend.IsFlat}}={{ end }}
+                    </span><span class="tile__trend__text">{{ $Inflation.TrendDescription }}</span>
                     </div>
-                    <div class="margin-top--2"><span class="tile__link">Analysis</span> <span
-                            class="tile__link">Data</span>
+                    <div class="margin-top--2"><span class="tile__link"><a href="{{ $Inflation.FigureURIs.Analysis }}">Analysis</a></span> <span
+                            class="tile__link"><a href="{{ $Inflation.FigureURIs.Data }}">Data</a></span>
                     </div>
                 </div>
             </div>
@@ -58,20 +70,24 @@
                 <div class=tile__content>
                     <div class="margin-top--1"><h2><span class="tile__title">GDP</span></h2></div>
                     <div class="margin-top--2">Quarter on Quarter</div>
-                    <div class="margin-top--1">Apr - Jun 2019</div>
-                    <div class="tile__figure">-0.7%</div>
-                    <div class="tile__trend"><span class="tile__trend__icon">&uarr;</span><span
-                            class="tile__trend__text">0.01% on previous quarter</span>
+                    <div class="margin-top--1">{{ $GDP.Date }}</div>
+                    <div class="tile__figure">{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
+                    <div class="tile__trend"><span class="tile__trend__icon">
+                    {{if $GDP.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $GDP.Trend.IsDown}}&darr;{{ end }}
+                    {{if $GDP.Trend.IsFlat}}={{ end }}
+                    </span><span
+                            class="tile__trend__text">{{ $GDP.TrendDescription }}</span>
                     </div>
-                    <div class="margin-top--2"><span class="tile__link">Data</span></div>
+                    <div class="margin-top--2"><span class="tile__link"><a href="{{ $GDP.FigureURIs.Data }}">Data</a></span></div>
                 </div>
             </div>
             <div class="tile col col--lg-29 col--md-29 margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0">
                 <div class=tile__content>
                     <div class="margin-top--1"><h2><span class="tile__title">UK population</span></h2></div>
-                    <div class="margin-top--2">Mid-year estimate (2018)</div>
-                    <div class="tile__figure">66,435,600</div>
-                    <div class="margin-top--2"><span class="tile__link">Data</span></div>
+                    <div class="margin-top--2">Mid-year estimate ({{ $Population.Date }})</div>
+                    <div class="tile__figure">{{ $Population.Figure }}</div>
+                    <div class="margin-top--2"><span class="tile__link"><a href="{{ $Population.FigureURIs.Data }}">Data</a></span></div>
                 </div>
             </div>
         </div>
@@ -81,25 +97,33 @@
                 <div class=tile__content>
                     <div class="margin-top--1"><h2><span class="tile__title">GDP</span></h2></div>
                     <div class="">Quarter on Quarter</div>
-                    <div class="margin-top--1">Apr - Jun 2019</div>
-                    <div class="tile__figure">-0.7%</div>
-                    <div class="tile__trend"><span class="tile__trend__icon">&uarr;</span><span
-                            class="tile__trend__text">0.01% on previous quarter</span>
+                    <div class="margin-top--1">{{ $GDP.Date }}</div>
+                    <div class="tile__figure">-{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
+                    <div class="tile__trend"><span class="tile__trend__icon">
+                    {{if $GDP.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $GDP.Trend.IsDown}}&darr;{{ end }}
+                    {{if $GDP.Trend.IsFlat}}={{ end }}
+                    </span><span
+                            class="tile__trend__text">{{ $GDP.TrendDescription }}</span>
                     </div>
-                    <div class="margin-top--1"><span class="tile__link">Data</span></div>
+                    <div class="margin-top--1"><span class="tile__link"><a href="{{ $GDP.FigureURIs.Data }}">Data</a></span></div>
                 </div>
             </div>
             <div class="tile col margin-right--1">
                 <div class=tile__content>
                     <div class="margin-top--1"><h2><span class="tile__title">Inflation</span></h2></div>
                     <div class="">CPIH 12-month rate</div>
-                    <div class="margin-top--1">Feb 2020</div>
-                    <div class="tile__figure">1.7%</div>
-                    <div class="tile__trend"><span class="tile__trend__icon">&uarr;</span><span
-                            class="tile__trend__text">0.1 on previous month</span>
+                    <div class="margin-top--1">{{ $Inflation.Date }}</div>
+                    <div class="tile__figure">{{ $Inflation.Figure }}{{ $Inflation.Unit }}</div>
+                    <div class="tile__trend"><span class="tile__trend__icon">
+                    {{if $Inflation.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $Inflation.Trend.IsDown}}&darr;{{ end }}
+                    {{if $Inflation.Trend.IsFlat}}={{ end }}
+                    </span><span
+                            class="tile__trend__text">{{ $Inflation.TrendDescription }}</span>
                     </div>
-                    <div class="margin-top--1"><span class="tile__link">Analysis</span> <span
-                            class="tile__link">Data</span>
+                    <div class="margin-top--1"><span class="tile__link"><a href="{{ $Inflation.FigureURIs.Analysis }}">Analysis</a></span> <span
+                            class="tile__link"><a href="{{ $Inflation.FigureURIs.Data }}">Data</a></span>
                     </div>
                 </div>
             </div>
@@ -110,36 +134,44 @@
                 <div class="tile col">
                     <div class=tile__content>
                         <div class="margin-top--1"><h2><span class="tile__title">UK population</span></h2></div>
-                        <div class="">Mid-year estimate (2018)</div>
-                        <div class="tile__figure">66,435,600</div>
-                        <div class="margin-top--1"><span class="tile__link">Data</span></div>
+                        <div class="">Mid-year estimate ({{ $Population.Date }})</div>
+                        <div class="tile__figure">{{ $Population.Figure }}</div>
+                        <div class="margin-top--1"><span class="tile__link"><a href="{{ $Population.FigureURIs.Data }}">Data</a></span></div>
                     </div>
                 </div>
                 <div class="col tile margin-right--1">
                     <div class="margin-top--1"><h2><span class="tile__title">Employment rate</span></h2></div>
-                    <div class="">Aged 16 to 64 seasonally adjusted (Oct - Dev 2019)
+                    <div class="">Aged 16 to 64 seasonally adjusted ({{ $EmploymentRate.Date }})
                     </div>
                     <div class="col">
                         <div class="margin-top--1"><b>Employed</b></div>
-                        <div class="tile__figure">76.5%</div>
+                        <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
                         <div class="tile__trend">
-                            <span class="tile__trend__icon">&uarr;</span><span class="tile__trend__text">0.01% on previous quarter</span>
+                            <span class="tile__trend__icon">
+                            {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                            {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
+                            {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
+                            </span><span class="tile__trend__text">{{ $EmploymentRate.TrendDescription }}</span>
                         </div>
                         <div class="margin-top--1">
-                            <span class="tile__link">Analysis</span>
-                            <span class="tile__link">Data</span>
+                            <span class="tile__link"><a href="{{ $EmploymentRate.FigureURIs.Analysis }}">Analysis</a></span>
+                            <span class="tile__link"><a href="{{ $EmploymentRate.FigureURIs.Data }}">Data</a></span>
                         </div>
                     </div>
                     <div class="col tile__split-bar print--hide hide--md"></div>
                     <div class="col">
                         <div class="margin-top--1"><b>Unemployed</b></div>
-                        <div class="tile__figure">3.8%</div>
+                        <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                         <div class="tile__trend">
-                            <span class="tile__trend__icon">&uarr;</span><span class="tile__trend__text">0.2% on previous quarter</span>
+                            <span class="tile__trend__icon">
+                            {{if $UnemploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                            {{if $UnemploymentRate.Trend.IsDown}}&darr;{{ end }}
+                            {{if $UnemploymentRate.Trend.IsFlat}}={{ end }}
+                            </span><span class="tile__trend__text">{{ $UnemploymentRate.TrendDescription }}</span>
                         </div>
                         <div class="margin-top--1">
-                            <span class="tile__link">Analysis</span>
-                            <span class="tile__link">Data</span>
+                            <span class="tile__link"><a href="{{ $UnemploymentRate.FigureURIs.Analysis }}">Analysis</a></span>
+                            <span class="tile__link"><a href="{{ $UnemploymentRate.FigureURIs.Data }}">Data</a></span>
                         </div>
                     </div>
                 </div>
