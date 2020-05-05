@@ -2,8 +2,6 @@ module github.com/ONSdigital/dp-frontend-renderer
 
 go 1.13
 
-replace github.com/ONSdigital/dp-frontend-models => /Users/danielwalford/go/src/github.com/ONSdigital/dp-frontend-models
-
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/ONSdigital/dp-frontend-models v1.5.0
