@@ -2,9 +2,9 @@
 package homepage
 
 import (
+	homepage "github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"net/http"
 
-	"github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 )
