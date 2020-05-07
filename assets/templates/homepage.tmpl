@@ -1,7 +1,7 @@
 <div class="page-content">
     {{ template "partials/banners/covid" . }}
-    <div class=wrapper>
-        <div col-wrap>
+    <div class="wrapper">
+        <div class="col-wrap">
         {{template "partials/homepage/main-figures" .Data }}
             <div class="wrapper padding-left--0 padding-right--0 background-gallery">
                 <div class="tiles col-wrap">
@@ -15,6 +15,11 @@
         </div>
     </div>
     <div class="wrapper background-gallery">
+        <div class="tiles col-wrap">
+            <div class="tiles__block tiles__block-no-mar-bottom">
+                {{ template "homepage/in-focus" . }}
+            </div>
+        </div>
         <div class="tiles col-wrap">
             <div class="tiles__block tiles__block-no-mar-bottom">
                 {{ template "homepage/around-the-ons" . }}
