@@ -557,3 +557,7 @@ one = "Discover how our census statistics help paint a picture of the nation and
 [InFocus]
 description = "In Focus"
 one = "In Focus"
+
+[OnPrevious]
+description = "on previous"
+one = "on previous"
