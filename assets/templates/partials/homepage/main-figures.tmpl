@@ -1,8 +1,8 @@
-{{ $Population := (index .MainFigures 0) }}
-{{ $Inflation := (index .MainFigures 1) }}
-{{ $GDP := (index .MainFigures 2) }}
-{{ $EmploymentRate := (index .MainFigures 3) }}
-{{ $UnemploymentRate := (index .MainFigures 4) }}
+{{ $Population := .MainFigures.UKPOP }}
+{{ $Inflation := .MainFigures.L550 }}
+{{ $GDP := index .MainFigures.IHYQ }}
+{{ $EmploymentRate := .MainFigures.LF24 }}
+{{ $UnemploymentRate := .MainFigures.MGSX }}
 <section>
     <header><h1 class="col col--lg-12 col--md-12 margin-top--0 margin-bottom--0 margin-right--0 margin-left--0 font-size--30">
         Main
