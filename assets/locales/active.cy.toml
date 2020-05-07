@@ -583,6 +583,43 @@ one = "Discover how our census statistics help paint a picture of the nation and
 description = "In Focus"
 one = "In Focus"
 
+# Around The ONS - Homepage Section
+[AroundTheONS]
+description = "Around The ONS"
+one = "Around The ONS"
+
+[LocalStatisticsTitle]
+description = "Local statistics"
+other = "Local statistics"
+
+[LocalStatisticsSummary]
+description = "Where to find statistics covering specific areas."
+other = "Where to find statistics covering specific areas."
+
+[OurDataStrategyTitle]
+description = "Our data strategy"
+other = "Our data strategy"
+
+[OurDataStrategySummary]
+description = "How we use and manage data to provide statistics for the public."
+other = "How we use and manage data to provide statistics for the public."
+
+[OtherGovtStatisticsTitle]
+description = "Other government statistics"
+other = "Other government statistics"
+
+[OtherGovtStatisticsSummary]
+description = "Official Statistics available from across government."
+other = "Official Statistics available from across government."
+
+[ONSCentresTitle]
+description = "ONS Centres"
+other = "ONS Centres"
+
+[ONSCentresSummary]
+description = "Producing new analysis and insights to support key policy areas."
+other = "Producing new analysis and insights to support key policy areas."
+
 [OnPrevious]
 description = "on previous"
 one = "on previous"
