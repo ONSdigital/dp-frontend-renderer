@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/ONSdigital/dp-frontend-models/model"
-	"github.com/ONSdigital/dp-frontend-models/model/homepage"
+	homepage "github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/go-ns/render"
 	"github.com/gorilla/pat"
