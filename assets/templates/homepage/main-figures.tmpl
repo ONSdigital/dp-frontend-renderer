@@ -1,0 +1,195 @@
+{{ $Population := .Data.MainFigures.UKPOP }}
+{{ $Inflation := .Data.MainFigures.L55O }}
+{{ $GDP := index .Data.MainFigures.IHYQ }}
+{{ $EmploymentRate := .Data.MainFigures.LF24 }}
+{{ $UnemploymentRate := .Data.MainFigures.MGSX }}
+
+<section>
+    <header><h1 class="col col--lg-12 col--md-12 margin-top--0 margin-bottom--0 margin-right--0 margin-left--0 font-size--30">
+        Main
+        figures</h1><span class="hide--sm font-size--18 line-height--56"> –  </span><span
+            class="margin-left--0 line-height-lg--56 line-height-md--56"><a
+            href="https://www.ons.gov.uk/timeseriestool" class="tile__link">From our time series explorer</a></span>
+    </header>
+    <!--desktop-->
+    <div class="hide--sm">
+        <article class="col col--lg-29 col--md-29 tile margin-right--1">
+            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment rate</span></h2></header>
+            <div class="margin-top-md--2 margin-top-lg--2">Aged 16 to 64 seasonally adjusted ({{ $EmploymentRate.Date}})
+            </div>
+            <section class="col col--lg-12 col--md-12">
+                <div class="margin-top--1">Employed</div>
+                <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
+                <p class="tile__trend">
+                    <span class="tile__trend__icon">
+                        {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
+                        {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
+                    </span>
+                    <span class="tile__trend__text">{{ $EmploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $EmploymentRate.Trend.Period }}</span>
+                </p>
+                <div class="margin-top--2">
+                    <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                    <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                </div>
+            </section>
+            <div class="col tile__split-bar print--hide hide--md hide--lg"></div>
+            <section class="col padding-left-lg--2 padding-left-md--2 col--lg-12 col--md-12">
+                <div class="margin-top--1">Unemployed</div>
+                <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
+                <p class="tile__trend">
+                    <span class="tile__trend__icon">
+                        {{if $UnemploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $UnemploymentRate.Trend.IsDown}}&darr;{{ end }}
+                        {{if $UnemploymentRate.Trend.IsFlat}}={{ end }}
+                    </span>
+                    <span class="tile__trend__text">{{ $UnemploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $UnemploymentRate.Trend.Period }}</span>
+                </p>
+                <div class="margin-top--2">
+                    <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                    <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                </div>
+            </section>
+        </article>
+        <article class="tile tile__content col col--lg-14 col--md-14 margin-right--1">
+            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Inflation</span></h2></header>
+            <div class="margin-top--2">CPIH 12-month rate</div>
+            <div class="margin-top--1">{{ $Inflation.Date }}</div>
+            <div class="tile__figure">{{ $Inflation.Figure }}{{ $Inflation.Unit }}</div>
+            <p class="tile__trend">
+                <span class="tile__trend__icon">
+                    {{if $Inflation.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $Inflation.Trend.IsDown}}&darr;{{ end }}
+                    {{if $Inflation.Trend.IsFlat}}={{ end }}
+                </span>
+                <span class="tile__trend__text">{{ $Inflation.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $Inflation.Trend.Period }}</span>
+            </p>
+            <div class="margin-top--2">
+              <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+            </div>
+        </article>
+        <article class="tile tile__content col col--lg-14 col--md-14 margin-top-md--2 margin-top-lg--2">
+            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">GDP</span></h2></header>
+            <div class="margin-top--2">Quarter on Quarter</div>
+            <div class="margin-top--1">{{ $GDP.Date }}</div>
+            <div class="tile__figure">{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
+            <p class="tile__trend">
+                <span class="tile__trend__icon">
+                    {{if $GDP.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $GDP.Trend.IsDown}}&darr;{{ end }}
+                    {{if $GDP.Trend.IsFlat}}={{ end }}
+                </span>
+                <span class="tile__trend__text">{{ $GDP.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $GDP.Trend.Period }}</span>
+            </p>
+            <div class="margin-top--2">
+                <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+            </div>
+
+        </article>
+        <article class="tile tile__content col col--lg-29 col--md-29 margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0">
+            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
+            <div class="margin-top--2">Mid-year estimate ({{ $Population.Date }})</div>
+            <div class="tile__figure">{{ $Population.Figure }}</div>
+            <div class="margin-top--2">
+                <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+            </div>
+        </article>
+    </div>
+    <!--mobile-->
+    <div class="hide--md hide--lg">
+        <article class="tile tile__content col">
+            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">GDP</span></h2></header>
+            <div class="">Quarter on Quarter</div>
+            <div class="margin-top--1">{{ $GDP.Date }}</div>
+            <div class="tile__figure">{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
+            <p class="tile__trend">
+                    <span class="tile__trend__icon">
+                        {{if $GDP.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $GDP.Trend.IsDown}}&darr;{{ end }}
+                        {{if $GDP.Trend.IsFlat}}={{ end }}
+                    </span>
+                    <span class="tile__trend__text">{{ $GDP.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $GDP.Trend.Period }}</span>
+            </p>
+            <div class="margin-top--1">
+                <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+            </div>
+        </article>
+        <article class="tile tile__content col margin-right--1">
+            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Inflation</span></h2></header>
+            <div class="">CPIH 12-month rate</div>
+            <div class="margin-top--1">{{ $Inflation.Date }}</div>
+            <div class="tile__figure">{{ $Inflation.Figure }}{{ $Inflation.Unit }}</div>
+            <p class="tile__trend">
+                <span class="tile__trend__icon">
+                    {{if $Inflation.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $Inflation.Trend.IsDown}}&darr;{{ end }}
+                    {{if $Inflation.Trend.IsFlat}}={{ end }}
+                </span>
+                <span class="tile__trend__text">{{ $Inflation.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $Inflation.Trend.Period }}</span>
+            </p>
+            <div class="margin-top--1">
+                <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+            </div>
+        </article>
+        <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-expand-button"
+                type="button">Show more ...
+        </button>
+        <div class="js-main-expanded">
+            <article class="tile tile__content col">
+                <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
+                <div class="">Mid-year estimate ({{ $Population.Date }})</div>
+                <div class="tile__figure">{{ $Population.Figure }}</div>
+                <div class="margin-top--1">
+                        <a href="{{ $Population.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                </div>
+            </article>
+            <article class="col tile margin-right--1">
+                <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment rate</span></h2></header>
+                <div class="">Aged 16 to 64 seasonally adjusted ({{ $EmploymentRate.Date }})
+                </div>
+                <section class="col">
+                    <div class="margin-top--1"><b>Employed</b></div>
+                    <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
+                    <p class="tile__trend">
+                        <span class="tile__trend__icon">
+                            {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                            {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
+                            {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
+                        </span>
+                        <span class="tile__trend__text">{{ $EmploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $EmploymentRate.Trend.Period }}</span>
+                    </p>
+                    <div class="margin-top--1">
+                      <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                       <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                    </div>
+                </section>
+                <div class="col tile__split-bar"></div>
+                <div class="col">
+                    <div class="margin-top--1"><b>Unemployed</b></div>
+                    <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
+                    <p class="tile__trend">
+                        <span class="tile__trend__icon">
+                            {{if $UnemploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                            {{if $UnemploymentRate.Trend.IsDown}}&darr;{{ end }}
+                            {{if $UnemploymentRate.Trend.IsFlat}}={{ end }}
+                        </span>
+                        <span class="tile__trend__text">{{ $UnemploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $UnemploymentRate.Trend.Period }}</span>
+                    </p>
+                    <div class="margin-top--1">
+                        <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                       <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-compress-button"
+            type="button">Show fewer ...
+    </button>
+</section>
