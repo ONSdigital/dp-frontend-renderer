@@ -115,8 +115,8 @@
                                 <div class="width--12 inline-block float-right text-right">
                                   <a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" 
                                     href="{{$download.URI}}"
-                                    data-gtm-download-file="{{.URI}}"
-                                    data-gtm-download-type="{{.Extension}}"
+                                    data-gtm-download-file="{{$download.URI}}"
+                                    data-gtm-download-type="{{$download.Extension}}"
                                   >
                                     <strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})
                                   </a>
