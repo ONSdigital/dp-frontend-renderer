@@ -100,7 +100,7 @@
             <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">GDP</span></h2></header>
             <div class="">Quarter on Quarter</div>
             <div class="margin-top--1">{{ $GDP.Date }}</div>
-            <div class="tile__figure">-{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
+            <div class="tile__figure">{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
             <p class="tile__trend">
                     <span class="tile__trend__icon">
                         {{if $GDP.Trend.IsUp}}&uarr;{{ end }}
