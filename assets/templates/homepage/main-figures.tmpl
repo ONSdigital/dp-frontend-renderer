@@ -82,7 +82,9 @@
                 </span>
                 <span class="tile__trend__text">{{ $GDP.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $GDP.Trend.Period }}</span>
             </p>
-            <div class="margin-top--2"><a href="{{ $GDP.FigureURIs.Data }}" class="tile__link">Data</a>
+            <div class="margin-top--2">
+                <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
             </div>
 
         </article>
@@ -90,7 +92,9 @@
             <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
             <div class="margin-top--2">Mid-year estimate ({{ $Population.Date }})</div>
             <div class="tile__figure">{{ $Population.Figure }}</div>
-            <div class="margin-top--2"><a href="{{ $Population.FigureURIs.Data }}" class="tile__link">Data</a>
+            <div class="margin-top--2">
+                <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
             </div>
         </article>
     </div>
@@ -109,7 +113,9 @@
                     </span>
                     <span class="tile__trend__text">{{ $GDP.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $GDP.Trend.Period }}</span>
             </p>
-            <div class="margin-top--1"><a href="{{ $GDP.FigureURIs.Data }}" class="tile__link">Data</a>
+            <div class="margin-top--1">
+                <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
             </div>
         </article>
         <article class="tile tile__content col margin-right--1">
@@ -127,7 +133,7 @@
             </p>
             <div class="margin-top--1">
                 <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
-               <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
             </div>
         </article>
         <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-expand-button"
@@ -138,8 +144,10 @@
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
                 <div class="">Mid-year estimate ({{ $Population.Date }})</div>
                 <div class="tile__figure">{{ $Population.Figure }}</div>
-                <div class="margin-top--1"><a
-                        href="{{ $Population.FigureURIs.Data }}" class="tile__link">Data</a></div>
+                <div class="margin-top--1">
+                        <a href="{{ $Population.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
+                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                </div>
             </article>
             <article class="col tile margin-right--1">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment rate</span></h2></header>
