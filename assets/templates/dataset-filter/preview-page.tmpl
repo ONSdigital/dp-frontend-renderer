@@ -81,7 +81,12 @@
                             </p>
                           </div>
                         {{ else if not (eq .Size "") }}
-                          <a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}"><strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span></a>
+                          <a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}
+                            data-gtm-download-file="{{.URI}}"
+                            data-gtm-download-type="{{.Extension}}"
+                          ">
+                            <strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span>
+                          </a>
                         {{ end }}
                       {{ end }}
                     {{ end }}
@@ -108,7 +113,13 @@
                                    (<span class="uppercase">{{$download.Extension}}</span> format)
                                 </span>
                                 <div class="width--12 inline-block float-right text-right">
-                                  <a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a>
+                                  <a id="{{$download.Extension}}-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" 
+                                    href="{{$download.URI}}"
+                                    data-gtm-download-file="{{$download.URI}}"
+                                    data-gtm-download-type="{{$download.Extension}}"
+                                  >
+                                    <strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})
+                                  </a>
                                 </div>
                               </li>
                             {{end}}
