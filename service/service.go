@@ -34,6 +34,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 			"safeHTML":                 renderHelpers.SafeHTML,
 			"dateFormat":               renderHelpers.DateFormat,
 			"dateFormatYYYYMMDD":       renderHelpers.DateFormatYYYYMMDD,
+			"DatePeriodFormat":         renderHelpers.DatePeriodFormat,
 			"last":                     renderHelpers.Last,
 			"loop":                     renderHelpers.Loop,
 			"subtract":                 renderHelpers.Subtract,

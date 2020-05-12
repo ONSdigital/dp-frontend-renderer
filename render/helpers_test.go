@@ -191,3 +191,43 @@ func TestNotLastItem(t *testing.T) {
 	})
 
 }
+
+func TestDatePeriodFormat(t *testing.T) {
+	Convey("Given a time-series monthly string", t, func() {
+		want := "Jun - Sep 2010"
+		got := DatePeriodFormat("2010 JUN-SEP")
+		So(got, ShouldEqual, want)
+
+	})
+	Convey("Given a time-series yearly string", t, func() {
+		want := "2019"
+		got := DatePeriodFormat("2019")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a time-series month string", t, func() {
+		want := "Feb 2018"
+		got := DatePeriodFormat("2018 FEB")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a time-series Q1 string", t, func() {
+		want := "Jan - Mar 2019"
+		got := DatePeriodFormat("Q1 2019")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a time-series Q2 string", t, func() {
+		want := "Apr - Jun 2019"
+		got := DatePeriodFormat("Q2 2019")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a time-series Q3 string", t, func() {
+		want := "Jul - Sep 2019"
+		got := DatePeriodFormat("Q3 2019")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a time-series Q4 string", t, func() {
+		want := "Oct - Dec 2019"
+		got := DatePeriodFormat("Q4 2019")
+		So(got, ShouldEqual, want)
+	})
+
+}
