@@ -555,13 +555,13 @@ description = "Discover how our census statistics help paint a picture of the na
 one = "Discover how our census statistics help paint a picture of the nation and how we live."
 
 [InFocus]
-description = "In Focus"
-one = "In Focus"
+description = "In focus"
+one = "In focus"
 
 # Around The ONS - Homepage Section
 [AroundTheONS]
-description = "Around The ONS"
-one = "Around The ONS"
+description = "Around the ONS"
+one = "Around the ONS"
 
 [LocalStatisticsTitle]
 description = "Local statistics"
