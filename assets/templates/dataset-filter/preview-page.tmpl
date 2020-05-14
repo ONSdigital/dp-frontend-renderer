@@ -81,10 +81,11 @@
                             </p>
                           </div>
                         {{ else if not (eq .Size "") }}
-                          <a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="{{.URI}}
+                          <a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19"
+                            href="{{.URI}}"
                             data-gtm-download-file="{{.URI}}"
                             data-gtm-download-type="{{.Extension}}"
-                          ">
+                          >
                             <strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span>
                           </a>
                         {{ end }}
