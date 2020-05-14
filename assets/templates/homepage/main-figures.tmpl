@@ -88,15 +88,18 @@
             </div>
 
         </article>
-        <article class="tile tile__content col col--lg-29 col--md-29 margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0">
-            <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
-            <div class="margin-top--2">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
-            <div class="tile__figure">{{ $Population.Figure }}</div>
-            <div class="margin-top--2">
-                <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
-                <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
-            </div>
-        </article>
+        <div class="col col--lg-29 col--md-29">
+            <article class="tile tile__content margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0">
+                <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
+                <div class="margin-top--2">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
+                <div class="tile__figure">{{ $Population.Figure }}</div>
+                <div class="margin-top--2">
+                    <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
+                    <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                </div>
+            </article>
+            {{ template "homepage/promos" . }}
+        </div>
     </div>
     <!--mobile-->
     <div class="hide--md hide--lg">
@@ -187,9 +190,11 @@
                     </div>
                 </div>
             </article>
+            {{ template "homepage/promos" . }}
         </div>
     </div>
     <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-compress-button"
             type="button">Show fewer ...
     </button>
 </section>
+
