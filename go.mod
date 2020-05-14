@@ -4,12 +4,12 @@ go 1.13
 
 require (
 	github.com/BurntSushi/toml v0.3.1
-	github.com/ONSdigital/dp-frontend-models v1.5.2
+	github.com/ONSdigital/dp-frontend-models v1.5.4
 	github.com/ONSdigital/dp-healthcheck v1.0.2
 	github.com/ONSdigital/go-ns v0.0.0-20200205115900-a11716f93bad
 	github.com/ONSdigital/log.go v1.0.0
 	github.com/c2h5oh/datasize v0.0.0-20200112174442-28bbd4740fee
-	github.com/davecgh/go-spew v1.1.1
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gorilla/context v1.1.1 // indirect
 	github.com/gorilla/pat v1.0.1
 	github.com/gosimple/slug v1.9.0
