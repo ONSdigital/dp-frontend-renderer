@@ -3,10 +3,9 @@
     <div class="wrapper">
         {{ template "homepage/main-figures" . }}
 
-        
-        {{ template "homepage/latest-releases" . }}
-       
-        
+        <div class="hide--md-only">
+            {{ template "homepage/latest-releases" . }}
+        </div>
     </div>
     <div class="wrapper background-gallery">
         <div class="tiles col-wrap">
