@@ -20,6 +20,11 @@
                 <div class="margin-top-md--2 margin-top-lg--1">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                 <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
                 <p class="tile__trend">
+                    <span class="tile__trend__icon">
+                        {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
+                        {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
+                    </span>
                     <span class="tile__trend__text">{{ $EmploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $EmploymentRate.Trend.Period }}</span>
                 </p>
                 <div class="margin-top--2">
@@ -33,6 +38,11 @@
                 <div class="margin-top-md--2 margin-top-lg--1">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                 <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                 <p class="tile__trend">
+                    <span class="tile__trend__icon">
+                        {{if $UnemploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                        {{if $UnemploymentRate.Trend.IsDown}}&darr;{{ end }}
+                        {{if $UnemploymentRate.Trend.IsFlat}}={{ end }}
+                    </span>
                     <span class="tile__trend__text">{{ $UnemploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $UnemploymentRate.Trend.Period }}</span>
                 </p>
                 <div class="margin-top--2">
@@ -47,6 +57,11 @@
             <div class="margin-top--1">{{ DatePeriodFormat $Inflation.Date }}</div>
             <div class="tile__figure">{{ $Inflation.Figure }}{{ $Inflation.Unit }}</div>
             <p class="tile__trend">
+                <span class="tile__trend__icon">
+                    {{if $Inflation.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $Inflation.Trend.IsDown}}&darr;{{ end }}
+                    {{if $Inflation.Trend.IsFlat}}={{ end }}
+                </span>            
                 <span class="tile__trend__text">{{ $Inflation.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $Inflation.Trend.Period }}</span>
             </p>
             <div class="margin-top--2">
@@ -60,6 +75,11 @@
             <div class="margin-top--1">{{ DatePeriodFormat $GDP.Date }}</div>
             <div class="tile__figure">{{ $GDP.Figure }}{{ $GDP.Unit}}</div>
             <p class="tile__trend">
+                <span class="tile__trend__icon">
+                    {{if $GDP.Trend.IsUp}}&uarr;{{ end }}
+                    {{if $GDP.Trend.IsDown}}&darr;{{ end }}
+                    {{if $GDP.Trend.IsFlat}}={{ end }}
+                </span>   
                 <span class="tile__trend__text">{{ $GDP.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $GDP.Trend.Period }}</span>
             </p>
             <div class="margin-top--2">
@@ -91,6 +111,11 @@
                     <div class="margin-top-md--2">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                     <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
                     <p class="tile__trend">
+                        <span class="tile__trend__icon">
+                            {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
+                            {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
+                            {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
+                        </span>
                         <span class="tile__trend__text">{{ $EmploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $EmploymentRate.Trend.Period }}</span>
                     </p>
                     <div class="margin-top--2">
