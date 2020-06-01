@@ -71,7 +71,7 @@
         <div class="col col--lg-29 col--md-29">
             <article class="tile tile__content margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
-                <div class="margin-top--2">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
+                <div class="margin-top--1">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
                 <div class="tile__figure">{{ $Population.Figure }}</div>
                 <div class="margin-top--2">
                     <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
@@ -86,17 +86,11 @@
         <div class="col col--md-17">
             <article class="tile margin-left--1">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment</span></h2></header>
-                <div class="margin-top-md--2">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})
-                </div>
                 <section class="col col--md-12">
-                    <div class="margin-top--1">Employed</div>
+                    <div class="margin-top--1 tile__subheading">Employment rate</div>
+                    <div class="margin-top-md--2">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                     <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
                     <p class="tile__trend">
-                        <span class="tile__trend__icon">
-                            {{if $EmploymentRate.Trend.IsUp}}&uarr;{{ end }}
-                            {{if $EmploymentRate.Trend.IsDown}}&darr;{{ end }}
-                            {{if $EmploymentRate.Trend.IsFlat}}={{ end }}
-                        </span>
                         <span class="tile__trend__text">{{ $EmploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $EmploymentRate.Trend.Period }}</span>
                     </p>
                     <div class="margin-top--2">
@@ -106,7 +100,8 @@
                 </section>
                 <div class="col tile__split-bar print--hide width-md--14 margin-left-md--0 margin-top-md--3"></div>
                 <section class="col col--md-12">
-                    <div class="margin-top--1">Unemployed</div>
+                    <div class="margin-top--1 tile__subheading">Unemployment rate</div>
+                    <div class="margin-top-md--2">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                     <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                     <p class="tile__trend">
                         <span class="tile__trend__icon">
@@ -127,7 +122,7 @@
             </div>
         </div>
         <div class="col col--md-30">
-            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2">
+            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2 height-md--53">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Inflation</span></h2></header>
                 <div class="margin-top--2">CPIH 12-month rate</div>
                 <div class="margin-top--1">{{ DatePeriodFormat $Inflation.Date }}</div>
@@ -145,7 +140,7 @@
                     <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
                 </div>
             </article>
-            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2">
+            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2 height-md--53">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">GDP</span></h2></header>
                 <div class="margin-top--2">Quarter on Quarter</div>
                 <div class="margin-top--1">{{ DatePeriodFormat $GDP.Date }}</div>
