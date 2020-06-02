@@ -16,11 +16,11 @@
             </li>
         {{ end }}
     </ul>
-    <p class="tile__content margin-top--0 margin-bottom--0 font-size--18">{{ subtract .Data.ReleaseCalendar.NumberOfReleases $releasesLen }} {{ localise "OtherReleasesThisWeek" .Language 1 }}</p>
+    <p class="tile__content tile__subheading margin-top--0 margin-bottom--0 font-size--18">{{ subtract .Data.ReleaseCalendar.NumberOfReleases $releasesLen }} {{ localise "OtherReleasesThisWeek" .Language 1 }}</p>
     {{ else }}
     <p class="tile__content margin-top--0 margin-bottom--0 font-size--18">No releases</p>
     {{ end }}
-    <p class="margin-top--0 margin-bottom--0">
+    <p class="margin-top--0 margin-bottom--0 padding-bottom--0">
         <a class="tile__link font-weight-700" href="/releasecalendar">{{ localise "AllReleases" .Language 1 }}</a>
     </p>
 </article>
