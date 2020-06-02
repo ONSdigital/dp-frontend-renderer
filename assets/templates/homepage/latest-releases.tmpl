@@ -16,7 +16,7 @@
             </li>
         {{ end }}
     </ul>
-    <p class="tile__content margin-top--0 margin-bottom--0 font-size--18">{{ subtract .Data.ReleaseCalendar.NumberOfReleases $releasesLen }} {{ localise "OtherReleasesThisWeek" .Language 1 }}</p>
+    <p class="tile__content margin-top--0 margin-bottom--0 font-size--18">{{ .Data.ReleaseCalendar.NumberOfOtherReleasesInSevenDays }} {{ localise "OtherReleasesThisWeek" .Language 1 }}</p>
     {{ else }}
     <p class="tile__content margin-top--0 margin-bottom--0 font-size--18">No releases</p>
     {{ end }}
