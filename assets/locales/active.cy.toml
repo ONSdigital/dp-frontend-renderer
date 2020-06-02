@@ -629,8 +629,8 @@ description ="Latest releases"
 one ="Latest releases"
 
 [OtherReleasesThisWeek]
-description = "others releases this week"
-one = "others releases this week"
+description = "other releases this week"
+one = "other releases this week"
 
 [AllReleases]
 description = "All of our releases by date"
