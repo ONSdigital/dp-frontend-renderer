@@ -61,7 +61,7 @@
                     {{if $Inflation.Trend.IsUp}}&uarr;{{ end }}
                     {{if $Inflation.Trend.IsDown}}&darr;{{ end }}
                     {{if $Inflation.Trend.IsFlat}}={{ end }}
-                </span>            
+                </span>
                 <span class="tile__trend__text">{{ $Inflation.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $Inflation.Trend.Period }}</span>
             </p>
             <div class="margin-top--2">
