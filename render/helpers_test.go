@@ -231,3 +231,21 @@ func TestDatePeriodFormat(t *testing.T) {
 	})
 
 }
+
+func TestTruncateToMaximumCharacters(t *testing.T) {
+	Convey("That text is not truncated when it contains fewer characters than maxLength", t, func() {
+		got := TruncateToMaximumCharacters("Hello world", 50)
+		want := "Hello world"
+		So(got, ShouldEqual, want)
+	})
+	Convey("That text is truncated when exceeding maxLength", t, func() {
+		got := TruncateToMaximumCharacters("Hello world", 2)
+		want := "He..."
+		So(got, ShouldEqual, want)
+	})
+	Convey("That leading/trailling whitespace is removed when text is truncated", t, func() {
+		got := TruncateToMaximumCharacters("The space after 'space' should not be included", 10)
+		want := "The space..."
+		So(got, ShouldEqual, want)
+	})
+}

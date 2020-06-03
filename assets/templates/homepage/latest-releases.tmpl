@@ -11,7 +11,7 @@
     <ul class="tile__list list--neutral margin-bottom--0">
         {{range $releases}}
             <li class="tile__list-item">
-                <a href="{{ .URI }}" class="tile__link tile__list-item-title">{{ .Title }}</a>
+                <a href="{{ .URI }}" class="tile__link tile__list-item-title">{{ truncateToMaximumCharacters .Title 94 }}</a>
                 <p class="tile__list-item-content margin-top--0 margin-bottom--0 padding-top--0">{{ .ReleaseDate }}</p>
             </li>
         {{ end }}
