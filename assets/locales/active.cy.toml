@@ -623,3 +623,15 @@ other = "Producing new analysis and insights to support key policy areas."
 [OnPrevious]
 description = "on previous"
 one = "on previous"
+
+[LatestReleases]
+description ="Latest releases"
+one ="Latest releases"
+
+[OtherReleasesThisWeek]
+description = "other releases this week"
+one = "other releases this week"
+
+[AllReleases]
+description = "All of our releases by date"
+one = "All of our releases by date"
