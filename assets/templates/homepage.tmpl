@@ -3,9 +3,11 @@
     <div class="wrapper">
         {{ template "homepage/main-figures" . }}
 
-        <div class="hide--md-only">
+        <div>
             {{ template "homepage/latest-releases" . }}
         </div>
+        {{ template "homepage/promos" . }}
+
     </div>
     <div class="wrapper background-gallery">
         <div class="tiles col-wrap">

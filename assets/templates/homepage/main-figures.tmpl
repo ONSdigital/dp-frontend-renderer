@@ -98,7 +98,6 @@
                     <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
                 </div>
             </article>
-            {{ template "homepage/promos" . }}
         </div>
     </div>
     <!--medium-->
@@ -142,12 +141,9 @@
                     </div>
                 </section>
             </article>
-            <div>
-            {{ template "homepage/promos" . }} 
-            </div>
         </div>
         <div class="col col--md-30">
-            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2 height-md--53">
+            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2 height-md--55">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Inflation</span></h2></header>
                 <div class="margin-top--2">CPIH 12-month rate</div>
                 <div class="margin-top--1">{{ DatePeriodFormat $Inflation.Date }}</div>
@@ -165,7 +161,7 @@
                     <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
                 </div>
             </article>
-            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2 height-md--53">
+            <article class="tile tile__content col col--md-14 margin-left-md--1 margin-bottom-md--2 height-md--55">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">GDP</span></h2></header>
                 <div class="margin-top--2">Quarter on Quarter</div>
                 <div class="margin-top--1">{{ DatePeriodFormat $GDP.Date }}</div>
@@ -183,8 +179,8 @@
                     <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
                 </div>
             </article>
-            <article class="tile tile__content margin-top-md--6 margin-left-md--1">
-                <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
+            <article class="tile tile__content margin-top-md--6 margin-left-md--1 height-md--47">
+                <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--2 margin-left--0"><span class="tile__title">UK population</span></h2></header>
                 <div class="margin-top--2">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
                 <div class="tile__figure">{{ $Population.Figure }}</div>
                 <div class="margin-top--2">
@@ -192,7 +188,6 @@
                     <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
                 </div>
             </article>
-            {{ template "homepage/latest-releases" . }}
         </div>
     </div>
     <!--mobile-->
@@ -284,7 +279,6 @@
                     </div>
                 </div>
             </article>
-            {{ template "homepage/promos" . }}
         </div>
     </div>
     <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-compress-button"
