@@ -576,8 +576,8 @@ description = "Get the latest data and analysis on coronavirus (COVID-19) in the
 one = "Y data a’r dadansoddiad diweddaraf ar y coronafeirws."
 
 [CensusBannerBody]
-description = "Help paint a picture of the nation and how we live."
-one = "Help paint a picture of the nation and how we live."
+description = "Discover how our census statistics help paint a picture of the nation and how we live."
+one = "Discover how our census statistics help paint a picture of the nation and how we live."
 
 [InFocus]
 description = "In focus"
