@@ -1,26 +1,19 @@
 {{ $releases := .Data.ReleaseCalendar.Releases }}
 {{ $releasesLen := len .Data.ReleaseCalendar.Releases }}
 
-<article class="tile tile--latest-releases tile__content col col--lg-29 col--md-29 margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--1">
+<article class="tile tile__content col col--lg-29 margin-top-lg--2 margin-top-md--2 margin-left-lg--1 height-lg--31">
     <header class="margin-top--1">
         <h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0">
             <span class="tile__title">{{ localise "LatestReleases" .Language 1 }}</span>
         </h2>
     </header>
-    {{ if gt $releasesLen 0 }}
-    <ul class="tile__list list--neutral margin-bottom--0">
-        {{range $releases}}
-            <li class="tile__list-item margin-bottom--2">
-                <a href="{{ .URI }}" class="tile__link">{{ truncateToMaximumCharacters .Title 96 }}</a>
-                <p class="tile__list-item-content margin-top--0 margin-bottom--0 padding-top--0">{{ .ReleaseDate }}</p>
-            </li>
-        {{ end }}
-    </ul>
-    <p class="tile__content tile__subheading margin-top--0 margin-bottom--0 font-size--18">{{ .Data.ReleaseCalendar.NumberOfOtherReleasesInSevenDays }} {{ localise "OtherReleasesThisWeek" .Language 1 }}</p>
-    {{ else }}
-    <p class="tile__content margin-top--0 margin-bottom--0 font-size--18">No releases</p>
-    {{ end }}
-    <p class="margin-top--0 margin-bottom--0 padding-bottom--0">
-        <a class="tile__link font-weight-700" href="/releasecalendar">{{ localise "AllReleases" .Language 1 }}</a>
-    </p>
+    <div class="tile__content-container--space-between">
+        <p class="tile__content tile__text-description margin-top--0 margin-bottom--0 font-size--18">
+        {{ localise "ReleaseCalendarTileInfo" .Language 1 }} {{ localise "ReleaseCalendarTilePublicationCount" .Language 1 }} 
+        {{ .Data.ReleaseCalendar.NumberOfReleases }} {{ localise "ReleaseCalendarTilePublicationPeriod" .Language 1 }}
+        </p>
+        <p class="margin-top--0 margin-bottom--0 padding-bottom--0">
+            <a class="tile__link" href="/releasecalendar">{{ localise "AllReleases" .Language 1 }}</a>
+        </p>
+    </div>
 </article>

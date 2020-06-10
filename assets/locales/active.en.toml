@@ -603,10 +603,22 @@ one = "on previous"
 description ="Latest releases"
 one ="Latest releases"
 
+[ReleaseCalendarTileInfo]
+description = "All of our publications are listed in our release calendar."
+one = "All of our publications are listed in our release calendar."
+
+[ReleaseCalendarTilePublicationCount]
+description = "We have published"
+one = "We have published"
+
+[ReleaseCalendarTilePublicationPeriod]
+description = " statistical releases in the last 7 days."
+one = " statistical releases in the last 7 days."
+
 [OtherReleasesThisWeek]
 description = "other releases this week"
 one = "other releases this week"
 
 [AllReleases]
-description = "All of our releases by date"
-one = "All of our releases by date"
+description = "View all of our releases by date"
+one = "View all of our releases by date"
