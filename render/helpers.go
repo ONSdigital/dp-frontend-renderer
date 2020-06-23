@@ -91,6 +91,7 @@ func DateFormatYYYYMMDD(s string) template.HTML {
 func localiseTime(t *time.Time) time.Time {
 	tz, err := time.LoadLocation("Europe/London")
 	if err != nil {
+		log.Event(nil, "failed to load time zone location", log.Error(err), log.ERROR)
 		return *t
 	}
 	return t.In(tz)
