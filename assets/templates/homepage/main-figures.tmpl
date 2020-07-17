@@ -17,7 +17,7 @@
             <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment</span></h2></header>
             <section class="col col--lg-12 margin-right--1">
                 <div class="margin-top--1 tile__subheading">Employment rate</div>
-                <div class="margin-top-md--2 margin-top-lg--1">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
+                <div class="margin-top-md--2 margin-top-lg--1 height-lg--11">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                 <div class="tile__figure">{{ $EmploymentRate.Figure }}{{ $EmploymentRate.Unit }}</div>
                 <p class="tile__trend">
                     <span class="tile__trend__icon">
@@ -35,7 +35,7 @@
             <div class="col tile__split-bar print--hide hide--md hide--lg"></div>
             <section class="col margin-left--1 col--lg-12">
                 <div class="margin-top--1 tile__subheading">Unemployment rate</div>
-                <div class="margin-top-md--2 margin-top-lg--1">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
+                <div class="margin-top-md--2 margin-top-lg--1 height-lg--11">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
                 <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                 <p class="tile__trend">
                     <span class="tile__trend__icon">
