@@ -26,6 +26,10 @@ one = "Office for National Statistics"
 description = "Homepage"
 one = "Home"
 
+[Homepage]
+description = "Homepage"
+one = "Homepage"
+
 [SkipToContent]
 description = "Skip to main content"
 one = "Skip to main content"
