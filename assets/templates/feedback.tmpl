@@ -49,14 +49,14 @@
                         </div>
                     </div>
                     <div>
-                        <label id="purpose-field-label">
+                        <label id="purpose-field-label" for="purpose-field">
                             <strong><span class="font-size--16">What was the purpose of your visit?</span></strong>
                         </label>
                        {{if eq .ErrorType "purpose"}}<span class="form-error">Enter a purpose</span>{{end}}
                         <textarea id="purpose-field" class="form-control {{if eq .ErrorType "purpose"}}form-control__error{{end}}" name="purpose" rows="2" >{{.Purpose}}</textarea>
                     </div>
                     <div>
-                        <label id="description-field-label">
+                        <label id="description-field-label" for="description-field">
                             <strong><span class="font-size--16">Your feedback</span></strong>
                             <span class="form-hint">Report a problem, make a suggestion, ask a question or let us know what you think.</span>
                         </label>
@@ -64,12 +64,14 @@
                         <textarea id="description-field" class="form-control  {{if eq .ErrorType "description"}}form-control__error{{end}}" name="description" rows="5">{{.Feedback}}</textarea>
                     </div>
                     <div>
-                        <strong><span class="font-size--16">Name (optional)</span></strong>
-                        <span class="form-hint">Include your name and email address if you would like us to get back to you.</span>
-                        <input class="form-control" type="text" name="name"  value={{.Name}}>
+                        <label id="name-field-label" for="name-field">
+                            <strong><span class="font-size--16">Name (optional)</span></strong>
+                            <span class="form-hint">Include your name and email address if you would like us to get back to you.</span>
+                        </label>
+                        <input id="name-field" class="form-control" type="text" name="name"  value={{.Name}}>
                     </div>
                     <div>
-                        <label id="email-field-label">
+                        <label id="email-field-label" for="email-field">
                             <strong><span class="font-size--16">Email (optional)</span></strong>
                         </label>
                         {{if eq .ErrorType "email"}}<span class="form-error">This is not a valid email address, correct it or delete it</span>{{end}}
