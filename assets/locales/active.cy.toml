@@ -34,6 +34,10 @@ one = "Swyddfa Ystadegau Gwladol"
 description = "Homepage"
 one = "Hafen"
 
+[Homepage]
+description = "Homepage"
+one = "Hafen"
+
 [SkipToContent]
 description = "Skip to main content"
 one = "Skip to main content"
