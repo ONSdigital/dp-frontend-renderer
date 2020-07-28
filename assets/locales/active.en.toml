@@ -562,6 +562,14 @@ one = "Discover how our census statistics help paint a picture of the nation and
 description = "In focus"
 one = "In focus"
 
+[ExperiencingIssues]
+description = "We are currently experiencing issues displaying this data."
+one = "We are currently experiencing issues displaying this data."
+
+[RefreshOrVisitTimeseriesTool]
+description = "Refresh the page or visit our <a href=\"/timeseriestool\">time series explorer</a> for the latest figures."
+one = "Refresh the page or visit our <a href=\"/timeseriestool\">time series explorer</a> for the latest figures."
+
 # Around The ONS - Homepage Section
 [AroundTheONS]
 description = "Around the ONS"
