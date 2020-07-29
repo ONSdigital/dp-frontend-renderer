@@ -32,11 +32,7 @@ one = "Swyddfa Ystadegau Gwladol"
 
 [Home]
 description = "Homepage"
-one = "Hafen"
-
-[Homepage]
-description = "Homepage"
-one = "Hafen"
+one = "Hafan"
 
 [ONSLogoAlt]
 description = "Office for National Statistics Logo - Homepage"
