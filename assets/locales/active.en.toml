@@ -30,6 +30,10 @@ one = "Home"
 description = "Homepage"
 one = "Homepage"
 
+[ONSLogoAlt]
+description = "Office for National Statistics Logo - Homepage"
+one = "Office for National Statistics logo - Homepage"
+
 [SkipToContent]
 description = "Skip to main content"
 one = "Skip to main content"
