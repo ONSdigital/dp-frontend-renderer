@@ -18,5 +18,6 @@
         {{ if hasField $PageData "DatasetLandingPage" }}
             {{ template "partials/json-ld/dataset/common" . }}
         {{ end }}
+        {{ if eq $PageData.Page.Type "homepage" }}{{template "partials/json-ld/homepage" .}} {{ end }}
     }
 </script>
