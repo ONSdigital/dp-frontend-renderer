@@ -17,9 +17,9 @@
             <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container">
                 <div class="language">
                     {{if eq .Language "cy"}}
-                        <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
+                        <a class="language__link icon--hide" lang="en-GB" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
                     {{ else }}
-                        {{ localise "EnglishToggle" .Language 1 }} | <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
+                        {{ localise "EnglishToggle" .Language 1 }} | <a class="language__link icon--hide" lang="cy" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
                     {{end}}
                 </div>
             </div>
