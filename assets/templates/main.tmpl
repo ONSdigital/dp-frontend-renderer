@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang={{.Language}} xml:lang={{.Language}}>
+<html lang="{{if .Language }}{{ .Language }}{{ else }}en{{ end }}" xml:lang="{{ if .Language }}{{ .Language }}{{ else }}en{{ end }}">
 <head>
 
     <title>{{ if .Metadata.Title -}}{{ .Metadata.Title }}
