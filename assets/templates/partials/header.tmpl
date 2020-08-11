@@ -17,9 +17,9 @@
             <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container">
                 <div class="language">
                     {{if eq .Language "cy"}}
-                        <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
+                        <a class="language__link icon--hide" lang="en-GB" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
                     {{ else }}
-                        {{ localise "EnglishToggle" .Language 1 }} | <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
+                        {{ localise "EnglishToggle" .Language 1 }} | <a class="language__link icon--hide" lang="cy" href="{{ domainSetLang .SiteDomain .URI "cy" }}">{{ localise "WelshToggle" .Language 1 }}</a>
                     {{end}}
                 </div>
             </div>
@@ -48,13 +48,13 @@
         <nav>
             <ul class="nav--controls">
                 <li class="nav--controls__item">
-                    <a href="#nav-primary" id="menu-toggle" aria-controls="nav-primary" class="nav--controls__menu {{if .SearchDisabled}} nav--controls__no-search{{end}}">
+                    <a href="#nav-primary" id="menu-toggle" aria-controls="nav-primary" aria-expanded="false" class="nav--controls__menu {{if .SearchDisabled}} nav--controls__no-search{{end}}">
                         <span class="nav--controls__text">{{ localise "Menu" .Language 1 }}</span>
                     </a>
                 </li>
                 {{if not .SearchDisabled}}
                 <li class="nav--controls__item ">
-                    <a href="#nav-search" id="search-toggle" aria-controls="nav-search" class="nav--controls__search">
+                    <a href="#nav-search" id="search-toggle" aria-controls="nav-search" aria-expanded="false" class="nav--controls__search">
                         <span class="nav--controls__text">{{ localise "Search" .Language 1 }}</span>
                     </a>
                 </li>

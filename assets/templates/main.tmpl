@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang={{.Language}} xml:lang={{.Language}}>
+<html lang="{{if .Language }}{{ .Language }}{{ else }}en{{ end }}" xml:lang="{{ if .Language }}{{ .Language }}{{ else }}en{{ end }}">
 <head>
 
-    <title>{{ .Metadata.Title }} - {{ localise "OfficeForNationalStatistics" .Language 1 }}</title>
+    <title>{{ if .Metadata.Title -}}{{ .Metadata.Title }}
+      {{ else if .Error -}}{{if .Error.Title }}{{ .Error.Title }}{{- end }}
+      {{- end}} - {{ localise "OfficeForNationalStatistics" .Language 1 }}</title>
     <meta name="description" content="{{ .Metadata.Description}}">
     <meta name="keywords" content="{{range .Metadata.Keywords}} {{- .}}, {{end}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
