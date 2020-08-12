@@ -1,23 +1,26 @@
 {{$PageData := .}}
 <script type="application/ld+json">
+
     {
         "@context": "https://schema.org",
-        "name": {{ .Metadata.Title }},
-        "publisher": {
-        "@type": "GovernmentOrganization",
-        "name": "Office for National Statistics",  
-        "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
-        },
-        {{ if hasField $PageData "ContactDetails" }}
-            "author": {
-            "@type": "Person",
-            "name": {{ .ContactDetails.Name }}
+        {{ if eq $PageData.Page.Type "homepage" }}{{template "partials/json-ld/homepage" .}}
+        {{else}}
+            "name": {{ .Metadata.Title }},
+            "publisher": {
+                "@type": "GovernmentOrganization",
+                "name": "Office for National Statistics",
+                "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
             },
-        {{ end}}
-    "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-        {{ if hasField $PageData "DatasetLandingPage" }}
-            {{ template "partials/json-ld/dataset/common" . }}
+            {{ if hasField $PageData "ContactDetails" }}
+                "author": {
+                    "@type": "Person",
+                    "name": {{ .ContactDetails.Name }}
+                },
+            {{ end}}
+            "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            {{ if hasField $PageData "DatasetLandingPage" }}
+                {{ template "partials/json-ld/dataset/common" . }}
+            {{ end }}
         {{ end }}
-        {{ if eq $PageData.Page.Type "homepage" }}{{template "partials/json-ld/homepage" .}} {{ end }}
     }
 </script>
