@@ -1,6 +1,5 @@
 {{$PageData := .}}
 <script type="application/ld+json">
-
     {
         "@context": "https://schema.org",
         {{ if eq $PageData.Page.Type "homepage" }}{{template "partials/json-ld/homepage" .}}
