@@ -26,6 +26,10 @@ one = "Office for National Statistics"
 description = "Homepage"
 one = "Home"
 
+[HomepageDescription]
+description = "The UK's largest independent producer of official statistics and the recognised national statistical institute of the UK."
+one = "The UK's largest independent producer of official statistics and the recognised national statistical institute of the UK."
+
 [ONSLogoAlt]
 description = "Office for National Statistics Logo - Homepage"
 one = "Office for National Statistics logo - Homepage"
