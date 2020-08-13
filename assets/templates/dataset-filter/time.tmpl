@@ -135,8 +135,8 @@
                                                     <fieldset>
                                                         <div class="checkbox-group">
                                                             <div id="checkbox-header" class="checkbox margin-bottom--2">
-                                                                <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" />
-                                                                &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" />
+                                                                <input class="btn btn--link underline-link add-all" type="submit" value="Add all" id="add-all" name="add-all" aria-label="Include data from all available months" />
+                                                                &nbsp;&nbsp;<input class="btn btn--link underline-link remove-all js-hidden" type="submit" value="Remove all" id="remove-all" name="remove-all" aria-label="Remove all selected months" />
                                                             </div>
                                                             {{ range $i, $v := .Data.Values }}
                                                             <div class="checkbox">
