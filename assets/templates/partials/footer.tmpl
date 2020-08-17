@@ -1,82 +1,84 @@
 <footer class="print--hide padding-top--13">
-    {{ if .ShowFeedbackForm }}
-        {{ template "partials/feedback" }}
-    {{ end }}
-   <h2 class="visuallyhidden">{{ localise "FooterLinks" .Language 1 }}</h2>
-   <div class="footer">
-      <div class="wrapper">
-         <nav>
-            <div class="footer-nav col-wrap">
-               <div class="col col--lg-one-third col--md-one-third">
-                  <h3 class="footer-nav__heading">{{ localise "Help" .Language 1 }}</h3>
-                  <ul class="footer-nav__list">
-                     <li class="footer-nav__item">
-                        <a href="/help/accessibility">{{ localise "Accessibility" .Language 1 }}</a>
-                     </li>
-                     {{ if .EnableCookiesControl }}
+   <section>
+      {{ if .ShowFeedbackForm }}
+         {{ template "partials/feedback" }}
+      {{ end }}
+      <h1 class="visuallyhidden">{{ localise "FooterLinks" .Language 1 }}</h2>
+      <div class="footer">
+         <div class="wrapper">
+            <nav>
+               <div class="footer-nav col-wrap">
+                  <div class="col col--lg-one-third col--md-one-third">
+                     <h2 class="footer-nav__heading">{{ localise "Help" .Language 1 }}</h3>
+                     <ul class="footer-nav__list">
                         <li class="footer-nav__item">
-                           <a href="/cookies">{{ localise "Cookies" .Language 4 }}</a>
+                           <a href="/help/accessibility">{{ localise "Accessibility" .Language 1 }}</a>
+                        </li>
+                        {{ if .EnableCookiesControl }}
+                           <li class="footer-nav__item">
+                              <a href="/cookies">{{ localise "Cookies" .Language 4 }}</a>
+                           </li>
+                           <li class="footer-nav__item">
+                              <a href="/help/privacynotice">{{ localise "Privacy" .Language 1 }}</a>
+                           </li>
+                        {{ else }}
+                           <li class="footer-nav__item">
+                              <a href="/help/cookiesandprivacy">{{ localise "CookiesPrivacy" .Language 1 }}</a>
+                           </li>
+                        {{ end }}
+                        <li class="footer-nav__item">
+                           <a href="/help/termsandconditions">{{ localise "TermsConditions" .Language 1 }}</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col col--lg-one-third col--md-one-third">
+                     <h2 class="footer-nav__heading">{{ localise "AboutONS" .Language 1 }}</h3>
+                     <ul class="footer-nav__list">
+                        <li class="footer-nav__item">
+                           <a href="/aboutus/whatwedo">{{ localise "WhatWeDo" .Language 1 }}</a>
                         </li>
                         <li class="footer-nav__item">
-                           <a href="/help/privacynotice">{{ localise "Privacy" .Language 1 }}</a>
+                           <a href="/aboutus/careers">{{ localise "Careers" .Language 1 }}</a>
                         </li>
-                     {{ else }}
                         <li class="footer-nav__item">
-                           <a href="/help/cookiesandprivacy">{{ localise "CookiesPrivacy" .Language 1 }}</a>
+                           <a href="/aboutus/contactus">{{ localise "ContactUs" .Language 1 }}</a>
                         </li>
-                     {{ end }}
-                     <li class="footer-nav__item">
-                        <a href="/help/termsandconditions">{{ localise "TermsConditions" .Language 1 }}</a>
-                     </li>
-                  </ul>
+                        <li class="footer-nav__item">
+                           <a href="/news">{{ localise "News" .Language 1 }}</a>
+                        </li>
+                        <li class="footer-nav__item">
+                           <a href="/aboutus/transparencyandgovernance/freedomofinformationfoi">{{ localise "FreedomInformation" .Language 1 }}</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col col--lg-one-third col--md-one-third">
+                     <h2 class="footer-nav__heading">{{ localise "ConnectWithUs" .Language 1 }}</h3>
+                     <ul class="footer-nav__list">
+                        <li class="footer-nav__item">
+                           <a href="https://twitter.com/ONS" class="icon--hide" target="_blank">{{ localise "Twitter" .Language 1 }}</a>
+                        </li>
+                        <li class="footer-nav__item">
+                           <a href="https://www.facebook.com/ONS" class="icon--hide" target="_blank">{{ localise "Facebook" .Language 1 }}</a>
+                        </li>
+                        <li class="footer-nav__item">
+                           <a href="https://www.linkedin.com/company/office-for-national-statistics" class="icon--hide" target="_blank">{{ localise "LinkedIn" .Language 1 }}</a>
+                        </li>
+                        <li class="footer-nav__item">
+                           <a href="https://public.govdelivery.com/accounts/UKONS/subscribers/new" class="icon--hide" target="_blank">{{ localise "EmailAlerts" .Language 1 }}</a>
+                        </li>
+                     </ul>
+                  </div>
                </div>
-               <div class="col col--lg-one-third col--md-one-third">
-                  <h3 class="footer-nav__heading">{{ localise "AboutONS" .Language 1 }}</h3>
-                  <ul class="footer-nav__list">
-                     <li class="footer-nav__item">
-                        <a href="/aboutus/whatwedo">{{ localise "WhatWeDo" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="/aboutus/careers">{{ localise "Careers" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="/aboutus/contactus">{{ localise "ContactUs" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="/news">{{ localise "News" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="/aboutus/transparencyandgovernance/freedomofinformationfoi">{{ localise "FreedomInformation" .Language 1 }}</a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="col col--lg-one-third col--md-one-third">
-                  <h3 class="footer-nav__heading">{{ localise "ConnectWithUs" .Language 1 }}</h3>
-                  <ul class="footer-nav__list">
-                     <li class="footer-nav__item">
-                        <a href="https://twitter.com/ONS" class="icon--hide" target="_blank">{{ localise "Twitter" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="https://www.facebook.com/ONS" class="icon--hide" target="_blank">{{ localise "Facebook" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="https://www.linkedin.com/company/office-for-national-statistics" class="icon--hide" target="_blank">{{ localise "LinkedIn" .Language 1 }}</a>
-                     </li>
-                     <li class="footer-nav__item">
-                        <a href="https://public.govdelivery.com/accounts/UKONS/subscribers/new" class="icon--hide" target="_blank">{{ localise "EmailAlerts" .Language 1 }}</a>
-                     </li>
-                  </ul>
-               </div>
+            </nav>
+         </div>
+         <div class="wrapper">
+            <div class="footer-license">
+               <img class="footer-license__img" alt="OGL" width="60" src="https://cdn.ons.gov.uk/assets/images/logo-ogl-footer.svg">
+               <p class="footer-license__text margin-left-sm--0">
+                  {{ localise "OGLFull" .Language 1 | safeHTML }}
+               </p>
             </div>
-         </nav>
-      </div>
-      <div class="wrapper">
-         <div class="footer-license">
-            <img class="footer-license__img" alt="OGL" width="60" src="https://cdn.ons.gov.uk/assets/images/logo-ogl-footer.svg">
-            <p class="footer-license__text margin-left-sm--0">
-               {{ localise "OGLFull" .Language 1 | safeHTML }}
-            </p>
          </div>
       </div>
-   </div>
+   </section>
 </footer>
