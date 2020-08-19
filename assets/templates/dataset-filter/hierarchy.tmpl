@@ -96,7 +96,7 @@
                                             </div>
                                             {{ if ne .SubNum "0" }}
                                                 <div class="view-link width-md--10 float-el--right-md text-right--md padding-top--1 height-sm--5 height-md--5">
-                                                    <input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}"/>
+                                                    <input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" aria-label="{{ .Label }}: browse {{.SubNum}} {{$.Type}}" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}"/>
                                                     <div class="inline-block view-link--icon">
                                                         <span class="icon icon-arrow-right--dark-small"></span>
                                                     </div>
