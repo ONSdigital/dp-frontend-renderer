@@ -72,7 +72,7 @@
                  </div>
                  {{end}}
                   <div class="loader-svg js-hidden">{{ template "partials/spinner" }}</div>
-                  <div id="excel-file" aria-hidden="true">
+                  <div id="excel-file">
                     {{ range .Data.Downloads }}
                       {{ if eq .Extension "xls" }}
                         {{ if .Skipped }}
