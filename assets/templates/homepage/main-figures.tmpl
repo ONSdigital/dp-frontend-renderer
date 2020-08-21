@@ -29,8 +29,8 @@
                         <span class="tile__trend__text">{{ $EmploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $EmploymentRate.Trend.Period }}</span>
                     </p>
                     <div class="margin-top--2">
-                        <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
-                        <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                        <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for employment rate">Analysis</a>
+                        <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for employment rate">Data</a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -51,8 +51,8 @@
                         <span class="tile__trend__text">{{ $UnemploymentRate.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $UnemploymentRate.Trend.Period }}</span>
                     </p>
                     <div class="margin-top--2">
-                        <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
-                        <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                        <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for unemployment rate">Analysis</a>
+                        <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for unemployment rate">Data</a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -74,8 +74,8 @@
                     <span class="tile__trend__text">{{ $Inflation.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $Inflation.Trend.Period }}</span>
                 </p>
                 <div class="margin-top--2">
-                <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link">Analysis</a>
-                    <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for inflation">Analysis</a>
+                    <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for inflation">Data</a>
                 </div>
             {{ else }}
                 {{ template "homepage/main-figures-error" . }}
@@ -96,8 +96,8 @@
                     <span class="tile__trend__text">{{ $GDP.Trend.Difference }} {{ localise "OnPrevious" .Language 1 }} {{ $GDP.Trend.Period }}</span>
                 </p>
                 <div class="margin-top--2">
-                    <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
-                    <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                    <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for GDP">Analysis</a>
+                    <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for GDP">Data</a>
                 </div>
             {{ else }}
                 {{ template "homepage/main-figures-error" . }}
@@ -110,8 +110,8 @@
                     <div class="margin-top--1">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
                     <div class="tile__figure">{{ $Population.Figure }}</div>
                     <div class="margin-top--2">
-                        <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link">Analysis</a>
-                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1">Data</a>
+                        <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for UK population">Analysis</a>
+                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for UK population">Data</a>
                     </div>
                 {{ else }}
                 {{ template "homepage/main-figures-error" . }}
