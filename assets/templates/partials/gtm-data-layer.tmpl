@@ -20,7 +20,7 @@ function htmlUnescape(str){
 dataLayer = [{
     "analyticsOptOut": getUsageCookieValue(),
     "gtm.whitelist": ["google","hjtc","lcl"],
-    "gtm.blacklist": ["customScripts","sp","adm","awct","k","d","j"]
+    "gtm.blacklist": ["customScripts","sp","adm","awct","k","d","j"],
     {{if .DatasetTitle }}
         "contentTitle": htmlUnescape({{.DatasetTitle}}),
         "filterTitle": htmlUnescape({{.Metadata.Title}}),
