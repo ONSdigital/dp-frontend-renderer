@@ -145,10 +145,8 @@
                                     class="btn btn--primary btn--thick"
                                     data-gtm-download-file="{{.URI}}"
                                     data-gtm-download-type="{{.Extension}}"
+                                    aria-label="{{ localise "DownloadInFormatWithSingleTitle" $Language 1  $.Metadata.Title .Extension  }}"
                                     >
-                                    <span class="visuallyhidden">{{ localise "DownloadInFormatWithSingleTitle" $Language 1  $.Metadata.Title .Extension  }}</span>
-
-                                    
                                     {{ if eq .Extension "csdb" }}
                                         {{ localise "StructuredText" $Language 1 }} ({{ humanSize .Size }})
                                     {{ else }}
@@ -179,14 +177,13 @@
                             {{ $dataset := . }}
                             <div class="show-hide show-hide--light js-show-hide border-top--abbey-sm border-top--abbey-md border-top--abbey-lg{{if .IsLast}} border-bottom--abbey-sm border-bottom--abbey-md border-bottom--abbey-lg{{end}}">
                                 <div class="js-show-hide__title{{if eq $key 0}} is-shown{{end}}">
-                                    <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }}{{ if .VersionLabel }}: {{ .VersionLabel }}{{ end }}</h3>
+                                    <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }} version of this dataset{{ if .VersionLabel }} {{ .VersionLabel }} {{ end }}</h3>
                                 </div>
                                 <div class="js-show-hide__content">
                                     <div class="margin-bottom--2">
                                         {{ range .Downloads }}
                                             <div class="inline-block--md margin-bottom-sm--1">
-                                                <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}" class="btn btn--primary btn--thick">
-                                                    <span class="visuallyhidden">{{ localise "DownloadInFormatWithFullTitle" $Language 1  $.Metadata.Title $dataset.Title .Extension }}</span>                                    
+                                                <a href="/file?uri={{ $dataset.URI }}/{{ .URI }}" class="btn btn--primary btn--thick" aria-label="{{ localise "DownloadInFormatWithFullTitle" $Language 1  $.Metadata.Title $dataset.Title .Extension }}">
                                                     {{ if eq .Extension "csdb" }}
                                                         {{ localise "StructuredText" $Language 1 }} ({{ humanSize .Size }})
                                                     {{ else }}

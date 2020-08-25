@@ -1,0 +1,31 @@
+<div class="page-content border">
+    <div class="wrapper">
+        <h1>Search Results</h1>
+        <ul class="list--neutral flush">
+            {{ range .Data.Response.Items }}
+                <li class="col col--md-34 col--lg-40 search-results__item">
+                    <h3 class="search-results__title">
+                        <a href="{{ .URI}}">{{ .Description.Title}}</a>
+                    </h3>
+                    <p class="search-results__meta">
+                        {{ .Type}}
+                        |
+                        Released on {{dateFormat .Description.ReleaseDate}}
+                    </p>
+                    <div class="search-results__summary">
+                        {{ .Description.Summary}}
+                    </div>
+                    {{ if .Description.Keywords }}
+                        {{ $numberOfKeywords := len .Description.Keywords }}
+                        <p class="search-results__keywords">
+                            Keywords: 
+                            {{ range $i, $el := .Description.Keywords }}
+                                {{$el}}{{ if notLastItem $numberOfKeywords $i }},{{end}}
+                            {{end}}
+                        </p>
+                    {{end}}
+                </li>
+            {{end}}
+        </ul>
+    </div>
+</div>

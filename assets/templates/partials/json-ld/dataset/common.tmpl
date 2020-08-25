@@ -1,5 +1,20 @@
+{{$PageData := .}}
+"name": {{ .Metadata.Title }},
+"publisher": {
+    "@type": "Organization",
+    "name": "Office for National Statistics",
+    "logo": "https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png"
+},
+{{ if hasField $PageData "ContactDetails" }}
+"author": {
+    "@type": "Person",
+    "name": {{ .ContactDetails.Name }}
+},
+{{ end }}
+"license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
 "@type": "Dataset",
-{{ if .DatasetLandingPage.IsTimeseries -}}{{ template "partials/json-ld/dataset/timeseries" . }}{{ end }}
+{{ if .DatasetLandingPage.IsTimeseries -}}{{ template "partials/json-ld/dataset/timeseries" . }}
+{{ end }}
 {{ if eq .Type "legacy_dataset_landing_page" }}
     {{ template "partials/json-ld/dataset/legacy" . }}
 {{else}}

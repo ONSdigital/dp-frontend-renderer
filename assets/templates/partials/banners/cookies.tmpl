@@ -1,32 +1,34 @@
-<form action="/cookies/accept-all" method="GET" id="global-cookie-message" class="cookies-banner cookies-banner--hidden js-cookies-banner-form clearfix"
-            aria-label="cookie banner">
-    <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
-        <div>
-            <div class="cookies-banner__message adjust-font-size--18">
-                <h3 class="cookies-banner__heading">{{ localise "CookiesBannerHeading" .Language 1 }}</h3>
-                <p class="cookies-banner__body">{{ localise "CookiesBannerOverview" .Language 1 | safeHTML }}</p>
-                <p class="cookies-banner__body">{{ localise "CookiesBannerWhyWeUse" .Language 1 }}</p>
-            </div>
-            <div class="cookies-banner__buttons">
-                <div class="nojs--hide cookies-banner__button cookies-banner__button--accept">
-                    <button class="btn btn--full-width btn--primary btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies" data-gtm-accept-cookies="true" type="submit">{{ localise "CookiesBannerAcceptAllAction" .Language 1 }}</button>
-                </div>
-                <div class="cookies-banner__button">
-                    <a role="button" href="/cookies" class="btn btn--full-width btn--primary btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies">{{ localise "CookiesBannerSetPreferencesAction" .Language 4 }}</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hidden js-cookies-banner-confirmation" tabindex="-1">
-        <div class="cookies-banner__wrapper wrapper">
-            <div class="col">
+<section>
+    <form action="/cookies/accept-all" method="GET" id="global-cookie-message" class="cookies-banner cookies-banner--hidden js-cookies-banner-form clearfix"
+                aria-label="cookie banner">
+        <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
+            <div>
                 <div class="cookies-banner__message adjust-font-size--18">
-                    <p class="cookies-banner__confirmation-message">
-                        {{ localise "CookiesBannerSuccess" .Language 1 | safeHTML }}
-                        <button type="button" class="cookies-banner__button--hide js-hide-cookies-banner">{{ localise "CookiesBannerHide" .Language 1 }}</button>
-                    </p>
+                    <h1 class="cookies-banner__heading font-size--h3">{{ localise "CookiesBannerHeading" .Language 1 }}</h1>
+                    <p class="cookies-banner__body">{{ localise "CookiesBannerOverview" .Language 1 | safeHTML }}</p>
+                    <p class="cookies-banner__body">{{ localise "CookiesBannerWhyWeUse" .Language 1 }}</p>
+                </div>
+                <div class="cookies-banner__buttons">
+                    <div class="nojs--hide cookies-banner__button cookies-banner__button--accept">
+                        <button class="btn btn--full-width btn--primary btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies" data-gtm-accept-cookies="true" type="submit">{{ localise "CookiesBannerAcceptAllAction" .Language 1 }}</button>
+                    </div>
+                    <div class="cookies-banner__button">
+                        <a role="button" href="/cookies" class="btn btn--full-width btn--primary btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies">{{ localise "CookiesBannerSetPreferencesAction" .Language 4 }}</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+        <div class="hidden js-cookies-banner-confirmation" tabindex="-1">
+            <div class="cookies-banner__wrapper wrapper">
+                <div class="col">
+                    <div class="cookies-banner__message adjust-font-size--18">
+                        <p class="cookies-banner__confirmation-message">
+                            {{ localise "CookiesBannerSuccess" .Language 1 | safeHTML }}
+                            <button type="button" class="cookies-banner__button--hide js-hide-cookies-banner">{{ localise "CookiesBannerHide" .Language 1 }}</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
