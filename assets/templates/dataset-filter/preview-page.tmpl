@@ -86,9 +86,11 @@
                             href="{{.URI}}"
                             data-gtm-download-file="{{.URI}}"
                             data-gtm-download-type="{{.Extension}}"
-                            aria-label="Download {{$datasetTitle}} as {{.Extension}}"
+                            aria-label="Download {{$datasetTitle}} as {{.Extension}} ({{ humanSize .Size }})"
                           >
-                            <strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span>
+                            <span role="text">
+                              <strong>Excel file</strong> <span class="font-size--14">({{ humanSize .Size }})</span>
+                            </span>
                           </a>
                         {{ end }}
                       {{ end }}
@@ -120,9 +122,11 @@
                                     href="{{$download.URI}}"
                                     data-gtm-download-file="{{$download.URI}}"
                                     data-gtm-download-type="{{$download.Extension}}"
-                                    aria-label="Download {{$datasetTitle}} as {{$download.Extension}}"
+                                    aria-label="Download {{$datasetTitle}} as {{$download.Extension}} ({{humanSize $download.Size}})"
                                   >
-                                    <strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})
+                                    <span role="text">
+                                      <strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})
+                                    </span>
                                   </a>
                                 </div>
                               </li>
