@@ -80,7 +80,7 @@ one = "Dewislen"
 
 [SubMenu]
 description = "sub menu"
-one = ""
+one = "is-dewislen"
 
 [Search]
 description = "Search"
