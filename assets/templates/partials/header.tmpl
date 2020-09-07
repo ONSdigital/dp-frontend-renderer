@@ -203,7 +203,7 @@
                             {{ localise "SurveyTakingPart" .Language 1 }}
                         </a>
                     </li>
-                    <li class="hide--md primary-nav__link">
+                    <li class="hide--md primary-nav__language">
                        {{if eq .Language "cy"}}
                             <a class="language__link icon--hide" href="{{ domainSetLang .SiteDomain .URI "en" }}">{{ localise "EnglishToggle" .Language 1 }}</a> | {{ localise "WelshToggle" .Language 1 }}
                         {{ else }}
