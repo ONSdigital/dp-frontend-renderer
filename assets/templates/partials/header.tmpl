@@ -66,7 +66,12 @@
                       <a class="primary-nav__link col col--md-7 col--lg-9" href="/">{{ localise "Home" .Language 1 }}</a>
                     </li>
                     <li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="/businessindustryandtrade" aria-haspopup="true">{{ localise "BusinessIndustryTrade" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/businessindustryandtrade" aria-expanded="false" aria-label="{{ localise "BusinessIndustryTrade" .Language 1 }} {{ localise "SubMenu" .Language 1 }}">
+						    <span aria-hidden="true" class="expansion-indicator"></span>
+						    <span aria-label="{{ localise "BusinessIndustryTrade" .Language 1 }} {{ localise "SubMenu" .Language 1 }}" role="text" class="submenu-title">
+						        {{ localise "BusinessIndustryTrade" .Language 1 }}
+                            </span>
+                        </a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
                             <li class="primary-nav__child-item  js-expandable__child">
 								<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/business" >{{ localise "Business" .Language 1 }}</a>
@@ -95,7 +100,12 @@
 						</ul>
 					</li>
 					<li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="/economy" aria-haspopup="true">{{ localise "Economy" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/economy" aria-expanded="false" aria-label="{{ localise "Economy" .Language 1 }} {{ localise "SubMenu" .Language 1 }} toggle">
+						    <span aria-hidden="true" class="expansion-indicator"></span>
+						    <span aria-label="{{ localise "Economy" .Language 1 }} {{ localise "SubMenu" .Language 1 }} toggle" role="text" class="submenu-title">
+						        {{ localise "Economy" .Language 1 }}
+						    </span>
+						</a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
                             <li class="primary-nav__child-item  js-expandable__child">
 								<a class="primary-nav__child-link" tabindex="-1" href="/economy/economicoutputandproductivity" >{{ localise "EconomicOutputProductivity" .Language 1 }}</a>
@@ -127,7 +137,12 @@
 						</ul>
 					</li>
 					<li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="/employmentandlabourmarket" aria-haspopup="true">{{ localise "EmploymentLabourMarket" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/employmentandlabourmarket" aria-expanded="false" aria-label="{{ localise "EmploymentLabourMarket" .Language 1 }} {{ localise "SubMenu" .Language 1 }} toggle">
+						    <span aria-hidden="true" class="expansion-indicator"></span>
+						    <span aria-label="{{ localise "EmploymentLabourMarket" .Language 1 }} {{ localise "SubMenu" .Language 1 }} toggle" role="text" class="submenu-title">
+						        {{ localise "EmploymentLabourMarket" .Language 1 }}
+                            </span>
+                        </a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
 							<li class="primary-nav__child-item  js-expandable__child">
 								<a class="primary-nav__child-link" tabindex="-1" href="/employmentandlabourmarket/peopleinwork" >{{ localise "PeopleInWork" .Language 1 }}</a>
@@ -138,7 +153,12 @@
 						</ul>
 					</li>
 					<li class="primary-nav__item js-nav js-expandable ">
-						<a class="primary-nav__link col col--md-8 col--lg-10" href="/peoplepopulationandcommunity" aria-haspopup="true">{{ localise "PeoplePopulationCommunity" .Language 1 }}</a>
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="/peoplepopulationandcommunity" aria-expanded="false" aria-label="{{ localise "PeoplePopulationCommunity" .Language 1 }} {{ localise "SubMenu" .Language 1 }} toggle">
+						    <span aria-hidden="true" class="expansion-indicator"></span>
+						    <span aria-label="{{ localise "PeoplePopulationCommunity" .Language 1 }} {{ localise "SubMenu" .Language 1 }} toggle" role="text" class="submenu-title">
+						        {{ localise "PeoplePopulationCommunity" .Language 1 }}
+                            </span>
+                        </a>
 						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
                             <li class="primary-nav__child-item  js-expandable__child">
 								<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/birthsdeathsandmarriages" >{{ localise "BirthsDeathsMarriages" .Language 1 }}</a>

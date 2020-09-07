@@ -70,6 +70,10 @@ one = "Blog"
 description = "Menu"
 one = "Menu"
 
+[SubMenu]
+description = "sub menu"
+one = "sub menu"
+
 [Search]
 description = "Search"
 one = "Search"
