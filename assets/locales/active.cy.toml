@@ -78,6 +78,10 @@ one = "Blog"
 description = "Menu"
 one = "Dewislen"
 
+[SubMenu]
+description = "sub menu"
+one = "is-dewislen"
+
 [Search]
 description = "Search"
 one = "Chwilio"
