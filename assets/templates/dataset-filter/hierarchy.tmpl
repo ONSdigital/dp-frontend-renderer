@@ -114,14 +114,12 @@
                             <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap save-button-bottom" type="submit" value="Save and return"/>
                         </div>
                     </div>
-                    <aside>
-                        <div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
-                            <div class="margin-bottom--6 hide--md-only hide--sm">
-                                <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width save-button-right" value="Save and return"/>
-                            </div>
-                            {{ template "partials/filter-selection" . }}
+                    <div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
+                        <div class="margin-bottom--6 hide--md-only hide--sm">
+                            <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width save-button-right" value="Save and return"/>
                         </div>
-                    </aside>
+                        {{ template "partials/filter-selection" . }}
+                    </div>
                 </div>
             </form>
         </div>
