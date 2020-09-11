@@ -33,7 +33,8 @@
                     <input name="save-and-return" class="hidden" type="submit" value="Save and return" />
                     <div class="form adjust-font-size--16 clear-left">
                         <div class="col col--md-29 col--lg-29 margin-top--2">
-                            <div class="margin-bottom--6">
+                            <fieldset class="margin-bottom--6">
+                                <legend class="visuallyhidden">Select a method to filter the dataset by Time</legend>
                                 <div class="multiple-choice">
                                     <input id="time-selection-latest" type="radio" class="multiple-choice__input" name="time-selection" value="latest" {{if eq .Data.CheckedRadio "latest"}}checked{{end}}>
                                     <label for="time-selection-latest" class="multiple-choice__label">I just want the latest data ({{.Data.LatestTime.Month}} {{.Data.LatestTime.Year}})</label>
@@ -154,7 +155,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </fieldset>
                             <div id="add-all-save-and-return" class="col col--md-25 col--lg-15 margin-top--1 margin-left--10 js-hidden">
                                 <div class="margin-bottom--6 hide--md-only hide--sm">
                                     <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap full-width" value="Save and return">
