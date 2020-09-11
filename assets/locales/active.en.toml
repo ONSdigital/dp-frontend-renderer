@@ -381,7 +381,7 @@ description = "structured text"
 one = "structured text"
 
 [PreviousVersionAvailable]
-description = "Previous versions </a> of this data are available."
+description = "Previous editions </a> of this data are available."
 one = "Previous version </a> of this data is available."
 other = "Previous versions </a> of this data are available."
 
