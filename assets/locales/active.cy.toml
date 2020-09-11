@@ -378,12 +378,12 @@ description = "Try the new way to filter and download this data:"
 one = "Try the new way to filter and download this data:"
 
 [DownloadOption]
-description = "Your download option"
-one = "Your download option"
-two = "Your download options"
-few = "Your download options"
-many = "Your download options"
-other = "Your download options"
+description = "Editions in the dataset"
+one = "Edition in the dataset"
+two = "Editions in the dataset"
+few = "Editions in the dataset"
+many = "Editions in the dataset"
+other = "Editions in the dataset"
 
 [DownloadInFormatWithSingleTitle]
 description = "Download {{title}} in {{download extension}} format"
