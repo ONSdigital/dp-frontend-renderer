@@ -136,7 +136,7 @@
                             </ul>
                         </div>
                     {{ end }}
-                    <h2 class="margin-bottom--2">{{ localise "DownloadOption" .Language 1 }}</h2>
+                    <h2 class="margin-bottom--2">{{ localise "EditionsInDataset" .Language 1 }}</h2>
                     {{ if .DatasetLandingPage.IsTimeseries }}
                     {{ $timeseriesDataset := index .DatasetLandingPage.Datasets 0 }}
                         {{ range $timeseriesDataset.Downloads }}

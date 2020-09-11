@@ -377,7 +377,7 @@ one = "About this Dataset"
 description = "Try the new way to filter and download this data:"
 one = "Try the new way to filter and download this data:"
 
-[DownloadOption]
+[EditionsInDataset]
 description = "Editions in the dataset"
 one = "Edition in the dataset"
 two = "Editions in the dataset"
