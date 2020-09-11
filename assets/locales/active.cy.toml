@@ -398,12 +398,12 @@ description = "structured text"
 one = "structured text"
 
 [PreviousVersionAvailable]
-description = "Previous versions </a> of this data are available."
-one = "Previous version </a> of this data is available."
-two = "Previous versions </a> of this data are available."
-few = "Previous versions </a> of this data are available."
-many = "Previous versions </a> of this data are available."
-other = "Previous versions </a> of this data are available."
+description = "Previous editions </a> of this data are available."
+one = "Previous edition </a> of this data is available."
+two = "Previous editions </a> of this data are available."
+few = "Previous editions </a> of this data are available."
+many = "Previous editions </a> of this data are available."
+other = "Previous editions </a> of this data are available."
 
 [UsefulSupportingFiles]
 description = "Supporting files you may find useful"
