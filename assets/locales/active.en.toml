@@ -382,8 +382,8 @@ one = "structured text"
 
 [PreviousVersionAvailable]
 description = "Previous editions </a> of this data are available."
-one = "Previous edition </a> of this data is available."
-other = "Previous editions </a> of this data are available."
+one = "Previous version </a> of this data is available."
+other = "Previous versions </a> of this data are available."
 
 [UsefulSupportingFiles]
 description = "Supporting files you may find useful"
