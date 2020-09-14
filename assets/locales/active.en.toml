@@ -363,10 +363,10 @@ one = "About this Dataset"
 description = "Try the new way to filter and download this data:"
 one = "Try the new way to filter and download this data:"
 
-[DownloadOption]
-description = "Your download option"
-one = "Your download option"
-other = "Your download options"
+[EditionsInDataset]
+description = "Editions in this dataset"
+one = "Edition in this dataset"
+other = "Editions in this dataset"
 
 [DownloadInFormatWithSingleTitle]
 description = "Download {{title}} in {{download extension}} format"

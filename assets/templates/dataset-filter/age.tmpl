@@ -32,7 +32,8 @@
                 <form id="age-form" method="post" action="{{.Data.FormAction.URL}}">
                     <div class="form adjust-font-size--16 clear-left">
                         <div class="col col--md-29 col--lg-29 margin-top--2">
-                            <div class="margin-bottom--6">
+                            <fieldset class="margin-bottom--6">
+                                <legend class="visuallyhidden>Select a method to filter the dataset for Age</legend>
                                 {{if .Data.HasAllAges}}
                                 <div class="multiple-choice">
                                     <input id="age-selection-latest" type="radio" class="multiple-choice__input" name="age-selection" value="all" {{if eq .Data.CheckedRadio "all"}}checked{{end}}>
@@ -42,7 +43,7 @@
                                 {{end}}
                                 <div class="multiple-choice">
                                     <input id="age-selection-range" type="radio" class="multiple-choice__input" name="age-selection" value="range" {{if eq .Data.CheckedRadio "range"}}checked{{end}}>
-                                    <label for="age-selection-single" class="multiple-choice__label">Add a range of ages (eg. 18 to 24)</label>
+                                    <label for="age-selection-range" class="multiple-choice__label">Add a range of ages (eg. 18 to 24)</label>
                                     <input id="youngest-age" name="youngest-age" type="hidden" value="{{.Data.Youngest}}">
                                     <input id="oldest-age" name="oldest-age" type="hidden" value="{{.Data.Oldest}}">
                                     <div id="multiple-choice-content-range" class="multiple-choice__content padding-top--4">
@@ -96,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </fieldset>
                             <div id="save-and-return-container" class="col--md-20 col--lg-20 width-sm--20 margin-bottom--8">
                                 <input name="save-and-return" id="age-save-and-return" class="btn btn--primary btn--thick btn--full-width btn--big btn--focus font-weight-700 font-size--17" type="submit" value="Save and return" />
                             </div>
