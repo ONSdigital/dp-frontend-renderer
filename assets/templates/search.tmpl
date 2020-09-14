@@ -2,5 +2,10 @@
     {{ template "search/bar" . }}
 </div>
 <main id="main" role="main" tabindex="-1">
-    {{ template "search/results" . }}
+    <div class="page-content border">
+        <div class="wrapper">
+            {{ template "search/sort" . }}
+            {{ template "search/results" . }}
+        </div>
+    </div>
 </main>
