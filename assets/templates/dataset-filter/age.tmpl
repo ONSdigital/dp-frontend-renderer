@@ -33,11 +33,11 @@
                     <div class="form adjust-font-size--16 clear-left">
                         <div class="col col--md-29 col--lg-29 margin-top--2">
                             <fieldset class="margin-bottom--6">
-                                <legend class="visuallyhidden>Select a method to filter the dataset for Age</legend>
+                                <legend class="visuallyhidden">Select a method to filter the dataset for Age</legend>
                                 {{if .Data.HasAllAges}}
                                 <div class="multiple-choice">
                                     <input id="age-selection-latest" type="radio" class="multiple-choice__input" name="age-selection" value="all" {{if eq .Data.CheckedRadio "all"}}checked{{end}}>
-                                    <label for="age-selection-latest" class="multiple-choice__label">All ages (total)</label>
+                                    <label for="age-selection-latest" class="multiple-choice__label">Add all from the list (Ages {{.Data.Youngest}} to {{.Data.Oldest}} available in this dataset)</label>
                                     <input id="all-ages-option" name="all-ages-option" type="hidden" value="{{.Data.AllAgesOption}}">
                                 </div>
                                 {{end}}
