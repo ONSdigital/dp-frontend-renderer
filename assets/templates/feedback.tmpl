@@ -20,34 +20,34 @@
             <div class="margin--top-4">
                 <form id="feedback-form-container" action="/feedback" method="post">
                     <input type="hidden" name="feedback-form-type" value="page">
-                    <div>
-                        <strong><span class="font-size--16">What's it to do with?</span></strong>
-                    </div>
-                    <div class="margin-top--2 margin-bottom--4">
-                        <div class="multiple-choice margin-top--1">
-                            <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
-                            <label class="multiple-choice__label font-size--16" for="specific-page">
-                                This specific page 
-                                &nbsp; &nbsp;<span class="form-helper">(...{{.Metadata.Description}})</span>
-                                <input type="hidden" value="{{.PreviousURL}}" name="url">
-                            </label>
-                        </div> 
-                        <div class="multiple-choice margin-top--1">
-                            <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
-                            <label class="multiple-choice__label font-size--16" for="new-service">
-                                This new service
-                                {{if .ServiceDescription}}
-                                    &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
-                                {{end}}
-                            </label>
+                    <fieldset>
+                        <legend class="font-size--16"><strong>What's it to do with?</strong></legend>
+                        <div class="margin-top--2 margin-bottom--4">
+                            <div class="multiple-choice margin-top--1">
+                                <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
+                                <label class="multiple-choice__label font-size--16" for="specific-page">
+                                    This specific page
+                                    &nbsp; &nbsp;<span class="form-helper">(...{{.Metadata.Description}})</span>
+                                    <input type="hidden" value="{{.PreviousURL}}" name="url">
+                                </label>
+                            </div>
+                            <div class="multiple-choice margin-top--1">
+                                <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
+                                <label class="multiple-choice__label font-size--16" for="new-service">
+                                    This new service
+                                    {{if .ServiceDescription}}
+                                        &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
+                                    {{end}}
+                                </label>
+                            </div>
+                            <div class="multiple-choice margin-top--1">
+                                <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
+                                <label class="multiple-choice__label font-size--16" for="whole-site">
+                                    The whole ONS website or general feedback
+                                </label>
+                            </div>
                         </div>
-                        <div class="multiple-choice margin-top--1">
-                            <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
-                            <label class="multiple-choice__label font-size--16" for="whole-site">
-                                The whole ONS website or general feedback
-                            </label>
-                        </div>
-                    </div>
+                    </fieldset>
                     <div>
                         <label id="purpose-field-label" for="purpose-field">
                             <strong><span class="font-size--16">What was the purpose of your visit?</span></strong>

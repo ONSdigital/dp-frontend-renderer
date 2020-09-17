@@ -76,43 +76,43 @@
 
 <div class="meta-wrap">
     <div class="wrapper">
-        <dl class="col-wrap">
-            <div class="col col--md-12 col--lg-15 meta__item">
+        <ul class="col-wrap meta__list">
+            <li class="col col--md-12 col--lg-15 meta__item">
                 {{ if .DatasetLandingPage.IsNationalStatistic}}
-                    <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">
-                        <img class="meta__image" src="/img/national-statistics.png" alt="This is an accredited National Statistic. Click for information about types of official statistics.">
-                    </a>
+                <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">
+                    <img class="meta__image" src="/img/national-statistics.png" alt="This is an accredited National Statistic. Click for information about types of official statistics.">
+                </a>
                 {{ end }}
-                <dt class="meta__term">{{ localise "Contact" .Language 1  }}</dt>
-                <dd>
+                <div class="meta__term">{{ localise "Contact" .Language 1  }}</div>
+                <div>
                     {{ if .ContactDetails.Email}}
                         <a href="mailto:{{ .ContactDetails.Email}}">{{ .ContactDetails.Name }}</a>
                     {{ else }}
                         {{ .ContactDetails.Name }}
                     {{ end }}
-                </dd>
-            </div>
-            <div class="col col--md-12 col--lg-15 meta__item">
-                <dt class="meta__term">{{ localise "ReleaseDate" .Language 1  }}</dt>
-                <dd>{{ dateFormat .DatasetLandingPage.ReleaseDate }}</dd>
-            </div>
-            <div class="col col--md-12 col--lg-15 meta__item">
-                <dt class="meta__term">{{ localise "NextRelease" .Language 1  }}</dt>
-                <dd>
+                </div>
+            </li>
+            <li class="col col--md-12 col--lg-15 meta__item">
+                <div class="meta__term">{{ localise "ReleaseDate" .Language 1  }}</div>
+                <div>{{ dateFormat .DatasetLandingPage.ReleaseDate }}</div>
+            </li>
+            <li class="col col--md-12 col--lg-15 meta__item">
+                <div class="meta__term">{{ localise "NextRelease" .Language 1  }}</div>
+                <div>
                     {{ if .DatasetLandingPage.NextRelease }}
                         {{ .DatasetLandingPage.NextRelease }}
                     {{ else }}
                         {{ localise "TBA" .Language 1  }}
                     {{ end }}
-                </dd>
-            </div>
-            {{ if .DatasetLandingPage.DatasetID}}
-                <div class="col col--md-12 col--lg-15 meta__item">
-                    <dt class="meta__term">{{ localise "DatasetID" .Language 1  }}</dt>
-                    <dd>{{ .DatasetLandingPage.DatasetID }}</dd>
                 </div>
+            </li>
+            {{ if .DatasetLandingPage.DatasetID}}
+                <li class="col col--md-12 col--lg-15 meta__item">
+                    <div class="meta__term">{{ localise "DatasetID" .Language 1  }}</div>
+                    <div>{{ .DatasetLandingPage.DatasetID }}</div>
+                </li>
             {{ end }}
-        </dl>
+        </ul>
     </div>
 </div>
 
@@ -136,7 +136,7 @@
                             </ul>
                         </div>
                     {{ end }}
-                    <h2 class="margin-bottom--2">{{ localise "DownloadOption" .Language 1 }}</h2>
+                    <h2 class="margin-bottom--2">{{ localise "EditionsInDataset" .Language 1 }}</h2>
                     {{ if .DatasetLandingPage.IsTimeseries }}
                     {{ $timeseriesDataset := index .DatasetLandingPage.Datasets 0 }}
                         {{ range $timeseriesDataset.Downloads }}
@@ -177,7 +177,7 @@
                             {{ $dataset := . }}
                             <div class="show-hide show-hide--light js-show-hide border-top--abbey-sm border-top--abbey-md border-top--abbey-lg{{if .IsLast}} border-bottom--abbey-sm border-bottom--abbey-md border-bottom--abbey-lg{{end}}">
                                 <div class="js-show-hide__title{{if eq $key 0}} is-shown{{end}}">
-                                    <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }} version of this dataset{{ if .VersionLabel }} {{ .VersionLabel }} {{ end }}</h3>
+                                    <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }} edition of this dataset {{ if .VersionLabel }} {{ .VersionLabel }} {{ end }}</h3>
                                 </div>
                                 <div class="js-show-hide__content">
                                     <div class="margin-bottom--2">
