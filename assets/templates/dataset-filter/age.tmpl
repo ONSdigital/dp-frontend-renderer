@@ -37,7 +37,7 @@
                                 {{if .Data.HasAllAges}}
                                 <div class="multiple-choice">
                                     <input id="age-selection-latest" type="radio" class="multiple-choice__input" name="age-selection" value="all" {{if eq .Data.CheckedRadio "all"}}checked{{end}}>
-                                    <label for="age-selection-latest" class="multiple-choice__label">Add all from the list (Ages {{.Data.Youngest}} to {{.Data.Oldest}} available in this dataset)</label>
+                                    <label for="age-selection-latest" class="multiple-choice__label">Add all from the list</label>
                                     <input id="all-ages-option" name="all-ages-option" type="hidden" value="{{.Data.AllAgesOption}}">
                                 </div>
                                 {{end}}
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="age-selection-list" type="radio" name="age-selection" class="multiple-choice__input" value="list" {{if eq .Data.CheckedRadio "list"}}checked{{end}}>
-                                    <label for="age-selection-list" class="multiple-choice__label">Add ages from list</label>
+                                    <label for="age-selection-list" class="multiple-choice__label">Add ages from list (Ages {{.Data.Youngest}} to {{.Data.Oldest}} available in this dataset)</label>
                                         <div id="multiple-choice-content-list" class="multiple-choice__content padding-top--2 col-wrap">
                                             <div class="col col--md-40 col--lg-35 margin-left-md--1">
                                                 <div class="margin-left--1">
