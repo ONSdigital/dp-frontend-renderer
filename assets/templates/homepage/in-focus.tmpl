@@ -1,20 +1,20 @@
 <section>
-    <div class="col">
-        <h1 class="font-size--h2 font-size--30 margin-top--1">{{ localise "InFocus" .Language 1 }}</h2>
-    </div>
-    {{ range .Data.Featured }}
-        <section class="col col--md-23 col--lg-14 background--white margin-left-md--1 margin-bottom--3">
-            <article tabindex="0" class="tile tile__highlighted-content">
+    <h1 class="font-size--h2 font-size--30 margin-top--1">{{ localise "InFocus" .Language 1 }}</h2>
+    <div class="margin--0 flex stretch flex-wrap-wrap margin-bottom--3 content-space-between content-lg--flex-start">
+    {{ range $i, $v := .Data.Featured }}
+        <section class="tile col--md-23 col--lg-14 flex-basis-sm--full {{if ne $i 3}}margin-right-lg--1{{end}}" tabindex="0">
+            <article class="tile__highlighted-content">
                 <div class="tile__highlighted-content-image-container">
-                    <img class="tile__highlighted-content-image" src="{{if .ImageURL }}{{.ImageURL}}{{else}}https://cdn.ons.gov.uk/assets/images/featured-content-default.svg{{end}}" alt="">
+                    <img class="tile__highlighted-content-image" src="{{if $v.ImageURL }}{{$v.ImageURL}}{{else}}https://cdn.ons.gov.uk/assets/images/featured-content-default.svg{{end}}" alt="">
                 </div>
                 <h2 class="margin-top--0 margin-bottom--0">
                     <a class="margin-left--0 tile__link tile__link--highlighted-content-title font-size--24" href="{{ .URI }}">
-                        {{ .Title }}
+                        {{ $v.Title }}
                     </a>
                 </h2>
-                <p class="tile__text-description margin-top--0">{{ .Description }}</p>
+                <p class="tile__text-description margin-top--0 margin-bottom--0">{{ $v.Description }}</p>
             </article>
         </section>
     {{ end }}
+    </div>
 </section>
