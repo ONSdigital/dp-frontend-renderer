@@ -6,11 +6,10 @@
         <div>
             {{ template "homepage/latest-releases" . }}
         </div>
-        {{ template "homepage/promos" . }}
-
     </div>
+    {{ template "homepage/promos" . }}
     <div class="wrapper background-gallery">
-        <div class="tiles col-wrap">
+        <div class="tiles">
             <div class="tiles__block tiles__block-no-mar-bottom">
                 {{ template "homepage/in-focus" . }}
             </div>

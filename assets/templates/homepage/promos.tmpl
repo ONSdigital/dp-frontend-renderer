@@ -1,10 +1,8 @@
-<div class="wrapper padding-left--0 padding-right--0 background-gallery">
-    <div class="tiles margin-top-sm--5 col-wrap">
-        <div class="col col--md-23 margin-left-md--1 margin-left-lg--1 col--lg-29 background--white margin-bottom--0 margin-top-sm--4 margin-top-md--3 margin-top-lg--3">
-            {{ template "partials/banners/survey" . }}
-        </div>
-        <div class="col col--md-23 col--lg-29 background--white margin-left-md--1 margin-left-lg--1 margin-bottom--0 margin-top-sm--1 margin-top-md--3 margin-top-lg--3">
-            {{ template "partials/banners/census" . }}
-        </div>
+<div class="flex wrapper flex-wrap-wrap stretch tiles background-gallery margin-top--2 margin-bottom--2">
+    <div class="col--md-23 col--lg-29 margin-right-md--1 margin-bottom-sm--2 flex-basis-sm--full">
+        {{ template "partials/banners/survey" . }}
+    </div>
+    <div class="col--md-23 col--lg-29 flex-basis-sm--full">
+        {{ template "partials/banners/census" . }}
     </div>
 </div>

@@ -1,0 +1,52 @@
+<div class="col-wrap print-hidden">
+    <div class="col">
+        <div class="col col--md-28 col--lg-38">
+            <h2 aria-live="polite" class="search-page__results-text font-size--16">
+                <span class="stand-out-text">{{ .Data.Response.Count}}</span> 
+                results containing
+                <strong>‘{{ .Data.Query}}’</strong>,
+                <span class="lowercase">Sorted by 
+                    <strong>
+                        {{ if .Data.Sort }}
+                            {{ .Data.Sort}}
+                        {{else}}
+                            Relevance 
+                        {{end}} 
+                    </strong>
+                </span>
+                .
+            </h2>
+        </div>
+        <div class="float-right">
+            <div class="sort-results">
+                <form id="form-sort" class="js-auto-submit__form">
+                    
+                    <input type="hidden" name=":uri" value="search">
+                    {{ if .Data.Query }}
+                        <input type="hidden" name="q" value={{ .Data.Query}} class="js-auto-submit__input">
+                    {{end}}
+                    {{ if .Data.Filter }}
+                        <input type="hidden" name="filter" value={{ .Data.Filter}}>
+                    {{end}}
+                    {{ if .Data.Limit }}
+                        <input type="hidden" name="limit" value={{ .Data.Limit}}>
+                    {{end}}
+                    {{ if .Data.Offset }}
+                        <input type="hidden" name="offset" value={{ .Data.Offset}}>
+                    {{end}}
+
+                    <div class="js-mobile-filters__sort">
+                        <label for="sort" class="sort__label font-size--16">Sort by
+                            <select class="input select width-auto js-auto-submit__input font-size--16" id="sort" name="sort">
+                                <option class="sort__option" value="relevance" {{ if eq .Data.Sort "relevance" }}selected{{end}}>Relevance</option>
+                                <option class="sort__option" value="release_date" {{ if eq .Data.Sort "release_date" }}selected{{end}}>Release date</option>
+                                <option class="sort__option" value="title" {{ if eq .Data.Sort "title" }}selected{{end}}>Title</option>
+                            </select>
+                        </label>
+                        <button type="submit" class="btn btn--primary btn--thin btn--small js--hide font-size--16">Sort</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
