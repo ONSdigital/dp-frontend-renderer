@@ -23,6 +23,7 @@
                     <div>
                         <strong><span class="font-size--16">What's it to do with?</span></strong>
                     </div>
+                    {{if .PreviousURL}}  
                     <div class="margin-top--2 margin-bottom--4">
                         <div class="multiple-choice margin-top--1">
                             <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
@@ -32,15 +33,18 @@
                                 <input type="hidden" value="{{.PreviousURL}}" name="url">
                             </label>
                         </div> 
+                    {{end}}
+                    {{if .ServiceDescription}}    
                         <div class="multiple-choice margin-top--1">
                             <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
                             <label class="multiple-choice__label font-size--16" for="new-service">
                                 This new service
-                                {{if .ServiceDescription}}
+
                                     &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
-                                {{end}}
+                                    
                             </label>
                         </div>
+                    {{end}}
                         <div class="multiple-choice margin-top--1">
                             <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
                             <label class="multiple-choice__label font-size--16" for="whole-site">
