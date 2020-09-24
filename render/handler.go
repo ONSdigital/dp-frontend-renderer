@@ -41,7 +41,6 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 
 	page2.PatternLibraryAssetsPath = cfg.PatternLibraryAssetsPath
 	page2.SiteDomain = cfg.SiteDomain
-	page2.EnableCookiesControl = cfg.EnableCookiesControl
 	page2.EnableJSONLDControl = cfg.EnableJSONLDControl
 
 	log.Event(ctx, "rendered template", log.Data{"template": templateName}, log.INFO)
