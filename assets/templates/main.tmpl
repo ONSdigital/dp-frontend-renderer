@@ -30,7 +30,7 @@
     {{ end }}
 
     {{if eq .Metadata.Title "Feedback"}}
-      <link rel="canonical" href="ons.gov.uk/feedback">
+      <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/feedback" }}>
     {{ end }}
 
     {{ template "partials/gtm-data-layer" . }}
