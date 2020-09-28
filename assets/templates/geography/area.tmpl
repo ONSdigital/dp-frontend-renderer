@@ -1,4 +1,4 @@
-<div class="slate background--gallery">
+<div class="slate background--grey-5">
     <div class="wrapper">
         {{ template "partials/breadcrumb" . }}
         <h1 class="font-weight-700">{{.Metadata.Title}}</h1>
@@ -19,7 +19,7 @@
             <h2 id="datasets" class="font-weight-700">{{len .Data.Datasets}} dataset{{ if gt $datasetsLength 1 }}s{{end}}</h2>
             {{range $i, $v := .Data.Datasets}}
                 {{if $v.Label}}
-                    <div class="background--gallery padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-top--1 margin-bottom--1">
+                    <div class="background--grey-5 padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-top--1 margin-bottom--1">
                         <h3 class="margin-top--0">
                             <a class="area-type" id="area-type-{{$i}}" href="{{$v.URI}}">{{$v.Label}}</a>
                         </h3>
