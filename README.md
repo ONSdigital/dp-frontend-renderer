@@ -8,7 +8,6 @@ dp-frontend-renderer
 | BIND_ADDR                     | :20000                | The host and port to bind to
 | DEBUG                         | false                 | Enable debug mode
 | SITE_DOMAIN                   | ons.gov.uk            | Domain for the website
-| ENABLE_COOKIES_CONTROL        | false                 | Enabled user cookie preferences
 | PATTERN_LIBRARY_ASSETS_PATH   |                       | Pattern library location
 | SUPPORTED_LANGUAGES           | [2]string{"en", "cy"} | languages supported
 | GRACEFUL_SHUTDOWN_TIMEOUT     | 5s                    | The graceful shutdown timeout

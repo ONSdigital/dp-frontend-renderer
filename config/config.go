@@ -16,7 +16,6 @@ type Config struct {
 	ShutdownTimeout            time.Duration `envconfig:"GRACEFUL_SHUTDOWN_TIMEOUT"`
 	HealthCheckInterval        time.Duration `envconfig:"HEALTHCHECK_INTERVAL"`
 	HealthCheckCriticalTimeout time.Duration `envconfig:"HEALTHCHECK_CRITICAL_TIMEOUT"`
-	EnableJSONLDControl        bool          `envconfig:"ENABLE_JSONLD_CONTROL"`
 }
 
 var cfg *Config
@@ -49,7 +48,6 @@ func get() (*Config, error) {
 		ShutdownTimeout:            5 * time.Second,
 		HealthCheckInterval:        30 * time.Second,
 		HealthCheckCriticalTimeout: 90 * time.Second,
-		EnableJSONLDControl:        false,
 	}
 
 	return cfg, envconfig.Process("", cfg)

@@ -23,11 +23,7 @@
 		{{`<!--[if gt IE 9]><!-->` | safeHTML}}
       <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{`<!--<![endif]-->` | safeHTML}}
-    {{ if .EnableJSONLDControl }}
-      {{ if .HasJSONLD -}}
-        {{ template "partials/json-ld/base" . }}
-      {{- end }}
-    {{ end }}
+    {{ if .HasJSONLD -}}{{ template "partials/json-ld/base" . }}{{- end }}
 
     {{ template "partials/gtm-data-layer" . }}
 
