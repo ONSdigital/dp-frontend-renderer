@@ -25,6 +25,10 @@
     {{`<!--<![endif]-->` | safeHTML}}
     {{ if .HasJSONLD -}}{{ template "partials/json-ld/base" . }}{{- end }}
 
+    {{if eq .Metadata.Title "Feedback"}}
+      <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/feedback" }}>
+    {{ end }}
+
     {{ template "partials/gtm-data-layer" . }}
 
     <!-- Google Tag Manager -->
