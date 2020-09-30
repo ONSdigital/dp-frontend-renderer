@@ -1,4 +1,4 @@
-<div class="slate background--grey-5">
+<div class="slate background--grey5">
     <div class="wrapper">
         {{ template "partials/breadcrumb" . }}
         <h1 class="font-weight-700">{{len .Data.Items}} {{.Metadata.Title}}</h1>
@@ -8,7 +8,7 @@
     <div class="margin-bottom--2"></div>
     {{range $i, $v := .Data.Items}}
         {{if $v.Label}}
-            <div class="background--grey-5 padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-bottom--2">
+            <div class="background--grey5 padding-top--2 padding-bottom--2 padding-right--1 padding-left--1 margin-bottom--2">
                 <h2 class="margin-top--0 font-size--h3"><a class="area-type" id="area-type-{{$i}}" href="{{$v.URI}}">{{$v.Label}}</a></h2>{{$v.ID}}
             </div>
         {{end}}

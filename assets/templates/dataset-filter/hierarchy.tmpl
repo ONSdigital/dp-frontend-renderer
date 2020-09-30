@@ -81,9 +81,9 @@
 									<input class="btn btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" name="remove-all" id="remove-all" aria-label="Remove all {{.Data.DimensionName}} in this list from your saved items"/>
                                 {{ end }}
                                 <input name="q" type="hidden" value={{.Data.Query}}/>
-                                <div class="checkbox-group margin-top--2 padding-top--1 border-top--grey-5-sm border-top--grey-5-md">
+                                <div class="checkbox-group margin-top--2 padding-top--1 border-top--grey5-sm border-top--grey5-md">
                                     {{ range $i, $v := .Data.FilterList }}
-                                        <div class="checkbox hierarchy-box border-bottom--grey-5-sm border-bottom--grey-5-md margin-bottom--1 clearfix">
+                                        <div class="checkbox hierarchy-box border-bottom--grey5-sm border-bottom--grey5-md margin-bottom--1 clearfix">
                                             <div class="{{ if ne .SubNum "0" }}width-md--25{{else}}width-md--35{{end}} float-el--left-md">
                                                 {{if .HasData}}
                                                     <input type="checkbox" class="checkbox__input js-filter{{if .Selected}} checked{{end}}" id="id-{{$i}}" name="{{.ID}}" {{if .Selected}}checked{{end}}>

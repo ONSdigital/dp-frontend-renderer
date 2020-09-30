@@ -1,5 +1,5 @@
 {{$Language := .Language}}
-<div class="page-intro background--grey-5">
+<div class="page-intro background--grey5">
     <div class="wrapper">
         <div class="col-wrap">
             <div class="col">
@@ -13,7 +13,7 @@
     </div>
 </div>
 {{ if or .DatasetLandingPage.Corrections .DatasetLandingPage.Notices }}
-<div class="background--grey-2 padding-top--3 padding-bottom--3">
+<div class="background--grey2 padding-top--3 padding-bottom--3">
     <div class="wrapper">
         <div class="col-wrap">
             <div class="col">
@@ -175,7 +175,7 @@
                     {{else}}
                         {{ range $key, $value := .DatasetLandingPage.Datasets }}
                             {{ $dataset := . }}
-                            <div class="show-hide show-hide--light js-show-hide border-top--grey-2-sm border-top--grey-2-md border-top--grey-2-lg{{if .IsLast}} border-bottom--grey-2-sm border-bottom--grey-2-md border-bottom--grey-2-lg{{end}}">
+                            <div class="show-hide show-hide--light js-show-hide border-top--grey2-sm border-top--grey2-md border-top--grey2-lg{{if .IsLast}} border-bottom--grey2-sm border-bottom--grey2-md border-bottom--grey2-lg{{end}}">
                                 <div class="js-show-hide__title{{if eq $key 0}} is-shown{{end}}">
                                     <h3 class="margin-top--0 margin-bottom--0">{{ $dataset.Title }} edition of this dataset {{ if .VersionLabel }} {{ .VersionLabel }} {{ end }}</h3>
                                 </div>
