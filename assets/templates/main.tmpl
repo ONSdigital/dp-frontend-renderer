@@ -23,10 +23,10 @@
 		{{`<!--[if gt IE 9]><!-->` | safeHTML}}
       <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{`<!--<![endif]-->` | safeHTML}}
-    {{ if .EnableJSONLDControl }}
-      {{ if .HasJSONLD -}}
-        {{ template "partials/json-ld/base" . }}
-      {{- end }}
+    {{ if .HasJSONLD -}}{{ template "partials/json-ld/base" . }}{{- end }}
+
+    {{if eq .Metadata.Title "Feedback"}}
+      <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/feedback" }}>
     {{ end }}
 
     {{ template "partials/gtm-data-layer" . }}
@@ -45,7 +45,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
                     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-    {{ if and (eq .EnableCookiesControl true) (ne .FeatureFlags.HideCookieBanner true)}}
+    {{ if (ne .FeatureFlags.HideCookieBanner true)}}
       {{ template "partials/banners/cookies" . }}
     {{ end }}
     {{ template "partials/header" . }}
