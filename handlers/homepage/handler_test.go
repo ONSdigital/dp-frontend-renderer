@@ -62,7 +62,6 @@ func TestHandler(t *testing.T) {
 		Debug:                    false,
 		SiteDomain:               "ons.gov.uk",
 		SupportedLanguages:       [2]string{"en", "cy"},
-		EnableCookiesControl:     false,
 		PatternLibraryAssetsPath: "foobar.com",
 	}
 

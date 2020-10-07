@@ -13,11 +13,9 @@ type Config struct {
 	SiteDomain                 string        `envconfig:"SITE_DOMAIN"`
 	PatternLibraryAssetsPath   string        `envconfig:"PATTERN_LIBRARY_ASSETS_PATH"`
 	SupportedLanguages         [2]string     `envconfig:"SUPPORTED_LANGUAGES"`
-	EnableCookiesControl       bool          `envconfig:"ENABLE_COOKIES_CONTROL"`
 	ShutdownTimeout            time.Duration `envconfig:"GRACEFUL_SHUTDOWN_TIMEOUT"`
 	HealthCheckInterval        time.Duration `envconfig:"HEALTHCHECK_INTERVAL"`
 	HealthCheckCriticalTimeout time.Duration `envconfig:"HEALTHCHECK_CRITICAL_TIMEOUT"`
-	EnableJSONLDControl        bool          `envconfig:"ENABLE_JSONLD_CONTROL"`
 }
 
 var cfg *Config
@@ -47,11 +45,9 @@ func get() (*Config, error) {
 		Debug:                      false,
 		SiteDomain:                 "ons.gov.uk",
 		SupportedLanguages:         [2]string{"en", "cy"},
-		EnableCookiesControl:       false,
 		ShutdownTimeout:            5 * time.Second,
 		HealthCheckInterval:        30 * time.Second,
 		HealthCheckCriticalTimeout: 90 * time.Second,
-		EnableJSONLDControl:        false,
 	}
 
 	return cfg, envconfig.Process("", cfg)
