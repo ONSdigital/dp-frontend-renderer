@@ -2,7 +2,7 @@
     <h1 class="font-size--h2 font-size--30 margin-top--1">{{ localise "InFocus" .Language 1 }}</h2>
     <div class="margin--0 flex stretch flex-wrap-wrap margin-bottom--3 content-space-between content-lg--flex-start">
     {{ range $i, $v := .Data.Featured }}
-        <section class="tile col--md-23 col--lg-14 flex-basis-sm--full {{if ne $i 3}}margin-right-lg--1{{end}}" tabindex="0">
+        <section class="tile col--md-23 col--lg-14 flex-basis-sm--full {{if (and (ne $i 3) (ne $i 7)) -}}margin-right-lg--1{{end}}" tabindex="0">
             <article class="tile__highlighted-content">
                 <div class="tile__highlighted-content-image-container">
                     <img class="tile__highlighted-content-image" src="{{if $v.ImageURL }}{{$v.ImageURL}}{{else}}https://cdn.ons.gov.uk/assets/images/featured-content-default.svg{{end}}" alt="">
