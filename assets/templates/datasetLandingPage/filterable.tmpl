@@ -54,7 +54,7 @@
                 <ul class="list--neutral">
                 {{range $i, $download := $v.Downloads}}
                 {{if gt (len $download.Size) 0}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Complete dataset (<span class="uppercase">{{$download.Extension}}</span> format){{end}}</span>
-                  <div class="width--12 inline-block float-right text-right"><a id="{{$download.Extension}}-download"                                     data-gtm-download-file="{{$download.URI}}"
+                  <div class="width--12 inline-block float-right text-right float-left-mobile"><a id="{{$download.Extension}}-download"                                     data-gtm-download-file="{{$download.URI}}"
                   data-gtm-download-type="{{$download.Extension}}" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
                 {{end}}
                 </ul>
