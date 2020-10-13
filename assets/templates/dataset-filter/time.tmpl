@@ -41,6 +41,8 @@
                                     <input type="hidden" name="latest-option" value="{{.Data.LatestTime.Option}}">
                                     <input type="hidden" name="latest-month" id="lastest-month" value="{{.Data.LatestTime.Month}}">
                                     <input type="hidden" name="latest-year" id="latest-year" value="{{.Data.LatestTime.Year}}">
+                                    <input type="hidden" name="first-year" id="first-year" value="{{.Data.FirstTime.Year}}">
+                                    <input type="hidden" name="first-month" id="first-month" value="{{.Data.FirstTime.Month}}">
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="time-selection-single" type="radio" class="multiple-choice__input" name="time-selection" value="single" {{if eq .Data.CheckedRadio "single"}}checked{{end}}>
