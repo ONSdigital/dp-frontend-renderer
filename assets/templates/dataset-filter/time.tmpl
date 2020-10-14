@@ -140,7 +140,7 @@
                                                     <div class="checkbox-group margin-bottom--4">
                                                         {{ range $i, $v := .Data.GroupedSelection.Months }}
                                                         <div class="checkbox">
-                                                            <input type="checkbox" class="checkbox__input {{if $v.IsSelected}} checked{{end}}" id="id-{{$v.Name}}" name="months" value="{{$v.Name}}" {{if $v.IsSelected}}checked{{end}}>
+                                                            <input type="checkbox" class="checkbox__input {{if eq $.Data.CheckedRadio "list"}}{{if $v.IsSelected}} checked{{end}}{{end}}" id="id-{{$v.Name}}" name="months" value="{{$v.Name}}" {{if eq $.Data.CheckedRadio "list"}}{{if $v.IsSelected}}checked{{end}}{{end}}>
                                                             <label class="checkbox__label" for="id-{{$v.Name}}">
                                                                 {{$v.Name}}
                                                             </label>
