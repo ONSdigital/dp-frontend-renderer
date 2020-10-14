@@ -667,3 +667,76 @@ one = "other releases this week"
 [AllReleases]
 description = "View all of our releases by date"
 one = "View all of our releases by date"
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Feedback Form/Form Page
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[FeedbackDesc]
+descriptions = "You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK"
+one = "You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK"
+
+[FeedbackTitleWhat]
+description = "What's it to do with?"
+one = "What's it to do with?"
+
+[FeedbackWhatOptSpecificPage]
+description = "This specific page"
+one = "This specific page"
+
+[FeedbackWhatEnterURL]
+description = "Enter URL or name of the page"
+one = "Enter URL or name of the page"
+
+[FeedbackWhatOptNewService]
+description = "This new service"
+one = "This new service"
+
+[FeedbackWhatOptGeneral]
+description = "The whole ONS website or general feedback"
+one = "The whole ONS website or general feedback"
+
+[FeedbackTitlePurpose]
+description = "What was the purpose of your visit?"
+one = "What was the purpose of your visit?"
+
+[FeedbackAlertPurpose]
+description = "Enter a purpose"
+one = "Enter a purpose"
+
+[FeedbackTitleEntry]
+description = "Your feedback"
+one = "Your feedback"
+
+[FeedbackHintEntry]
+description = "Report a problem, make a suggestion, ask a question or let us know what you think."
+one = "Report a problem, make a suggestion, ask a question or let us know what you think."
+
+[FeedbackAlertEntry]
+description = "Write some feedback"
+one = "Write some feedback"
+
+[FeedbackTitleName]
+description = "Name (optional)"
+one = "Name (optional)"
+
+[FeedbackHintName]
+description = "Include your name and email address if you would like us to get back to you."
+one = "Include your name and email address if you would like us to get back to you."
+
+[FeedbackTitleEmail]
+description = "Email (optional)"
+one = "Email (optional)"
+
+[FeedbackAlertEmail]
+description = "This is not a valid email address, correct it or delete it"
+one = "This is not a valid email address, correct it or delete it"
+
+[FeedbackSubmit]
+description = "Send feedback"
+one = "Send feedback"
+
+[FeedbackFinished]
+description = "Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a href=\"{{.Metadata.Description}}\">{{.Metadata.Description}}"
+one = "Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a href=\"{{.arg0}}\">{{.arg0}}"
+
+
