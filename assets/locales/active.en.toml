@@ -652,7 +652,7 @@ one = "{{.arg0}}"
 
 [FeedbackDesc]
 descriptions = "You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK"
-one = "You can use the form below to ask a question, report a problem or suggest an improvement we can make to ONS.GOV.UK"
+one = "You can use the form below to ask a question, report a problem or suggest an improvement to the ONS.GOV.UK team."
 
 [FeedbackTitleWhat]
 description = "What's it to do with?"
@@ -675,40 +675,40 @@ description = "This new service"
 one = "This new service"
 
 [FeedbackWhatOptGeneral]
-description = "The whole ONS website or general feedback"
+description = "The whole <abbr title=\"Office for National Statistics\">ONS</abbr> website or general feedback"
 one = "The whole ONS website or general feedback"
 
-[FeedbackTitlePurpose]
-description = "What was the purpose of your visit?"
-one = "What was the purpose of your visit?"
-
-[FeedbackAlertPurpose]
-description = "Enter a purpose"
-one = "Enter a purpose"
-
 [FeedbackTitleEntry]
-description = "Your feedback"
-one = "Your feedback"
+description = "What are the details?"
+one = "What are the details?"
 
 [FeedbackHintEntry]
-description = "Report a problem, make a suggestion, ask a question or let us know what you think."
-one = "Report a problem, make a suggestion, ask a question or let us know what you think."
+description = "For example, if you were searching for something, what did you type into the search box?"
+one = "For example, if you were searching for something, what did you type into the search box?"
 
 [FeedbackAlertEntry]
 description = "Write some feedback"
 one = "Write some feedback"
 
+[FeedbackTitleReply]
+description = "Do you want a reply?"
+one = "Do you want a reply?"
+
+[FeedbackDescReply]
+description = "If you'd like us to get back to you, please add your name and email address below."
+one = "If you'd like us to get back to you, please add your name and email address below."
+
 [FeedbackTitleName]
 description = "Name (optional)"
 one = "Name (optional)"
 
-[FeedbackHintName]
-description = "Include your name and email address if you would like us to get back to you."
-one = "Include your name and email address if you would like us to get back to you."
-
 [FeedbackTitleEmail]
 description = "Email (optional)"
 one = "Email (optional)"
+
+[FeedbackReplyDisclaimer]
+description = "We'll only use this to reply to your message"
+one = "We'll only use this to reply to your message."
 
 [FeedbackAlertEmail]
 description = "This is not a valid email address, correct it or delete it"
