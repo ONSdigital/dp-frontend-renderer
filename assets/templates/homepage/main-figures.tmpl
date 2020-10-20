@@ -14,6 +14,7 @@
             <a href="https://www.ons.gov.uk/timeseriestool" class="tile__link">From our time series explorer</a>
         </span>
     </header>
+    {{ if .Data.HasMainFigures }}
     <!--desktop-->
     <div class="hide--sm hide--md-only">
         <div class="flex stretch">
@@ -347,5 +348,8 @@
     <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-compress-button"
             type="button">Show fewer ...
     </button>
+    {{ else }}
+        {{template "homepage/main-figures-none" .}}
+    {{ end }}
 </section>
 
