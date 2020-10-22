@@ -129,7 +129,7 @@
         <div class="col--md-18">
             <article class="tile margin-left--1">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment</span></h2></header>
-                <section class="col col--md-15">
+                <section class="col col--md-15 height-md--42">
                     <div class="margin-top--2 tile__subheading">Employment rate</div>
                     {{ if $EmploymentRate.Figure }}
                         <div class="margin-top-md--2">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
@@ -151,7 +151,7 @@
                     {{ end }}
                 </section>
                 <div class="col tile__split-bar print--hide width-md--14 margin-left-md--0 margin-top-md--3"></div>
-                <section class="col col--md-15">
+                <section class="col col--md-15 height-md--42">
                     <div class="margin-top--1 tile__subheading">Unemployment rate</div>
                     {{ if $UnemploymentRate.Figure }}
                         <div class="margin-top-md--2">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $UnemploymentRate.Date}})</div>
