@@ -23,6 +23,21 @@
                     <fieldset>
                         <legend class="font-size--16"><strong>What's it to do with?</strong></legend>
                         <div class="margin-top--2 margin-bottom--4">
+                            <div class="multiple-choice margin-top--1">
+                                <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
+                                <label class="multiple-choice__label font-size--16" for="whole-site">
+                                    The whole ONS website or general feedback
+                                </label>
+                            </div>
+                            {{if .ServiceDescription}}
+                            <div class="multiple-choice margin-top--1">
+                                <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
+                                <label class="multiple-choice__label font-size--16" for="new-service">
+                                    This new service
+                                        &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
+                                </label>
+                            </div>
+                            {{end}}
                             {{ if .PreviousURL }} 
                             <div class="multiple-choice margin-top--1">
                                 <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
@@ -41,22 +56,25 @@
                                     </div>
                                 </div>
                             </div>
-                            {{ end }}
-                            {{if .ServiceDescription}}
+                            {{ else }} 
                             <div class="multiple-choice margin-top--1">
-                                <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
-                                <label class="multiple-choice__label font-size--16" for="new-service">
-                                    This new service
-                                        &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
+                                <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
+                                <label class="multiple-choice__label font-size--16" for="specific-page">
+                                    A specific page
+                                    <input type="hidden" value="{{.PreviousURL}}" name="url">
                                 </label>
+                                <div class="multiple-choice__content height--5">
+                                    <div class="margin-left--1">
+                                        <div class="clearfix">
+                                            <div class="col col--md-8 col--lg-35">
+                                                <label class="font-size--16" for="page-url-field"></label>
+                                                <input type="url" id="page-url-field" class="form-control" name="url">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            {{end}}
-                            <div class="multiple-choice margin-top--1">
-                                <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
-                                <label class="multiple-choice__label font-size--16" for="whole-site">
-                                    The whole ONS website or general feedback
-                                </label>
-                            </div>
+                            {{ end }}  
                         </div>
                     </fieldset>
                     <div>
