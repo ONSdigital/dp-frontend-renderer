@@ -14,12 +14,13 @@
             <a href="https://www.ons.gov.uk/timeseriestool" class="tile__link">From our time series explorer</a>
         </span>
     </header>
+    {{ if .Data.HasMainFigures }}
     <!--desktop-->
     <div class="hide--sm hide--md-only">
         <div class="flex stretch">
             <article class="col--lg-29 tile margin-right--1">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment</span></h2></header>
-                <section class="inline-block col--lg-12 margin-right--1">
+                <section class="inline-block col--lg-12 margin-right--1 text-align-top">
                     <div class="margin-top--1 tile__subheading">Employment rate</div>
                     {{ if $EmploymentRate.Figure }}
                         <div class="margin-top-md--2 margin-top-lg--1 height-lg--11">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
@@ -40,7 +41,7 @@
                         {{ template "homepage/main-figures-error" . }}
                     {{ end }}
                 </section>
-                <section class="inline-block margin-left--1 col--lg-12">
+                <section class="inline-block margin-left--1 col--lg-12 text-align-top">
                     <div class="margin-top--1 tile__subheading">Unemployment rate</div>
                     {{ if $UnemploymentRate.Figure }}
                         <div class="margin-top-md--2 margin-top-lg--1 height-lg--11">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $UnemploymentRate.Date}})</div>
@@ -128,7 +129,7 @@
         <div class="col--md-18">
             <article class="tile margin-left--1">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">Employment</span></h2></header>
-                <section class="col col--md-15">
+                <section class="col col--md-15 height-md--42">
                     <div class="margin-top--2 tile__subheading">Employment rate</div>
                     {{ if $EmploymentRate.Figure }}
                         <div class="margin-top-md--2">Aged 16 to 64 seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
@@ -150,10 +151,10 @@
                     {{ end }}
                 </section>
                 <div class="col tile__split-bar print--hide width-md--14 margin-left-md--0 margin-top-md--3"></div>
-                <section class="col col--md-15">
+                <section class="col col--md-15 height-md--42">
                     <div class="margin-top--1 tile__subheading">Unemployment rate</div>
                     {{ if $UnemploymentRate.Figure }}
-                        <div class="margin-top-md--2">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date}})</div>
+                        <div class="margin-top-md--2">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $UnemploymentRate.Date}})</div>
                         <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                         <p class="tile__trend">
                             <span class="tile__trend__icon">
@@ -323,7 +324,7 @@
                 <div class="col">
                     <div class="margin-top--1 tile__subheading"><b>Unemployment rate</b></div>
                     {{ if $UnemploymentRate.Figure }}
-                        <div class="">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $EmploymentRate.Date }})</div>
+                        <div class="">Aged 16+ seasonally adjusted ({{ DatePeriodFormat $UnemploymentRate.Date }})</div>
                         <div class="tile__figure">{{ $UnemploymentRate.Figure }}{{ $UnemploymentRate.Unit }}</div>
                         <p class="tile__trend">
                             <span class="tile__trend__icon">
@@ -347,5 +348,8 @@
     <button class="col btn btn--full-width btn--primary btn--focus tile__button hide--md hide--lg nojs--hide js-main-feature-compress-button"
             type="button">Show fewer ...
     </button>
+    {{ else }}
+        {{template "homepage/main-figures-none" .}}
+    {{ end }}
 </section>
 
