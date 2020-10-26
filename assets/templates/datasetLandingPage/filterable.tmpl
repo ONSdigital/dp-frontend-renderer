@@ -7,6 +7,16 @@
                <span class="page-intro__type padding-top--0 padding-bottom--0">Dataset:</span>
                <strong>{{ .Metadata.Title }}{{ if .DatasetLandingPage.ShowEditionName }}: {{ .DatasetLandingPage.Edition }} {{ end }}</strong>
             </h1>
+            <div class="section__content--markdown">
+                <div class="markdown-warning-box--container margin-bottom-sm--3 margin-bottom-md--4" style="background: transparent;">
+                    <span aria-label="Warning text" class="markdown-warning-box--icon">!</span>
+                    <div class="markdown-warning-box--text padding-left--4">
+                        <p>This dataset will soon be available at a new URL because of a system update.
+                            <br><a style="font-weight:bold" href="//blog.ons.gov.uk/">Read our blog for more information.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
             {{ template "partials/release-alert" . }}
          </div>
       </div>
