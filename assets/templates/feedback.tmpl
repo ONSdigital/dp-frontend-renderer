@@ -24,17 +24,32 @@
                     <fieldset>
                         <legend><h2 class="margin-bottom--4 font-size--30"><strong>{{ localise "FeedbackTitleWhat" $Language 1 }}</strong></h2></legend>
                         <div class="margin-top--2 margin-bottom--4">
+                            <div class="multiple-choice margin-top--1 padding-left--2">
+                                <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
+                                <label class="multiple-choice__label font-size--18 padding-left--1" for="whole-site">
+                                    {{ localise "FeedbackWholeWebsite" $Language 1 }}
+                                </label>
+                            </div>
+                            {{if .ServiceDescription}}
+                            <div class="multiple-choice margin-top--1 padding-left--2">
+                                <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
+                                <label class="multiple-choice__label font-size--18 padding-left--1" for="new-service">
+                                    {{ localise "FeedbackWhatOptNewService" $Language 1 }}
+                                        &nbsp; &nbsp;<span class="form-helper">({{.ServiceDescription}})</span>
+                                </label>
+                            </div>
+                            {{end}}
                             {{ if .PreviousURL }} 
-                            <div class="multiple-choice margin-top--1">
+                            <div class="multiple-choice margin-top--1 padding-left--2">
                                 <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
-                                <label class="multiple-choice__label font-size--18" for="specific-page">
-                                    {{ localise "FeedbackWhatOptSpecificPage" $Language 1}}
+                                <label class="multiple-choice__label font-size--18 " for="specific-page">
+                                    {{ localise "FeedbackWhatOptSpecificPage" $Language 1 }}
                                     <input type="hidden" value="{{.PreviousURL}}" name="url">
                                 </label>
-                                <div class="multiple-choice__content height--5">
+                                <div class="multiple-choice__content height--0">
                                     <div class="margin-left--1">
                                         <div class="clearfix">
-                                            <div class="col col--md-8 col--lg-35">
+                                            <div class="col--sm-12 col--md-28 col--lg-36 margin-left--1">
                                                 <label class="font-size--18" for="page-url-field">{{ localise "FeedbackWhatEnterURL" $Language 1 }}</label>
                                                 <input type="url" id="page-url-field" value="{{.PreviousURL}}" class="form-control" name="url">
                                             </div>
@@ -42,22 +57,25 @@
                                     </div>
                                 </div>
                             </div>
-                            {{ end }}
-                            {{if .ServiceDescription}}
-                            <div class="multiple-choice margin-top--1">
-                                <input type="radio" class="multiple-choice__input" id="new-service" name="type" value="The new service">
-                                <label class="multiple-choice__label font-size--18" for="new-service">
-                                {{ localise "FeedbackWhatOptNewService" $Language 1  }}
-                                        &nbsp; &nbsp;<span class="form-helper">{{ localise "FeedbackWhatOptHintSpecificPage" $Language 1  $.ServiceDescription }}</span>
+                            {{ else }} 
+                            <div class="multiple-choice margin-top--1 padding-left--2">
+                                <input type="radio" class="multiple-choice__input" id="specific-page" name="type" value="A specific page" checked>
+                                <label class="multiple-choice__label font-size--18 padding-left--1" for="specific-page">
+                                    {{ localise "FeedbackASpecificPage" $Language 1 }}
+                                    <input type="hidden" value="{{.PreviousURL}}" name="url">
                                 </label>
+                                <div class="multiple-choice__content height--0">
+                                    <div>
+                                        <div class="clearfix">
+                                            <div class="col--sm-12 col--md-28 col--lg-36 margin-left--1">
+                                                <label class="font-size--18" for="page-url-field"></label>
+                                                <input type="url" id="page-url-field" class="form-control" name="url">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            {{end}}
-                            <div class="multiple-choice margin-top--1">
-                                <input type="radio" class="multiple-choice__input" id="whole-site" name="type" value="The whole website">
-                                <label class="multiple-choice__label font-size--18" for="whole-site">
-                                    {{ localise "FeedbackWhatOptGeneral" $Language 1 }}
-                                </label>
-                            </div>
+                            {{ end }}  
                         </div>
                     </fieldset>
                     <div>
