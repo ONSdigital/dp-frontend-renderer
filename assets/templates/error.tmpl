@@ -1,25 +1,37 @@
 <div class="page-header slate">
-<div class="wrapper">
-<h1 class="page-header__title flush--half--bottom">{{ .Error.Title }}</h1>
-</div>
+    <div class="wrapper">
+        <h1 class="page-header__title flush--half--bottom">{{ .Error.Title }}</h1>
+    </div>
 
 </div>
 <div class="wrapper panel--mar">
-<div class="grid-wrap">
-<div class="grid-col desktop-grid-full-width">
-<article>
-<div class="box box--padded box--red-dark box--red-dark--separated-left sectioned">
+    <div class="grid-wrap">
+        <div class="grid-col desktop-grid-full-width">
+            <article>
+                <div class="box box--padded box--red-dark box--red-dark--separated-left sectioned">
+                    <div class="grid-wrap">
+                        <div class="grid-col desktop-grid-two-thirds col--lg-two-thirds col--md-two-thirds">
+                            {{ .Error.Description | safeHTML }}
+                            {{ if eq .Error.Title "404 - The webpage you are requesting does not exist on the site" }}
+                                <div class="section__content--markdown">
+                                    <div class="markdown-warning-box--container margin-bottom-sm--3 margin-bottom-md--4 col--lg-two-thirds col--md-two-thirds" style="background: transparent;">
+                                        <span aria-label="Warning text" class="markdown-warning-box--icon">!</span>
+                                        <div class="markdown-warning-box--text padding-left--4">
+                                            <p>You may be seeing this page as we are performing a system update to our dataset service. Some dataset pages will have moved.</p>
+                                            <p>
+                                                <a href="https://digitalblog.ons.gov.uk/2020/10/26/information-about-the-upcoming-work-on-customise-my-data-cmd/"><strong>Read our blog for more information.</strong></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{end}}
+                            <p>If you still encounter problems please <a href="mailto:web.comments@ons.gov.uk" title="Contact Us">contact us</a>. We apologise for any inconvenience this may have caused.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
 
-<div class="grid-wrap">
-<div class="grid-col desktop-grid-two-thirds">
-{{ .Error.Description | safeHTML }}
-<p>If you still encounter problems please <a href="mailto:web.comments@ons.gov.uk" title="Contact Us">contact us</a>. We apologise for any inconvenience this may have caused.</p>
-</div>
-</div>
-</div>
-</article>
-</div>
-
-</div>
+    </div>
 
 </div>
