@@ -9,8 +9,8 @@
     </header>
     <div class="tile__content-container--space-between">
         <p class="tile__content tile__text-description margin-top--0 margin-bottom--0 font-size--18">
-        {{ localise "ReleaseCalendarTileInfo" .Language 1 }} {{ localise "ReleaseCalendarTilePublicationCount" .Language 1 }} 
-        {{ .Data.ReleaseCalendar.NumberOfReleases }} {{ localise "ReleaseCalendarTilePublicationPeriod" .Language 1 }}
+        {{ localise "ReleaseCalendarTileInfo" .Language 1 }} {{ if gt $releasesLen 0 }}{{ localise "ReleaseCalendarTilePublicationCount" .Language 1 }} 
+         {{ .Data.ReleaseCalendar.NumberOfReleases }} {{ localise "ReleaseCalendarTilePublicationPeriod" .Language 1 }} {{ end }}
         </p>
         <p class="margin-top--0 margin-bottom--0 padding-bottom--0">
             <a class="tile__link" href="/releasecalendar">{{ localise "AllReleases" .Language 1 }}</a>
