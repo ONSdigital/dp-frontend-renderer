@@ -7,16 +7,6 @@
                <span class="page-intro__type padding-top--0 padding-bottom--0">Dataset:</span>
                <strong>{{ .Metadata.Title }}{{ if .DatasetLandingPage.ShowEditionName }}: {{ .DatasetLandingPage.Edition }} {{ end }}</strong>
             </h1>
-            <div class="section__content--markdown">
-                <div class="markdown-warning-box--container margin-bottom-sm--3 margin-bottom-md--4" style="background: transparent;">
-                    <span aria-label="Warning text" class="markdown-warning-box--icon">!</span>
-                    <div class="markdown-warning-box--text padding-left--4">
-                        <p>This dataset will soon be available at a new URL because of a system update.
-                            <br><a style="font-weight:bold" href="//digitalblog.ons.gov.uk/2020/10/26/information-about-the-upcoming-work-on-customise-my-data-cmd/">Read our blog for more information.</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
             {{ template "partials/release-alert" . }}
          </div>
       </div>
@@ -49,16 +39,6 @@
       <section>
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
           <h2 class="font-weight-700 margin-bottom--2">Get the data</h2>
-            <div class="section__content--markdown">
-                <div class="markdown-warning-box--container margin-bottom-sm--3 margin-bottom-md--4" style="background: transparent;">
-                    <span aria-label="Warning text" class="markdown-warning-box--icon">!</span>
-                    <div class="markdown-warning-box--text padding-left--4">
-                        <p>This dataset will soon be available at a new URL because of a system update.
-                            <br><a style="font-weight:bold" href="//digitalblog.ons.gov.uk/2020/10/26/information-about-the-upcoming-work-on-customise-my-data-cmd/">Read our blog for more information.</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
           <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
             <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-weight-700">
           </form>
