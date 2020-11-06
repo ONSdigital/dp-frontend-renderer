@@ -599,6 +599,14 @@ other = "Our data strategy"
 description = "How we use and manage data to provide statistics for the public."
 other = "How we use and manage data to provide statistics for the public."
 
+[SecureResearchServiceTitle]
+description = "Secure Research Service"
+other = "Secure Research Service"
+
+[SecureResearchServiceSummary]
+description = "Find out how ONS secure data could help your research project."
+other = "Find out how ONS secure data could help your research project."
+
 [OtherGovtStatisticsTitle]
 description = "Other government statistics"
 other = "Other government statistics"
