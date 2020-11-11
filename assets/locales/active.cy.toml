@@ -754,3 +754,11 @@ one = "Send feedback"
 [FeedbackFinished]
 description = "Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a href=\"{{.Metadata.Description}}\">{{.Metadata.Description}}"
 one = "Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a href=\"{{.arg0}}\">{{.arg0}}"
+
+[FeedbackWholeWebsite]
+description = "The whole ONS website or general feedback"
+one = "The whole ONS website or general feedback"
+
+[FeedbackASpecificPage]
+description = "A specific page"
+one = "A specific page"

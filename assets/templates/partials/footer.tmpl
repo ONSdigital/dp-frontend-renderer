@@ -1,8 +1,6 @@
 <footer class="print--hide padding-top--13">
    <section>
-      {{ if .ShowFeedbackForm }}
-         {{ template "partials/feedback" }}
-      {{ end }}
+      {{ template "partials/feedback" }}
       <h1 class="visuallyhidden">{{ localise "FooterLinks" .Language 1 }}</h2>
       <div class="footer">
          <div class="wrapper">
