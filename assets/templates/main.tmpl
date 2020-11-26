@@ -12,15 +12,7 @@
     <meta name="theme-color" content="#58595B">
     <meta name="apple-mobile-web-app-status-bar-style" content="#58595B">
     {{ if .Metadata.ServiceName }}<meta name="ons:service" content="{{ .Metadata.ServiceName}}">{{ end }}
-		{{`<!--[if lte IE 8]>` | safeHTML}}
-      <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/old-ie.css">
-		{{`<![endif]-->` | safeHTML}}
-    {{`<!--[if IE 9]>` | safeHTML}}
-      <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/ie-9.css">
-    {{`<![endif]-->` | safeHTML}}
-		{{`<!--[if gt IE 9]><!-->` | safeHTML}}
-      <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
-    {{`<!--<![endif]-->` | safeHTML}}
+    <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{ if .HasJSONLD -}}{{ template "partials/json-ld/base" . }}{{- end }}
 
     {{if eq .Metadata.Title "Feedback"}}
@@ -54,10 +46,8 @@
 
     {{ template "partials/footer" . }}
 
-    {{`<!--[if gt IE 8]><!-->` | safeHTML}}
       {{/* TODO - update on live build to use two JS files, not a single one */}}
-      <script type="text/javascript" src="{{.PatternLibraryAssetsPath}}/js/main.js"></script>
-      <script type="text/javascript" src="/js/app.js"></script>
-    {{`<!--<![endif]-->` | safeHTML}}
+    <script type="text/javascript" src="{{.PatternLibraryAssetsPath}}/js/main.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
 </body>
 </html>
