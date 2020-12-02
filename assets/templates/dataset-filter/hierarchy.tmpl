@@ -22,14 +22,14 @@
         </div>
     </div>
 </div>
-<div class="adjust-font-size--18">
+<div class="adjust-font-size--18 line-height—32">
     <div class="page-content link-adjust">
         <div class="wrapper">
             <div class="col-wrap">
                 <div class="col col--md-50 col--lg-35 margin-left-md--1">
                     <form class="margin-bottom--2" action="{{.Data.SearchURL}}">
                         <div class="clearfix">
-                            <label for="search" class="block font-size--18 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
+                            <label for="search" class="block font-size--18 line-height—32 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
                             <input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-31 col--lg-31" name="q" {{if .Data.IsSearchResults}} value="{{.Data.Query}}" {{end}} placeholder="Search {{.Data.DimensionName}}">
                             <button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
                                 <span class="visuallyhidden">Search</span>
@@ -45,7 +45,7 @@
                         <fieldset>
                             <legend>
                                 {{if .Data.IsSearchResults}}
-                                    <div class="font-size--18 padding-bottom--2 margin-top--2">
+                                    <div class="font-size--18 line-height—32 padding-bottom--2 margin-top--2">
                                         <a id="back" href="{{ .Data.GoBack.URL }}">
                                             <span class="icon icon-arrow-back--dark-small"></span>Back
                                         </a>
@@ -56,7 +56,7 @@
                                         <h2 class="font-size--32 line-height--40 padding-bottom--1 font-weight-700">Browse <span class="visuallyhidden">{{ .Data.DimensionName }}</span></h2>
                                     {{end}}
                                     {{ if .Data.Parent }}
-                                        <div class="font-size--18 padding-bottom--2 margin-top--2">
+                                        <div class="font-size--18 line-height—32 padding-bottom--2 margin-top--2">
                                             <a id="back" href="{{ .Data.GoBack.URL }}">
                                                 <span class="icon icon-arrow-back--dark-small"></span>Back
                                             </a>
@@ -108,15 +108,15 @@
                             {{end}}
                         </fieldset>
                         <div class="margin-top js-hidden">
-                            <input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--18 text-wrap">
+                            <input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--18 line-height—32 text-wrap">
                         </div>
                         <div id="save-and-return-container" class="margin-top--5">
-                            <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--18 text-wrap save-button-bottom" type="submit" value="Save and return"/>
+                            <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--18 line-height—32 text-wrap save-button-bottom" type="submit" value="Save and return"/>
                         </div>
                     </div>
                     <div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
                         <div class="margin-bottom--6 hide--md-only hide--sm">
-                            <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--18 text-wrap full-width save-button-right" value="Save and return"/>
+                            <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--18 line-height—32 text-wrap full-width save-button-right" value="Save and return"/>
                         </div>
                         {{ template "partials/filter-selection" . }}
                     </div>
