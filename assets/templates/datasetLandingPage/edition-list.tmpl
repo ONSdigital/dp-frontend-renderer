@@ -3,7 +3,7 @@
       <div class="col-wrap">
          <div class="col">
             {{ template "partials/breadcrumb" . }}
-            <h1 class="page-intro__title margin-bottom--4">
+            <h1 class="page-intro__title font-size--38 line-height--48 font-weight-700 margin-bottom--4">
                <span class="page-intro__type">Editions:</span>
                {{ .Metadata.Title }}
             </h1>
@@ -11,12 +11,12 @@
       </div>
    </div>
 </div>
-<div class="wrapper adjust-font-size--16">
+<div class="wrapper adjust-font-size--18">
    <div class="col-wrap padding-top--2 margin-bottom--4">
       <div class="col col--lg-two-thirds col--md-two-thirds">
         <p>{{ .Metadata.Description }}</p>
 
-        <h2>Select an edition</h2>
+        <h2 class="font-size--32 line-height--40 font-weight-700">Select an edition</h2>
         <p class="margin-top--0">Historic data is split into annual editions to account for changes over time.</p>
 
         <ul>
