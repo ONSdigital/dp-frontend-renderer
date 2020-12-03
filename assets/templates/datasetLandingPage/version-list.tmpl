@@ -10,7 +10,7 @@
       </div>
    </div>
 </div>
-<div class="wrapper adjust-font-size--18 line-height—32 link-adjust">
+<div class="wrapper adjust-font-size--18 line-height--32 link-adjust">
    <div class="col-wrap padding-top--2 margin-bottom--4">
       <div class="col">
          {{ range $i, $version := $.Data.Versions }}
@@ -22,7 +22,7 @@
                   <strong>Downloads:</strong>
                   <ul class="margin-top--0 padding-left--2">
                      {{ range .Downloads }}
-                        <li class="margin-top--0 margin-bottom--0 padding-top--0 padding-bottom--0">
+                        <li class="font-size--18 line-height--32 margin-top--0 margin-bottom--0 padding-top--0 padding-bottom--0">
                            <a href="{{ .URI }}">{{ .Extension }} {{ humanSize .Size }}</a>
                         </li>
                      {{ end }}
@@ -35,7 +35,7 @@
                         <div class="panel padding-top--1 padding-bottom--1 margin-bottom-2">
                         {{ if .Corrections }}
                            {{ range $i, $correction := .Corrections }}
-                              <h3 class="margin-top--1 margin-bottom--2 padding-top--0 padding-bottom--0 font-size—24 line-height—32 font-weight-700">
+                              <h3 class="margin-top--1 margin-bottom--2 padding-top--0 padding-bottom--0 font-size--24 line-height--32 font-weight-700">
                                  Correction: {{ dateFormat .Date }}
                               </h3>
                               <p class="margin-top--0 margin-bottom--2">{{ .Reason }}</p>

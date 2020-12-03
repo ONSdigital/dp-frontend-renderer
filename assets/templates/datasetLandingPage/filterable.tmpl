@@ -30,7 +30,7 @@
       </dl>
    </div>
 </div>
-<div class="wrapper adjust-font-size--18 line-height—32">
+<div class="wrapper adjust-font-size--18 line-height--32">
   <div class="col-wrap">
     <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4 link-adjust">
       <section>
@@ -46,14 +46,14 @@
           <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
             <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-right--0">
               <button class="js-show-hide__button js-show-hide__button--slim btn--focus padding-left--1" type="button" aria-expanded="false" aria-controls="collapsible-0">
-                <h3 class="margin-top--0 underline-link font-size—24 line-height—32 font-weight-700">Other download options</h3>
+                <h3 class="margin-top--0 underline-link font-size--24 line-height--32 font-weight-700">Other download options</h3>
               </button>
             </div>
             <div class="js-show-hide__content show-hide__content padding-top--1 padding-right--1 padding-left--1">
               <div class="margin-bottom--2">
                 <ul class="list--neutral">
                 {{range $i, $download := $v.Downloads}}
-                {{if gt (len $download.Size) 0}}{{if gt (len $download.Size) 0}}<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Complete dataset (<span class="uppercase">{{$download.Extension}}</span> format){{end}}</span>
+                {{if gt (len $download.Size) 0}}{{if gt (len $download.Size) 0}}<li class="font-size--18 line-height--32 padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Complete dataset (<span class="uppercase">{{$download.Extension}}</span> format){{end}}</span>
                   <div class="width--12 inline-block float-right float-el--left-sm text-left--sm"><a id="{{$download.Extension}}-download"                                     data-gtm-download-file="{{$download.URI}}"
                   data-gtm-download-type="{{$download.Extension}}" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
                 {{end}}
@@ -72,31 +72,31 @@
            <div class="table-of-contents print--avoid-break border-bottom--iron-sm border-bottom--iron-md">
              <h2 class="font-size--32 line-height--40 font-weight-700 table-of-contents__title font-weight-700">Supporting information: table of contents</h2>
              <ol id="toc" class="table-of-contents__list">
-               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+               <li class="line-height--32 table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-dimensions" class="js-scroll">In this dataset</a>
                </li>
                {{if .DatasetLandingPage.LatestChanges}}
-               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+               <li class="line-height--32 table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-changes" class="js-scroll">What has changed in this edition</a>
                </li>
                {{end}}
                {{if .DatasetLandingPage.QMIURL}}
-               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+               <li class="line-height--32 table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-qmi" class="js-scroll">Quality and methodology information</a>
                </li>
                {{end}}
                {{if .DatasetLandingPage.Methodologies}}
-               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+               <li class="line-height--32 table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-methodology" class="js-scroll">Methodologies</a>
                </li>
                {{end}}
                {{if .DatasetLandingPage.Citation}}
-               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+               <li class="line-height--32 table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-license" class="js-scroll">Usage information</a>
                </li>
                {{end}}
                {{if .DatasetLandingPage.HasOlderVersions}}
-               <li class="table-of-contents__item margin-bottom--1 margin-left--1">
+               <li class="line-height--32 table-of-contents__item margin-bottom--1 margin-left--1">
                  <a href="#id-previous" class="js-scroll">Previous versions</a>
                </li>
                {{end}}
@@ -111,19 +111,19 @@
                   <h2 class="font-size--32 line-height--40 font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">In this dataset</h2>
                   {{if .DatasetLandingPage.UnitOfMeasurement}}
                   <div class="margin-bottom--3">
-                     <h3 class="font-size—24 line-height—32 font-weight-700 padding-top--0">Unit of measurement</h3>
+                     <h3 class="font-size--24 line-height--32 font-weight-700 padding-top--0">Unit of measurement</h3>
                      <p class="padding-top--0">{{.DatasetLandingPage.UnitOfMeasurement}}</p>
                   </div>
                   {{end}}
                   {{range .DatasetLandingPage.Dimensions}}
                   <div class="margin-bottom--3">
                   <div class="margin-bottom--3">
-                     <h3 class="font-size—24 line-height—32 font-weight-700 padding-top--0">{{.Title}}</h3>
+                     <h3 class="font-size--24 line-height--32 font-weight-700 padding-top--0">{{.Title}}</h3>
                      <ul class="dimension-values list list--pipe-seperated js-show-more-list padding-left--0">
                         {{$val_length := len .Values}}
                         {{$total_length := .TotalItems}}
                         {{$vals := .Values}}{{range $i, $v := $vals}}
-                        <li>{{.}}</li>
+                        <li class="font-size--18 line-height--32">{{.}}</li>
                         {{end}}
                      </ul>
                      {{if gt $val_length 9}}
@@ -148,7 +148,7 @@
                 <h2 class="font-size--32 line-height--40 font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">What has changed in this edition</h2>
                 {{range .DatasetLandingPage.LatestChanges}}
                 <div class="margin-bottom--3">
-                   <h3 class="font-size—24 line-height—32 font-weight-700 padding-top--0">{{.Name}}</h3>
+                   <h3 class="font-size--24 line-height--32 font-weight-700 padding-top--0">{{.Name}}</h3>
                    <p class="padding-top--0">{{.Description}}</p>
                 </div>
                 {{ end }}
@@ -162,10 +162,10 @@
                <h2 class="font-size--32 line-height--40 font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">Quality and methodology information</h2>
                <p class="margin-bottom--0">Includes:</p>
                <ul>
-                 <li>Where the data comes from (source)</li>
-                 <li>The accuracy and reliability of the data</li>
-                 <li>The relevance of the data to certain applications or uses</li>
-                 <li>Things to consider when using the data</li>
+                 <li class="font-size--18 line-height--32">Where the data comes from (source)</li>
+                 <li class="font-size--18 line-height--32">The accuracy and reliability of the data</li>
+                 <li class="font-size--18 line-height--32">The relevance of the data to certain applications or uses</li>
+                 <li class="font-size--18 line-height--32">Things to consider when using the data</li>
                </ul>
                <p>Read the full <a href="{{.DatasetLandingPage.QMIURL}}">Quality and methodology information (QMI)</a> for this dataset.</p>
                <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
@@ -177,7 +177,7 @@
              <div id="id-methodology" class="section__content--markdown margin-right--0">
                <h2 class="font-size--32 line-height--40 font-weight-700 padding-top--0 padding-left-sm--2 padding-left-md--3">Methodologies</h2>
                {{range .DatasetLandingPage.Methodologies}}
-                <h3 class="font-size—24 line-height—32 font-weight-700"><a href="{{.URL}}">{{.Title}}</a></h3>
+                <h3 class="font-size--24 line-height--32 font-weight-700"><a href="{{.URL}}">{{.Title}}</a></h3>
                 <p>{{.Description}}</p>
                {{end}}
                <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
@@ -208,7 +208,7 @@
       </div>
       <div class="col col--lg-one-third col--md-one-third margin-top margin-bottom">
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-            <h3 class=" font-size—24 line-height—32 font-weight-700 tiles__title-h3 tiles__title-h3--nav">Contact details for this dataset</h3>
+            <h3 class="font-size--24 line-height--32 font-weight-700 tiles__title-h3 tiles__title-h3--nav">Contact details for this dataset</h3>
             <div class="tiles__content tiles__content--nav wrapper adjust-font-size--14">
                <address>
                   {{ if .ContactDetails.Name}}
@@ -225,11 +225,11 @@
          </div>
          {{ if .DatasetLandingPage.Publications }}
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-            <h3 class="font-size—24 line-height—32 font-weight-700 tiles__title-h3 tiles__title-h3--nav">Publications that use this data</h3>
+            <h3 class="font-size--24 line-height--32 font-weight-700 tiles__title-h3 tiles__title-h3--nav">Publications that use this data</h3>
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
                   {{ range .DatasetLandingPage.Publications }}
-                  <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+                  <li class="font-size--18 line-height--32"><a href="{{ .URL }}">{{ .Title }}</a></li>
                   {{ end }}
                </ul>
             </div>
@@ -237,11 +237,11 @@
          {{ end }}
          {{ if .DatasetLandingPage.RelatedLinks }}
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-            <h3 class="font-size—24 line-height—32 font-weight-700 tiles__title-h3 tiles__title-h3--nav">Related datasets</h3>
+            <h3 class="font-size--24 line-height--32 font-weight-700 tiles__title-h3 tiles__title-h3--nav">Related datasets</h3>
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
                   {{ range .DatasetLandingPage.RelatedLinks }}
-                  <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+                  <li class="font-size--18 line-height--32"><a href="{{ .URL }}">{{ .Title }}</a></li>
                   {{ end }}
                </ul>
             </div>
@@ -249,7 +249,7 @@
          {{ end }}
          {{ if .DatasetLandingPage.IsNationalStatistic }}
          <div class="tiles__item tiles__item--nav-type margin-left--0 margin-right--0">
-            <h3 class="font-size—24 line-height—32 font-weight-700 tiles__title-h3 tiles__title-h3--nav"><img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo"><div class="padding-top--1 padding-bottom--1">National Statistic</div></h3>
+            <h3 class="font-size--24 line-height--32 font-weight-700 tiles__title-h3 tiles__title-h3--nav"><img class="meta__image" src="/img/national-statistics.png" alt="National Statistics logo"><div class="padding-top--1 padding-bottom--1">National Statistic</div></h3>
             <div class="tiles__content tiles__content--nav">
                <p class="margin-bottom--0">
                   Certified by the UK Statistics Authority as compliant with the Code of Practice for Official Statistics.
