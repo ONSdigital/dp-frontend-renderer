@@ -29,8 +29,8 @@
                 <div class="col col--md-50 col--lg-35 margin-left-md--1">
                     <form class="margin-bottom--2" action="{{.Data.SearchURL}}">
                         <div class="clearfix">
-                            <label for="search" class="block font-size--18 line-height--32 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
-                            <input type="search" id="search" autocomplete="off" class="search__input search__input--body col col--md-31 col--lg-31" name="q" {{if .Data.IsSearchResults}} value="{{.Data.Query}}" {{end}} placeholder="Search {{.Data.DimensionName}}">
+                            <label for="search" class="block line-height--32 padding-bottom--2 font-weight-700">Search <span class="visuallyhidden">{{ .Data.DimensionName }}</span></label>
+                            <input type="search" id="search" autocomplete="off" class="search__input search__input--body line-height--32 col col--md-31 col--lg-31" name="q" {{if .Data.IsSearchResults}} value="{{.Data.Query}}" {{end}} placeholder="Search {{.Data.DimensionName}}">
                             <button type="submit" class="search__button search__button--body col--md-3 col--lg-3" id="nav-search-submit">
                                 <span class="visuallyhidden">Search</span>
                                 <span class="icon icon-search--light"></span>
@@ -45,7 +45,7 @@
                         <fieldset>
                             <legend>
                                 {{if .Data.IsSearchResults}}
-                                    <div class="font-size--18 line-height--32 padding-bottom--2 margin-top--2">
+                                    <div class="line-height--32 padding-bottom--2 margin-top--2">
                                         <a id="back" href="{{ .Data.GoBack.URL }}">
                                             <span class="icon icon-arrow-back--dark-small"></span>Back
                                         </a>
@@ -69,16 +69,16 @@
                                 <div class="no-results-advice">
                                     <h3>Please try:</h3>
                                     <ul>
-                                        <li class="font-size--18 line-height--32">Making sure that all words are spelled correctly</li>
-                                        <li class="font-size--18 line-height--32">Searching again using different words</li>
-                                        <li class="font-size--18 line-height--32">Check the dataset includes this <a href="{{.Data.LandingPageURL}}">{{.Data.DimensionName}}</a> option</li>
+                                        <li class="line-height--32">Making sure that all words are spelled correctly</li>
+                                        <li class="line-height--32">Searching again using different words</li>
+                                        <li class="line-height--32">Check the dataset includes this <a href="{{.Data.LandingPageURL}}">{{.Data.DimensionName}}</a> option</li>
                                     </ul>
                                 </div>
                             {{else}}
                                 <input name="save-and-return" class="hidden" type="submit" value="Save and return"/>
                                 {{ if .Data.HasData }}
-                                    <input class="btn btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" id="add-all" aria-label="Add all {{.Data.DimensionName}} in this list to your saved items"/>&nbsp; &nbsp;
-									<input class="btn btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" name="remove-all" id="remove-all" aria-label="Remove all {{.Data.DimensionName}} in this list from your saved items"/>
+                                    <input class="btn line-height--32 btn--link underline-link js-filter add-all" type="submit" value="Add all" name="add-all" id="add-all" aria-label="Add all {{.Data.DimensionName}} in this list to your saved items"/>&nbsp; &nbsp;
+									<input class="btn line-height--32 btn--link underline-link js-filter remove-list js-hidden" type="submit" value="Remove all" name="remove-all" id="remove-all" aria-label="Remove all {{.Data.DimensionName}} in this list from your saved items"/>
                                 {{ end }}
                                 <input name="q" type="hidden" value={{.Data.Query}}/>
                                 <div class="checkbox-group margin-top--2 padding-top--1 border-top--gallery-sm border-top--gallery-md">
@@ -96,7 +96,7 @@
                                             </div>
                                             {{ if ne .SubNum "0" }}
                                                 <div class="view-link width-md--10 float-el--right-md text-right--md padding-top--1 height-sm--5 height-md--5">
-                                                    <input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn btn--link underline-link" aria-label="{{ .Label }}: browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}"/>
+                                                    <input name="{{ .SubURL }}" id="{{.ID}}-children" type="submit" class="padding-top--0 text-align-top btn line-height--32 btn--link underline-link" aria-label="{{ .Label }}: browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}" value="Browse {{.SubNum}} {{$.Type}}{{ if ne .SubNum "1" }}s{{end}}"/>
                                                     <div class="inline-block view-link--icon">
                                                         <span class="icon icon-arrow-right--dark-small"></span>
                                                     </div>
@@ -108,15 +108,15 @@
                             {{end}}
                         </fieldset>
                         <div class="margin-top js-hidden">
-                            <input type="submit" value="Add selected filters" class="btn btn--secondary btn--focus font-weight-700 font-size--18 line-height--32 text-wrap">
+                            <input type="submit" value="Add selected filters" class="btn line-height--32 btn--secondary btn--focus font-weight-700 line-height--32 text-wrap">
                         </div>
                         <div id="save-and-return-container" class="margin-top--5">
-                            <input name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--18 line-height--32 text-wrap save-button-bottom" type="submit" value="Save and return"/>
+                            <input name="save-and-return" class="btn line-height--32 btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 line-height--32 text-wrap save-button-bottom" type="submit" value="Save and return"/>
                         </div>
                     </div>
                     <div class="col col--md-50 col--lg-20 margin-left-md--1 margin-bottom--6 margin-left-lg--4">
                         <div class="margin-bottom--6 hide--md-only hide--sm">
-                            <input type="submit" name="save-and-return" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 font-size--18 line-height--32 text-wrap full-width save-button-right" value="Save and return"/>
+                            <input type="submit" name="save-and-return" class="btn line-height--32 btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 line-height--32 text-wrap full-width save-button-right" value="Save and return"/>
                         </div>
                         {{ template "partials/filter-selection" . }}
                     </div>

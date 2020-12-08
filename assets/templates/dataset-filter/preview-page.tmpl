@@ -28,14 +28,14 @@
               <h2 class="font-size--32 line-height--40 font-weight-700">Preview</h2>
               <div class="table-border margin-top--3">
                 <ul class="list--neutral margin-bottom--3 margin-left">
-                  <li class="font-size--18 line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Title</span>{{.DatasetTitle}}</li>
-                  <li class="font-size--18 line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Dataset ID</span>{{.Data.DatasetID}}</li>
-                  <li class="font-size--18 line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Release date</span>{{dateFormat .ReleaseDate}}</li>
+                  <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Title</span>{{.DatasetTitle}}</li>
+                  <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Dataset ID</span>{{.Data.DatasetID}}</li>
+                  <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Release date</span>{{dateFormat .ReleaseDate}}</li>
                   {{if .Data.UnitOfMeasurement}}
-                    <li class="font-size--18 line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Unit of measurement</span>{{.Data.UnitOfMeasurement}}</li>
+                    <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Unit of measurement</span>{{.Data.UnitOfMeasurement}}</li>
                   {{end}}
                   {{range .Data.SingleValueDimensions}}
-                    <li class="font-size--18 line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">{{.Name}}</span>{{ index .Values 0 }}</li>
+                    <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">{{.Name}}</span>{{ index .Values 0 }}</li>
                   {{end}}
                 </ul>
                 <div class="table-preview">
@@ -108,7 +108,7 @@
                         {{range $i, $download := $.Data.Downloads}}
                           {{if ne $download.Extension "xls"}}
                             {{if gt (len $download.Size) 0}}
-                              <li id="{{$download.Extension}}-item" class="font-size--18 line-height--32 padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">
+                              <li id="{{$download.Extension}}-item" class="line-height--32 padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">
                                 <span class="inline-block padding-top--2">
                                   {{if eq $download.Extension "txt"}}
                                     Supporting information

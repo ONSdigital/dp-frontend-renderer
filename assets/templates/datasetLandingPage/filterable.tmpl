@@ -40,7 +40,7 @@
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
           <h2 class="font-size--32 line-height--40 font-weight-700 margin-bottom--2">Get the data</h2>
           <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
-            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus line-heigh--32 font-weight-700">
+            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus line-height--32 font-weight-700">
           </form>
           {{ if gt (len $v.Downloads) 0}}
           <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
@@ -53,9 +53,9 @@
               <div class="margin-bottom--2">
                 <ul class="list--neutral">
                 {{range $i, $download := $v.Downloads}}
-                {{if gt (len $download.Size) 0}}{{if gt (len $download.Size) 0}}<li class="font-size--18 line-height--32 padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Complete dataset (<span class="uppercase">{{$download.Extension}}</span> format){{end}}</span>
+                {{if gt (len $download.Size) 0}}{{if gt (len $download.Size) 0}}<li class="line-height--32 padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix"><span class="inline-block padding-top--2">{{if eq $download.Extension "txt"}}Supporting information{{else}}Complete dataset (<span class="uppercase">{{$download.Extension}}</span> format){{end}}</span>
                   <div class="width--12 inline-block float-right float-el--left-sm text-left--sm"><a id="{{$download.Extension}}-download"                                     data-gtm-download-file="{{$download.URI}}"
-                  data-gtm-download-type="{{$download.Extension}}" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
+                  data-gtm-download-type="{{$download.Extension}}" class="btn line-height--32 btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="{{$download.URI}}"><strong>{{$download.Extension}}</strong> ({{humanSize $download.Size}})</a></div></li>{{end}}{{end}}
                 {{end}}
                 </ul>
               </div>
@@ -123,7 +123,7 @@
                         {{$val_length := len .Values}}
                         {{$total_length := .TotalItems}}
                         {{$vals := .Values}}{{range $i, $v := $vals}}
-                        <li class="font-size--18 line-height--32">{{.}}</li>
+                        <li class="line-height--32">{{.}}</li>
                         {{end}}
                      </ul>
                      {{if gt $val_length 9}}
@@ -229,7 +229,7 @@
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
                   {{ range .DatasetLandingPage.Publications }}
-                  <li class="font-size--18 line-height--32"><a href="{{ .URL }}">{{ .Title }}</a></li>
+                  <li class="line-height--32"><a href="{{ .URL }}">{{ .Title }}</a></li>
                   {{ end }}
                </ul>
             </div>
@@ -241,7 +241,7 @@
             <div class="tiles__content tiles__content--nav">
                <ul class="list--neutral">
                   {{ range .DatasetLandingPage.RelatedLinks }}
-                  <li class="font-size--18 line-height--32"><a href="{{ .URL }}">{{ .Title }}</a></li>
+                  <li class="line-height--32"><a href="{{ .URL }}">{{ .Title }}</a></li>
                   {{ end }}
                </ul>
             </div>
