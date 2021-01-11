@@ -5,7 +5,7 @@
         <div class="col">
             {{ template "partials/breadcrumb" . }}
             <div class="col col--md-47 col--lg-58">
-              <h1 class="page-intro__title margin-bottom--1">
+              <h1 class="page-intro__title font-size--38 line-height--48 font-weigh-700 tmargin-bottom--1">
                 {{if not .NoDimensionData}}<span class="font-size--21 line-height--30 page-intro__type padding-top--0 padding-bottom--0">{{.DatasetTitle}}: {{.Data.Edition}}</span>{{end}}
                 <strong id="page-title">{{if not .NoDimensionData}}Filtered dataset{{else}}We can't create a preview{{end}}</strong>
               </h1>
@@ -14,7 +14,7 @@
       </div>
   </div>
 </div>
-<div id="preview-and-download" class="adjust-font-size--16">
+<div id="preview-and-download" class="adjust-font-size--18 line-height--32">
    <div class="page-content link-adjust">
       <div class="wrapper">
          <div class="col-wrap">
@@ -25,17 +25,17 @@
               {{ end }}
               <a id="adjust-filter-options" href="/filters/{{.Data.FilterID}}/dimensions"><span class="icon icon-arrow-back--dark-small"></span>Adjust filter options</a>
               {{ if .EnableDatasetPreview}}
-              <h2><strong>Preview</strong></h2>
+              <h2 class="font-size--32 line-height--40 font-weight-700">Preview</h2>
               <div class="table-border margin-top--3">
                 <ul class="list--neutral margin-bottom--3 margin-left">
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Title</span>{{.DatasetTitle}}</li>
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Dataset ID</span>{{.Data.DatasetID}}</li>
-                  <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Release date</span>{{dateFormat .ReleaseDate}}</li>
+                  <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Title</span>{{.DatasetTitle}}</li>
+                  <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Dataset ID</span>{{.Data.DatasetID}}</li>
+                  <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Release date</span>{{dateFormat .ReleaseDate}}</li>
                   {{if .Data.UnitOfMeasurement}}
-                    <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">Unit of measurement</span>{{.Data.UnitOfMeasurement}}</li>
+                    <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">Unit of measurement</span>{{.Data.UnitOfMeasurement}}</li>
                   {{end}}
                   {{range .Data.SingleValueDimensions}}
-                    <li class="margin-top--0 margin-bottom--1"><span class="inline-block width--11">{{.Name}}</span>{{ index .Values 0 }}</li>
+                    <li class="line-height--32 margin-top--0 margin-bottom--1"><span class="inline-block width--11">{{.Name}}</span>{{ index .Values 0 }}</li>
                   {{end}}
                 </ul>
                 <div class="table-preview">
@@ -63,11 +63,11 @@
                 </div>
                </div>
                {{ end }}
-               <h2><strong>Download</strong></h2>
+               <h2 class="font-size--32 line-height--40 font-weight-700">Download</h2>
                <div class="margin-bottom--2 margin-top--2 downloads-block">
                   {{if not .IsDownloadLoaded}}
                  <div id="no-js-refresh">
-                  <h3 class="margin-bottom">Your files are being created. Please refresh the page.</h3>
+                  <h3 class="font-size--24 line-height--32 font-weight-700 margin-bottom">Your files are being created. Please refresh the page.</h3>
                   <a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="/filter-outputs/{{.Data.FilterOutputID}}">Refresh page</a>
                  </div>
                  {{end}}
@@ -99,7 +99,7 @@
                   <div id="other-downloads" class="{{if not .IsDownloadLoaded}}js-hidden{{end}} margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
                     <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-right--0">
                       <button class="js-show-hide__button js-show-hide__button--slim btn--focus padding-left--1" type="button" aria-expanded="false" aria-controls="collapsible-0">
-                        <h3 class="margin-top--0 underline-link font-size--17">Other download options</h3>
+                        <h3 class="margin-top--0 underline-link font-size--24 line-height--32 font-weight-700">Other download options</h3>
                       </button>
                     </div>
                     <div class="js-show-hide__content show-hide__content padding-top--1 padding-right--1 padding-left--1">
@@ -108,7 +108,7 @@
                         {{range $i, $download := $.Data.Downloads}}
                           {{if ne $download.Extension "xls"}}
                             {{if gt (len $download.Size) 0}}
-                              <li id="{{$download.Extension}}-item" class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">
+                              <li id="{{$download.Extension}}-item" class="line-height--32 padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">
                                 <span class="inline-block padding-top--2">
                                   {{if eq $download.Extension "txt"}}
                                     Supporting information
