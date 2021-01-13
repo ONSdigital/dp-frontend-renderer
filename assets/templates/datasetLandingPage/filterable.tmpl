@@ -40,13 +40,13 @@
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
           <h2 class="font-size--32 line-height--40 font-weight-700 margin-bottom--2">Get the data</h2>
           <form action="/datasets/{{$datasetID}}/editions/{{$v.Edition}}/versions/{{$v.Version}}/filter" method="post">
-            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus line-height--32 font-weight-700">
+            <input type="submit" value="Filter and download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-weight-700">
           </form>
           {{ if gt (len $v.Downloads) 0}}
           <div class="margin-top--2 js-show-hide show-hide show-hide--light show-hide--dark-bg border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md col--lg-two-thirds col--md-two-thirds">
             <div class="js-show-hide__title show-hide__title show-hide__title--link-style margin-top--0 margin-bottom--0 padding-right--0">
               <button class="js-show-hide__button js-show-hide__button--slim btn--focus padding-left--1" type="button" aria-expanded="false" aria-controls="collapsible-0">
-                <h3 class="margin-top--0 underline-link font-size--24 line-height--32 font-weight-700">Other download options</h3>
+                <h3 class="margin-top--0 underline-link font-size--18 line-height--32 font-weight-700">Other download options</h3>
               </button>
             </div>
             <div class="js-show-hide__content show-hide__content padding-top--1 padding-right--1 padding-left--1">
