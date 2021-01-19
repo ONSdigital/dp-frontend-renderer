@@ -7,7 +7,7 @@ LDFLAGS=-ldflags "-w -s -X 'main.Version=${VERSION}' -X 'main.BuildTime=$(BUILD_
 
 .PHONY: audit
 audit:
-	nancy go.sum
+	go list -m all | nancy sleuth
 
 .PHONY: build
 build: generate-prod
