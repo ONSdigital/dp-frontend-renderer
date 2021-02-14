@@ -160,6 +160,10 @@ func Loop(n, m int) []int {
 	return arr
 }
 
+func Add(x, y int) int {
+	return x + y
+}
+
 func Subtract(x, y int) int {
 	return x - y
 }
