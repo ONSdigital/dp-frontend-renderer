@@ -354,8 +354,8 @@ description = "Contact:"
 one = "Cyswllt:"
 
 [ReleaseDate]
-description = "Release date:"
-one = "Dyddiad y datganiad:"
+description = "Release date"
+one = "Dyddiad y datganiad"
 
 [NextRelease]
 description = "Next release:"
@@ -762,3 +762,91 @@ one = "The whole ONS website or general feedback"
 [FeedbackASpecificPage]
 description = "A specific page"
 one = "A specific page"
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Search page
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[RefineResults]
+description = "Refine results"
+other = "Mireinio'r canlyniadau"
+
+[ContentTypesToShow]
+description = "Content types to show"
+other = "Mathau o gynnwys i'w dangos"
+
+[ClearAll]
+description = "Clear all"
+one = "Clirio'r cyfan"
+
+[Publication]
+description = "Publications"
+other = "Publications"
+
+[Data]
+description = "Data"
+other = "Data"
+
+[Other]
+description = "Other"
+other = "Other"
+
+[StatisticalBulletin]
+description = "Statistical bulletins"
+one = "Bwletin ystadegol"
+other = "Bwletinau ystadegol"
+
+[Article]
+description = "Articles"
+one = "Erthygl"
+other = "Erthyglau"
+
+[Compendium]
+description = "Compendiums"
+one = "Casgliad"
+other = "Compendiwm"
+
+[TimeSeries]
+description = "Time series"
+other = "Cyfres amser"
+
+[Datasets]
+description = "Datasets"
+other = "Datasets"
+
+[UserRequestedData]
+description = "User requested data"
+other = "Data a gyrchwyd gan y defnyddiwr"
+
+[Methodology]
+description = "Methodology"
+one = "Methodoleg"
+other = "Methodoleg"
+
+[CorporateInformation]
+description = "Corporate Information"
+other = "Corporate Information"
+
+[And]
+description = "and"
+one = "a"
+
+[Relevance]
+description = "Relevance"
+one = "Perthnasedd"
+
+[Title]
+description = "Title"
+one = "Teitl"
+
+[ReleasedOn]
+description = "Released on"
+one = "Rhyddhawyd ar"
+
+[Keywords]
+description = "Keywords"
+other = "Allweddeiriau"
+
+[Next]
+description = "Next"
+one = "Nesaf" 
