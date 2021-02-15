@@ -428,6 +428,7 @@ one = "Cyhoeddiadau sy'n defnyddio'r data hwn"
 [Methodology]
 description = "Methodology"
 one = "Methodoleg"
+other = "Methodoleg"
 
 [RelatedLinks]
 description = "Related links"
@@ -817,11 +818,6 @@ other = "Datasets"
 [UserRequestedData]
 description = "User requested data"
 other = "Data a gyrchwyd gan y defnyddiwr"
-
-[Methodology]
-description = "Methodology"
-one = "Methodoleg"
-other = "Methodoleg"
 
 [CorporateInformation]
 description = "Corporate Information"
