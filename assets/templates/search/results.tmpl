@@ -1,3 +1,4 @@
+{{ $lang := .Language }}
 <div id="results" class="results">    
     <div class="search-results ">
         <ul class="list--neutral flush">
@@ -9,7 +10,7 @@
                     <p class="search-results__meta font-size--16">
                         {{ .Type}}
                         |
-                        Released on {{dateFormat .Description.ReleaseDate}}
+                        {{ localise "ReleasedOn" $lang 1 }} {{dateFormat .Description.ReleaseDate}}
                     </p>
                     <div class="search-results__summary font-size--16">
                         {{ .Description.Summary}}
@@ -17,7 +18,7 @@
                     {{ if .Description.Keywords }}
                         {{ $numberOfKeywords := len .Description.Keywords }}
                         <p class="search-results__keywords font-size--16">
-                            Keywords: 
+                            {{ localise "Keywords" $lang 4 }}: 
                             {{ range $i, $el := .Description.Keywords }}
                                 {{$el}}{{ if notLastItem $numberOfKeywords $i }},{{end}}
                             {{end}}
