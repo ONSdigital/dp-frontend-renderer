@@ -12,6 +12,12 @@ func TestLegacyDatasetDownloadURI(t *testing.T) {
 	})
 }
 
+func TestAdd(t *testing.T) {
+	Convey("add should return expected value", t, func() {
+		So(Add(99, 1), ShouldEqual, 100)
+	})
+}
+
 func TestSubtract(t *testing.T) {
 	Convey("substract should return expected value", t, func() {
 		So(Subtract(100, 1), ShouldEqual, 99)
