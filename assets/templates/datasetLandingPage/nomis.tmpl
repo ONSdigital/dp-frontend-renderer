@@ -34,7 +34,7 @@
   <div class="col-wrap">
     <div class="col col--lg-two-thirds col--md-two-thirds margin-top--4 link-adjust">
       <section>
-        <div class="margin-bottom--4"><span class="dataset-description">{{ .Metadata.Description }}</span></div>
+        <div class="margin-bottom--4"><span class="dataset-description">{{ .Metadata.Description | markdown }}</span></div>
       </section>
       <section>
         {{$datasetID := .DatasetLandingPage.DatasetID}}{{$v := .DatasetLandingPage.Version}}
