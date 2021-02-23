@@ -10,7 +10,7 @@ import (
 
 // Handler handles rendering of filter overview template
 func Handler(cfg config.Config) http.HandlerFunc {
-	return func (w http.ResponseWriter, req *http.Request) {
+	return func(w http.ResponseWriter, req *http.Request) {
 		var page filterOverview.Page
 
 		render.Handler(w, req, &page, &page.Page, "dataset-filter/filter-overview", nil, cfg)
