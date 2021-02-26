@@ -32,6 +32,15 @@ func StaticHandler(cfg config.Config) http.HandlerFunc {
 	}
 }
 
+//NomisHandler ...
+func NomisHandler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page datasetLandingPageFilterable.Page
+
+		render.Handler(w, req, &page, &page.Page, "datasetLandingPage/nomis", nil, cfg)
+	}
+}
+
 //EditionListHandler ...
 func EditionListHandler(cfg config.Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {

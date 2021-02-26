@@ -350,17 +350,17 @@ func AssetNames() []string {
 
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
-	".gitignore": Gitignore,
-	".travis.yml": TravisYml,
-	"Dockerfile": dockerfile,
-	"Dockerfile.concourse": dockerfileConcourse,
-	"LICENSE.md": licenseMd,
-	"Makefile": makefile,
-	"README.md": readmeMd,
-	"data.json": dataJson,
+	".gitignore":                 Gitignore,
+	".travis.yml":                TravisYml,
+	"Dockerfile":                 dockerfile,
+	"Dockerfile.concourse":       dockerfileConcourse,
+	"LICENSE.md":                 licenseMd,
+	"Makefile":                   makefile,
+	"README.md":                  readmeMd,
+	"data.json":                  dataJson,
 	"dp-frontend-renderer.nomad": dpFrontendRendererNomad,
-	"main.go": mainGo,
-	"taxonomy-redirects.yml": taxonomyRedirectsYml,
+	"main.go":                    mainGo,
+	"taxonomy-redirects.yml":     taxonomyRedirectsYml,
 }
 
 // AssetDir returns the file names below a certain
@@ -402,18 +402,19 @@ type bintree struct {
 	Func     func() (*asset, error)
 	Children map[string]*bintree
 }
+
 var _bintree = &bintree{nil, map[string]*bintree{
-	".gitignore": &bintree{Gitignore, map[string]*bintree{}},
-	".travis.yml": &bintree{TravisYml, map[string]*bintree{}},
-	"Dockerfile": &bintree{dockerfile, map[string]*bintree{}},
-	"Dockerfile.concourse": &bintree{dockerfileConcourse, map[string]*bintree{}},
-	"LICENSE.md": &bintree{licenseMd, map[string]*bintree{}},
-	"Makefile": &bintree{makefile, map[string]*bintree{}},
-	"README.md": &bintree{readmeMd, map[string]*bintree{}},
-	"data.json": &bintree{dataJson, map[string]*bintree{}},
+	".gitignore":                 &bintree{Gitignore, map[string]*bintree{}},
+	".travis.yml":                &bintree{TravisYml, map[string]*bintree{}},
+	"Dockerfile":                 &bintree{dockerfile, map[string]*bintree{}},
+	"Dockerfile.concourse":       &bintree{dockerfileConcourse, map[string]*bintree{}},
+	"LICENSE.md":                 &bintree{licenseMd, map[string]*bintree{}},
+	"Makefile":                   &bintree{makefile, map[string]*bintree{}},
+	"README.md":                  &bintree{readmeMd, map[string]*bintree{}},
+	"data.json":                  &bintree{dataJson, map[string]*bintree{}},
 	"dp-frontend-renderer.nomad": &bintree{dpFrontendRendererNomad, map[string]*bintree{}},
-	"main.go": &bintree{mainGo, map[string]*bintree{}},
-	"taxonomy-redirects.yml": &bintree{taxonomyRedirectsYml, map[string]*bintree{}},
+	"main.go":                    &bintree{mainGo, map[string]*bintree{}},
+	"taxonomy-redirects.yml":     &bintree{taxonomyRedirectsYml, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory
@@ -462,4 +463,3 @@ func _filePath(dir, name string) string {
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(cannonicalName, "/")...)...)
 }
-

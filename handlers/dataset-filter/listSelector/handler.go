@@ -9,8 +9,8 @@ import (
 )
 
 // Handler handles rendering of age selector list template
-func Handler(cfg config.Config) http.HandlerFunc{
-	return func (w http.ResponseWriter, req *http.Request) {
+func Handler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
 		var page listSelector.Page
 
 		render.Handler(w, req, &page, &page.Page, "dataset-filter/list-selector", nil, cfg)

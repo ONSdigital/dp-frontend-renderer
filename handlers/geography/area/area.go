@@ -9,8 +9,8 @@ import (
 )
 
 // Handler ...
-func Handler(cfg config.Config) http.HandlerFunc{
-	return func (w http.ResponseWriter, req *http.Request) {
+func Handler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
 		var page area.Page
 
 		render.Handler(w, req, &page, &page.Page, "geography/area", nil, cfg)

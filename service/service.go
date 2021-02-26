@@ -37,6 +37,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 			"DatePeriodFormat":            renderHelpers.DatePeriodFormat,
 			"last":                        renderHelpers.Last,
 			"loop":                        renderHelpers.Loop,
+			"add":                         renderHelpers.Add,
 			"subtract":                    renderHelpers.Subtract,
 			"slug":                        renderHelpers.Slug,
 			"markdown":                    renderHelpers.Markdown,
