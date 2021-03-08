@@ -340,8 +340,8 @@ description = "Contact:"
 one = "Contact:"
 
 [ReleaseDate]
-description = "Release date:"
-one = "Release date:"
+description = "Release date"
+one = "Release date"
 
 [NextRelease]
 description = "Next release:"
@@ -408,6 +408,7 @@ one = "Publications that use this data"
 [Methodology]
 description = "Methodology"
 one = "Methodology"
+other = "Methodology"
 
 [RelatedLinks]
 description = "Related links"
@@ -737,3 +738,86 @@ one = "The whole ONS website or general feedback"
 [FeedbackASpecificPage]
 description = "A specific page"
 one = "A specific page"
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Search page
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[RefineResults]
+description = "Refine results"
+other = "Refine results"
+
+[ContentTypesToShow]
+description = "Content types to show"
+other = "Content types to show"
+
+[ClearAll]
+description = "Clear all"
+one = "Clear all"
+
+[Publication]
+description = "Publications"
+other = "Publications"
+
+[Data]
+description = "Data"
+other = "Data"
+
+[Other]
+description = "Other"
+other = "Other"
+
+[StatisticalBulletin]
+description = "Statistical bulletins"
+one = "Statistical bulletin"
+other = "Statistical bulletins"
+
+[Article]
+description = "Articles"
+one = "Article"
+other = "Articles"
+
+[Compendium]
+description = "Compendiums"
+one = "Compendium"
+other = "Compendiums"
+
+[TimeSeries]
+description = "Time series"
+other = "Time series"
+
+[Datasets]
+description = "Datasets"
+other = "Datasets"
+
+[UserRequestedData]
+description = "User requested data"
+other = "User requested data"
+
+[CorporateInformation]
+description = "Corporate Information"
+other = "Corporate Information"
+
+[And]
+description = "and"
+one = "and"
+
+[Relevance]
+description = "Relevance"
+one = "Relevance"
+
+[Title]
+description = "Title"
+one = "Title"
+
+[ReleasedOn]
+description = "Released on"
+one = "Released on"
+
+[Keywords]
+description = "Keywords"
+other = "Keywords"
+
+[Next]
+description = "Next"
+one = "Next" 

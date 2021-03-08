@@ -6,7 +6,8 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 	"net/http"
 )
-func Handler(cfg config.Config) http.HandlerFunc{
+
+func Handler(cfg config.Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		var page feedback.Page
 
