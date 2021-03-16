@@ -8,7 +8,8 @@
                     <img class="tile__highlighted-content-image" src="{{if $v.ImageURL }}{{$v.ImageURL}}{{else}}https://static.ons.gov.uk/visual/2020/in-focus/covid-dashboard@2x.png{{end}}" alt="">
                 </div>
                 <h2 class="margin-top--0 margin-bottom--0">
-                    <a class="margin-left--0 tile__link tile__link--highlighted-content-title font-size--24" href="{{ .URI }}">
+                    <a class="margin-left--0 tile__link tile__link--highlighted-content-title font-size--24" href="{{ .URI }}" 
+                        data-gtm-group="in-focus" gtm-group-position={{ add $i 1 }}>
                         {{ $v.Title }}
                     </a>
                 </h2>
