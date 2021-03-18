@@ -226,6 +226,22 @@ one = "Poblogaeth ac ymfudo"
 description = "Well-being"
 one = "Lles"
 
+[Census2021TakingPart]
+description = "Mae cymryd rhan yn hanfodol er mwyn sicrhau eich bod chi a'ch cymuned yn cael y gwasanaethau sydd eu hangen arnoch chi."
+one = "Mae cymryd rhan yn hanfodol er mwyn sicrhau eich bod chi a'ch cymuned yn cael y gwasanaethau sydd eu hangen arnoch chi."
+
+[Census2021CompleteLink]
+description = "Cwblhewch Gyfrifiad 2021."
+one = "Cwblhewch Gyfrifiad 2021."
+
+[Census2021Preparation]
+description = "Ein paratoadau ar gyfer Cyfrifiad 2021 a thu hwnt."
+one = "Ein paratoadau ar gyfer Cyfrifiad 2021 a thu hwnt."
+
+[Census2021ResearchLink]
+description = "Gwaith ymchwil a chynllunio ar gyfer y cyfrifiad."
+one = "Gwaith ymchwil a chynllunio ar gyfer y cyfrifiad."
+
 [SurveyTakingPart]
 description = "Taking part in a survey?"
 one = "Cymryd rhan mewn arolwg?"
