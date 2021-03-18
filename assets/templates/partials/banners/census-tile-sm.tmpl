@@ -1,4 +1,4 @@
-<article class="tile tile__content promo__background--plum-gradient col col--lg-29 margin-top-lg--2 margin-top-md--2 {{if eq .Language "en" }} height-lg--31 {{ else }} height-lg--41 {{end}}hide--sm">
+<article class="promo__container tile tile__content promo__background--plum-gradient margin-top-lg--0 margin-top-md--2 height-lg--31 hide--lg hide--md margin-bottom--2 {{if eq .Language "en" }} height-lg--31 {{ else }} height-lg--41 {{end}}">
     <header class="margin-top--1">
         <h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0">
                 {{if eq .Language "en" }}
@@ -6,9 +6,9 @@
                     xmlns="http://www.w3.org/2000/svg" focusable="false" width="209" height="40" viewBox="0 0 228 44" aria-labelledby="census-logo-en-alt">
                 {{ else }}
                     <img src="https://cdn.ons.gov.uk/assets/images/census-logo/logo-census-2021-white-landscape-cy.svg" alt="" class="header__svg-logo"
-                    xmlns="http://www.w3.org/2000/svg" focusable="false" width="209" height="40" viewBox="0 0 228 44" aria-labelledby="census-logo-en-alt">
+                    xmlns="http://www.w3.org/2000/svg" focusable="false" width="209" height="40" viewBox="0 0 228 44" aria-labelledby="census-logo-cy-alt">
                 {{ end }}
-                <title id="census-logo-en-alt">{{ localise "Census2021" .Language 1 }}</title>
+                <title id="census-logo-cy-alt">{{ localise "Census2021" .Language 1 }}</title>
                 </img>
         </h2>
     </header>
