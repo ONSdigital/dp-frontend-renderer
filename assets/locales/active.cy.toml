@@ -226,6 +226,10 @@ one = "Poblogaeth ac ymfudo"
 description = "Well-being"
 one = "Lles"
 
+[Census2021]
+description = "Cyfrifiad 2021"
+one = "Cyfrifiad 2021"
+
 [Census2021TakingPart]
 description = "Mae cymryd rhan yn hanfodol er mwyn sicrhau eich bod chi a'ch cymuned yn cael y gwasanaethau sydd eu hangen arnoch chi."
 one = "Mae cymryd rhan yn hanfodol er mwyn sicrhau eich bod chi a'ch cymuned yn cael y gwasanaethau sydd eu hangen arnoch chi."

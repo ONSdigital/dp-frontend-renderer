@@ -133,7 +133,7 @@
             </article>
         </div>
         <div class="col col--lg-29 col--md-29">
-            <article class="tile tile__content margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0 height-lg--32">
+            <article class="tile tile__content margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0 {{if eq .Language "en" }} height-lg--31 {{ else }} height-lg--41 {{end}}height-lg--31">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
                 {{ if $Population.Figure }}
                     <div class="margin-top--1">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
