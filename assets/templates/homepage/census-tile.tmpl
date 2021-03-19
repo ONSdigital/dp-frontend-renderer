@@ -14,10 +14,10 @@
     </header>
     <div class="margin-top--0">
         {{ localise "Census2021TakingPart" .Language 1 }}<br>
-        <a class="text--white font-weight-700 underline-link" href="">{{ localise "Census2021CompleteLink" .Language 1 }}</a>
+        <a class="text--white font-weight-700 underline-link" {{if eq .Language "en" }}href="https://www.census.gov.uk" {{ else }}href="https://www.cyfrifiad.gov.uk"{{end}}>{{ localise "Census2021CompleteLink" .Language 1 }}</a>
     </div>
     <div class="margin-top--1">
         {{ localise "Census2021Preparation" .Language 1 }}<br>
-        <a class="text--white font-weight-700 underline-link" href="">{{ localise "Census2021ResearchLink" .Language 1 }}</a>
+        <a class="text--white font-weight-700 underline-link" {{if eq .Language "en" }}href="https://www.ons.gov.uk/census" {{ else }}href="https://cy.ons.gov.uk/census"{{end}}>{{ localise "Census2021ResearchLink" .Language 1 }}</a>
     </div>
 </article>
