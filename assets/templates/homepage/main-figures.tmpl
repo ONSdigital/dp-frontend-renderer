@@ -36,8 +36,12 @@
                             </p>
                         {{end}}
                         <div class="margin-top--2">
-                            <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for employment rate">Analysis</a>
-                            <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for employment rate">Data</a>
+                            <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" 
+                                aria-label="Analysis for employment rate" data-gtm-label="Analysis for employment rate">Analysis
+                            </a>
+                            <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                                aria-label="Data for employment rate" data-gtm-label="Data for employment rate">Data
+                            </a>
                         </div>
                     {{ else }}
                         {{ template "homepage/main-figures-error" . }}
@@ -59,8 +63,12 @@
                             </p>
                         {{ end }}
                         <div class="margin-top--2">
-                            <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for unemployment rate">Analysis</a>
-                            <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for unemployment rate">Data</a>
+                            <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" 
+                                aria-label="Analysis for unemployment rate" data-gtm-label="Analysis for unemployment rate">Analysis
+                            </a>
+                            <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                                aria-label="Data for unemployment rate" data-gtm-label="Data for unemployment rate">Data
+                            </a>
                         </div>
                     {{ else }}
                         {{ template "homepage/main-figures-error" . }}
@@ -84,8 +92,12 @@
                         </p>
                     {{end}}
                     <div class="margin-top--2">
-                    <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for inflation">Analysis</a>
-                        <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for inflation">Data</a>
+                        <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" 
+                            aria-label="Analysis for inflation" data-gtm-label="Analysis for inflation">Analysis
+                        </a>
+                        <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for inflation" data-gtm-label="Data for inflation">Data
+                        </a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -108,8 +120,12 @@
                         </p>
                     {{ end }}
                     <div class="margin-top--2">
-                        <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for GDP">Analysis</a>
-                        <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for GDP">Data</a>
+                        <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" 
+                            aria-label="Analysis for GDP" data-gtm-label="Analysis for GDP">Analysis
+                        </a>
+                        <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for GDP" data-gtm-label="Data for GDP">Data
+                        </a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -117,14 +133,18 @@
             </article>
         </div>
         <div class="col col--lg-29 col--md-29">
-            <article class="tile tile__content margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0 height-lg--31">
+            <article class="tile tile__content margin-top-lg--2 margin-top-md--2 margin-left-md--1 margin-left-lg--0 {{if eq .Language "en" }} height-lg--31 {{ else }} height-lg--41 {{end}}height-lg--31">
                 <header class="margin-top--1"><h2 class="margin-top--0 margin-right--0 margin-bottom--0 margin-left--0"><span class="tile__title">UK population</span></h2></header>
                 {{ if $Population.Figure }}
                     <div class="margin-top--1">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
                     <div class="tile__figure">{{ $Population.Figure }}</div>
                     <div class="margin-top--2">
-                        <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for UK population">Analysis</a>
-                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for UK population">Data</a>
+                        <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link" 
+                            aria-label="Analysis for UK population" data-gtm-label="Analysis for UK population">Analysis
+                        </a>
+                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for UK population" data-gtm-label="Data for UK population">Data
+                        </a>
                     </div>
                 {{ else }}
                 {{ template "homepage/main-figures-error" . }}
@@ -153,8 +173,12 @@
                             </p>
                         {{ end }}
                         <div class="margin-top--2">
-                            <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for employment rate">Analysis</a>
-                            <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for employment rate">Data</a>
+                            <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" 
+                                aria-label="Analysis for employment rate" data-gtm-label="Analysis for employment rate">Analysis
+                            </a>
+                            <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                                aria-label="Data for employment rate" data-gtm-label="Data for employment rate">Data
+                            </a>
                         </div>
                     {{ else }}
                         {{ template "homepage/main-figures-error" . }}
@@ -177,8 +201,12 @@
                             </p>
                         {{ end }}
                         <div class="margin-top--2">
-                            <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for unemployment rate">Analysis</a>
-                            <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for unemployment rate">Data</a>
+                            <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" 
+                                aria-label="Analysis for unemployment rate" data-gtm-label="Analysis for unemployment rate">Analysis
+                            </a>
+                            <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                                aria-label="Data for unemployment rate" data-gtm-label="Data for unemployment rate">Data
+                            </a>
                         </div>
                     {{ else }}
                         {{ template "homepage/main-figures-error" . }}
@@ -204,8 +232,12 @@
                         </p>
                     {{end}}
                     <div class="margin-top--2">
-                    <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for inflation">Analysis</a>
-                        <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for inflation">Data</a>
+                        <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" 
+                            aria-label="Analysis for inflation" data-gtm-label="Analysis for inflation">Analysis
+                        </a>
+                        <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for inflation" data-gtm-label="Analysis for inflation">Data
+                        </a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -228,8 +260,12 @@
                         </p>
                     {{ end }}
                     <div class="margin-top--2">
-                        <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for GDP">Analysis</a>
-                        <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for GDP">Data</a>
+                        <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" 
+                            aria-label="Analysis for GDP" data-gtm-label="Analysis for GDP">Analysis
+                        </a>
+                        <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for GDP" data-gtm-label="Data for GDP">Data
+                        </a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -241,8 +277,12 @@
                     <div class="margin-top--2">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
                     <div class="tile__figure">{{ $Population.Figure }}</div>
                     <div class="margin-top--2">
-                        <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for UK population">Analysis</a>
-                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for UK population">Data</a>
+                        <a href="{{ $Population.FigureURIs.Analysis}}" class="tile__link" 
+                            aria-label="Analysis for UK population" data-gtm-label="Analysis for UK population">Analysis
+                        </a>
+                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for UK population" data-gtm-label="Data for UK population">Data
+                        </a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -269,8 +309,12 @@
                     </p>
                 {{ end }}
                 <div class="margin-top--1">
-                    <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" aria-label="Analysis for GDP">Analysis</a>
-                    <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for GDP">Data</a>
+                    <a href="{{ $GDP.FigureURIs.Analysis}}" class="tile__link" 
+                        aria-label="Analysis for GDP" data-gtm-label="Analysis for GDP">Analysis
+                    </a>
+                    <a href="{{ $GDP.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                        aria-label="Data for GDP" data-gtm-label="Data for GDP">Data
+                    </a>
                 </div>
             {{ else }}
                 {{ template "homepage/main-figures-error" . }}
@@ -293,8 +337,12 @@
                     </p>
                 {{ end }}
                 <div class="margin-top--1">
-                    <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for inflation">Analysis</a>
-                    <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for inflation">Data</a>
+                    <a href="{{ $Inflation.FigureURIs.Analysis }}" class="tile__link" 
+                        aria-label="Analysis for inflation" data-gtm-label="Analysis for inflation">Analysis
+                    </a>
+                    <a href="{{ $Inflation.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                        aria-label="Data for inflation" data-gtm-label="Data for inflation">Data
+                    </a>
                 </div>
             {{ else }}
                 {{ template "homepage/main-figures-error" . }}
@@ -310,8 +358,12 @@
                     <div class="">Mid-year estimate ({{ DatePeriodFormat $Population.Date }})</div>
                     <div class="tile__figure">{{ $Population.Figure }}</div>
                     <div class="margin-top--1">
-                        <a href="{{ $Population.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for UK population">Analysis</a>
-                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for UK population">Data</a>
+                        <a href="{{ $Population.FigureURIs.Analysis }}" class="tile__link" 
+                            aria-label="Analysis for UK population" data-gtm-label="Analysis for UK population">Analysis
+                        </a>
+                        <a href="{{ $Population.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                            aria-label="Data for UK population" data-gtm-label="Data for UK population">Data
+                        </a>
                     </div>
                 {{ else }}
                     {{ template "homepage/main-figures-error" . }}
@@ -335,8 +387,12 @@
                             </p>
                         {{ end }}
                         <div class="margin-top--1">
-                            <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for employment rate">Analysis</a>
-                            <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for employment rate">Data</a>
+                            <a href="{{ $EmploymentRate.FigureURIs.Analysis }}" class="tile__link" 
+                                aria-label="Analysis for employment rate" data-gtm-label="Analysis for employment rate">Analysis
+                            </a>
+                            <a href="{{ $EmploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                                aria-label="Data for employment rate" data-gtm-label="Data for employment rate">Data
+                            </a>
                         </div>
                     {{ else }}
                         {{ template "homepage/main-figures-error" . }}
@@ -359,8 +415,12 @@
                             </p>
                         {{ end }}
                         <div class="margin-top--1">
-                            <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" aria-label="Analysis for unemployment rate">Analysis</a>
-                            <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" aria-label="Data for unemployment rate">Data</a>
+                            <a href="{{ $UnemploymentRate.FigureURIs.Analysis }}" class="tile__link" 
+                                aria-label="Analysis for unemployment rate" data-gtm-label="Analysis for unemployment rate">Analysis
+                            </a>
+                            <a href="{{ $UnemploymentRate.FigureURIs.Data }}" class="tile__link margin-left--1" 
+                                aria-label="Data for unemployment rate" data-gtm-label="Data for unemployment rate">Data
+                            </a>
                         </div>
                     {{ else }}
                         {{ template "homepage/main-figures-error" . }}

@@ -38,6 +38,9 @@
     {{ if (ne .FeatureFlags.HideCookieBanner true)}}
       {{ template "partials/banners/cookies" . }}
     {{ end }}
+
+    {{ template "partials/banners/census-top" . }}
+
     {{ template "partials/header" . }}
 
     <main id="main" role="main" tabindex="-1">

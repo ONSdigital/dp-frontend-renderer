@@ -218,6 +218,30 @@ one = "Population and migration"
 description = "Well-being"
 one = "Well-being"
 
+[Census2021]
+description = "Census 2021"
+one = "Census 2021"
+
+[Census2021TakingPart]
+description = "Taking part is vital to make sure you and your community get the services you need."
+one = "Taking part is vital to make sure you and your community get the services you need."
+
+[Census2021CompleteLinkBanner]
+description = "Complete Census 2021"
+one = "Complete Census 2021"
+
+[Census2021CompleteLink]
+description = "Complete Census 2021."
+one = "Complete Census 2021."
+
+[Census2021Preparation]
+description = "Our preparation for Census 2021 and beyond."
+one = "Our preparation for Census 2021 and beyond."
+
+[Census2021ResearchLink]
+description = "Census research and planning."
+one = "Census research and planning."
+
 [SurveyTakingPart]
 description = "Taking part in a survey?"
 one = "Taking part in a survey?"
