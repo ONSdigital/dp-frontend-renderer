@@ -1,10 +1,19 @@
-<div class="flex wrapper flex-wrap-wrap stretch tiles background-gallery margin-top--2 margin-bottom--2 flex-basis-sm--full">
+<div class="flex wrapper flex-wrap-wrap stretch tiles background-gallery margin-top--2 margin-bottom--2 flex-basis-sm--full hide--sm">
         {{ template "partials/banners/census-tile-sm" . }}
     <div class="col--md-23 col--lg-29 margin-right-md--1 margin-bottom-sm--2 flex-basis-sm--full">
         {{ template "partials/banners/latest-releases-small" . }}
     </div>
     <div class="col--md-23 col--lg-29 margin-bottom-sm--2 flex-basis-sm--full">
         {{ template "partials/banners/survey" . }}
+    </div>
+</div>
+<div class="flex wrapper flex-wrap-wrap stretch tiles background-gallery margin-top--2 margin-bottom--2 flex-basis-sm--full hide--lg hide--md">
+        {{ template "partials/banners/census-tile-sm" . }}
+    <div class="col--md-23 col--lg-29 margin-right-md--1 margin-bottom-sm--2 flex-basis-sm--full">
+        {{ template "partials/banners/survey" . }}
+    </div>
+    <div class="col--md-23 col--lg-29 margin-bottom-sm--2 flex-basis-sm--full">
+        {{ template "partials/banners/latest-releases-small" . }}
     </div>
 </div>
 
