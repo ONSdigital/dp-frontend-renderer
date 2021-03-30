@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/cookies"
+	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
@@ -34,6 +35,7 @@ func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) 
 	router.Post("/dataset-landing-page-nomis", datasetLandingPage.NomisHandler(*cfg))
 	router.Post("/productPage", productPage.Handler(*cfg))
 	router.Post("/error", errorPage.Handler(*cfg))
+	router.Post("/datasets-test", dataset.Handler(*cfg))
 	router.Post("/dataset-filter/preview-page", previewPage.Handler(*cfg))
 	router.Post("/dataset-filter/geography", geography.Handler(*cfg))
 	router.Post("/dataset-filter/hierarchy", hierarchy.Handler(*cfg))
