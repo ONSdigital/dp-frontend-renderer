@@ -1,25 +1,75 @@
-<div class="page-content">
+<div class="page-neutral-intro background--gallery">
     <div class="wrapper">
         <div class="col-wrap">
             <div class="col">
                 {{ template "partials/breadcrumb" . }}
+                <nav class="breadcrumb print--hide" aria-label="Breadcrumbs" data="hardcoded">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a class="breadcrumb__link" href="/">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a class="breadcrumb__link" href="/economy">Economy</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a class="breadcrumb__link" href="/economy/inflationandpriceindices">Inflation and price indices</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a class="breadcrumb__link" href="/economy/inflationandpriceindices/datasets/understandingthedifferentapproachesofmeasuringowneroccupiershousingcosts">Measures of owner occupiers’ housing costs</a>
+                        </li>
+                        <li class="breadcrumb__item capitalise">Current</li>
+                    </ol>
+                </nav>
                 <h1 class="page-intro__title">
-                    {{if .Type}}
-                        <span class="page-intro__type">{{.Type}}:</span>
+                    {{if eq .Type "dataset"}}
+                        <span class="page-intro__type">Dataset(s):</span>
                     {{end}}
                     {{.Description.Title}}
                 </h1>
+                {{if .Description.Summary}}
+                    <p class="page-intro__content">{{.Description.Summary}}</P>
+                {{end}}
             </div>
-
+        </div>
+    </div>
+    <div class="meta-wrap">
+        <div class="wrapper">
+            <div class="col-wrap">
+                <p class="col col--md-12 col--lg-15 meta__item">
+                    {{if .Description.NationalStatistic}}
+                        <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">
+                            <img class="meta__image" 
+                            src="http://localhost:8080/img/national-statistics.png"
+                            alt="This is an accredited National Statistic. Click for information about types of official statistics."/>
+                        </a>
+                    {{end}}
+                    <span>Contact:</span><br>
+                    <a href="{{.Description.Contact.Email}}">
+                        {{if .Description.Contact.Name}}
+                            {{.Description.Contact.Name}}
+                        {{else}}
+                            {{.Description.Contact.Email}}
+                        {{end}}
+                    </a>
+                </p>
+                <p class="col col--md-12 col--lg-15 meta__item">
+                    <span>Release date:</span><br>{{.Description.ReleaseDate}}<br>
+                </p>
+                <p class="col col--md-12 col--lg-15 meta__item">
+                    <span>Next release:</span><br>16 June 2021
+</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content">
+    <div class="wrapper">
+        <div class="col-wrap">
             <div class="col col--lg-one col--md-two-one">
-
                 <div class="section__content--static-markdown">
-
                     <p class="print--hide">
-
                         <a class="underline-link" href="">
                             <span class="icon icon-return--dark-small margin-right-sm--1 margin-right-md--1"></span>Return to ''</a>
-
                     </p>
 
                     <p>Provides files to download data as it existed for this dataset on previous dates. </p>
