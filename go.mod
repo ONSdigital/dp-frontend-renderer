@@ -33,4 +33,4 @@ require (
 
 // This dependency fails if used directly. We need to do this replace. More info: https://github.com/russross/blackfriday/issues/500
 replace gopkg.in/russross/blackfriday.v2 => github.com/russross/blackfriday/v2 v2.0.1
-replace github.com/ONSdigital/dp-frontend-models => /Users/nicklupton/src/github.com/ONSdigital/dp-frontend-models
+replace github.com/ONSdigital/dp-frontend-models => /Users/joshuasingh/src/github.com/ONSdigital/dp-frontend-models

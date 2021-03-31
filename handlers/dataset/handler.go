@@ -5,7 +5,7 @@ import (
 
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 
-	dataset "github.com/ONSdigital/dp-frontend-models/model/datasets"
+	dataset "github.com/ONSdigital/dp-frontend-models/model/dataset"
 
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 )
@@ -15,6 +15,6 @@ func Handler(cfg config.Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		var page dataset.Page
 
-		render.Handler(w, req, &page, &page.Page, "dataset/download", nil, cfg)
+		render.Handler(w, req, &page, &page.Page, "dataset/test", nil, cfg)
 	}
 }
