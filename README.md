@@ -23,6 +23,11 @@ dp-frontend-renderer
   - the `func()` passed in should be used for any page-specific customisations
 3. Create a route in [main.go](main.go)
 
+### NOTE: Code development / testing
+
+Vscode in helpers.go and service.go does not see assets.Asset and assets.AssetNames so debugging won't play ball, and this is expected because the command line make commands utilise go generate to create the required functions in  data.go  ...
+
+So - at the command line, make debug, etc are OK. 
 
 ### Licence
 
