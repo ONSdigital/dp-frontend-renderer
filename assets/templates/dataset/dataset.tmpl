@@ -38,24 +38,7 @@
                     <h3>Latest version</h3>
 
 
-                    {{ $timeseriesDataset := index .Datasets 0 }}
-
-                    {{ range $timeseriesDataset.Downloads }}
-
-                        {{if .uri}}
-                            <a href="{{.uri .extension}}"
-                               title="Download as {{.uri}}"
-                               class="btn btn--primary btn--thin btn--narrow btn--small"
-                               data-gtm-type="{{.extension}}"
-                               data-gtm-date="Latest"
-                               data-gtm-download-file="{{.file}}"
-                               data-gtm-download-type="{{.extension}}" 
-                            >
-                            </a>
-                        {{ end }}
-
-                    {{ end }}
-                </div>
+                                   </div>
             </div>
         </div>
     </div>
