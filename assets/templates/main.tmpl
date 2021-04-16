@@ -39,17 +39,7 @@
       {{ template "partials/banners/cookies" . }}
     {{ end }}
 
-    <div class="emergency-banner emergency-banner--notable-death" role="banner" data-nosnippet="">
-        <div class="wrapper">
-            <div class="col-wrap">
-                <div class="col col--md-two-thirds col--lg-two-thirds">
-                    <h2 class="emergency-banner__heading">His Royal Highness The Duke of Edinburgh</h2>
-                    <p class="emergency-banner__description">10 June 1921 to 9 April 2021</p>
-                    <a href="https://www.gov.uk/government/topical-events/hrh-the-duke-of-edinburgh" class="emergency-banner__link">Read about the arrangements following The Duke of Edinburgh’s death</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ template "partials/banners/census-top" . }}
 
     {{ template "partials/header" . }}
 
