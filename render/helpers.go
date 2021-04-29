@@ -21,7 +21,8 @@ import (
 	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
-const legacyDatasetURIFormat = "/file?uri=%s/%s"
+const URIFormatWithTwoParameters = "/file?uri=%s/%s"
+const URIFormatOneParameter = "/file?uri=%s"
 
 var bundle, _ = InitLocaleBundle()
 var localizers = InitLocalizer()
@@ -76,6 +77,16 @@ func DateFormat(s string) template.HTML {
 	}
 	localiseTime(&t)
 	return template.HTML(t.Format("02 January 2006"))
+}
+
+func DateTimeFormat(s string) template.HTML {
+	t, err := time.Parse(time.RFC3339, s)
+	if err != nil {
+		log.Event(nil, "failed to parse time", log.Error(err), log.ERROR)
+		return template.HTML(s)
+	}
+	localiseTime(&t)
+	return template.HTML(t.Format("02 January 2006 15:04"))
 }
 
 func DateFormatYYYYMMDD(s string) template.HTML {
@@ -172,12 +183,15 @@ func Slug(s string) string {
 	return slug.Make(s)
 }
 
-// LegacyDataSetDownloadURI builds a URI string for a legacy dataset download URI.
-func LegacyDataSetDownloadURI(pageURI, filename string) string {
+func LegacyDataSetDownloadURI(input ...string) string {
 	// Concatenation of strings inside a Href tag causes the URI value to be HTML escaped.
 	// The preference is for our links not to be escaped to maintain readability. To remedy this we build
 	// the link inside this func which is then inserted into template.
-	return fmt.Sprintf(legacyDatasetURIFormat, pageURI, filename)
+	if len(input) > 1 {
+		return fmt.Sprintf(URIFormatWithTwoParameters, input[0], input[1])
+	} else {
+		return fmt.Sprintf(URIFormatOneParameter, input[0])
+	}
 }
 
 // Markdown converts markdown to HTML
@@ -305,4 +319,8 @@ func TruncateToMaximumCharacters(text string, maxLength int) string {
 
 	truncatedText := text[0:maxLength]
 	return strings.TrimSpace(truncatedText) + "..."
+}
+
+func TrimPrefixedPeriod(input string) string {
+	return strings.TrimLeft(input, ".")
 }

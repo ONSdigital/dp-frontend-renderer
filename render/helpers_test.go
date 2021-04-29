@@ -10,6 +10,9 @@ func TestLegacyDatasetDownloadURI(t *testing.T) {
 	Convey("should generated expected legacy dataset download URI", t, func() {
 		So(LegacyDataSetDownloadURI("/legacy/dataset/page", "test.csv"), ShouldEqual, "/file?uri=/legacy/dataset/page/test.csv")
 	})
+	Convey("no extra parameter given should still generate uri", t, func() {
+		So(LegacyDataSetDownloadURI("/legacy/dataset/page"), ShouldEqual, "/file?uri=/legacy/dataset/page")
+	})
 }
 
 func TestAdd(t *testing.T) {
@@ -252,6 +255,29 @@ func TestTruncateToMaximumCharacters(t *testing.T) {
 	Convey("That leading/trailling whitespace is removed when text is truncated", t, func() {
 		got := TruncateToMaximumCharacters("The space after 'space' should not be included", 10)
 		want := "The space..."
+		So(got, ShouldEqual, want)
+	})
+}
+
+func TestTrimPrefixedPeriod(t *testing.T) {
+	Convey("That the returned string is myString", t, func() {
+		got := TrimPrefixedPeriod(".myString")
+		want := "myString"
+		So(got, ShouldEqual, want)
+	})
+	Convey("That all periods are trimmed", t, func() {
+		got := TrimPrefixedPeriod(".....myString")
+		want := "myString"
+		So(got, ShouldEqual, want)
+	})
+	Convey("That only leading periods are trimmed", t, func() {
+		got := TrimPrefixedPeriod(".string with periods on the end....")
+		want := "string with periods on the end...."
+		So(got, ShouldEqual, want)
+	})
+	Convey("That a string with no period is returned", t, func() {
+		got := TrimPrefixedPeriod("a string with no period")
+		want := "a string with no period"
 		So(got, ShouldEqual, want)
 	})
 }

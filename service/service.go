@@ -33,6 +33,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 			"humanSize":                   renderHelpers.HumanSize,
 			"safeHTML":                    renderHelpers.SafeHTML,
 			"dateFormat":                  renderHelpers.DateFormat,
+			"dateTimeFormat":              renderHelpers.DateTimeFormat,
 			"dateFormatYYYYMMDD":          renderHelpers.DateFormatYYYYMMDD,
 			"DatePeriodFormat":            renderHelpers.DatePeriodFormat,
 			"last":                        renderHelpers.Last,
@@ -47,6 +48,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 			"hasField":                    renderHelpers.HasField,
 			"concatenateStrings":          renderHelpers.ConcatenateStrings,
 			"notLastItem":                 renderHelpers.NotLastItem,
+			"trimPrefixedPeriod":          renderHelpers.TrimPrefixedPeriod,
 			"truncateToMaximumCharacters": renderHelpers.TruncateToMaximumCharacters,
 			"taxonomyLandingPage": func(s string) string {
 				return taxonomyRedirects[s]

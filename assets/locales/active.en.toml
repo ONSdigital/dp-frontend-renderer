@@ -440,6 +440,74 @@ one = "Related link"
 other = "Related links"
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Current dataset page
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[IsAccreditedStatistic]
+description = "This is an accredited National Statistic. Click for information about types of official statistics."
+one = "This is an accredited National Statistic. Click for information about types of official statistics."
+
+[DatasetIDHelp]
+description = "This series ID is a unique random identifier for this individual time series. The digits themselves do not have any specific meaning"
+one = "This series ID is a unique random identifier for this individual time series. The digits themselves do not have any specific meaning"
+
+[WhatIsThis]
+description = "What is this"
+one = "What is this?"
+
+[ReturnTo]
+description = "Return to"
+one = "Return to"
+
+[FilesOverview]
+description = "Provides files to download data as it existed for this dataset on previous dates."
+one = "Provides files to download data as it existed for this dataset on previous dates."
+
+[RevisionIntro]
+description = "Statistics are most often revised for 1 of 2 reasons:"
+one = "Statistics are most often revised for 1 of 2 reasons:"
+
+[RevisionReasonOne]
+description = "For certain statistics initial estimates are released with the expectation that these may be revised and updated as further data becomes available."
+one = "For certain statistics initial estimates are released with the expectation that these may be revised and updated as further data becomes available."
+
+[RevisionReasonTwo]
+description = "Revisions may also be made when methods or systems are changed."
+one = "Revisions may also be made when methods or systems are changed."
+
+[PlannedRevisionOverview]
+description = "These types of planned revisions should not be confused with errors in released statistics, which are genuine mistakes. Such mistakes occur rarely and, when they do happen, corrections are made in a timely manner, announced and clearly explained to users in line with the Code of Practice for Official Statistics (Principle 2, Practice 7)."
+one = "These types of planned revisions should not be confused with errors in released statistics, which are genuine mistakes. Such mistakes occur rarely and, when they do happen, corrections are made in a timely manner, announced and clearly explained to users in line with the Code of Practice for Official Statistics (Principle 2, Practice 7)."
+
+[LatestVersionHeading]
+description = "Latest version"
+one = "Latest version"
+
+[PreviousVersionsHeading]
+description = "Previous versions"
+one = "Previous versions"
+
+[SuperseededTableHeading]
+description = "Superseded files"
+one = "Superseded files"
+
+[ReasonTableHeading]
+description = "Reason for update"
+one = "Reason for update"
+
+[DateTableHeading]
+description = "Date superseded"
+one = "Date superseded"
+
+[SeeCorrection]
+description = "See correction"
+one = "See correction"
+
+[ScheduledUpdate]
+description = "Scheduled update"
+one = "Scheduled update/revision"
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Cookies page
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
