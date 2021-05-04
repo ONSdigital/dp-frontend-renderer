@@ -170,7 +170,16 @@
                             </tbody>
                         </table>
                     {{end}}
-                </div>
+                    {{if .DatasetPage.Markdown}}
+                        <div class="section__content--static-markdown">
+                            <section>
+                                <h3>Important notes and usage information</h3>
+                                {{markdown .DatasetPage.Markdown}}
+                            </section>
+                        </div>
+                    {{end}}
+                </div>  
             </div>
         </div>
     </div>
+    
