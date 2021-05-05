@@ -12,6 +12,8 @@ github.com/ONSdigital/dp-frontend-models v1.10.1 h1:fHXZB/MwcS7pR2MySFvAhkzZpMSa
 github.com/ONSdigital/dp-frontend-models v1.10.1/go.mod h1:K4n0EwATkzbuWzSajBHja+uc9zvqnKiq6WtUwLav4Kg=
 github.com/ONSdigital/dp-frontend-models v1.10.2 h1:ZKE/0B3lkwwZNSfT8vn/uY1SX6AkBqLNvAKBqhXaKqs=
 github.com/ONSdigital/dp-frontend-models v1.10.2/go.mod h1:K4n0EwATkzbuWzSajBHja+uc9zvqnKiq6WtUwLav4Kg=
+github.com/ONSdigital/dp-frontend-models v1.11.0 h1:LJzp+kkoeNf+B5Tq/kQpNu99+PbpR9khdHqhJR1COqE=
+github.com/ONSdigital/dp-frontend-models v1.11.0/go.mod h1:K4n0EwATkzbuWzSajBHja+uc9zvqnKiq6WtUwLav4Kg=
 github.com/ONSdigital/dp-healthcheck v0.0.0-20200131122546-9db6d3f0494e h1:H2KVzsFp5oTbqjPXDlTHOB/LvYy2I6Mc8eSTLrmZkXs=
 github.com/ONSdigital/dp-healthcheck v0.0.0-20200131122546-9db6d3f0494e/go.mod h1:zighxZ/0m5u7zo0eAr8XFlA+Dz2ic7A1vna6YXvhCjQ=
 github.com/ONSdigital/dp-healthcheck v1.0.5 h1:DXnohGIqXaLLeYGdaGOhgkZjAbWMNoLAjQ3EgZeMT3M=
