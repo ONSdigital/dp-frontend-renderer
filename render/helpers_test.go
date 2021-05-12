@@ -281,3 +281,11 @@ func TestTrimPrefixedPeriod(t *testing.T) {
 		So(got, ShouldEqual, want)
 	})
 }
+
+func TestDateTimeFormat(t *testing.T) {
+	Convey("Given a formatted datetime return a human readable datetime", t, func() {
+		want := "13 June 2017 08:30"
+		got := DateTimeFormat("2017-06-13T08:30:00.000Z")
+		So(got, ShouldEqual, want)
+	})
+}

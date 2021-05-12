@@ -173,7 +173,7 @@
                     {{if .DatasetPage.Markdown}}
                         <div class="section__content--static-markdown">
                             <section>
-                                <h3>Important notes and usage information</h3>
+                                <h3>{{ localise "NotesAndUsage" $.Language 1 }}</h3>
                                 {{markdown .DatasetPage.Markdown}}
                             </section>
                         </div>
