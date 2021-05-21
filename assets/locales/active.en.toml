@@ -242,6 +242,10 @@ one = "Our preparation for Census 2021 and beyond."
 description = "Census research and planning."
 one = "Census research and planning."
 
+[Census2021Processing]
+description = "The last census took place on 21 March 2021.  We are currently processing the data."
+one = "The last census took place on 21 March 2021.  We are currently processing the data."
+
 [SurveyTakingPart]
 description = "Taking part in a survey?"
 one = "Taking part in a survey?"
