@@ -250,6 +250,10 @@ one = "Ein paratoadau ar gyfer Cyfrifiad 2021 a thu hwnt."
 description = "Gwaith ymchwil a chynllunio ar gyfer y cyfrifiad."
 one = "Gwaith ymchwil a chynllunio ar gyfer y cyfrifiad."
 
+[Census2021Processing]
+description = "The last census took place on 21 March 2021.  We are currently processing the data."
+one = "The last census took place on 21 March 2021.  We are currently processing the data."
+
 [SurveyTakingPart]
 description = "Taking part in a survey?"
 one = "Cymryd rhan mewn arolwg?"
