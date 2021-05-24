@@ -234,10 +234,6 @@ one = "Cyfrifiad 2021"
 description = "Mae cymryd rhan yn hanfodol er mwyn sicrhau eich bod chi a'ch cymuned yn cael y gwasanaethau sydd eu hangen arnoch chi."
 one = "Mae cymryd rhan yn hanfodol er mwyn sicrhau eich bod chi a'ch cymuned yn cael y gwasanaethau sydd eu hangen arnoch chi."
 
-[Census2021CompleteLinkBanner]
-description = "Cwblhewch Gyfrifiad 2021"
-one = "Cwblhewch Gyfrifiad 2021"
-
 [Census2021CompleteLink]
 description = "Cwblhewch Gyfrifiad 2021."
 one = "Cwblhewch Gyfrifiad 2021."
@@ -249,6 +245,10 @@ one = "Ein paratoadau ar gyfer Cyfrifiad 2021 a thu hwnt."
 [Census2021ResearchLink]
 description = "Gwaith ymchwil a chynllunio ar gyfer y cyfrifiad."
 one = "Gwaith ymchwil a chynllunio ar gyfer y cyfrifiad."
+
+[Census2021Processing]
+description = "Cafodd y cyfrifiad diwethaf ei gynnal ar 21 Mawrth 2021. Rydym wrthi'n prosesu'r data ar hyn o bryd."
+one = "Cafodd y cyfrifiad diwethaf ei gynnal ar 21 Mawrth 2021. Rydym wrthi'n prosesu'r data ar hyn o bryd."
 
 [SurveyTakingPart]
 description = "Taking part in a survey?"
