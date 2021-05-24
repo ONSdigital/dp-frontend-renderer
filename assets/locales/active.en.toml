@@ -226,10 +226,6 @@ one = "Census 2021"
 description = "Taking part is vital to make sure you and your community get the services you need."
 one = "Taking part is vital to make sure you and your community get the services you need."
 
-[Census2021CompleteLinkBanner]
-description = "Complete Census 2021"
-one = "Complete Census 2021"
-
 [Census2021CompleteLink]
 description = "Complete Census 2021."
 one = "Complete Census 2021."
