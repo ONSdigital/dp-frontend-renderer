@@ -442,6 +442,9 @@ other = "Related links"
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Current dataset page
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[DatasetPageTitle]
+description = "Dataset(s)"
+one = "Dataset(s)"
 
 [IsAccreditedStatistic]
 description = "This is an accredited National Statistic. Click for information about types of official statistics."
