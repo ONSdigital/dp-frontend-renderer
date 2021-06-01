@@ -767,8 +767,8 @@ description = "This specific page"
 one = "This specific page"
 
 [FeedbackWhatEnterURL]
-description = "Enter URL or name of the page"
-one = "Enter URL or name of the page"
+description = "Enter URL of the page"
+one = "Enter URL of the page"
 
 [FeedbackWhatOptHintSpecificPage]
 description = "{{.ServiceDescription}}"
@@ -824,7 +824,7 @@ one = "Send feedback"
 
 [FeedbackFinished]
 description = "Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a href=\"{{.Metadata.Description}}\">{{.Metadata.Description}}"
-one = "Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a href=\"{{.arg0}}\">{{.arg0}}"
+one = "<p class=\"font-size--18\">Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.</p><p class=\"font-size--18\">Return to <a href=\"{{.arg0}}\">{{.arg0}}</a></p>"
 
 [FeedbackWholeWebsite]
 description = "The whole ONS website or general feedback"
