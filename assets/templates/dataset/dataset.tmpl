@@ -3,10 +3,10 @@
     <div class="wrapper">
         <div class="col-wrap">
             <div class="col">
-                {{ template "partials/breadcrumb" . }}
-                <h1 class="page-intro__title {{ if not .Metadata.Description }}margin-bottom-sm--4 margin-bottom-md--4{{end}}">
-                    <span class="page-intro__type">{{ localise "DatasetPageTitle" .Language 1  }}</span>
-                    {{ .Metadata.Title }}
+                {{template "partials/breadcrumb" .}}
+                <h1 class="page-intro__title {{if not .Metadata.Description}}margin-bottom-sm--4 margin-bottom-md--4{{end}}">
+                    <span class="page-intro__type">{{localise "DatasetPageTitle" .Language 1 }}</span>
+                    {{.Metadata.Title}}
                 </h1>
                 {{if .Metadata.Description}}
                     <p class="page-intro__content">{{.Metadata.Description}}</p>
@@ -24,10 +24,10 @@
                     <a href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/">
                         <img class="meta__image" 
                             src="/img/national-statistics.png"
-                            alt="{{ localise "IsAccreditedStatistic" .Language 1 }}"/>
+                            alt="{{localise "IsAccreditedStatistic" .Language 1}}"/>
                     </a>
                 {{end}}
-                <span>{{ localise "Contact" .Language 1 }}</span>
+                <span>{{localise "Contact" .Language 1}}</span>
                 <br>
                 <a href="mailto:{{.ContactDetails.Email}}">
                     {{if .ContactDetails.Name}}
@@ -38,27 +38,27 @@
                 </a>
             </p>
             <p class="col col--md-12 col--lg-15 meta__item">
-                <span>{{ localise "ReleaseDate" .Language 1 }}:</span>
+                <span>{{localise "ReleaseDate" .Language 1}}:</span>
                 <br>
                 <time datetime="{{.DatasetPage.ReleaseDate}}">{{dateFormat .DatasetPage.ReleaseDate}}</time><br>
             </p>
             <p class="col col--md-12 col--lg-15 meta__item">
-                <span>{{ localise "NextRelease" .Language 1 }}</span>
+                <span>{{localise "NextRelease" .Language 1}}</span>
                 <br>
                 {{if .DatasetPage.NextRelease}}
                     {{dateFormat .DatasetPage.NextRelease}}
                 {{else}}
-                    {{ localise "TBA" .Language 1 }}
+                    {{localise "TBA" .Language 1}}
                 {{end}}
             </p>
             {{if .DatasetPage.DatasetID}}
                 <p class="col col--md-12 col--lg-15 meta__item">
-                    <span>{{ localise "DatasetID" .Language 1 }}</span>
+                    <span>{{localise "DatasetID" .Language 1}}</span>
                     <br>
                     {{.DatasetPage.DatasetID}}
                     &nbsp;
                     <span>
-                        <a href="#" class="tooltip print--hide" title="{{ localise "DatasetIDHelp" .Language 1 }}">{{ localise "WhatIsThis" .Language 1 }}</a>
+                        <a href="#" class="tooltip print--hide" title="{{localise "DatasetIDHelp" .Language 1}}">{{localise "WhatIsThis" .Language 1}}</a>
                     </span>
                 {{end}}
             </div>
@@ -75,20 +75,20 @@
                         <p class="print--hide">
                             <a class="underline-link" href="{{.DatasetPage.URI}}">
                                 <span class="icon icon-return--dark-small margin-right-sm--1 margin-right-md--1"></span>
-                                {{ localise "ReturnTo" .Language 1 }} '{{.Metadata.Title}}'
+                                {{localise "ReturnTo" .Language 1}} '{{.Metadata.Title}}'
                             </a>
                         </p>
-                        <p>{{ localise "FilesOverview" .Language 1 }}</p>
-                        <p>{{ localise "RevisionIntro" .Language 1 }}</p>
+                        <p>{{localise "FilesOverview" .Language 1}}</p>
+                        <p>{{localise "RevisionIntro" .Language 1}}</p>
                         <ol>
-                            <li>{{ localise "RevisionReasonOne" .Language 1 }}</li>
-                            <li>{{ localise "RevisionReasonTwo" .Language 1 }}</li>
+                            <li>{{localise "RevisionReasonOne" .Language 1}}</li>
+                            <li>{{localise "RevisionReasonTwo" .Language 1}}</li>
                         </ol>
-                        <p>{{ localise "PlannedRevisionOverview" .Language 1 }}</p>
+                        <p>{{localise "PlannedRevisionOverview" .Language 1}}</p>
                     </div>
 
                     <div class="margin-top-md--4 margin-bottom-sm--4 margin-bottom-md--5">
-                        <h3>{{ localise "LatestVersionHeading" .Language 1 }}</h3>
+                        <h3>{{localise "LatestVersionHeading" .Language 1}}</h3>
 
                         {{range .DatasetPage.Downloads}}
                             {{$trimmedfFileExt := trimPrefixedPeriod .Extension}}
@@ -101,7 +101,7 @@
                                 data-gtm-download-type="{{$trimmedfFileExt}}" 
                             >
                                 {{if eq .Extension "csdb"}}
-                                    {{ localise "StructuredText" .Language 1 }}
+                                    {{localise "StructuredText" .Language 1}}
                                 {{else}}
                                     {{$trimmedfFileExt}}
                                 {{end}}
@@ -113,14 +113,14 @@
 
                     {{if .DatasetPage.Versions}}
 
-                        <h3>{{ localise "PreviousVersionsHeading" .Language 1 }}</h3>
+                        <h3>{{localise "PreviousVersionsHeading" .Language 1}}</h3>
 
                         <table class="table-advanced margin-bottom-sm--4 margin-bottom-md--4">
                             <thead>
                                 <tr>
-                                    <th class="table-advanced__header" width="30%">{{ localise "SuperseededTableHeading" .Language 1 }}</th>
-                                    <th class="table-advanced__header" width="50%">{{ localise "ReasonTableHeading" .Language 1 }}</th>
-                                    <th class="table-advanced__header" width="20%">{{ localise "DateTableHeading" .Language 1 }}</th>
+                                    <th class="table-advanced__header" width="30%">{{localise "SuperseededTableHeading" .Language 1}}</th>
+                                    <th class="table-advanced__header" width="50%">{{localise "ReasonTableHeading" .Language 1}}</th>
+                                    <th class="table-advanced__header" width="20%">{{localise "DateTableHeading" .Language 1}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -139,7 +139,7 @@
                                                     data-gtm-download-type="{{$trimmedfFileExt}}" 
                                                     >
                                                     {{if eq .Extension "csdb"}}
-                                                        {{ localise "StructuredText" .Language 1 }}
+                                                        {{localise "StructuredText" .Language 1}}
                                                     {{else}}
                                                         {{$trimmedfFileExt}}
                                                     {{end}}
@@ -151,15 +151,15 @@
                                             {{if .CorrectionNotice}}
                                                 <div class="show-hide show-hide--light js-show-hide">
                                                     <div class="js-show-hide__title">
-                                                        <span class="no-js js--hide">{{ localise "Correction" $.Language 1 }}</span>
-                                                        <span>{{ localise "SeeCorrection" $.Language 1 }}</span>
+                                                        <span class="no-js js--hide">{{localise "Correction" $.Language 1}}</span>
+                                                        <span>{{localise "SeeCorrection" $.Language 1}}</span>
                                                     </div>
                                                     <div class="js-show-hide__content">
                                                         {{.CorrectionNotice}}
                                                     </div>
                                                 </div>
                                             {{else}}
-                                                {{ localise "ScheduledUpdate" $.Language 1 }}
+                                                {{localise "ScheduledUpdate" $.Language 1}}
                                             {{end}}
                                         </td>
                                         <td>
@@ -173,7 +173,7 @@
                     {{if .DatasetPage.Markdown}}
                         <div class="section__content--static-markdown">
                             <section>
-                                <h3>{{ localise "NotesAndUsage" $.Language 1 }}</h3>
+                                <h3>{{localise "NotesAndUsage" $.Language 1}}</h3>
                                 {{markdown .DatasetPage.Markdown}}
                             </section>
                         </div>
