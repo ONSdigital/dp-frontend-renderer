@@ -18,12 +18,14 @@
                         </div>
                         {{ if .Description.Keywords }}
                             {{ $numberOfKeywords := len .Description.Keywords }}
-                            <p class="search-results__keywords font-size--16">
-                                {{ localise "Keywords" $lang 4 }}: 
-                                {{ range $i, $el := .Description.Keywords }}
-                                    {{$el}}{{ if notLastItem $numberOfKeywords $i }},{{end}}
-                                {{end}}
-                            </p>
+                            {{ if gt $numberOfKeywords 0}}
+                                <p class="search-results__keywords font-size--16">
+                                    {{ localise "Keywords" $lang 4 }}: 
+                                    {{ range $i, $el := .Description.Keywords }}
+                                        {{$el}}{{ if notLastItem $numberOfKeywords $i }},{{end}}
+                                    {{end}}
+                                </p>
+                            {{end}}
                         {{end}}
                     </li>
                 {{end}}
