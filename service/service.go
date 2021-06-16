@@ -42,7 +42,6 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 			"subtract":                    renderHelpers.Subtract,
 			"slug":                        renderHelpers.Slug,
 			"markdown":                    renderHelpers.Markdown,
-			"legacyDatasetDownloadURI":    renderHelpers.LegacyDataSetDownloadURI,
 			"localise":                    renderHelpers.Localise,
 			"domainSetLang":               renderHelpers.DomainSetLang,
 			"hasField":                    renderHelpers.HasField,

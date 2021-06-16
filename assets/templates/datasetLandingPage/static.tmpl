@@ -141,7 +141,7 @@
                     {{ $timeseriesDataset := index .DatasetLandingPage.Datasets 0 }}
                         {{ range $timeseriesDataset.Downloads }}
                             <div class="inline-block--md margin-bottom-sm--1">
-                                <a href="{{ legacyDatasetDownloadURI $timeseriesDataset.URI .URI }}" 
+                                <a href="{{print "/file?uri=" $timeseriesDataset.URI .URI}}"
                                     class="btn btn--primary btn--thick"
                                     data-gtm-download-file="{{.URI}}"
                                     data-gtm-download-type="{{.Extension}}"

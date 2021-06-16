@@ -183,17 +183,6 @@ func Slug(s string) string {
 	return slug.Make(s)
 }
 
-func LegacyDataSetDownloadURI(input ...string) string {
-	// Concatenation of strings inside a Href tag causes the URI value to be HTML escaped.
-	// The preference is for our links not to be escaped to maintain readability. To remedy this we build
-	// the link inside this func which is then inserted into template.
-	if len(input) > 1 {
-		return fmt.Sprintf(URIFormatWithTwoParameters, input[0], input[1])
-	} else {
-		return fmt.Sprintf(URIFormatOneParameter, input[0])
-	}
-}
-
 // Markdown converts markdown to HTML
 func Markdown(md string) template.HTML {
 	// lot's of the markdown we currently have stored doesn't match markdown title specs

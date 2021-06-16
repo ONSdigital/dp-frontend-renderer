@@ -6,15 +6,6 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestLegacyDatasetDownloadURI(t *testing.T) {
-	Convey("should generated expected legacy dataset download URI", t, func() {
-		So(LegacyDataSetDownloadURI("/legacy/dataset/page", "test.csv"), ShouldEqual, "/file?uri=/legacy/dataset/page/test.csv")
-	})
-	Convey("no extra parameter given should still generate uri", t, func() {
-		So(LegacyDataSetDownloadURI("/legacy/dataset/page"), ShouldEqual, "/file?uri=/legacy/dataset/page")
-	})
-}
-
 func TestAdd(t *testing.T) {
 	Convey("add should return expected value", t, func() {
 		So(Add(99, 1), ShouldEqual, 100)
@@ -286,6 +277,11 @@ func TestDateTimeFormat(t *testing.T) {
 	Convey("Given a formatted datetime return a human readable datetime", t, func() {
 		want := "13 June 2017 08:30"
 		got := DateTimeFormat("2017-06-13T08:30:00.000Z")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a invalid datetime return said datetime", t, func() {
+		want := "2006-01-02Tkjklj+07:00"
+		got := DateTimeFormat("2006-01-02Tkjklj+07:00")
 		So(got, ShouldEqual, want)
 	})
 }
