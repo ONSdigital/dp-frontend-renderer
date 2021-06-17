@@ -512,12 +512,12 @@ one = "Latest version"
 [PreviousVersionsHeading]
 description = "Previous versions"
 one = "Previous version"
-two = "Previous versions"
+other = "Previous versions"
 
 [SuperseededTableHeading]
 description = "Superseded files"
 one = "Superseded file"
-two = "Superseded files"
+other = "Superseded files"
 
 [ReasonTableHeading]
 description = "Reason for update"

@@ -488,11 +488,13 @@ one = "Latest version"
 
 [PreviousVersionsHeading]
 description = "Previous versions"
-one = "Previous versions"
+one = "Previous version"
+other = "Previous versions"
 
 [SuperseededTableHeading]
 description = "Superseded files"
-one = "Superseded files"
+one = "Superseded file"
+other = "Superseded files"
 
 [ReasonTableHeading]
 description = "Reason for update"
