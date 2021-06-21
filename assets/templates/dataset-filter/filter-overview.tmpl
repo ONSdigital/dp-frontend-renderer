@@ -63,9 +63,9 @@
                                         <div role="alert">
                                             {{ $numberOfUnsetDimensions := len .Data.UnsetDimensions }}
                                             <div id="options-error" class="font-size--18 form-error filter-overview__error-message margin-bottom--1">
-                                                Add at least one filter to '{{ range $i, $el := .Data.UnsetDimensions }}{{ $el }}
+                                                Add at least one filter to '{{ range $i, $el := .Data.UnsetDimensions -}}{{ $el -}}
                                                     {{ if notLastItem $numberOfUnsetDimensions $i }},&nbsp;{{ end }}
-                                                {{ end }}' to generate data
+                                                {{- end }}' to generate data
                                              </div>
                                             <div class="font-size--18 margin-bottom--4"> Alternatively, return to the <a href="{{ .Data.LatestVersion.DatasetLandingPageURL }}">landing page</a> to download the complete dataset.</div>
                                         </div>
