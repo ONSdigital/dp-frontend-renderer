@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/ONSdigital/dp-api-clients-go v1.33.6 // indirect
-	github.com/ONSdigital/dp-frontend-models v1.10.2
+	github.com/ONSdigital/dp-frontend-models v1.12.0
 	github.com/ONSdigital/dp-healthcheck v1.0.5
 	github.com/ONSdigital/dp-net v1.0.11 // indirect
 	github.com/ONSdigital/go-ns v0.0.0-20200902154605-290c8b5ba5eb

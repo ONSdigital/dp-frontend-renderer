@@ -870,3 +870,11 @@ other = "Allweddeiriau"
 [Next]
 description = "Next"
 one = "Nesaf" 
+
+[DidYouKnow]
+description = "Did you know?"
+one = "Did you know?" 
+
+[ProduceStatisticsRelatingTo]
+description = "also produce statistics relating to"
+one = "also produce statistics relating to" 
