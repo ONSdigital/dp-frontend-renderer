@@ -13,7 +13,7 @@ import (
 	"github.com/ONSdigital/dp-healthcheck/healthcheck"
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/render"
-	"github.com/ONSdigital/log.go/log"
+	"github.com/ONSdigital/log.go/v2/log"
 	"github.com/gorilla/pat"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
@@ -23,7 +23,7 @@ import (
 func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]string, hc *healthcheck.HealthCheck) *http.Server {
 
 	// Override default renderer with service assets
-	log.Event(ctx, "overriding default renderer with service assets", log.INFO)
+	log.Info(ctx, "overriding default renderer with service assets")
 	render.Renderer = unrolled.New(unrolled.Options{
 		Asset:         assets.Asset,
 		AssetNames:    assets.AssetNames,
@@ -74,7 +74,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 	// Start the HTTP server in a new go routine
 	go func() {
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Event(ctx, "error starting http server", log.ERROR, log.Error(err))
+			log.Error(ctx, "error starting http server", err)
 		}
 	}()
 

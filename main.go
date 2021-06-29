@@ -11,7 +11,7 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/dp-frontend-renderer/service"
 	"github.com/ONSdigital/dp-healthcheck/healthcheck"
-	"github.com/ONSdigital/log.go/log"
+	"github.com/ONSdigital/log.go/v2/log"
 	"gopkg.in/yaml.v2"
 )
 
@@ -36,12 +36,12 @@ func init() {
 		taxonomyRedirects = make(map[string]string)
 		b, err := ioutil.ReadFile("taxonomy-redirects.yml")
 		if err != nil {
-			log.Event(nil, "could not open taxonomy redirect file", log.Error(err), log.FATAL)
+			log.Fatal(nil, "could not open taxonomy redirect file", err)
 			os.Exit(1)
 		}
 
 		if err := yaml.Unmarshal(b, &taxonomyRedirects); err != nil {
-			log.Event(nil, "could not unmarshal taxonomy redirects file", log.Error(err), log.FATAL)
+			log.Fatal(nil, "could not unmarshal taxonomy redirects file", err)
 			os.Exit(1)
 		}
 	}
@@ -52,7 +52,7 @@ func main() {
 	ctx := context.Background()
 
 	if err := run(ctx); err != nil {
-		log.Event(ctx, "application unexpectedly failed", log.ERROR, log.Error(err))
+		log.Error(ctx, "application unexpectedly failed", err)
 		os.Exit(1)
 	}
 
@@ -67,15 +67,15 @@ func run(ctx context.Context) error {
 	// Get Config
 	cfg, err := config.Get()
 	if err != nil {
-		log.Event(ctx, "unable to retrieve service configuration", log.FATAL, log.Error(err))
+		log.Fatal(ctx, "unable to retrieve service configuration", err)
 		return err
 	}
-	log.Event(ctx, "got service configuration", log.Data{"config": cfg}, log.INFO)
+	log.Info(ctx, "got service configuration", log.Data{"config": cfg})
 
 	// Create healthcheck with versionInfo
 	versionInfo, err := healthcheck.NewVersionInfo(BuildTime, GitCommit, Version)
 	if err != nil {
-		log.Event(ctx, "failed to create versionInfo for healthcheck", log.FATAL, log.Error(err))
+		log.Fatal(ctx, "failed to create versionInfo for healthcheck", err)
 		return err
 	}
 	hc := healthcheck.New(versionInfo, cfg.HealthCheckCriticalTimeout, cfg.HealthCheckInterval)
@@ -87,7 +87,7 @@ func run(ctx context.Context) error {
 
 	// Wait for OS signal, and do graceful shutdown
 	signal := <-signals
-	log.Event(ctx, "shutting down after os signal received", log.INFO, log.Data{"signal": signal, "shutdown_timeout": cfg.ShutdownTimeout})
+	log.Info(ctx, "shutting down after os signal received", log.Data{"signal": signal, "shutdown_timeout": cfg.ShutdownTimeout})
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), cfg.ShutdownTimeout)
 
 	// track shutdown gracefully closes app
@@ -98,12 +98,12 @@ func run(ctx context.Context) error {
 		defer cancel()
 		var hasShutdownError bool
 
-		log.Event(shutdownCtx, "stopping healthcheck", log.INFO)
+		log.Info(shutdownCtx, "stopping healthcheck")
 		hc.Stop()
 
-		log.Event(shutdownCtx, "stopping http server", log.INFO)
+		log.Info(shutdownCtx, "stopping http server")
 		if err := httpServer.Shutdown(shutdownCtx); err != nil {
-			log.Event(shutdownCtx, "failed to gracefully shutdown http server", log.FATAL, log.Error(err))
+			log.Fatal(shutdownCtx, "failed to gracefully shutdown http server", err)
 			hasShutdownError = true
 		}
 
@@ -116,16 +116,16 @@ func run(ctx context.Context) error {
 	<-shutdownCtx.Done()
 
 	if shutdownCtx.Err() == context.DeadlineExceeded {
-		log.Event(shutdownCtx, "shutdown timeout", log.ERROR, log.Error(shutdownCtx.Err()))
+		log.Error(shutdownCtx, "shutdown timeout", shutdownCtx.Err())
 		return shutdownCtx.Err()
 	}
 
 	if !gracefulShutdown {
 		err = errors.New("failed to shutdown gracefully")
-		log.Event(shutdownCtx, "failed to shutdown gracefully ", log.ERROR, log.Error(err))
+		log.Error(shutdownCtx, "failed to shutdown gracefully ", err)
 		return err
 	}
 
-	log.Event(shutdownCtx, "done shutdown gracefully", log.INFO, log.Data{"context": shutdownCtx.Err()})
+	log.Info(shutdownCtx, "done shutdown gracefully", log.Data{"context": shutdownCtx.Err()})
 	return nil
 }
