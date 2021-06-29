@@ -15,41 +15,63 @@
         <div class="wrapper padding-right-sm--0 padding-left-sm--0">
             <div id="options-info" class="col-wrap">
                 <div class="col">
-				{{if not .Data.IsLatestVersion}}
-                  {{ template "partials/latest-release-alert" . }}
-	            {{ end }}
+                    {{if not .Data.IsLatestVersion}}
+                        {{ template "partials/latest-release-alert" . }}
+                    {{ end }}
                     <div class="col col--md-47 col--lg-59 margin-top--2 margin-bottom--4 background--gallery">
                         <ul class="list--neutral filter-overview ">
                             <li class="line-height--32 margin-left--0 padding-bottom--2 padding-top--0 padding-right--2 width-lg--56">
-                        	    <a class="float-el--right-md float-el--right-sm float-el--right-lg" href="{{.Data.ClearAll.URL}}">Clear filters</a>
+                                <a class="float-el--right-md float-el--right-sm float-el--right-lg" href="{{.Data.ClearAll.URL}}">Clear filters</a>
                             </li>
                             {{ range .Data.Dimensions}}
-                            <li class="line-height--32 js-filter-option white-background margin-left-md--2 margin-right-md--2 margin-right-sm--1 margin-left-sm--1 {{if eq .Link.Label "Add"}}filter-overview__add{{else}}filter-overview__edit{{end}}">
-                                <div class="col--lg-56 min-height--10 padding-left-sm--0 padding-left-md--1">
-                                    {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}
-                                    <div class="col col--md-8 col--lg-8 min-height--4">
-                                        <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}"><span class="line-height--32 dimension-button {{if eq .Link.Label "Add"}}btn btn--tertiary margin-left-md--2 margin-left-sm--1 {{else}}margin-left-md--3 margin-left-sm--2 {{end}} font-weight-700 ">{{.Link.Label}} <span class="visuallyhidden">{{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
-                                    </div>
-                                    <div class="dimension-name col col--md-11 col--lg-14 margin-left-sm--6 height-sm--3 height-md--6 overflow--hidden margin-top-md--3 margin-bottom-sm--2"><strong><span class="js-filter-option-label font-size--18 line-height--32">{{.Filter}}</span></strong></div>
-                                    <div id="number-added-{{slug .Filter}}" class="col col--md-20 col--lg-30">
-                                        <div class="font-size--18 line-height--32 height-sm--3 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses-sm overflow--hidden">
-                                        <div class="height-sm--3 max-height-md--9 vertical-align-middle__contents--md list--ellipses-md">
-                                            <ul class="list list--pipe-seperated list--pipe-seperated-ellipses">
-                                                <li class="line-height--32 list--no-separator">{{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}</li>
-                                                {{range $i, $c := $categories}}
-                                                    <li class="line-height--32">{{$c}}</li>
-                                                {{end}}
-                                            </ul>
+                                <li class="line-height--32 js-filter-option white-background margin-left-md--2 margin-right-md--2 margin-right-sm--1 margin-left-sm--1 {{if eq .Link.Label "Add"}}{{if and $.Data.HasUnsetDimensions .HasNoCategory}}filter-overview__error{{else}}filter-overview__add{{end}}{{else}}filter-overview__edit{{end}}">
+                                    <div class="col--lg-56 min-height--10 padding-left-sm--0 padding-left-md--1">
+                                        {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}
+                                        <div class="col col--md-8 col--lg-8 min-height--4">
+                                            <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}">
+                                                <span class="line-height--32 dimension-button {{if eq .Link.Label "Add"}}btn btn--tertiary margin-left-md--2 margin-left-sm--1 {{else}}margin-left-md--3 margin-left-sm--2 {{end}} font-weight-700 ">{{.Link.Label}}
+                                                    <span class="visuallyhidden">
+                                                        {{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
                                         </div>
-                                        </div> 
+                                        <div class="dimension-name col col--md-11 col--lg-14 margin-left-sm--6 height-sm--3 height-md--6 overflow--hidden margin-top-md--3 margin-bottom-sm--2">
+                                            <strong>
+                                                <span class="js-filter-option-label font-size--18 line-height--32">{{.Filter}}</span></strong>
+                                        </div>
+                                        <div id="number-added-{{slug .Filter}}" class="col col--md-20 col--lg-30">
+                                            <div class="font-size--18 line-height--32 height-sm--3 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses-sm overflow--hidden">
+                                                <div class="height-sm--3 max-height-md--9 vertical-align-middle__contents--md list--ellipses-md">
+                                                    <ul class="list list--pipe-seperated list--pipe-seperated-ellipses">
+                                                        <li class="line-height--32 list--no-separator">
+                                                            {{if eq $length 0}}Nothing added{{else}}{{$length}} added:{{end}}
+                                                        </li>
+                                                        {{range $i, $c := $categories}}
+                                                            <li class="line-height--32">{{$c}}</li>
+                                                        {{end}}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
                             {{ end }}
                         </ul>
-                        <div class="padding-bottom--4 padding-left--2 padding-top--2">
+
+                        <div class="padding-bottom--4 padding-left--2">
                             <form method="post" action="/filters/{{.FilterID}}/submit">
-                                <input id="preview-download" type="submit" value="Apply filters" aria-label="Apply filters" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 line-height--32" name="preview-and-download" />
+                                <div class="padding-top--2" id="error-container">
+                                    {{ if .Data.HasUnsetDimensions }}
+                                        <div role="alert">
+                                            {{ $numberOfUnsetDimensions := len .Data.UnsetDimensions }}
+                                            <div id="options-error" class="font-size--18 form-error filter-overview__error-message margin-bottom--1">
+                                                Add at least one filter to '{{ range $i, $el := .Data.UnsetDimensions -}}{{ $el -}}
+                                                    {{ if notLastItem $numberOfUnsetDimensions $i }},&nbsp;{{ end }}
+                                                {{- end }}' to generate data
+                                             </div>
+                                            <div class="font-size--18 margin-bottom--4"> Alternatively, return to the <a href="{{ .Data.LatestVersion.DatasetLandingPageURL }}">landing page</a> to download the complete dataset.</div>
+                                        </div>
+                                    {{ end }}
+                                </div>
+                                <input id="preview-download" type="submit" value="Apply filters" aria-label="Apply filters" class="btn btn--primary btn--thick btn--wide btn--big btn--focus margin-right--2 font-weight-700 line-height--32" name="preview-and-download"/>
                             </form>
                         </div>
                     </div>
