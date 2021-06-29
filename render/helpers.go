@@ -21,7 +21,6 @@ import (
 	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
-const URIFormatWithTwoParameters = "/file?uri=%s/%s"
 const URIFormatOneParameter = "/file?uri=%s"
 
 var bundle, _ = InitLocaleBundle()
