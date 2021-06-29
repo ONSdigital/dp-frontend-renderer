@@ -7,6 +7,7 @@
             {{ template "search/sort" . }}
             {{ template "search/filter" . }}
             <section class="col col--md-34 col--lg-40 margin-left-md--1" aria-label="Search results">
+                {{ template "search/department" . }}
                 {{ template "search/results" . }}
                 {{ template "search/pagination" . }}
             </section>
