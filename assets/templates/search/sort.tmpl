@@ -23,6 +23,16 @@
                     </strong>
                 </span>
                 .
+                {{ if eq .Data.Response.Count 0 }}
+                    Try
+                    {{ $len := len .Data.Response.AdditionalSuggestions}}
+                    {{ range $i, $suggestion := .Data.Response.AdditionalSuggestions}}
+                        <a href="/search?q={{ $suggestion }}">{{ $suggestion }}</a> 
+                        {{ if notLastItem $len $i }}
+                        or
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
             </h2>
         </div>
         <div class="float-right">
