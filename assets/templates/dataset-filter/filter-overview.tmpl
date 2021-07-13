@@ -28,17 +28,17 @@
                                     <div class="col--lg-56 min-height--10 padding-left-sm--0 padding-left-md--1">
                                         {{$length := len .AddedCategories}}{{$categories := .AddedCategories}}
                                         <div class="col col--md-8 col--lg-8 min-height--4">
-                                            <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit{{else}}filter-overview__link--add{{end}}" href="{{.Link.URL}}">
+                                            <a class="{{if eq .Link.Label "Edit"}}filter-overview__link--edit padding-top-sm--3{{else}}filter-overview__link--add padding-top-sm--2{{end}}" href="{{.Link.URL}}">
                                                 <span class="line-height--32 dimension-button {{if eq .Link.Label "Add"}}btn btn--tertiary margin-left-md--2 margin-left-sm--1 {{else}}margin-left-md--3 margin-left-sm--2 {{end}} font-weight-700 ">{{.Link.Label}}
                                                     <span class="visuallyhidden">
                                                         {{if gt $length 0}}by {{end}}{{.Filter}}</span></span></a>
                                         </div>
-                                        <div class="dimension-name col col--md-11 col--lg-14 margin-left-sm--6 height-sm--3 height-md--6 overflow--hidden margin-top-md--3 margin-bottom-sm--2">
+                                        <div class="dimension-name col col--md-11 col--lg-14 margin-left-sm--6 overflow--hidden height--10 flex flex-direction--column content-center padding-top-sm--3">
                                             <strong>
                                                 <span class="js-filter-option-label font-size--18 line-height--32">{{.Filter}}</span></strong>
                                         </div>
                                         <div id="number-added-{{slug .Filter}}" class="col col--md-20 col--lg-30">
-                                            <div class="font-size--18 line-height--32 height-sm--3 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses-sm overflow--hidden">
+                                            <div class="font-size--18 line-height--32 height-sm--5 height-md--10 nowrap-sm vertical-align-middle margin-left-sm--4 list--ellipses-sm overflow--hidden">
                                                 <div class="height-sm--3 max-height-md--9 vertical-align-middle__contents--md list--ellipses-md">
                                                     <ul class="list list--pipe-seperated list--pipe-seperated-ellipses">
                                                         <li class="line-height--32 list--no-separator">
