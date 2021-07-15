@@ -1,5 +1,12 @@
-dp-frontend-renderer
+# dp-frontend-renderer
+
 ====================
+
+## Deprication
+
+The renderer is being depracted, the template and toml files are to be migrated to the relevant controller/service.
+
+Refer to the [migration](migration.md) readme for further information.
 
 ### Configuration
 
