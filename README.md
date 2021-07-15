@@ -1,10 +1,8 @@
 # dp-frontend-renderer
 
-====================
+## Deprecation
 
-## Deprication
-
-The renderer is being depracted, the template and toml files are to be migrated to the relevant controller/service.
+The renderer is being deprecated, the template and toml (localisation) files are to be migrated to the relevant controller/service.
 
 Refer to the [migration](migration.md) readme for further information.
 

@@ -1,10 +1,8 @@
 # dp-frontend-renderer migration
-  
-====================
 
-The `dp-frontend-renderer` is being depricated and the files migrated to the relevant controller/service.
+The `dp-frontend-renderer` is being deprecated and the files migrated to the relevant controller/service.
 
-The services are likely to be in a transient state, where a file has been migrated but the effected service has not been released to production. At this point, the files will still be in the renderer but pending removal.  
+The services are likely to be in a transient state, where a file has been migrated but the affected service has not been released to production. At this point, the files will still be in the `dp-frontend-renderer` but pending removal.  
 
 Due to the toml/localisation files being site wide, the sections migrated are listed. The files cannot be removed until the whole migration is complete.
 
