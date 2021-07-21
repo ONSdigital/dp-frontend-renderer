@@ -6,12 +6,6 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestLegacyDatasetDownloadURI(t *testing.T) {
-	Convey("should generated expected legacy dataset download URI", t, func() {
-		So(LegacyDataSetDownloadURI("/legacy/dataset/page", "test.csv"), ShouldEqual, "/file?uri=/legacy/dataset/page/test.csv")
-	})
-}
-
 func TestAdd(t *testing.T) {
 	Convey("add should return expected value", t, func() {
 		So(Add(99, 1), ShouldEqual, 100)
@@ -252,6 +246,42 @@ func TestTruncateToMaximumCharacters(t *testing.T) {
 	Convey("That leading/trailling whitespace is removed when text is truncated", t, func() {
 		got := TruncateToMaximumCharacters("The space after 'space' should not be included", 10)
 		want := "The space..."
+		So(got, ShouldEqual, want)
+	})
+}
+
+func TestTrimPrefixedPeriod(t *testing.T) {
+	Convey("That the returned string is myString", t, func() {
+		got := TrimPrefixedPeriod(".myString")
+		want := "myString"
+		So(got, ShouldEqual, want)
+	})
+	Convey("That all periods are trimmed", t, func() {
+		got := TrimPrefixedPeriod(".....myString")
+		want := "myString"
+		So(got, ShouldEqual, want)
+	})
+	Convey("That only leading periods are trimmed", t, func() {
+		got := TrimPrefixedPeriod(".string with periods on the end....")
+		want := "string with periods on the end...."
+		So(got, ShouldEqual, want)
+	})
+	Convey("That a string with no period is returned", t, func() {
+		got := TrimPrefixedPeriod("a string with no period")
+		want := "a string with no period"
+		So(got, ShouldEqual, want)
+	})
+}
+
+func TestDateTimeFormat(t *testing.T) {
+	Convey("Given a formatted datetime return a human readable datetime", t, func() {
+		want := "13 June 2017 08:30"
+		got := DateTimeFormat("2017-06-13T08:30:00.000Z")
+		So(got, ShouldEqual, want)
+	})
+	Convey("Given a invalid datetime return said datetime", t, func() {
+		want := "2006-01-02Tkjklj+07:00"
+		got := DateTimeFormat("2006-01-02Tkjklj+07:00")
 		So(got, ShouldEqual, want)
 	})
 }

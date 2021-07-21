@@ -1,18 +1,29 @@
 package datasetLandingPage
 
 import (
-	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"net/http"
+
+	"github.com/ONSdigital/dp-frontend-renderer/config"
 
 	"github.com/ONSdigital/dp-frontend-models/model/datasetVersionsList"
 
 	"github.com/ONSdigital/dp-frontend-models/model/datasetEditionsList"
 	"github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageFilterable"
 	"github.com/ONSdigital/dp-frontend-models/model/datasetLandingPageStatic"
+	"github.com/ONSdigital/dp-frontend-models/model/datasetPage"
 	"github.com/ONSdigital/dp-frontend-renderer/render"
 )
 
 const xRequestIDParam = "X-Request-Id"
+
+//DatasetHandler builds the template for dataset pages
+func DatasetHandler(cfg config.Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		var page datasetPage.Page
+
+		render.Handler(w, req, &page, &page.Page, "dataset/dataset", nil, cfg)
+	}
+}
 
 //FilterHandler ...
 func FilterHandler(cfg config.Config) http.HandlerFunc {
