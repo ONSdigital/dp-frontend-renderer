@@ -24,12 +24,16 @@
                 </span>
                 .
                 {{ if eq .Data.Response.Count 0 }}
-                    Try
-                    {{ $len := len .Data.Response.AdditionalSuggestions}}
-                    {{ range $i, $suggestion := .Data.Response.AdditionalSuggestions}}
-                        <a href="/search?q={{ $suggestion }}">{{ $suggestion }}</a> 
-                        {{ if notLastItem $len $i }}
-                        or
+                    {{ if .Data.Response.Suggestions}}
+                        Did you mean <a class="underline-link" href="/search?q={{ index .Data.Response.Suggestions 0 }}">{{ index .Data.Response.Suggestions 0 }}</a>?
+                    {{ else }}
+                        Try
+                        {{ $len := len .Data.Response.AdditionalSuggestions}}
+                        {{ range $i, $suggestion := .Data.Response.AdditionalSuggestions}}
+                            <a class="underline-link" href="/search?q={{ $suggestion }}">{{ $suggestion }}</a> 
+                            {{ if notLastItem $len $i }}
+                            or
+                            {{ end }}
                         {{ end }}
                     {{ end }}
                 {{ end }}
