@@ -24,6 +24,12 @@ func TestSubtract(t *testing.T) {
 	})
 }
 
+func TestMultiply(t *testing.T) {
+	Convey("substract should return expected value", t, func() {
+		So(Multiply(100, 1), ShouldEqual, 100)
+	})
+}
+
 func TestHumanSize(t *testing.T) {
 	Convey("humanSize should return the expected value for 1500 bytes", t, func() {
 		res, err := HumanSize("1500")
@@ -236,6 +242,14 @@ func TestDatePeriodFormat(t *testing.T) {
 		So(got, ShouldEqual, want)
 	})
 
+}
+
+func TestDateFormatYYYYMMDDNoSlash(t *testing.T) {
+	Convey("Date format returns human readable string", t, func() {
+		So(DateFormatYYYYMMDDNoSlash("2019-08-15T00:00:00.000Z"), ShouldEqual, "20190815")
+		So(DateFormatYYYYMMDDNoSlash("2019-08-15"), ShouldEqual, "2019-08-15") // failed to parse, so returns arg value
+		So(DateFormatYYYYMMDDNoSlash(""), ShouldEqual, "")
+	})
 }
 
 func TestTruncateToMaximumCharacters(t *testing.T) {
