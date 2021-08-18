@@ -16,13 +16,7 @@
                     {{ end }}
                 {{else}} results {{end}} 
                 containing
-                <strong>‘{{ .Data.Query}}’</strong>,
-                <span class="lowercase">Sorted by 
-                    <strong>
-                        {{ localise .Data.Sort.LocaliseSortKey $lang 1 }} 
-                    </strong>
-                </span>
-                .
+                <strong>‘{{ .Data.Query}}’</strong>.
                 {{ if eq .Data.Response.Count 0 }}
                     {{ if .Data.Response.Suggestions}}
                         Did you mean <a class="underline-link" href="/search?q={{ index .Data.Response.Suggestions 0 }}">{{ index .Data.Response.Suggestions 0 }}</a>?
