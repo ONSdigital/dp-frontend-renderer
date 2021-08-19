@@ -10,7 +10,7 @@ Refer to the [migration](migration.md) readme for further information.
 
 | Environment variable          | Default               | Description
 | ----------------------------- | --------------------- | -------------------------------
-| BIND_ADDR                     | :20000                | The host and port to bind to
+| BIND_ADDR                     | :20010                | The host and port to bind to
 | DEBUG                         | false                 | Enable debug mode
 | SITE_DOMAIN                   | ons.gov.uk            | Domain for the website
 | PATTERN_LIBRARY_ASSETS_PATH   |                       | Pattern library location
