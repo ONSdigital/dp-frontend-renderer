@@ -25,7 +25,7 @@ func TestSubtract(t *testing.T) {
 }
 
 func TestMultiply(t *testing.T) {
-	Convey("substract should return expected value", t, func() {
+	Convey("multiply should return expected value", t, func() {
 		So(Multiply(100, 1), ShouldEqual, 100)
 	})
 }
@@ -245,7 +245,7 @@ func TestDatePeriodFormat(t *testing.T) {
 }
 
 func TestDateFormatYYYYMMDDNoSlash(t *testing.T) {
-	Convey("Date format returns human readable string", t, func() {
+	Convey("Date format returns short date pattern without slashes", t, func() {
 		So(DateFormatYYYYMMDDNoSlash("2019-08-15T00:00:00.000Z"), ShouldEqual, "20190815")
 		So(DateFormatYYYYMMDDNoSlash("2019-08-15"), ShouldEqual, "2019-08-15") // failed to parse, so returns arg value
 		So(DateFormatYYYYMMDDNoSlash(""), ShouldEqual, "")
