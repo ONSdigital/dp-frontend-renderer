@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{ if .HasJSONLD -}}{{ template "partials/json-ld/base" . }}{{- end }}
 
+    {{if eq .Type "search"}}
+      <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/search?q=" .Data.Query }}>
+    {{ end }}
+
     {{if eq .Metadata.Title "Feedback"}}
       <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/feedback" }}>
     {{ end }}
