@@ -15,9 +15,11 @@
                     {{ template "homepage/in-focus" . }}
                 </div>
             {{ end }}
-            <div class="tiles__block tiles__block-no-mar-bottom">
-                {{ template "homepage/around-the-ons" . }}
-            </div>
+            {{ if gt (len .Data.AroundONS) 0 }}
+                <div class="tiles__block tiles__block-no-mar-bottom">
+                    {{ template "homepage/around-the-ons" . }}
+                </div>
+            {{ end }}
         </div>
     </div>
 </div>

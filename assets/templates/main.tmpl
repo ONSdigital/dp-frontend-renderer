@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{.PatternLibraryAssetsPath}}/css/main.css">
     {{ if .HasJSONLD -}}{{ template "partials/json-ld/base" . }}{{- end }}
 
+    {{if eq .Type "search"}}
+      <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/search?q=" .Data.Query }}>
+    {{ end }}
+
     {{if eq .Metadata.Title "Feedback"}}
       <link rel="canonical" href={{ concatenateStrings "https://www." .SiteDomain "/feedback" }}>
     {{ end }}
@@ -29,7 +33,7 @@
     })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
     <!-- End Google Tag Manager -->
 </head>
-<body class="{{ .Type }}">
+<body class="page-type--{{ .Type }}">
 <script>document.body.className = ((document.body.className) ? document.body.className + ' js' : 'js');</script>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"

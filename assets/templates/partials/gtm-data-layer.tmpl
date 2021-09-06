@@ -18,6 +18,7 @@ function htmlUnescape(str){
 }
 
 dataLayer = [{
+    "pageType": {{ .Type}},
     "analyticsOptOut": getUsageCookieValue(),
     "gtm.whitelist": ["google","hjtc","lcl"],
     "gtm.blacklist": ["customScripts","sp","adm","awct","k","d","j"],
@@ -28,7 +29,10 @@ dataLayer = [{
         "contentTitle": htmlUnescape({{.Metadata.Title}}),
     {{end}}
     {{if .ReleaseDate }}
-        "releaseDate": {{dateFormatYYYYMMDD .ReleaseDate}}
+        "releaseDate": {{dateFormatYYYYMMDD .ReleaseDate}},
+    {{end}}
+    {{if eq .Type "search"}}
+        "newSearch": true,
     {{end}}
 }];
 
