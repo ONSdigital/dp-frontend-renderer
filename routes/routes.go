@@ -9,7 +9,6 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/listSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/timeSelector"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
 	geographyArea "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
@@ -26,7 +25,6 @@ func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) 
 	router.Get("/health", hc.Handler)
 	router.Post("/homepage", homepage.Handler(*cfg))
 	router.Post("/feedback", feedback.Handler(*cfg))
-	router.Post("/dataset-version-list", datasetLandingPage.VersionListHandler(*cfg))
 	router.Post("/productPage", productPage.Handler(*cfg))
 	router.Post("/error", errorPage.Handler(*cfg))
 	router.Post("/dataset-filter/preview-page", previewPage.Handler(*cfg))
