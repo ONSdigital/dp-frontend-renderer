@@ -14,15 +14,6 @@ import (
 
 const xRequestIDParam = "X-Request-Id"
 
-//FilterHandler ...
-func FilterHandler(cfg config.Config) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
-		var page datasetLandingPageFilterable.Page
-
-		render.Handler(w, req, &page, &page.Page, "datasetLandingPage/filterable", nil, cfg)
-	}
-}
-
 //StaticHandler builds the template for non-filterable dataset landing pages
 func StaticHandler(cfg config.Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
