@@ -575,6 +575,15 @@ other = "Time series"
 description = "Datasets"
 other = "Datasets"
 
+[Methodology]
+description = "Methodology"
+one = "Methodology"
+other = "Methodology"
+
+[ReleaseDate]
+description = "Release date"
+one = "Release date"
+
 [UserRequestedData]
 description = "User requested data"
 other = "User requested data"
