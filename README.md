@@ -4,7 +4,7 @@
 
 The renderer is being deprecated, the template and toml (localisation) files are to be migrated to the relevant controller/service.
 
-Refer to the [migration](migration.md) readme for further information.
+Refer to the [migration](MIGRATION.md) readme for further information.
 
 ### Configuration
 
@@ -21,7 +21,7 @@ Refer to the [migration](migration.md) readme for further information.
 
 ### Adding new page types
 
-1. Create the page model in [https://github.com/ONSdigital/dp-frontend-models](dp-frontend-models)
+1. Create the page model in [dp-frontend-models](https://github.com/ONSdigital/dp-frontend-models)
   - you'll need to update the vendored copy - `govendor update github.com/ONSdigital/dp-frontend-models`
 2. Create a new handler - use [handlers/homepage/handler.go](handlers/homepage/handler.go) as an example
   - `render.Handler` will take care of setting global variables, e.g. language
