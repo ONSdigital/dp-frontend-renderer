@@ -583,6 +583,15 @@ other = "Cyfres amser"
 description = "Datasets"
 other = "Datasets"
 
+[Methodology]
+description = "Methodology"
+one = "Methodoleg"
+other = "Methodoleg"
+
+[ReleaseDate]
+description = "Release date"
+one = "Dyddiad y datganiad"
+
 [UserRequestedData]
 description = "User requested data"
 other = "Data a gyrchwyd gan y defnyddiwr"
