@@ -3,13 +3,12 @@ package render
 import (
 	"context"
 	"encoding/json"
-	"io/ioutil"
-	"net/http"
-
 	"github.com/ONSdigital/dp-frontend-models/model"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/go-ns/render"
-	"github.com/ONSdigital/log.go/log"
+	"github.com/ONSdigital/log.go/v2/log"
+	"io/ioutil"
+	"net/http"
 )
 
 //Handler resolves the rendering of a specific pagem with a given model and template name
@@ -20,7 +19,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.Event(ctx, "failed to read request body", log.Error(err), log.ERROR)
+		log.Error(ctx, "failed to read request body", err)
 		return
 	}
 
@@ -31,7 +30,7 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 		render.JSON(w, 400, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.Event(ctx, "failed to unmarshal request body to page", log.Error(err), log.ERROR)
+		log.Error(ctx, "failed to unmarshal request body to page", err)
 		return
 	}
 
@@ -42,14 +41,13 @@ func Handler(w http.ResponseWriter, req *http.Request, page interface{}, page2 *
 	page2.PatternLibraryAssetsPath = cfg.PatternLibraryAssetsPath
 	page2.SiteDomain = cfg.SiteDomain
 
-	log.Event(ctx, "rendered template", log.Data{"template": templateName}, log.INFO)
-
+	log.Info(ctx, "rendered template", log.Data{"template": templateName})
 	err = render.HTML(w, 200, templateName, page)
 	if err != nil {
 		render.JSON(w, 500, model.ErrorResponse{
 			Error: err.Error(),
 		})
-		log.Event(ctx, "failed to render template", log.Error(err), log.ERROR)
+		log.Error(ctx, "failed to render template", err)
 		return
 	}
 }

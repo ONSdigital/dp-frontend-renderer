@@ -17,7 +17,7 @@
                             data-gtm-search-result-url="{{ .URI }}"
                             data-gtm-search-result-release-date="{{ dateFormatYYYYMMDDNoSlash .Description.ReleaseDate }}"
                             >
-                                {{ .Description.Title }}
+                                {{ .Description.Title | safeHTML }}
                             </a>
                         </h3>
                         <p class="search-results__meta font-size--16">
@@ -26,15 +26,15 @@
                             {{ localise "ReleasedOn" $lang 1 }} {{dateFormat .Description.ReleaseDate}}
                         </p>
                         <div class="search-results__summary font-size--16">
-                            {{ .Description.Summary}}
+                            {{ .Description.Summary | safeHTML }}
                         </div>
                         {{ if .Description.Keywords }}
                             {{ $numberOfKeywords := len .Description.Keywords }}
                             {{ if gt $numberOfKeywords 0}}
                                 <p class="search-results__keywords font-size--16">
-                                    {{ localise "Keywords" $lang 4 }}: 
+                                    {{ localise "Keywords" $lang 4 }}:
                                     {{ range $i, $el := .Description.Keywords }}
-                                        {{$el}}{{ if notLastItem $numberOfKeywords $i }},{{end}}
+                                        {{$el | safeHTML }}{{ if notLastItem $numberOfKeywords $i }},{{end}}
                                     {{end}}
                                 </p>
                             {{end}}

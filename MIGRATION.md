@@ -12,7 +12,8 @@ Use the tables as a guide.
 
 | Files (assets/templates) | New location | Deleted from renderer  
 | ----- | ------------ | ---------------------
-| ../banners/cookies.tmpl ../banners/covid.tmpl | [dp-renderer/assets/templates/banners](https://github.com/ONSdigital/dp-renderer/tree/main/assets/templates/partials/banners) | No  
+| ../banners/cookies.tmpl | [dp-renderer/assets/templates/banners](https://github.com/ONSdigital/dp-renderer/tree/main/assets/templates/partials/banners) | Yes  
+| ../banners/covid.tmpl | [dp-renderer/assets/templates/banners](https://github.com/ONSdigital/dp-renderer/tree/main/assets/templates/partials/banners) | No  
 | All json-Id templates (../partials/json-ld) | [dp-renderer/assets/templates/partials/json-ld](https://github.com/ONSdigital/dp-renderer/tree/main/assets/templates/partials/json-ld) | No  
 |  ../partials/breadcrumb.tmpl | [dp-renderer/assets/templates/partials/breadcrumb.tmpl](https://github.com/ONSdigital/dp-renderer/blob/main/assets/templates/partials/breadcrumb.tmpl) | No  
 | ../partials/feedback.tmpl | [dp-renderer/assets/templates/partials/feedback.tmpl](https://github.com/ONSdigital/dp-renderer/blob/main/assets/templates/partials/feedback.tmpl) | No  
@@ -22,9 +23,9 @@ Use the tables as a guide.
 | ../partials/spinner.tmpl | [dp-renderer/assets/templates/partials/spinner.tmpl](https://github.com/ONSdigital/dp-renderer/blob/main/assets/templates/partials/spinner.tmpl) | No  
 | ../error.tmpl | [dp-renderer/assets/templates/error.tmpl](https://github.com/ONSdigital/dp-renderer/blob/main/assets/templates/error.tmpl) | No  
 | ../main.tmpl | [dp-renderer/assets/templates/main.tmpl](https://github.com/ONSdigital/dp-renderer/blob/main/assets/templates/main.tmpl) | No  
-| All dataset landing page templates (../datasetLandingPage)  | [dp-frontend-dataset-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-dataset-controller/tree/develop/assets/templates) | No  
+| All dataset landing page templates (../datasetLandingPage)  | [dp-frontend-dataset-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-dataset-controller/tree/develop/assets/templates) | Yes  
 | ../partials/release-alert.tmpl | [dp-frontend-dataset-controller/assets/templates/partials](https://github.com/ONSdigital/dp-frontend-dataset-controller/tree/develop/assets/templates/partials) | No
-| ../cookies-preferences.tmpl | [dp-frontend-cookie-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-cookie-controller/tree/develop/assets/templates) | No
+| ../cookies-preferences.tmpl | [dp-frontend-cookie-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-cookie-controller/tree/develop/assets/templates) | Yes
 
 ## Toml
 

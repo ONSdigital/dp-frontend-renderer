@@ -2,7 +2,6 @@ package routes
 
 import (
 	"github.com/ONSdigital/dp-frontend-renderer/config"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/cookies"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/ageSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/filterOverview"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/geography"
@@ -10,7 +9,6 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/listSelector"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/previewPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/dataset-filter/timeSelector"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/datasetLandingPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/errorPage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/feedback"
 	geographyArea "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/area"
@@ -27,11 +25,6 @@ func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) 
 	router.Get("/health", hc.Handler)
 	router.Post("/homepage", homepage.Handler(*cfg))
 	router.Post("/feedback", feedback.Handler(*cfg))
-	router.Post("/dataset-landing-page-static", datasetLandingPage.StaticHandler(*cfg))
-	router.Post("/dataset-edition-list", datasetLandingPage.EditionListHandler(*cfg))
-	router.Post("/dataset-version-list", datasetLandingPage.VersionListHandler(*cfg))
-	router.Post("/dataset-landing-page-filterable", datasetLandingPage.FilterHandler(*cfg))
-	router.Post("/dataset-landing-page-nomis", datasetLandingPage.NomisHandler(*cfg))
 	router.Post("/productPage", productPage.Handler(*cfg))
 	router.Post("/error", errorPage.Handler(*cfg))
 	router.Post("/dataset-filter/preview-page", previewPage.Handler(*cfg))
@@ -44,6 +37,5 @@ func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) 
 	router.Post("/geography-homepage", geographyHomepage.Handler(*cfg))
 	router.Post("/geography-list", geographyList.Handler(*cfg))
 	router.Post("/geography-area", geographyArea.Handler(*cfg))
-	router.Post("/cookies-preferences", cookies.Handler(*cfg))
 	router.Post("/search", search.Handler(*cfg))
 }
