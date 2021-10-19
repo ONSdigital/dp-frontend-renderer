@@ -340,6 +340,16 @@ one = "Facebook"
 description = "LinkedIn"
 one = "LinkedIn"
 
+[Consultations]
+description = "Consultations"
+one = "Consultation"
+other = "Consultations"
+
+[DiscussionForums]
+description = "Discussion Forums"
+one = "Discussion Forum"
+other = "Discussion Forums"
+
 [EmailAlerts]
 description = "Email alerts"
 one = "Rhybuddion ebost"
