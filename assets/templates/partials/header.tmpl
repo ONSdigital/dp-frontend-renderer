@@ -240,9 +240,16 @@
         <div class="banner">
             <div class="wrapper banner--bottom-border">
                 <div class="col col--md-40 col--lg-44">
-                    <span class="banner__text-icon">{{ localise "Beta" .Language 1 }}</span>
+                    <span class="banner__text-icon {{ if eq .Type "search" }} banner__text-icon--double-line {{ end }}">{{ localise "Beta" .Language 1 }}</span>
                     <div class="banner__body">
-                        <p>{{ localise "BetaFeedback" .Language 1 | safeHTML }}</p>
+                        <p>{{ localise "BetaFeedback" .Language 1 | safeHTML }} </p>
+                        {{ if eq .Type "search" }} 
+                            <form action="/search" method="get">
+                                <input type="hidden" id="q" name="q" value="{{ .Data.Query }}">
+                                <input type="hidden" id="exit-new-search" name="exit-new-search" value="true">
+                                <input type="submit" class="btn btn--link font-size--16 font-weight-700 underline-link" value="Return to the previous version" data-gtm-search-exit="true">
+                            </form>
+                        {{ end }}
                     </div>
                 </div>
             </div>
