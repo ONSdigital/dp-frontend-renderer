@@ -346,9 +346,9 @@ one = "Consultation"
 other = "Consultations"
 
 [DiscussionForums]
-description = "Discussion Forums"
-one = "Discussion Forum"
-other = "Discussion Forums"
+description = "Discussion forums"
+one = "Discussion forum"
+other = "Discussion forums"
 
 [EmailAlerts]
 description = "Email alerts"
