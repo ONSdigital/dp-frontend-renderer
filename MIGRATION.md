@@ -26,6 +26,7 @@ Use the tables as a guide.
 | All dataset landing page templates (../datasetLandingPage)  | [dp-frontend-dataset-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-dataset-controller/tree/develop/assets/templates) | Yes  
 | ../partials/release-alert.tmpl | [dp-frontend-dataset-controller/assets/templates/partials](https://github.com/ONSdigital/dp-frontend-dataset-controller/tree/develop/assets/templates/partials) | No
 | ../cookies-preferences.tmpl | [dp-frontend-cookie-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-cookie-controller/tree/develop/assets/templates) | Yes
+| Search templates | [dp-frontend-search-controller/assets/templates](https://github.com/ONSdigital/dp-frontend-search-controller/tree/develop/assets/templates) | Yes
 
 ## Toml
 
