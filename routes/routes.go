@@ -16,7 +16,6 @@ import (
 	geographyList "github.com/ONSdigital/dp-frontend-renderer/handlers/geography/list"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
-	"github.com/ONSdigital/dp-frontend-renderer/handlers/search"
 	"github.com/ONSdigital/dp-healthcheck/healthcheck"
 	"github.com/gorilla/pat"
 )
@@ -37,5 +36,4 @@ func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) 
 	router.Post("/geography-homepage", geographyHomepage.Handler(*cfg))
 	router.Post("/geography-list", geographyList.Handler(*cfg))
 	router.Post("/geography-area", geographyArea.Handler(*cfg))
-	router.Post("/search", search.Handler(*cfg))
 }
