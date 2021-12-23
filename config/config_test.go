@@ -24,6 +24,7 @@ func TestConfig(t *testing.T) {
 				So(cfg.Debug, ShouldEqual, false)
 				So(cfg.SiteDomain, ShouldEqual, "ons.gov.uk")
 				So(cfg.SupportedLanguages, ShouldEqual, [2]string{"en", "cy"})
+				So(cfg.PatternLibraryAssetsPath, ShouldEqual, "//cdn.ons.gov.uk/sixteens/d4884fe")
 				So(cfg.ShutdownTimeout, ShouldEqual, 5*time.Second)
 				So(cfg.HealthCheckInterval, ShouldEqual, 30*time.Second)
 				So(cfg.HealthCheckCriticalTimeout, ShouldEqual, 90*time.Second)
