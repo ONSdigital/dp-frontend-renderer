@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/BurntSushi/toml v0.3.1
-	github.com/ONSdigital/dp-frontend-models v1.12.1
+	github.com/ONSdigital/dp-frontend-models v1.12.2
 	github.com/ONSdigital/dp-healthcheck v1.1.0
 	github.com/ONSdigital/go-ns v0.0.0-20210831102424-ebdecc20fe9e
 	github.com/ONSdigital/log.go/v2 v2.0.9
