@@ -2,6 +2,16 @@
     <a class="skiplink" href="#main" tabindex="0">{{ localise "SkipToContent" .Language 1 }}</a>
     <div id="pagePath" class="hide">{{.URI}}</div>
 
+    {{ if .EmergencyBanner.Title }}
+        {{ template "partials/banners/emergency" .EmergencyBanner }}
+    {{ end }}
+    {{if .ServiceMessage }}
+		{{ template "partials/banners/service-message" . }}
+    {{ end }}
+    {{if .BetaBannerEnabled }}
+        {{ template "partials/banners/beta" . }}
+    {{ end }}
+
     <div class="wrapper">
         <div class="header col-wrap">
             <div class="col col--lg-one-third col--md-one-third">
@@ -221,38 +231,5 @@
             </form>
         </div>
     </div>
-    {{end}}
-    {{if .ServiceMessage}}
-		<div class="banner">
-			<div class="wrapper banner--bottom-border">
-				<div class="col-wrap">
-					<div class="col">
-						<span class="banner__icon icon icon-info"></span>
-						<div class="banner__body">
-							{{.ServiceMessage}}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    {{end}}
-    {{if .BetaBannerEnabled}}
-        <div class="banner">
-            <div class="wrapper banner--bottom-border">
-                <div class="col col--md-40 col--lg-44">
-                    <span class="banner__text-icon {{ if eq .Type "search" }} banner__text-icon--double-line {{ end }}">{{ localise "Beta" .Language 1 }}</span>
-                    <div class="banner__body">
-                        <p>{{ localise "BetaFeedback" .Language 1 | safeHTML }} </p>
-                        {{ if eq .Type "search" }} 
-                            <form action="/search" method="get">
-                                <input type="hidden" id="q" name="q" value="{{ .Data.Query }}">
-                                <input type="hidden" id="exit-new-search" name="exit-new-search" value="true">
-                                <input type="submit" class="btn btn--link font-size--16 font-weight-700 underline-link" value="Return to the previous version" data-gtm-search-exit="true">
-                            </form>
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-        </div>
     {{end}}
 </header>

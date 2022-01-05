@@ -1,0 +1,13 @@
+<div class="emergency-banner emergency-banner--{{ .Type }}" role="banner" data-nosnippet="">
+    <div class="wrapper">
+        <div class="col-wrap">
+            <div class="col col--md-two-thirds col--lg-two-thirds">
+                <h2 class="emergency-banner__heading">{{ .Title }}</h2>
+                <p class="emergency-banner__description">{{ .Description }}</p>
+                {{ if and .URI .LinkText }}
+                    <a href="{{ .URI }}" class="emergency-banner__link">{{ .LinkText }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
