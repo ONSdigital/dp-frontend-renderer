@@ -145,10 +145,25 @@ func DatePeriodFormat(s string) string {
 	if _, err := strconv.Atoi(s[:4]); err == nil {
 		// Not just displaying year but month as well
 		if len(s) > 5 {
-			// YYYY[space] = 5 characters
-			postYearIndex := 5
-			s = s[postYearIndex:] + " " + s[:4]
+			if len(s) < 14 {
+				// YYYY[space] = 5 characters
+				postYearIndex := 5
+				s = s[postYearIndex:] + " " + s[:4]
+			}
+			if len(s) == 14 {
+				year, _ := strconv.Atoi(s[:4])
+				monthStart, _ := time.Parse("Jan", s[5:8])
+				monthEnd, _ := time.Parse("Jan", s[11:])
 
+				if monthStart.After(monthEnd) {
+					monthEnd = monthEnd.AddDate(year+1, 0, 0)
+				} else {
+					monthEnd = monthEnd.AddDate(year, 0, 0)
+				}
+				monthStart = monthStart.AddDate(year, 0, 0)
+
+				s = monthStart.Format("Jan 2006") + " - " + monthEnd.Format("Jan 2006")
+			}
 		}
 	}
 	// 4. Convert BLOCK CAPS to Title Caps
