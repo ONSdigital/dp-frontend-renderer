@@ -141,28 +141,29 @@ func DatePeriodFormat(s string) string {
 		s = s[:Q4] + "Oct - Dec" + s[Q4EndIndex:]
 
 	}
+
+	year, err := strconv.Atoi(s[:4])
 	// 3. Move year to end of string if present and insert a space
-	if _, err := strconv.Atoi(s[:4]); err == nil {
+	if err == nil {
 		// Not just displaying year but month as well
 		if len(s) > 5 {
-			if len(s) < 14 {
-				// YYYY[space] = 5 characters
-				postYearIndex := 5
-				s = s[postYearIndex:] + " " + s[:4]
-			}
+			// YYYY[space]DEC[space]-[space]JAN = 14 characters
 			if len(s) == 14 {
-				year, _ := strconv.Atoi(s[:4])
 				monthStart, _ := time.Parse("Jan", s[5:8])
 				monthEnd, _ := time.Parse("Jan", s[11:])
 
-				if monthStart.After(monthEnd) {
-					monthEnd = monthEnd.AddDate(year+1, 0, 0)
-				} else {
-					monthEnd = monthEnd.AddDate(year, 0, 0)
+				dateStart := monthStart.AddDate(year, 0, 0)
+				dateEnd := monthEnd.AddDate(year, 0, 0)
+
+				if dateStart.After(dateEnd) {
+					dateEnd = dateEnd.AddDate(1, 0, 0)
 				}
-				monthStart = monthStart.AddDate(year, 0, 0)
 
 				s = monthStart.Format("Jan 2006") + " - " + monthEnd.Format("Jan 2006")
+			} else {
+				// YYYY[space] = 5 characters
+				postYearIndex := 5
+				s = s[postYearIndex:] + " " + s[:4]
 			}
 		}
 	}
