@@ -211,6 +211,12 @@ func TestDatePeriodFormat(t *testing.T) {
 		So(got, ShouldEqual, want)
 
 	})
+	Convey("Given a time-series monthly string spanning two different years", t, func() {
+		want := "Dec - Jan 2011"
+		got := DatePeriodFormat("2010 DEC-JAN")
+		So(got, ShouldEqual, want)
+
+	})
 	Convey("Given a time-series yearly string", t, func() {
 		want := "2019"
 		got := DatePeriodFormat("2019")
@@ -241,7 +247,6 @@ func TestDatePeriodFormat(t *testing.T) {
 		got := DatePeriodFormat("Q4 2019")
 		So(got, ShouldEqual, want)
 	})
-
 }
 
 func TestDateFormatYYYYMMDDNoSlash(t *testing.T) {

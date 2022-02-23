@@ -162,7 +162,7 @@ func DatePeriodFormat(s string) string {
 					s = dateStart.Format("Jan")
 				}
 				s = s + " - " + dateEnd.Format("Jan 2006")
-			} else {
+			} else if len(s) > 5 {
 				// YYYY[space] = 5 characters
 				postYearIndex := 5
 				s = s[postYearIndex:] + " " + s[:4]
