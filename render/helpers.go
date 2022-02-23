@@ -146,27 +146,25 @@ func DatePeriodFormat(s string) string {
 	// 3. Move year to end of string if present and insert a space
 	if err == nil {
 		// Not just displaying year but month as well
-		if len(s) > 5 {
-			// YYYY[space]DEC[space]-[space]JAN = 14 characters
-			if len(s) == 14 {
-				monthStart, _ := time.Parse("Jan", s[5:8])
-				monthEnd, _ := time.Parse("Jan", s[11:])
+		// YYYY[space]DEC[space]-[space]JAN = 14 characters
+		if len(s) == 14 {
+			monthStart, _ := time.Parse("Jan", s[5:8])
+			monthEnd, _ := time.Parse("Jan", s[11:])
 
-				dateStart := monthStart.AddDate(year, 0, 0)
-				dateEnd := monthEnd.AddDate(year, 0, 0)
+			dateStart := monthStart.AddDate(year, 0, 0)
+			dateEnd := monthEnd.AddDate(year, 0, 0)
 
-				if dateStart.After(dateEnd) {
-					dateEnd = dateEnd.AddDate(1, 0, 0)
-					s = dateStart.Format("Jan 2006")
-				} else {
-					s = dateStart.Format("Jan")
-				}
-				s = s + " - " + dateEnd.Format("Jan 2006")
-			} else if len(s) > 5 {
-				// YYYY[space] = 5 characters
-				postYearIndex := 5
-				s = s[postYearIndex:] + " " + s[:4]
+			if dateStart.After(dateEnd) {
+				dateEnd = dateEnd.AddDate(1, 0, 0)
+				s = dateStart.Format("Jan 2006")
+			} else {
+				s = dateStart.Format("Jan")
 			}
+			s = s + " - " + dateEnd.Format("Jan 2006")
+		} else if len(s) > 5 {
+			// YYYY[space] = 5 characters
+			postYearIndex := 5
+			s = s[postYearIndex:] + " " + s[:4]
 		}
 	}
 	// 4. Convert BLOCK CAPS to Title Caps
