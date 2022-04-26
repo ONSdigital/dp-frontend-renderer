@@ -14,7 +14,7 @@ import (
 	"github.com/ONSdigital/go-ns/handlers/requestID"
 	"github.com/ONSdigital/go-ns/render"
 	"github.com/ONSdigital/log.go/v2/log"
-	"github.com/gorilla/pat"
+	"github.com/gorilla/mux"
 	"github.com/justinas/alice"
 	unrolled "github.com/unrolled/render"
 )
@@ -57,7 +57,7 @@ func Run(ctx context.Context, cfg *config.Config, taxonomyRedirects map[string]s
 	})
 
 	// Create router with middleware and routes
-	router := pat.New()
+	router := mux.NewRouter()
 	alice := alice.New(
 		timeoutHandler(10*time.Second),
 		log.Middleware,

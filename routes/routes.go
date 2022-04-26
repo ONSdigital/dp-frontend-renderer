@@ -18,24 +18,26 @@ import (
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/handlers/productPage"
 	"github.com/ONSdigital/dp-healthcheck/healthcheck"
-	"github.com/gorilla/pat"
+	"github.com/gorilla/mux"
+	"net/http"
 )
 
-func Setup(router *pat.Router, cfg *config.Config, hc *healthcheck.HealthCheck) {
-	router.Get("/health", hc.Handler)
-	router.Post("/homepage", homepage.Handler(*cfg))
-	router.Post("/feedback", feedback.Handler(*cfg))
-	router.Post("/productPage", productPage.Handler(*cfg))
-	router.Post("/error", errorPage.Handler(*cfg))
-	router.Post("/dataset-filter/preview-page", previewPage.Handler(*cfg))
-	router.Post("/dataset-filter/geography", geography.Handler(*cfg))
-	router.Post("/dataset-filter/hierarchy", hierarchy.Handler(*cfg))
-	router.Post("/dataset-filter/filter-overview", filterOverview.Handler(*cfg))
-	router.Post("/dataset-filter/list-selector", listSelector.Handler(*cfg))
-	router.Post("/dataset-filter/time", timeSelector.Handler(*cfg))
-	router.Post("/dataset-filter/age", ageSelector.Handler(*cfg))
-	router.Post("/geography-homepage", geographyHomepage.Handler(*cfg))
-	router.Post("/geography-list", geographyList.Handler(*cfg))
-	router.Post("/geography-area", geographyArea.Handler(*cfg))
-	router.Post("/cookies-preferences", cookies.Handler(*cfg))
+func Setup(router *mux.Router, cfg *config.Config, hc *healthcheck.HealthCheck) {
+	router.Path("/health").HandlerFunc(hc.Handler).Methods(http.MethodGet)
+	router.Path("/homepage").Handler(homepage.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/homepage").Handler(homepage.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/feedback").Handler(feedback.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/productPage").Handler(productPage.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/error").Handler(errorPage.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/preview-page").Handler(previewPage.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/geography").Handler(geography.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/hierarchy").Handler(hierarchy.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/filter-overview").Handler(filterOverview.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/list-selector").Handler(listSelector.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/time").Handler(timeSelector.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/dataset-filter/age").Handler(ageSelector.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/geography-homepage").Handler(geographyHomepage.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/geography-list").Handler(geographyList.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/geography-area").Handler(geographyArea.Handler(*cfg)).Methods(http.MethodPost)
+	router.Path("/cookies-preferences").Handler(cookies.Handler(*cfg)).Methods(http.MethodPost)
 }
