@@ -12,7 +12,7 @@ import (
 	homepage "github.com/ONSdigital/dp-frontend-models/model/homepage"
 	"github.com/ONSdigital/dp-frontend-renderer/config"
 	"github.com/ONSdigital/go-ns/render"
-	"github.com/gorilla/pat"
+	"github.com/gorilla/mux"
 	. "github.com/smartystreets/goconvey/convey"
 	unrolled "github.com/unrolled/render"
 )
@@ -48,7 +48,7 @@ func doTestRequest(target string, req *http.Request, handlerFunc http.HandlerFun
 	if w == nil {
 		w = httptest.NewRecorder()
 	}
-	router := pat.New()
+	router := mux.NewRouter()
 	router.HandleFunc(target, handlerFunc)
 	router.ServeHTTP(w, req)
 	return w
