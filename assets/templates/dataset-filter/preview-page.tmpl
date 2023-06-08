@@ -3,7 +3,6 @@
   <div class="wrapper">
       <div class="col-wrap">
         <div class="col">
-            {{ template "partials/breadcrumb" . }}
             <div class="col col--md-47 col--lg-58">
               <h1 class="page-intro__title font-size--38 line-height--48 font-weigh-700 tmargin-bottom--1">
                 {{if not .NoDimensionData}}<span class="font-size--21 line-height--30 page-intro__type padding-top--0 padding-bottom--0">{{.DatasetTitle}}: {{.Data.Edition}}</span>{{end}}

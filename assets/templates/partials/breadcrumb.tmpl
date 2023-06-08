@@ -1,32 +1,47 @@
 {{ $bc :=  .Breadcrumb }} {{ if $bc }}
-<nav aria-label="breadcrumb" role="navigation">
-    <div class="breadcrumb-neutral print--hide">
-        <ol class="breadcrumb__list">
-        {{ if .IsInFilterBreadcrumb }}
-            <li class="breadcrumb__item--ellipsis line-height--12">
-                <a class="breadcrumb__link" href="/">
-                    Home
-                </a>
-            </li>
-        {{ end }}
-        {{ range $i, $b := $bc }}
-            {{ if last $i $bc }}
-            <li class="breadcrumb__item line-height--12">
-                {{ $b.Title }}
-            </li>
-            {{ else }}
-            <li class="breadcrumb__item line-height--12">
-                {{ if $b.URI }}
-                    <a class="breadcrumb__link" href="{{ $b.URI }}">
-                        {{ $b.Title }}
-                    </a>
-                {{ else }}
-                    {{ $b.Title }}
-                {{ end }}
-            </li>
-            {{ end }}
-        {{ end }}
-        </ol>
+<div class="wrapper">
+    <div class="col-wrap">
+        <div class="col">
+            <nav
+                aria-label="breadcrumb"
+                role="navigation"
+            >
+                <div class="breadcrumb-neutral print--hide">
+                    <ol class="breadcrumb__list">
+                        {{ if .IsInFilterBreadcrumb }}
+                        <li class="breadcrumb__item--ellipsis line-height--12">
+                            <a
+                                class="breadcrumb__link"
+                                href="/"
+                            >
+                                Home
+                            </a>
+                        </li>
+                        {{ end }}
+                        {{ range $i, $b := $bc }}
+                        {{ if last $i $bc }}
+                        <li class="breadcrumb__item line-height--12">
+                            {{ $b.Title }}
+                        </li>
+                        {{ else }}
+                        <li class="breadcrumb__item line-height--12">
+                            {{ if $b.URI }}
+                            <a
+                                class="breadcrumb__link"
+                                href="{{ $b.URI }}"
+                            >
+                                {{ $b.Title }}
+                            </a>
+                            {{ else }}
+                            {{ $b.Title }}
+                            {{ end }}
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                    </ol>
+                </div>
+            </nav>
+        </div>
     </div>
-</nav>
+</div>
 {{ end }}
