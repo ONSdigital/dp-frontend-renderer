@@ -1,3 +1,5 @@
+⚠️ This repository will be archived in December 2023 as it is no longer in development. ⚠️
+
 # dp-frontend-renderer
 
 ## Deprecation
